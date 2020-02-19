@@ -3,14 +3,25 @@
 	--light-font-color: #808080;
 	--accent: #005fc8;
 	--light-accent: #eee;
+	--bg: #fff;
+	--shadow: rgba(0,0,0,0.1);
 	--font-sans: "Verdana", Sans-serif;
 	--font-serif: "Cambria Math", serif;
+}
+
+[data-theme="dark"] {
+	--font-color: #eee;
+	--light-font-color: #ccc;
+	--light-accent: #111;
+	--bg: #000;
+	--shadow: rgba(255,255,255,0.1);
 }
 
 body {
 	margin: 0;
 	color: var(--font-color);
 	font-family: var(--font-sans);
+	background-color: var(--bg);
 }
 
 a {
@@ -36,7 +47,7 @@ header {
 	justify-content: space-between;
 	align-items: center;
 	height: 5rem;
-	box-shadow: 0 5px 5px rgba(0, 0, 0, .1);
+	box-shadow: 0 5px 5px var(--shadow);
 }
 
 header > * {
