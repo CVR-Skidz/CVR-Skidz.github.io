@@ -9,14 +9,6 @@
 	--font-serif: "Cambria Math", serif;
 }
 
-[data-theme="dark"] {
-	--font-color: #eee;
-	--light-font-color: #ccc;
-	--light-accent: #111;
-	--bg: #000;
-	--shadow: rgba(255,255,255,0.1);
-}
-
 body {
 	margin: 0;
 	color: var(--font-color);
@@ -101,16 +93,6 @@ p {
 	font-size: 1.4rem;
 }
 
-#theme {
-	background: none;
-	border: none;
-	outline: none;
-}
-
-#theme:hover {
-	cursor: pointer;
-}
-
 .circle {
 	border-radius: 100%;
 }
@@ -123,6 +105,9 @@ p {
 	width: 10rem;
 	height: 10rem;
 	border: solid 1pt var(--light-font-color);
+	background-image: url(Avatar.png);
+	background-position: center;
+	background-size: contain;
 }
 
 @media only screen and (max-width: 1600px) {
@@ -160,6 +145,12 @@ p {
 		font-size: 12pt;
 	}
 } 
+
+@media only screen and (max-width: 600px) {
+	#splash {
+		margin-top: 10vh;
+	}
+}
 
 @media only screen and (max-width: 400px) {
 	header > h1 {
