@@ -1,5 +1,6 @@
 import os
 from sys import *
+from string import Template
 
 SRC_DIR_POS = 1
 INDEX_PATH = "index.html"
@@ -69,10 +70,16 @@ def indentAmount(line):
 
     indentLevel += 1
 
+def heading(name):
+    container = Template("<span class=\"inline-link\">${heading}<a href=${link} target=\"blank\">View</a></span>")
+    heading = "<h1>{0}</h1>".format(name);
+    link = "https://github.com/cvr-skidz/" + str(name).replace(" ", "-")
+    return container.substitute(heading=heading, link=link)
+
 def insert(path, files):
     os.chdir(path)
     for i in files:
-        contents.append("<h1>%s</h1>\n" %(i))
+        contents.append(heading(i) + "\n")
         currProject = open(i, "r")
         contents.append("<p>" + currProject.read()+"</p>\n")
         currProject.close()

@@ -55,6 +55,13 @@ header > * {
 	width: 50vw;
 }
 
+.inline-link {
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
 #splash {
 	margin-top: 15vh;
 	text-align: center;
