@@ -11,6 +11,7 @@ targetLineNo = -1
 indentLevel = 0
 contents = []
 
+
 def validDir(dest):
     if os.path.isdir(dest):
         targetFiles = os.listdir(dest)
@@ -19,16 +20,18 @@ def validDir(dest):
 
     return None
 
+
 def fileContainsID(id):
     file = open(INDEX_PATH, "r")
 
     for line in file.readlines():
-        if line.__contains__("id=\""+id+"\""):
+        if line.__contains__("id=\"" + id + "\""):
             file.close()
             return True
 
     file.close()
     return False
+
 
 def readIndexFile(id):
     global preFileBufffer
@@ -54,9 +57,10 @@ def readIndexFile(id):
             pre = False
             targetLineNo = fileBuffer.index(line)
             restartTag = line.split(" ")[0].strip().split("<")[1]
-            restartTag = "</"+restartTag+">"
+            restartTag = "</" + restartTag + ">"
 
     file.close()
+
 
 def indentAmount(line):
     global indentLevel
@@ -70,20 +74,23 @@ def indentAmount(line):
 
     indentLevel += 1
 
+
 def heading(name):
     container = Template("<span class=\"inline-link\">${heading}<a href=${link} target=\"blank\">View</a></span>")
     heading = "<h1>{0}</h1>".format(name);
     link = "https://github.com/cvr-skidz/" + str(name).replace(" ", "-")
     return container.substitute(heading=heading, link=link)
 
+
 def insert(path, files):
     os.chdir(path)
     for i in files:
         contents.append(heading(i) + "\n")
         currProject = open(i, "r")
-        contents.append("<p>" + currProject.read()+"</p>\n")
+        contents.append("<p>" + currProject.read() + "</p>\n")
         currProject.close()
     os.chdir("../")
+
 
 def write():
     global preFileBufffer
@@ -116,6 +123,7 @@ def write():
 
     file.close()
 
+
 def printPreview():
     global preFileBufffer
     global postFileBufffer
@@ -141,6 +149,7 @@ def printPreview():
 
     for i in postFileBufffer:
         print(i, end="")
+
 
 def clearBuffers():
     global preFileBufffer
