@@ -1,0 +1,66 @@
+---
+---
+
+@import "minima";
+
+body {
+    font-family: Helvetica,arial,sans-serif !important;
+    font-size: 14px !important;
+}
+
+h1 {
+    font-size: 28px !important;
+}
+
+h2 {
+    font-size: 24px !important;
+}
+
+.post-content h2 {
+    border-bottom: 1px solid #ccc;
+}
+
+h3 {
+    font-size: 18px !important;
+}
+
+hr {
+    background: #ccc;
+    height: 1px;
+    border: 0;
+    padding: 0;
+    margin-bottom: 1em;
+}
+
+.site-header {
+    padding-top: 5vh;
+    border-top: 0;
+}
+
+.post-list-heading {
+    border-bottom: 1px solid $grey-color-light;
+}
+
+.post-link {
+    display: initial;
+    font-size: 18px;
+}
+
+.home li {
+    padding-left: 1rem;
+}
+
+
+.highlight, pre, code {
+    background: #f3f3f3 !important;
+}
+
+pre, code {
+    border: 1px solid #ddd;
+}
+
+blockquote {
+    font-size: inherit;
+    font-style: normal;
+    letter-spacing: normal;
+}

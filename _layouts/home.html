@@ -1,0 +1,128 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  <!-- Posts -->
+  {%- if site.posts.size > 0 -%}
+  <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+  <ul class="post-list">
+    {%- for post in site.posts -%}
+    <li>
+      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+        </a>
+      <span class="post-meta">{{ post.date | date: date_format }}</span>
+      {%- if site.show_excerpts -%}
+        {{ post.excerpt }}
+      {%- endif -%}
+    </li>
+    {%- endfor -%}
+  </ul>
+  {%- endif -%}
+
+  
+
+  <!-- Topics -->
+  {%- if site.topics.size > 0 -%}
+
+  <!-- Languages -->
+  <h2 class="post-list-heading">Languages</h2>
+  <ul class="post-list" >
+    {%- for topic in site.topics -%}
+      {%- if topic.tag == "Languages" -%}
+        <li>
+          <a class="post-link" href={{ topic.url }}>
+            {{ topic.name }}
+          </a>
+          <span class="post-meta">{{ topic.tag }}</span>
+          {%- if site.show_excerpts -%}
+            {{ topic.excerpt }}
+          {%- endif -%}
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+
+  <!-- Math -->
+  <h2 class="post-list-heading">Mathematics</h2>
+  <ul class="post-list" >
+    {%- for topic in site.topics -%}
+      {%- if topic.tag == "Mathematics" -%}
+        <li>
+          <a class="post-link" href={{ topic.url }}>
+            {{ topic.name }}
+          </a>
+          <span class="post-meta">{{ topic.tag }}</span>
+          {%- if site.show_excerpts -%}
+            {{ topic.excerpt }}
+          {%- endif -%}
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+
+  <!-- Artificial Intelligence -->
+  <h2 class="post-list-heading">Artificial Intelligence</h2>
+  <ul class="post-list" >
+    {%- for topic in site.topics -%}
+      {%- if topic.tag == "Artificial Intelligence" -%}
+        <li>
+          <a class="post-link" href={{ topic.url }}>
+            {{ topic.name }}
+          </a>
+          <span class="post-meta">{{ topic.tag }}</span>
+          {%- if site.show_excerpts -%}
+            {{ topic.excerpt }}
+          {%- endif -%}
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+
+  <!-- Software Dev -->
+  <h2 class="post-list-heading">Software Development</h2>
+  <ul class="post-list" >
+    {%- for topic in site.topics -%}
+      {%- if topic.tag == "Software Development" -%}
+        <li>
+          <a class="post-link" href={{ topic.url }}>
+            {{ topic.name }}
+          </a>
+          <span class="post-meta">{{ topic.tag }}</span>
+          {%- if site.show_excerpts -%}
+            {{ topic.excerpt }}
+          {%- endif -%}
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+
+  <!-- Misc -->
+  <h2 class="post-list-heading">Miscellaneous</h2>
+  <ul class="post-list" >
+    {%- for topic in site.topics -%}
+      {%- if topic.tag == "Miscellaneous" -%}
+        <li>
+          <a class="post-link" href={{ topic.url }}>
+            {{ topic.name }}
+          </a>
+          <span class="post-meta">{{ topic.tag }}</span>
+          {%- if site.show_excerpts -%}
+            {{ topic.excerpt }}
+          {%- endif -%}
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+
+  {%- endif -%}
+
+</div>
