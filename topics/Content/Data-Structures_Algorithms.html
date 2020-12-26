@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Data Structures_algorithms | Notes on Computer Science</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Data Structures_algorithms" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Optimising program runtime using algorithms and data structures." />
+<meta property="og:description" content="Optimising program runtime using algorithms and data structures." />
+<link rel="canonical" href="http://localhost:4000/topics/Content/Data-Structures_Algorithms.html" />
+<meta property="og:url" content="http://localhost:4000/topics/Content/Data-Structures_Algorithms.html" />
+<meta property="og:site_name" content="Notes on Computer Science" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-12-27T09:41:02+13:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Data-Structures_Algorithms.html","headline":"Data Structures_algorithms","dateModified":"2020-12-27T09:41:02+13:00","datePublished":"2020-12-27T09:41:02+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Data-Structures_Algorithms.html"},"description":"Optimising program runtime using algorithms and data structures.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Notes on Computer Science</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Data Structures_algorithms</h1>
+  </header>
+
+  <div class="post-content">
+    <p>Optimising program runtime using algorithms and data structures.</p>
+
+<h2 id="efficiency">Efficiency</h2>
+<blockquote>
+  <p>Optimised use of CPU, memory, and network resources.</p>
+</blockquote>
+
+<p><strong>Data Structures</strong></p>
+<blockquote>
+  <p>Storing an organizing data efficiently.</p>
+</blockquote>
+
+<p><strong>Algorithm:</strong></p>
+<blockquote>
+  <p>A procedure that terminates in a finite number of steps.</p>
+</blockquote>
+
+<h2 id="analysis-of-algorithms">Analysis of Algorithms</h2>
+<blockquote>
+  <p>Comparing algorithms without implementing them, to determine a faster runtime.</p>
+</blockquote>
+
+<p>To decide on which algorithm or data structure is faster we may have to profile (implement and measure) each option, which presents some problems:</p>
+
+<ul>
+  <li>You have to implement both algorithms</li>
+  <li>The results might depend on the computer</li>
+  <li>The results might depend on the test data</li>
+</ul>
+
+<p>Analysis of algorithms addresses some of these issues by:</p>
+<ul>
+  <li>Identifying the basic operations an algorithm consists of.</li>
+  <li>Analysing the average performance of an algorithm</li>
+  <li>Focussing on large datasets, as the difference on small datasets is most likely negligible.</li>
+</ul>
+
+<p>When analysing algorithms we must consider the advantages and disadvantages of an algorithm in the context of the problem.</p>
+
+<h2 id="big-o-notation">Big O notation</h2>
+<blockquote>
+  <p>Set notation to denote the runtime of algorithms.</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>Set</th>
+      <th>Runtime</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>constant time</td>
+      <td>$O(1)$</td>
+      <td>The runtime of an algorithm is constant</td>
+    </tr>
+    <tr>
+      <td>linear</td>
+      <td>$O(n)$</td>
+      <td>The runtime of an algorithm is proportional to <code class="language-plaintext highlighter-rouge">n</code> - the size of the data</td>
+    </tr>
+    <tr>
+      <td>Quadratic</td>
+      <td>$O(n^2)$</td>
+      <td>The runtime is proportional to the square of the data size</td>
+    </tr>
+    <tr>
+      <td>logarithmic</td>
+      <td>$O(\log_2 n)$</td>
+      <td>The runtime is proportional to the log of the dataset</td>
+    </tr>
+    <tr>
+      <td>linearithmic</td>
+      <td>$O(n \log_2 n)$</td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td>cubic</td>
+      <td>$O(n^3)$</td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td>exponential</td>
+      <td>$O(2^n)$</td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td>factorial</td>
+      <td>$O(n!)$</td>
+      <td>…</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Big O notation provides set notation to categorize these algorithms. This is limited, because it can not compare algorithms of the same set.  And in cases where <code class="language-plaintext highlighter-rouge">n</code> is small a worse algorithm may be better.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Notation</th>
+      <th>Set</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$O(1)$</td>
+      <td>constant time</td>
+    </tr>
+    <tr>
+      <td>$O(n)$</td>
+      <td>linear</td>
+    </tr>
+    <tr>
+      <td>$O(n^2)$</td>
+      <td>quadratic</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Performing $k (k \not{=} n)$ linear operations is still linear</li>
+</ul>
+
+\[f \in O(n) \implies kf \in O(n)\]
+
+<ul>
+  <li>Performing a linear operation $n$ times is quadratic</li>
+</ul>
+
+\[f \in O(n) \implies nf \in O(n^2)\]
+
+<h2 id="asymptotic-complexity">Asymptotic Complexity</h2>
+<blockquote>
+  <p>Taking the largest term to determine the order (Big O set) of an algorithm.</p>
+</blockquote>
+
+<p>Given $f(n)=\frac{2}{3}n^3$ the coefficient is not useful for large values of n, hence we only consider $n^3$. This growth function is cubic, and known as the asymptotic complexity, also known as the order which is the dominant term minus it’s coefficient.</p>
+
+<h2 id="lists">Lists</h2>
+
+<p>Constant time operations:
+|Operation|List|
+|—|—|
+|Add/remove to end| <code class="language-plaintext highlighter-rouge">ArrayList</code> |
+|Add/remove to beginning|  <code class="language-plaintext highlighter-rouge">LinkedList</code> |</p>
+
+<h2 id="threads">Threads</h2>
+<blockquote>
+  <p>The smallest unit of processing that can be scheduled by an operating system within a project</p>
+</blockquote>
+
+<p>A process is an instance of a computer program that is being executed. A multi-threaded process is a program that has several threads of execution that it performs at one time within a process.</p>
+
+<p>The main entry point of a program, event dispatcher in a GUI program, and the garbage collector in the JVM are all executed on different threads.</p>
+
+<p>When a CPU does not possess enough cores to handle the number of execution threads time slicing is used to control the amount of time each thread is spent executing. A priority is assigned to a thread to determine which threads are run, and for how long. Time slicing runs a thread for a small period, and then runs another on so on, until all threads complete executing.</p>
+
+<ul>
+  <li>Threads can be created by extending the <code class="language-plaintext highlighter-rouge">Thread</code> class an overriding the <code class="language-plaintext highlighter-rouge">run</code> method.</li>
+  <li>An arguably better way is to implement the <code class="language-plaintext highlighter-rouge">runnable</code> method, and define the <code class="language-plaintext highlighter-rouge">run</code> method. Then pass the runnable class to a new <code class="language-plaintext highlighter-rouge">Thread</code>.</li>
+</ul>
+
+<p>Calling a <code class="language-plaintext highlighter-rouge">run</code> method directly is a <strong>blocking</strong> operation, to execute a <code class="language-plaintext highlighter-rouge">Thread</code> concurrently call the <code class="language-plaintext highlighter-rouge">start</code> method.</p>
+
+<p>A program will only exit when all threads die, even if the main thread dies whilst others run.</p>
+
+<p>Threads can exist in four states:</p>
+<ul>
+  <li>New</li>
+  <li>Runnable</li>
+  <li>Terminated</li>
+  <li>Blocked</li>
+</ul>
+
+<h2 id="thread-variations">Thread Variations</h2>
+
+<p><code class="language-plaintext highlighter-rouge">java.util.Timer</code></p>
+
+<p>A <code class="language-plaintext highlighter-rouge">Timer</code> can be used to schedule a thread to execute repeatedly. A <code class="language-plaintext highlighter-rouge">Timer</code> takes a <code class="language-plaintext highlighter-rouge">TimerTask</code>, in which the run method is overridden. Then a delay and repeat is specified. ‘Delay’ is the start delay.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Timer({TimerTask}, {delay}, {repeat});
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">javax.swing.Timer</code></p>
+
+<p>A <code class="language-plaintext highlighter-rouge">swing Timer</code> approximatley dispatches a <code class="language-plaintext highlighter-rouge">ActionEvent</code> every x milliseconds. Then a listener can react to the event.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//swing timer
+Timer({x}, {listener});
+</code></pre></div></div>
+
+<h2 id="thread-blocking">Thread Blocking</h2>
+<blockquote>
+  <p>Making a thread not eligible for processor time</p>
+</blockquote>
+
+<p>Threads can be blocked manually using <code class="language-plaintext highlighter-rouge">wait</code> or <code class="language-plaintext highlighter-rouge">sleep</code>. We can unblock a thread by calling the <code class="language-plaintext highlighter-rouge">notify</code> or <code class="language-plaintext highlighter-rouge">notifyAll</code> methods.</p>
+
+<h3 id="race-conditions">Race Conditions</h3>
+<blockquote>
+  <p>Multiple threads accessing or changing a resources state at one time.</p>
+</blockquote>
+
+<p>Race conditions can corrupt data, or crash programs. Removing race conditions is known as synchronisation.</p>
+
+<p>A section of code where something may be accessed or modified at the same time are known as critical sections. A critical section that is synchronised is called thread safe.</p>
+
+<p>We can accomplish this using the <code class="language-plaintext highlighter-rouge">synchronsized</code> keyword. <strong>Only one thread can run</strong> in a block of code marked as such at any one time.</p>
+
+<ul>
+  <li>If an object monitors multiple synchronized blocks only one thread can run in any one of the blocks at any one time.</li>
+</ul>
+
+<p>A thread can access a synchronized block when given the key. The key is stored by the monitor object which is usually the containing object of the threads.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// a synchronized method
+public void synchronized mymethod() {}
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//a synchronized block
+synchronsized(this) {
+    //code here...
+}
+</code></pre></div></div>
+
+<h2 id="stacks">Stacks</h2>
+<blockquote>
+  <p>Last In First Out linear collection</p>
+</blockquote>
+
+<p>A linear collection is a collection in which elements are placed in a sequence.</p>
+
+<p>Typically a stack pushes elements onto a stack, and pops them off. Peek looks but does not pop an element.</p>
+
+<h3 id="stacks-with-arrays">Stacks with Arrays</h3>
+
+<p>If we were to keep the top of the stack at index 0 we would have to shift all the trailing elements and have a complexity of O(n).</p>
+
+<p>Instead we can keep a reference to the next available location in the physical data structure which prevents the shift and creates a complexity of O(1).</p>
+
+<p>Pushing with arrays:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if no available space:
+    expand capacity
+array[head++] = element
+</code></pre></div></div>
+
+<p>Popping with arrays:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if numberElements &gt; 0:
+    e -&gt; copy array[--head]
+    return e
+</code></pre></div></div>
+
+<p>As always arrays need to occasionally expand capacity but is faster at pushing and popping as memory is sequential.</p>
+
+<h3 id="stacks-with-linked-lists">Stacks with linked lists</h3>
+
+<p>When using a linked list to keep a complexity of O(1) wee keep a reference to the last node in the stack.</p>
+
+<p>Pushing with linked lists:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>newNode.next = tail
+tail = newNode
+numElements++
+</code></pre></div></div>
+
+<p>Popping with linked lists:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if tail is not null:
+    node = tail
+    tail = tail.next
+    return tail
+</code></pre></div></div>
+
+<p>Linked lists will never need to expand memory but are slower at pushing and popping.</p>
+
+<h2 id="queues">Queues</h2>
+<blockquote>
+  <p>First in first out linear collection</p>
+</blockquote>
+
+<p>Typically queues offer elements onto the queue, poll elements off the queue, and we can use head to peek at the first element. Noting we need to offer to the end of the queue, but poll from the beginning we can keep a reference to the head and tail of the data structure. Both operations are O(1) complexity.</p>
+
+<h3 id="queues-with-linked-lists">Queues with Linked Lists</h3>
+<p>Offer:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if tail is null:
+    head -&gt; newNode
+    rail -&gt; newNode
+else:
+    tail.next = newNode
+    tail = newNode
+++numberElements
+</code></pre></div></div>
+
+<p>Poll:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if head is not null:
+    e -&gt; head.element
+    head = head.next
+    --numberElements
+    if numberElements is 0:
+        tail -&gt; null
+    return e
+</code></pre></div></div>
+
+<h3 id="queues-with-arrays">Queues with Arrays</h3>
+<p>When using a traditional array every time we poll the head of the queue we will permanently loose access to the beginning of our array memory as we cant move backwards, wasting space. Instead we can make a circular array where when we hit the end of the array we loop back to any open space.</p>
+
+<p>Note that if there is no open space at the beginning of the array we still need to expand.</p>
+
+<h2 id="lists-1">Lists</h2>
+<blockquote>
+  <p>A linear collection of elements with an associated index.</p>
+</blockquote>
+
+<p>Lists are most useful to get an element from a specific position, each time the list is modified the indexes must be updated. Every list requires a counter for the number of elements it has.</p>
+
+<p>Lists provide two main functions: add and remove, in particular lists are O(1) at the end of the list but O(n) anywhere else. Lists can provide better adding runtimes as they permit duplicates.</p>
+
+<h3 id="lists-using-arrays">Lists using Arrays</h3>
+
+<p>Remember that the defining trait of an array backed data structure is that it must resize when it is full. Therefore on average the end of our array list is O(1) but it will be O(n) exactly when we expand.</p>
+
+<p>Add:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if array.length = numElements:
+    expand
+array[numElements++] = newElement
+</code></pre></div></div>
+
+<h3 id="lists-using-doubly-linked-elements">Lists using Doubly Linked Elements</h3>
+
+<p>Using elements with references to the previous and next elements creates a doubly linked list.  If we then keep reference to the head and tail of our list both adding elements to the beginning and end is O(1). Adding an element in the middle is still O(n), but is optimised by checking if the node is on the bottom or top half of the list.</p>
+
+<p>Getting an element in a linked list is O(n) as opposed to O(1) in an array as we have to traverse the links.</p>
+
+<h2 id="searching">Searching</h2>
+<blockquote>
+  <p>Finding an item if it exists within a search pool.</p>
+</blockquote>
+
+<p>There are two main types of search linear and binary. Linear search is O(n) and binary O(log n).</p>
+
+<ul>
+  <li>Linear search iterates through an unsorted collection of elements until the target is found. When using a linked list iterators will be more efficient, but within array backed data structures indexing would be just as efficient.</li>
+</ul>
+
+<p>Binary searches are much faster with large search pools. Using this technique we will compare a target and the current element, if it is greater we remove all elements lower than the current element from the pool, otherwise we do the opposite. This is very efficient within a <strong>sorted collection of elements</strong>, but will be a lot slower (than with a sorted collection) in an unsorted collection.</p>
+
+<p>Knowing that our elements should be sorted for the fastest search times, within a binary search the most efficient sorting is with a tree. Where in we start with the middle element, and on each side of every element in the tree lies the element smaller than it and the element larger than it. Hence every comparison we make we will <strong>half our search pool</strong>.</p>
+
+<p>Binary searching does not require a tree however, and can just as effectively be applied to any sorted data structure. Even better this process can easily be implemented recursively.</p>
+
+<p><img src="../Assets/searches.png" alt="Comparison" /></p>
+
+<h2 id="sorting">Sorting</h2>
+<blockquote>
+  <p>Sorting is the process of arranging a linear collection in order</p>
+</blockquote>
+
+<p>Given a linear collection of non-primitive elements it is the element’s responsibility to define how it should be ordered. Popular sorting algorithms include:</p>
+
+<ul>
+  <li>Selection sort</li>
+  <li>Insertion sort</li>
+  <li>Bubble sort</li>
+  <li>Merge sort</li>
+  <li>Quick Sort</li>
+  <li>Heap Sort</li>
+  <li>Radix Sort</li>
+  <li>Bin Sort</li>
+</ul>
+
+<h3 id="selection-sort">Selection sort</h3>
+<blockquote>
+  <p>Looping through each element in a linear collection swap the current element with the smallest element after it.</p>
+</blockquote>
+
+<p>A selection sort is $O(n^2)$. In order to find the smallest element after the current iteration we must store the index, this <strong>prevents</strong> us from finding the first smaller element.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for every element i in list[0 : length - 1]:
+    smallest &lt;- i
+    for evert element j in list[i: length]:
+        if elements[smallest] &gt; elements[j]
+            smallest &lt;- j
+
+    swap &lt;- elements[i]
+    elements[i] &lt;- elements[smallest]
+    elements[smallest] &lt;- swap
+</code></pre></div></div>
+
+<h3 id="insertion-sort">Insertion Sort</h3>
+<blockquote>
+  <p>Inserting each element in a collection into the correct position in a new collection.</p>
+</blockquote>
+
+<p>It can be helpful to think of this algorithm as sorting a hand of cards. An insertion sort is $O(n^2)$.</p>
+
+<h3 id="bubble-sort">Bubble Sort</h3>
+<blockquote>
+  <p>Repeatedly iterating through a collection and sorting adjacent elements.</p>
+</blockquote>
+
+<p>Each iteration the largest element has bubbled to the end of the collection, whilst other elements have been partly sorted. <strong>Bubble sort is ideal for partially ordered collections but very slow otherwise.</strong></p>
+
+<p>Bubble sorts are $O(n^2)$</p>
+
+<h3 id="quick-sort">Quick Sort</h3>
+<blockquote>
+  <p>Partitioning a collection, and concatenating each partition.</p>
+</blockquote>
+
+<p>Quick sort algorithms arbitrarily choose a pivot, which is used to split the original collection into elements greater than the pivot and elements less than the pivot. Recursively we split each partition until we only have one or no elements in each partition.</p>
+
+<p>Quick sort is a $O(n\log_2{n})$. A quick sort relies on choosing an element that equally divides a collection, at worst it may become $O(n^2)$.</p>
+
+<h3 id="merge-sort">Merge sort</h3>
+<blockquote>
+  <p>Merging sorted collections into one.</p>
+</blockquote>
+
+<p>Merge sorts recursively create n length 1 collections, and then merge the sets together. Merge sorts are $O(n\log_2{n})$</p>
+
+<h3 id="radix-sort">Radix Sort</h3>
+<blockquote>
+  <p>An efficient algorithm applicable to fixed length sequences such as same-length words or digital codes with a rang of possible values.</p>
+</blockquote>
+
+<p>Radix sort compares individual digits n times where n is the number of digits in an element. We start with the least significant digit. Radix sort is $O(kn)$. Radix Sort will sort using k queues where k is the number of possible values any one digit could be. Hence radix sort is not memory efficient.</p>
+
+<h3 id="bin-sort">Bin Sort</h3>
+<blockquote>
+  <p>An efficient algorithm applicable to collections of elements where each element has a small range of possible values.</p>
+</blockquote>
+
+<p>Bin sort first allocates an m integer array where m is the number of possible values each element could be. Then we sweep through the collection once, incrementing the integer at the index of the current element in the m array. Then we iterate through this array and append an integer of the current index to the sorted list and decrement this index until it is zero. Bin sort is $O(m)$</p>
+
+<p>Bin sort is not suitable for a small collection with a large range of values.</p>
+
+<h2 id="trees">Trees</h2>
+<blockquote>
+  <p>A hierarchal, non-linear collection consisting of nodes.</p>
+</blockquote>
+
+<p>A trees nodes stem from it’s root. This is the only node on level 0 of the tree. Each node has only one parent, apart from the root which has none. A node with no children is called a <code class="language-plaintext highlighter-rouge">leaf</code>. A tree is balanced if all leaf nodes are within one level of one another.</p>
+
+<p>There are two main typed of tree, mutable and immutable. Mutable trees hold elements in nodes and provide methods so that the controlling program can fully manipulate the structure of the tree. An immutable tree holds all nodes in a tree class and the tree data structure is in control over the structure, and only exposes add, remove etc.</p>
+
+<p>A <code class="language-plaintext highlighter-rouge">K-ary</code> tree only allows nodes to have <code class="language-plaintext highlighter-rouge">k</code> children. When <code class="language-plaintext highlighter-rouge">k</code> is 2 this is called a <strong>binary tree</strong>. Binary trees are efficient at adding, removing, and searching trees. <code class="language-plaintext highlighter-rouge">K-ary</code> trees are full if every node has <code class="language-plaintext highlighter-rouge">k</code> children. They are complete if all levels are full, except the last which is allowed to not be full if all elements are on the left hand side of any empty nodes.</p>
+
+<p>When a tree is array backed it’s root is at 0.</p>
+
+<ul>
+  <li>If a node is at index <code class="language-plaintext highlighter-rouge">i</code> it’s children are at index <code class="language-plaintext highlighter-rouge">k * i + 1</code>.</li>
+  <li>If a child is at index <code class="language-plaintext highlighter-rouge">j</code> it’s parent is at index <code class="language-plaintext highlighter-rouge">(j - 1) / k</code></li>
+</ul>
+
+<p>If a tree is not perfectly balanced in an array they are very memory inefficient.</p>
+
+<p>When a tree is linked-list backed each node contains a link to it’s parent, and <code class="language-plaintext highlighter-rouge">k</code> links to children.</p>
+
+<h2 id="binary-search-trees">Binary Search Trees</h2>
+<blockquote>
+  <p>All nodes satisfy $left &lt; parent &lt; right$</p>
+</blockquote>
+
+<p>Binary search trees do not sore a reference to parents, but do store on to the root. It is easy to remove a node from a BST when the node has only one child, or is a leaf. However if we have two children we need to ensure we promote the correct one. To find the successor to the node we are removing we follow the tree right once, and then follow the tree left until we can no longer go left. We can then promote the right child of the successor, and replace the removed node with the successor.</p>
+
+<p>We can traverse a tree in order, post order, pre order, or level order.</p>
+
+<h3 id="pre-order-traversal-nlr">Pre-order Traversal (NLR)</h3>
+
+<ul>
+  <li>Access the data part of the current node.</li>
+  <li>Traverse the left subtree by recursively calling the pre-order function.</li>
+  <li>Traverse the right subtree by recursively calling the pre-order function.</li>
+</ul>
+
+<p>The pre-order traversal is a topologically sorted one, because a parent node is processed before any of its child nodes is done.</p>
+
+<h3 id="in-order-traversal-lnr">In-order Traversal (LNR)</h3>
+
+<ul>
+  <li>Traverse the left subtree by recursively calling the in-order function.</li>
+  <li>Access the data part of the current node.</li>
+  <li>Traverse the right subtree by recursively calling the in-order function.</li>
+</ul>
+
+<p>In a binary search tree ordered such that in each node the key is greater than all keys in its left subtree and less than all keys in its right subtree, in-order traversal retrieves the keys in ascending sorted order.</p>
+
+<h3 id="post-order-traversal-lrn">Post-order Traversal (LRN)</h3>
+
+<ul>
+  <li>Traverse the left subtree by recursively calling the post-order function.</li>
+  <li>Traverse the right subtree by recursively calling the post-order function.</li>
+  <li>Access the data part of the current node.</li>
+</ul>
+
+<p>The trace of a traversal is called a sequentialisation of the tree. The traversal trace is a list of each visited root. No one sequentialization according to pre-, in- or post-order describes the underlying tree uniquely. Given a tree with distinct elements, either pre-order or post-order paired with in-order is sufficient to describe the tree uniquely. However, pre-order with post-order leaves some ambiguity in the tree structure.</p>
+
+<h3 id="level-order-traversal--breadth-first-search">Level-order Traversal / Breadth-first Search</h3>
+
+<p>Trees can also be traversed in level-order, where we visit every node on a level before going to a lower level. This search is referred to as breadth-first search (BFS), as the search tree is broadened as much as possible on each depth before going to the next depth. This is not recursive.</p>
+
+<h2 id="balancing-binary-trees">Balancing Binary Trees</h2>
+<blockquote>
+  <p>Ensuring the structure of a tree maintains a complexity of $\log_2 n$</p>
+</blockquote>
+
+<p>Balancing binary trees uses a concept of rotations, ideally trees should be perfect, complete, or full.</p>
+
+<p><strong>Left rotation:</strong> Promoting a right child and demoting a left to balance a tree when the tree is skewed to the right.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>new_root &lt;- right_child
+root.right &lt;- new_root.left
+new_root.left &lt;- root
+</code></pre></div></div>
+
+<p><strong>Right rotation</strong>: Promoting a left child and demoting a right parent to balance a tree skewed left.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>new_root &lt;- left_child
+</code></pre></div></div>
+
+<p><strong>Right-left rotation:</strong> Performing a right then left rotation to balance child branches that are skewed on the right side, and stems from the left child.</p>
+
+<p><strong>Left-right rotation:</strong> Performing a left then right rotation to balance child branches that are skewed on the left side, and stems from the right child.</p>
+
+<p>To determine if a tree needs rebalancing we can use the AVL algorithm. Using this each node is assigned a numeric value equal to the number of left children minus the number of right children. If at any point a AVL value is above 2 we rotate that node. We need to consider the parent node of the node we add to a tree, as well as the parent-parent node (this determines if we perform a left, right, leftright, or rightleft rotation).</p>
+
+<h2 id="heaps">Heaps</h2>
+<blockquote>
+  <p>Non-linear collection where each node has at most 2 children (binary tree). Where <code class="language-plaintext highlighter-rouge">left &gt; parent &lt; right</code> or <code class="language-plaintext highlighter-rouge">left &lt; parent &gt; right</code>.</p>
+</blockquote>
+
+<p>An ascending or min heap follows <code class="language-plaintext highlighter-rouge">left &gt; parent &lt; right</code>, whereas a descending or max heap follows <code class="language-plaintext highlighter-rouge">left &lt; parent &gt; right</code>. within a heap there is no guarantee of a relationship between children, only a relationship between the parent and children. <strong>A heap must be complete and full, or perfect.</strong></p>
+
+<p>When adding an element to a heap it must be added as far lest as possible. A heap provides a comparator, as it can balance based on the natural ordering of each node. Additionally as heaps must be complete and full there can be no gaps in an array based heap (hence arrays are preferable to links).</p>
+
+<p>Adding an element will only compare the element to it’s parent after it has been added to the end. It will “bubble” this comparison until it is at the correct position. Alternatively when we remove we do the opposite (replace the element with the rightmost element and then find the correct place comparing it to it’s children).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operation</th>
+      <th>Complexity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Add</td>
+      <td>$O(\log n)$</td>
+    </tr>
+    <tr>
+      <td>Remove</td>
+      <td>$O(\log{n})$</td>
+    </tr>
+    <tr>
+      <td>Contains</td>
+      <td>$O(n)$</td>
+    </tr>
+    <tr>
+      <td>min or max</td>
+      <td>$O(1)$</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="hash-tables">Hash Tables</h2>
+<blockquote>
+  <p>A data structure containing an array of elements where an element is stored in a bin (like bin sort) to provide constant time searching.</p>
+</blockquote>
+
+<p>Hashing is a function that converts input to an integer value known as the <code class="language-plaintext highlighter-rouge">hashcode</code> (or <code class="language-plaintext highlighter-rouge">hashsum</code>). A <code class="language-plaintext highlighter-rouge">hashcode</code> is usually supplied the attributes of an object as input so that the hash function always produces the same <code class="language-plaintext highlighter-rouge">hashcode</code></p>
+
+<p>Hashes should be unique, but in practice hashes are functional (but not perfect) as long as they are evenly distributed.</p>
+
+<p>In a hash table, to prevent too much memory being wasted due to long <code class="language-plaintext highlighter-rouge">hashcodes</code>, we can take the absolute value for the <code class="language-plaintext highlighter-rouge">hashcode</code> and modulo divide by the capacity of the table.</p>
+
+<p>Hash tables provide constant time adding, removing, and searching. However hash tables can be very memory inefficient. Additionally every time the capacity expands each <code class="language-plaintext highlighter-rouge">hashcode</code> needs to be recalculated which is expensive.</p>
+
+<p>We should not only expand the table when it is full. We should expand when the load factor is met (user defined such as 75%). Bear in mind if the capacity is too small (or we have a bad has function) we will get lots of collisions (elements stored at the same index) which creates $O(n)$ operations.</p>
+
+<h3 id="removing-collisions">Removing collisions</h3>
+
+<p>One wat to avoid collisions is to use chaining, where each index is a linked list of elements. Alternatively we can use overflow where we maintain a secondary array that contains all collisions (and the main array element contains a reference to the element it collided with)</p>
+
+<h2 id="maps">Maps</h2>
+<blockquote>
+  <p>A function that creates a relation between a set of keys and collection of values.</p>
+</blockquote>
+
+<ul>
+  <li>No two keys can have the same value</li>
+  <li>No key can be mapped to null</li>
+</ul>
+
+<p>A map is a generalization of a list where the keys do not have to be integers. Hash maps calculate the key of an entry based off its <code class="language-plaintext highlighter-rouge">hashcode</code>, which is implemented with a hash table. A hash map stores the key in the hash table as a entry structure that contains a reference to the mapped element. Hash maps have $O(1)$ add, remove, contains (key) etc, but $O(m)$ for contains (value) where <code class="language-plaintext highlighter-rouge">m</code> is the capacity of the hash table.</p>
+
+<h2 id="graphs">Graphs</h2>
+<blockquote>
+  <p>A non-linear collection consisting of a set of vertices and edges (links between vertices)</p>
+</blockquote>
+
+<p>A vertex in a graph usually stores an element, as well as something additional. A vertex may have one or more edges connecting other vertices. A graph usually has no direction within edges, however a graph can be <em>directed</em> (where it does), and it can be weighted at the same time (where an edge has a numeric value). <strong>A path is a sequence of unique vertices connected by edges</strong>, when a path begins and ends at the same vertex it is called closed.</p>
+
+<p>A walk is any route through a graph from vertex to vertex along edges. When the vertices are unique (not vertex appears twice) this is called a path. A trail is a walk in which no edge is crossed more than once (but may visit the same vertex twice), when this trail is closed it is known as a circuit.</p>
+
+<p>When each vertex is able to follow a path to any other the graph is connected, if any one vertex can not travel to another the graph becomes disconnected (e.g. no way to get to a from b).</p>
+
+<p>A graph is made of vertices, edges, and a graph structure itself. The adjacent edges related to a vertex are commonly stored as adjacency lists or adjacency matrices (constant time).</p>
+
+<h3 id="searching-a-graph">Searching a graph</h3>
+<blockquote>
+  <p>Ways in which to traverse a graph.</p>
+</blockquote>
+
+<h2 id="breadth-first-search"><strong>Breadth-first search</strong></h2>
+
+<p>To search a graph using bfs we must have a connected graph.</p>
+
+<p>A breadth first search follows:</p>
+
+<ul>
+  <li>Start off at an initial vertex and mark it as visited</li>
+  <li>Visit all neighbours</li>
+  <li>Repeat the process if we have not visited a vertex.</li>
+</ul>
+
+<h2 id="depth-first-search"><strong>Depth-first search</strong></h2>
+
+<p>To search a graph using dfs we must have a connected graph.</p>
+
+<p>A depth first search follows:</p>
+
+<ul>
+  <li>Start at an initial vertex and mark it as visited</li>
+  <li>Visit an adjacent vertex that has not been visited</li>
+  <li>repeat unitl there is no adjacent vertex</li>
+  <li>take the last visited vertex and repeat the process until there are no more previous vertices</li>
+</ul>
+
+<p><a href="#Data-Structures-and-Algorithms">Top</a></p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+  
+    <div class="wrapper">
+  
+      <h2 class="footer-heading">Notes on Computer Science</h2>
+  
+      <ul class="contact-list">
+      <li class="p-name">Notes on Computer Science<p>Information and takes on subjects related to computer science, mathematics, and technology in general.</p>
+          </li><li><a class="u-email" href="mailto:callum.cvr@gmail.com">callum.cvr@gmail.com</a></li></ul><ul class="social-media-list"><li><a href="https://github.com/CVR-Skidz"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CVR-Skidz</span></a></li></ul>
+</div>
+  
+  </footer>
+  </body>
+
+</html>

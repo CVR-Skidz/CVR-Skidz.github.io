@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Data_process_modelling | Notes on Computer Science</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Data_process_modelling" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A collection of notes concerning data and process modelling" />
+<meta property="og:description" content="A collection of notes concerning data and process modelling" />
+<link rel="canonical" href="http://localhost:4000/topics/Content/Data_Process_Modelling.html" />
+<meta property="og:url" content="http://localhost:4000/topics/Content/Data_Process_Modelling.html" />
+<meta property="og:site_name" content="Notes on Computer Science" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-12-27T09:41:02+13:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Data_Process_Modelling.html","headline":"Data_process_modelling","dateModified":"2020-12-27T09:41:02+13:00","datePublished":"2020-12-27T09:41:02+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Data_Process_Modelling.html"},"description":"A collection of notes concerning data and process modelling","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Notes on Computer Science</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Data_process_modelling</h1>
+  </header>
+
+  <div class="post-content">
+    <p>A collection of notes concerning data and process modelling</p>
+
+<h2 id="data-process-modelling">Data process modelling</h2>
+
+<p>Data process modelling is a techniques to display the requirements of software to all its stakeholders.</p>
+
+<p>This is done through a UML (Unified modelling language) and allows us to visualize the idea.</p>
+
+<ul>
+  <li><strong>Models</strong> are abstract representations of a system that enables us to answer questions about the system.
+    <ul>
+      <li>Models can view systems from different perspectives.</li>
+      <li>Models can discover causes and effects</li>
+      <li>Models can uncover errors and reduce defects</li>
+    </ul>
+  </li>
+  <li><strong>Representations</strong> are words, pictures, formulae, simulation, data collections, or physical diagrams.</li>
+</ul>
+
+<h2 id="uml">UML</h2>
+
+<p>UML is an industry standard for OO design.</p>
+
+<p>UML diagrams are broken into two parts:</p>
+
+<ul>
+  <li>Structure diagram
+    <ul>
+      <li>Class Diagram</li>
+    </ul>
+  </li>
+  <li>Behaviour diagram
+    <ul>
+      <li>Use Case Diagram</li>
+      <li>Activity Diagram</li>
+      <li>State Machine Diagram</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="stakeholders">Stakeholders</h2>
+
+<blockquote>
+  <p>An entity with interests in the system, but does not necessarily use it</p>
+</blockquote>
+
+<p>At the beginning of a project we must identify the stakeholders of a new system. We then must identify the context of the new system, proceeding to extract the requirements for the system. Following this models are produced.</p>
+
+<p>The context in which we can extract requirements is called a scenario:</p>
+
+<blockquote>
+  <p>A description of an imagined sequence of events that includes the interaction of the product or service with its environment and users, as well as interaction among its product or service components</p>
+</blockquote>
+
+<h2 id="writing-requirements">Writing Requirements</h2>
+
+<blockquote>
+  <p>A statement which translates or expresses a need.</p>
+</blockquote>
+
+<p>Writing software is <strong>iterative</strong>, requirements should contain conditions and constraints.</p>
+
+<ul>
+  <li>Condition: measurable qualitative or quantitative attribute that is stipulated for a requirement</li>
+  <li>Constraint:  externally imposed limitation on system requirements, design, or implementation or on the process used to develop or modify a system</li>
+</ul>
+
+<p>Requirement generation should follow the following steps:</p>
+
+<ul>
+  <li>Discovery
+    <ul>
+      <li>Iterative elicitation, information exchange, and recording of the agreement between stakeholder and developer.</li>
+    </ul>
+  </li>
+  <li>Analysis
+    <ul>
+      <li>Modeling and analyzing the system. Identifying dependencies and forecasting.</li>
+    </ul>
+  </li>
+  <li>Verification
+    <ul>
+      <li>Frequent face-to-face meetings, product increments, reviews, and prototyping.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>All requirements must meet the following criteria:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Necessary</td>
+      <td>The requirement is essential, without it a defficieny will exist. It has not been made obselet over time.</td>
+    </tr>
+    <tr>
+      <td>Implementation free</td>
+      <td>The requirement avoids placing unnecessary constraints on the architectural design.</td>
+    </tr>
+    <tr>
+      <td>Unambiguous</td>
+      <td>Stated in a way that it can only mean one thing.</td>
+    </tr>
+    <tr>
+      <td>Consistent</td>
+      <td>Does not conflict with other requirements</td>
+    </tr>
+    <tr>
+      <td>Complete</td>
+      <td>Needs no further amplification because it is measurable.</td>
+    </tr>
+    <tr>
+      <td>Singular</td>
+      <td>Avoid compound requirements</td>
+    </tr>
+    <tr>
+      <td>Feasible</td>
+      <td>Technology is capable of fulfilling the requirement</td>
+    </tr>
+    <tr>
+      <td>Traceable</td>
+      <td>The source of the requirement is identifiable, who needs the requirement?</td>
+    </tr>
+    <tr>
+      <td>Verifiable</td>
+      <td>Can be proven</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Additionally requirements can be categorized as:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Requirement</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Functional</td>
+      <td>Describes system functions, what does the system do?</td>
+    </tr>
+    <tr>
+      <td>Nonfunctional</td>
+      <td>Specifies conditions or properties the system should run under, human factors</td>
+    </tr>
+    <tr>
+      <td>Performance</td>
+      <td>Defines the parameters under which a function should be executed under</td>
+    </tr>
+    <tr>
+      <td>Interface</td>
+      <td>Defines how the system should interact with external systems or users</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="scenarios">Scenarios</h2>
+
+<blockquote>
+  <p>A specific sequence of actions and interactions between actors and the system</p>
+</blockquote>
+
+<ul>
+  <li>A scenario is one particular story of using a system</li>
+  <li>We can construct scenarios for instances of a class of actors.</li>
+</ul>
+
+<p>A scenario shows how each actor interacts with the system to provide functional capabilities. They provide operational details for the proposed system and are a basis for developing requirement tests.</p>
+
+<h2 id="actors">Actors</h2>
+
+<blockquote>
+  <p>An entity that interacts with the system</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>Actor</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Primary</td>
+      <td>Requires assistance of the system, a user.</td>
+    </tr>
+    <tr>
+      <td>Supporting</td>
+      <td>Provides a service to the system</td>
+    </tr>
+    <tr>
+      <td>Offstage</td>
+      <td>A stakeholder not using the system</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="use-cases">Use Cases</h2>
+
+<blockquote>
+  <p>A collection of scenarios that describe an actor using a system to support their goal</p>
+</blockquote>
+
+<ul>
+  <li>Use cases can contain successful or unsuccessful scenarios (for example system exception handling)</li>
+</ul>
+
+<p>To create a use case (often a diagram):</p>
+
+<ul>
+  <li>Identify all actors</li>
+  <li>Identify the goals for each actor</li>
+  <li>Describe the use case for the actors goal</li>
+</ul>
+
+<p>This can be summarized as either:</p>
+
+<ul>
+  <li>Top Down: Creating scenarios for instances of an actor</li>
+  <li>Bottom up: Identifying small chunks of functionality for an actor and combining them together</li>
+</ul>
+
+<p>Use cases must pass certain quality tests:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Test</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Boss</td>
+      <td>The use case must strongly be related to achieving measurable value.</td>
+    </tr>
+    <tr>
+      <td>EBP</td>
+      <td>Elementary business process. The use case must provide one case of value to a business, when performed by one person at one time.</td>
+    </tr>
+    <tr>
+      <td>Size</td>
+      <td>The use case must provide enough specifications to develop properly.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>When describing use cases preconditions and alterative flows must be noted.</strong></p>
+
+<h2 id="diagrams">Diagrams</h2>
+
+<h3 id="use-case-diagrams">Use Case Diagrams</h3>
+
+<p><img src="../Assets/useCaseDiagram.png" alt="" /></p>
+
+<ul>
+  <li>Show a visual context of the system</li>
+  <li>Show the relationships between actors and the systems</li>
+  <li>Shows the boundary of the system and what lies beyond it</li>
+</ul>
+
+<p>Actors in a use case diagram should show inheritance with a inheritance arrow. The actions they can perform can either <code class="language-plaintext highlighter-rouge">&lt;&lt;extend&gt;&gt;</code>, or <code class="language-plaintext highlighter-rouge">&lt;&lt;include&gt;&gt;</code> another.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Relation</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Include</td>
+      <td>one action completely encompasses the functionality of another</td>
+    </tr>
+    <tr>
+      <td>Extend</td>
+      <td>a specialisation of another action, i.e. a specific variant of another function</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="activity-diagram">Activity Diagram</h3>
+
+<blockquote>
+  <p>Provides a way to describe logical sequences of activities for a particular use case.</p>
+</blockquote>
+
+<p><img src="../Assets/activityDiagram.png" alt="" /></p>
+
+<p>Activity models show:</p>
+
+<ul>
+  <li>activities</li>
+  <li>processes</li>
+  <li>data flows</li>
+  <li>use cases or scenarios</li>
+</ul>
+
+<p>Activity models are similar to a flow chart. They are used to represent <strong>detailed user interactions</strong>. They extend upon the use cases presented in a fully dressed use case diagram by representing <strong>all flows in a scenario at once</strong>.</p>
+
+<p>Diagrams are usually made of the following components:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Example</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Initial &amp; Field Nodes</td>
+      <td><img src="../Assets/umlDiagrams/inode.png" alt="" /><img src="../Assets/umlDiagrams/fnode.png" alt="" /></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Actions</td>
+      <td><img src="../Assets/umlDiagrams/action.png" alt="" /></td>
+      <td>Can be a task, process, sub process, or invocation of a operation. <br />They must have <strong>input and output transitions</strong>, and start with a <strong>verb</strong>. They can include multiple tasks (<strong>complex</strong>) or represent just one (<strong>atomic</strong>).</td>
+    </tr>
+    <tr>
+      <td>Transitions</td>
+      <td><img src="../Assets/umlDiagrams/arrow.png" alt="" /></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Decisions</td>
+      <td><img src="../Assets/umlDiagrams/decision.png" alt="" /></td>
+      <td>Branches the flow of control. Branches include <strong>guards</strong> that prevent the transition from occurring unless the guard is met. (<code class="language-plaintext highlighter-rouge">"[yes]"</code>, <code class="language-plaintext highlighter-rouge">"[no]"</code>, <code class="language-plaintext highlighter-rouge">"[x &gt; y]"</code> etc.) They must be <strong>exclusive</strong> from one another</td>
+    </tr>
+    <tr>
+      <td>Synchronization Bars</td>
+      <td><img src="../Assets/umlDiagrams/sync.png" alt="" /></td>
+      <td>A synchronization can <strong>fork</strong> (split a transition), or <strong>join</strong> (collect two transitions). Forking represents a concurrent process. Every fork must have a join as an action requires <strong>all</strong> previous actions to completely execute before executing itself.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>You a <strong>join</strong> should be used to synchronize concurrent processes, if no concurrency is present transitions can be <strong>merged</strong> instead. Which is a condition-less decision.</li>
+</ul>
+
+<p><img src="../Assets/umlDiagrams/merge.png" style="zoom:50%;" /></p>
+
+<h2 id="domain-model">Domain Model</h2>
+
+<blockquote>
+  <p>Visual representations of classes in a domain</p>
+</blockquote>
+
+<p>Consider that data process modelling can be used to abstract anything, from enterprise to mathematical systems. When modelling our programs we only include the relevant details, and do not abstract everything.</p>
+
+<p>This is closely related to OOP, where we use objects to form the abstraction of our system, and are how we can conceptualize a system.</p>
+
+<p>Domain models:</p>
+
+<ul>
+  <li>Illustrate relevant classes in a domain</li>
+  <li>They do not show software classes, or include any implementation details (such as types etc.)</li>
+</ul>
+
+<p><strong>Note: software class diagrams are not the same as class domain models</strong></p>
+
+<p>Example domain model:</p>
+
+<p><img src="../Assets/umlDiagrams/domain.png" alt="" /></p>
+
+<p>A domain models can contain:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Domain class</td>
+      <td>A type of object</td>
+    </tr>
+    <tr>
+      <td>Class attributes</td>
+      <td>A property of a class</td>
+    </tr>
+    <tr>
+      <td>Associations</td>
+      <td>Relationship between classes</td>
+    </tr>
+    <tr>
+      <td>Additional rules</td>
+      <td>Notes attached to a model</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Attributes are seen to be rare in domain models, if the data is not directly textual or numerical data it should probably be a class</li>
+  <li>It will most likely be an attribute if it is a simple value</li>
+</ul>
+
+<h3 id="techniques-to-discover-classes">Techniques to discover classes</h3>
+
+<p><strong>Linguistic analysis</strong>:</p>
+
+<p>Analysing the description of a situation to discover classes:</p>
+
+<ul>
+  <li>Nouns are usually mapped to classes or attributes
+    <ul>
+      <li>Proper nouns are most likely instances</li>
+      <li>Common nouns are usually classes or attributes</li>
+    </ul>
+  </li>
+  <li>Verbs are usually mapped to associations
+    <ul>
+      <li>Doing verb is usually an operation (method)</li>
+      <li>Being verb such as “is”, could be inheritance</li>
+      <li>Adjective can be attributes (“blue car” &gt; colour)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="crc">CRC</h3>
+
+<blockquote>
+  <p>A tool for collaborative OOP class design and identification within a team</p>
+</blockquote>
+
+<p>A CRC (Class Responsibility and collaborator) card is a table showing what a class does, as well as what other classes it must use to get this job done.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class Name</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Responsibilities</td>
+      <td>Collaborators</td>
+    </tr>
+    <tr>
+      <td>What the class does</td>
+      <td>What other classes this cc lass needs to communicate with</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>An example is as follows:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Gym Admin</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Add service</td>
+      <td>Service Provider</td>
+    </tr>
+    <tr>
+      <td>Delete service</td>
+      <td>Member</td>
+    </tr>
+    <tr>
+      <td>Book service</td>
+      <td>Service</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="class-diagrams">Class Diagrams</h2>
+
+<blockquote>
+  <p>Static diagrams used to describe the structure of a system</p>
+</blockquote>
+
+<p>Class diagrams show classes and their attributes, including their relationships between other classes. Class diagrams are closer to software documentation the conceptual models. Hence they provide more technical details that we exclude in other diagrams.</p>
+
+<ul>
+  <li>Class diagrams include implementation details such as methods and attributes</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Relationship</th>
+      <th>Description</th>
+      <th>Notation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Association</td>
+      <td>Two classes are related in a meaningful way. Often one class will provide something to another class with this type of relationship.</td>
+      <td><img src="..\Assets\UMLDiagrams\association.png" alt="" /></td>
+    </tr>
+    <tr>
+      <td>Generalization &amp; Specialization</td>
+      <td>Inherits another object</td>
+      <td><img src="..\Assets\UMLDiagrams\generalise.png" alt="" /></td>
+    </tr>
+    <tr>
+      <td>Aggregation &amp; Composition</td>
+      <td>Is made of / contains, another object. In a composition the absence of one class means the other can not exist. However with aggregation this is not the case.</td>
+      <td><img src="..\Assets\umlDiagrams\aggregate.png" alt="" /> <br /><img src="..\Assets\umlDiagrams\compose.png" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Multiplicity</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2</td>
+      <td>Two and only two</td>
+    </tr>
+    <tr>
+      <td>0 … 1</td>
+      <td>Zero or one</td>
+    </tr>
+    <tr>
+      <td>0 … *</td>
+      <td>Zero to many</td>
+    </tr>
+    <tr>
+      <td>1 … *</td>
+      <td>One to many</td>
+    </tr>
+    <tr>
+      <td>n</td>
+      <td><code class="language-plaintext highlighter-rouge">n</code> and only <code class="language-plaintext highlighter-rouge">n</code>, where <code class="language-plaintext highlighter-rouge">n</code> is greater than one</td>
+    </tr>
+    <tr>
+      <td>0 … n</td>
+      <td>Zero to <code class="language-plaintext highlighter-rouge">n</code>, where <code class="language-plaintext highlighter-rouge">n</code> is greater than one</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Class diagrams model all structures, not just classes. This includes interfaces.</p>
+
+<h2 id="sequence-diagrams">Sequence Diagrams</h2>
+<blockquote>
+  <p>A sequence diagrams is a UML diagram that depicts
+interactions among various application components or participants over time, including but not limited to system objects, actors, and other systems or services, in order to accomplish a task.</p>
+</blockquote>
+
+<p>A sequence diagram is a type of interaction diagram, such diagrams:</p>
+
+<ul>
+  <li>Form a graphical representation of how objects communicate between and relate to one another</li>
+  <li>Illustrate interactions between objects in a <strong>scenario</strong></li>
+  <li>Allow illustration of the flow of logic between system components during a scenario</li>
+</ul>
+
+<p>An interaction diagram is static, it contains no dynamic information. It is often considered hard to move from an initial class model to modelling the behaviour of a system.
+As such interaction diagrams can <strong>identify new responsibilities</strong> and <strong>test use cases</strong>.</p>
+
+<p>A sequence diagram is a specific type of interaction diagram, that <strong>is dynamic</strong>.</p>
+
+<ul>
+  <li>They show the time ordered sequence of messages sent between objects</li>
+  <li>They are <strong>real time</strong> interactions</li>
+  <li>They <strong>do not</strong> show structural relationships between objects</li>
+</ul>
+
+<p>Sequence diagram types:
+| Type                    | Description                                                                                |
+| ———————– | —————————————————————————————— |
+| System Sequence Diagram | An early stage scenario that depicts the interaction between actors and the entire system  |
+| Sequence Diagram        | A later stage diagram that explores the logic and complex operations we need to understand |</p>
+
+<h3 id="ssds">SSDs</h3>
+<p>A system Sequence diagram:</p>
+
+<ul>
+  <li>Shows a particular course of actions in a use case</li>
+  <li>Shows what messages are sent and when</li>
+  <li>Shows the interaction between actors and systems (this can be multiple external systems)</li>
+  <li>Shows the system as a <strong>black-box</strong></li>
+  <li>There are no objects etc. depicted in a SSD. As such only self messages, call messages, return messages are included (concurrency can still be used).</li>
+</ul>
+
+<blockquote>
+  <p>A black box specifies outputs and inputs without the internal operations used to generate and process them</p>
+</blockquote>
+
+<p><img src="../Assets/umlDiagrams/ssd.png" alt="SD example" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Participant</td>
+      <td>A system, class, object, or external actor positioned at the top of the diagram</td>
+    </tr>
+    <tr>
+      <td>Lifeline</td>
+      <td>Each participant has a lifeline (vertical, dashed, line) representing the time the participant exists in the scenario</td>
+    </tr>
+    <tr>
+      <td>Execution Bar</td>
+      <td>A vertical bar located on a lifeline showing that during this period the participant is active</td>
+    </tr>
+    <tr>
+      <td>Messages</td>
+      <td>Objects communicate through sending messages (invoking methods). These can be between objects, or within one object. A message results in an activity</td>
+    </tr>
+    <tr>
+      <td>Activity</td>
+      <td>The result of a message, consisting of one or more action, either calling another method or returning something</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Messages have many types:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Message Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Call</td>
+      <td>A horizontal arrow to a receiving object, including a name and any parameters to needed. These can be synchronous or asynchronous</td>
+    </tr>
+    <tr>
+      <td>Return</td>
+      <td>A dashed horizontal arrow to a receiving object, including a name and names of any values returned</td>
+    </tr>
+    <tr>
+      <td>Synchronous</td>
+      <td>The default message type, where a sender waits for processing to finish. Signified by a solid arrow head (filled 3 sided triangle)</td>
+    </tr>
+    <tr>
+      <td>Asynchronous</td>
+      <td>A message where the sender proceeds without waiting for processing to finish - showing concurrency. Signified by a pointed arrow head (2 sided triangle)</td>
+    </tr>
+    <tr>
+      <td>Create</td>
+      <td>A message from a sender object that creates a new participant (object). Conditions can be included within <code class="language-plaintext highlighter-rouge">[...constraint here...]</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>An example create message in a SD not SSD:</p>
+
+<p><img src="../Assets/umlDiagrams/createMessage.png" alt="Example Create" /></p>
+
+<p>And another example showing many principles listed above:</p>
+
+<p><img src="../Assets/umlDiagrams/sdLoop.png" alt="" /></p>
+
+<h2 id="state-diagrams">State Diagrams</h2>
+<blockquote>
+  <p>State machine diagrams are a dynamic model of how an objects state changes over it’s lifetime</p>
+</blockquote>
+
+<p>State diagrams:</p>
+<ul>
+  <li>Define complex objects</li>
+  <li>Help define a class when modelling software</li>
+  <li>Are useful for showing a single object’s behaviour over multiple use cases</li>
+  <li>Are not useful for showing multiple object’s behaviour over multiple use cases (this is for an activity diagram)</li>
+</ul>
+
+<p>State diagrams are used only to provide more detail of complex objects, they are made of the following:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>States</td>
+      <td>Condition of an object at one moment in time</td>
+    </tr>
+    <tr>
+      <td>Events</td>
+      <td>a significant occurrence</td>
+    </tr>
+    <tr>
+      <td>Transitions</td>
+      <td>A relationship between two states that indicates when an event occurs</td>
+    </tr>
+    <tr>
+      <td>Actions</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Guards</td>
+      <td>A condition that must be met for a transition to occur</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Objects can be viewed as moving between states</li>
+</ul>
+
+<p><img src="../Assets/umlDiagrams/stateMachine.png" alt="" /></p>
+
+<p>States can be:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simple</td>
+    </tr>
+    <tr>
+      <td>Composite</td>
+    </tr>
+    <tr>
+      <td>Start</td>
+    </tr>
+    <tr>
+      <td>End</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Events are atomic occurrences at a single point in time:</p>
+<ul>
+  <li>They can be internal or external</li>
+  <li>They label a transition, indicating that this event causes the state to change</li>
+</ul>
+
+<p>Transitions are the response to an event:</p>
+<ul>
+  <li>They represent a change from one state to another in the same object</li>
+  <li>They can be a change to a new state, the same state, or an action</li>
+  <li>A state change to the same state indicates that there <strong>was no change in state</strong>. This is known as a self transition.</li>
+  <li>Transitions are arrows relating states</li>
+</ul>
+
+<p>Guards specify conditions which must be true to perform a transition:</p>
+<ul>
+  <li>They are evaluated prior to an action</li>
+  <li>They can be ranges e.g. <code class="language-plaintext highlighter-rouge">[x &lt; 100]</code></li>
+  <li>The state machine must already be in a state</li>
+</ul>
+
+<p>Actions are tasks to perform in a state, they must be one of the following types:</p>
+<ul>
+  <li>On entry</li>
+  <li>Do</li>
+  <li>On event</li>
+  <li>On exit</li>
+  <li>Include
+<strong>Actions can be interrupted by events</strong></li>
+</ul>
+
+<p><img src="../Assets/umlDiagrams/stateAction.png" alt="" /></p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+  
+    <div class="wrapper">
+  
+      <h2 class="footer-heading">Notes on Computer Science</h2>
+  
+      <ul class="contact-list">
+      <li class="p-name">Notes on Computer Science<p>Information and takes on subjects related to computer science, mathematics, and technology in general.</p>
+          </li><li><a class="u-email" href="mailto:callum.cvr@gmail.com">callum.cvr@gmail.com</a></li></ul><ul class="social-media-list"><li><a href="https://github.com/CVR-Skidz"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CVR-Skidz</span></a></li></ul>
+</div>
+  
+  </footer>
+  </body>
+
+</html>
