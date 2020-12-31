@@ -152,7 +152,7 @@ $$
 
  In a situation with multiple `n` we sum the individual `mean` of each trial.
 
-For example the chance I receive \$10, \$5, or \$1 from a lottery ticket. As we know we take two outcomes. With binomial distributions we are saying the chances of getting \$10 or \$0, \$5 or 0, and so on. Therefore we add `(3)np + (5)np + (1)np` to find the overall `E[x]`.
+For example the chance I receive \\\(10, \$5, or \\\(1 from a lottery ticket. As we know we take two outcomes. With binomial distributions we are saying the chances of getting \\\(10 or \$0, \$5 or 0, and so on. Therefore we add `(3)np + (5)np + (1)np` to find the overall `E[x]`.
 
 The probability of `x` successes from `n` trials (`dbinom`) is calculated from:
 
@@ -264,19 +264,20 @@ The critical region is specified before hand to determine the strictness of the 
 
 ## Student T-Test
 
-With normally distributed data if our sample size is small and we have not been given the standard deviation, we do not have enough samples to calculate an accurate estimate of \\(\sigma$ and we must use a t-test instead of standard null hypothesis tests. 
+With normally distributed data if our sample size is small and we have not been given the standard deviation, we do not have enough samples to calculate an accurate estimate of \\(\sigma\\) and we must use a t-test instead of standard null hypothesis tests. 
 
 With a large amount of samples (n > 30):
 $$
 x_i − x_n \sim n(\mu, \sigma) \\
 $$
-This $p_{value}\\) can be calculated as:
+
+This \\(p_{value}\\) can be calculated as:
 
 ```R
 p = 1 − pnorm(mean(x), Ho, sd(x)/sqrt(n))
 ```
 
-With a small amount of samples (n < 30) we use an estimated \\(\sigma$ . We need to translate our `x` axis with:
+With a small amount of samples (n < 30) we use an estimated \\(\sigma\\) . We need to translate our `x` axis with:
 $$
 \frac{\mu−H_o}{SEM}
 $$
@@ -286,7 +287,7 @@ We use a one sided test when we have reason to believe the effect is biased to b
 
 ### T-Test Formulae
 
-The $t_{value}\\), which has the same purpose as the $p_{value}\\), is derived from:
+The \\(t_{value}\\), which has the same purpose as the \\(p_{value}\\), is derived from:
 $$
 T =\frac{x − H_o}{SEM}
 $$
@@ -298,10 +299,10 @@ A confidence interval is the range of values a mean could be considered accurate
 If our null mean falls within such a confidence interval we consider it to be consistent with our population in some way, and hence would fail to reject it. 
 
 - Standard error = \\(\frac{\sigma}{\sqrt{n}}\\)
-- Margin of error = \\(\frac{\sigma}{\sqrt{n}} \cdot z$
-- $z$ is the `qnorm` of any percent on a standard distribution
-- Upper limit = \\(\mu + \frac{\sigma}{\sqrt{n}} \cdot z$
-- Lower limit = \\(\mu - \frac{\sigma}{\sqrt{n}} \cdot z$
+- Margin of error = \\(\frac{\sigma}{\sqrt{n}} \cdot z\\)
+- \\(z\\) is the `qnorm` of any percent on a standard distribution
+- Upper limit = \\(\mu + \frac{\sigma}{\sqrt{n}} \cdot z\\)
+- Lower limit = \\(\mu - \frac{\sigma}{\sqrt{n}} \cdot z\\)
 
 ### Interval Formula
 
@@ -309,10 +310,13 @@ The complete interval which consists of the upper and lower limit can be found w
 $$
 \mu \pm \frac{\sigma}{\sqrt{n}} \cdot z
 $$
+
 To find intervals of proportions the following formula is used instead 
+
 $$
 \mu \pm z \cdot \sqrt{\frac{p\cdot(1−p)}{n}}
 $$
+
 ### Refinements
 
 To refine intervals there are some common steps we can take.
@@ -323,15 +327,15 @@ $$
 $$
 
 - Narrows the confidence interval
-  - \\(n$ = total population
-  - \\(n$ = sample population
+  - \\(n\\) = total population
+  - \\(n\\) = sample population
   - The resultant factor of this equation can multiply the margin of error, meaning your range is now smaller
 
 *For example:*
 
-If we observe a point estimate of $803$, and our interval is between $801.6$ and $804.4$. Our margin of error is therefore \\(\pm 1.4$. If our population factor was $.64$ our confidence would be $803 \pm 1.4\cdot0.64$.
+If we observe a point estimate of `803`, and our interval is between `801.6` and `804.4`. Our margin of error is therefore \\(\pm 1.4\\). If our population factor was `0.64` our confidence would be \\(803 \pm 1.4\cdot0.64\\).
 
-This equals $802.1 < 803 < 803.9$ , now a tighter margin.
+This equals \\(802.1 < 803 < 803.9\\) , now a tighter margin.
 
 Calculating the required sample size for a given margin of error:
 
@@ -346,13 +350,13 @@ pFactor = ((qnorm(confidence)∗ sigma)/marginOfError)^2
 | Type I  | Rejecting the null hypothesis when it is true          |
 | Type II | Failing to reject the null hypothesis when it is false |
 
-The probability of rejecting the null when it is true is known as the size (\\(\alpha$) of the test. i.e. the probability of getting a type 1 error is \\(\alpha$ . 
+The probability of rejecting the null when it is true is known as the size (\\(\alpha\\)) of the test. i.e. the probability of getting a type 1 error is \\(\alpha\\) . 
 
-The probability of a type 2 error is denoted as \\(\beta$. **When the size (\\(\alpha$) decreases the size of \\(\beta$ increases.**
+The probability of a type 2 error is denoted as \\(\beta\\). **When the size (\\(\alpha\\)) decreases the size of \\(\beta\\) increases.**
 
-The power of a test is equal to $1 - \beta$. In general \\(\beta$ decreases the further away the alternative is from the null.
+The power of a test is equal to \\(1 - \beta\\). In general \\(\beta\\) decreases the further away the alternative is from the null.
 
-When choosing the desired size of \\(\alpha$ or \\(\beta$ , \\(\alpha \leq 0.05$ must be true.
+When choosing the desired size of \\(\alpha\\) or \\(\beta\\) , \\(\alpha \leq 0.05\\) must be true.
 
 ## Linear Regression
 
@@ -375,11 +379,11 @@ $$
 | `abline()`      | Plots the equation of a line on a graph                      |
 | `summary(x)`    | Gives the summary of an equation of a line `x`, including the p-value |
 
-The \\(\sum{\epsilon^2}\\) is the badness of our regression. To minimize this we need to optimise $A$ and \\(B$. This means minimizing \\(\sum{(y_i - (A + Bx_i))^2}\\)
+The \\(\sum{\epsilon^2}\\) is the badness of our regression. To minimize this we need to optimise \\(a\\) and \\(B\\). This means minimizing \\(\sum{(y_i - (A + Bx_i))^2}\\)
 
 ### Correlation
 
-Correlation is measured by the variable `r`, this is usually a value between -1 and 1 and represents the strength of the model coefficient. $-1$ would display a perfect negative correlation, whilst $1$ is a perfect positive correlation, $0$ would have no correlation.
+Correlation is measured by the variable `r`, this is usually a value between `-1` and `1` and represents the strength of the model coefficient. `-1` would display a perfect negative correlation, whilst `1` is a perfect positive correlation, `0` would have no correlation.
 
 We often use hypothesis tests on correlation, where we might say \\(H_o\\) is `r = 0`, where the alternative would be there is a correlation.
 
@@ -406,7 +410,7 @@ lm(y~x1+x2, data)
 
 ### Coefficient of Determination
 
-The coefficient of determination is equal to $r^2$. This number represents the percentage of the variation in the response variable attributed to the independent variable.
+The coefficient of determination is equal to \\(r^2\\). This number represents the percentage of the variation in the response variable attributed to the independent variable.
 
 ### Assumptions of Linear Regression
 
@@ -447,7 +451,7 @@ We can only use linear regression assuming (LINE):
 
 
 ### Calculating The Standard Deviation
-To calculate statistics of the distribution we can use the t value. $T = \frac{x-\mu}{SEM}\\) .
+To calculate statistics of the distribution we can use the t value. \\(t = \frac{x-\mu}{SEM}\\) .
 
 *The t-score gets smaller when the sample size grows.*
 
@@ -472,16 +476,16 @@ $$
 \frac{p}{1-p}
 $$
 
-- This can be reasoned to be the same as  $p(success) \div p(failure)\\)
-- Odds are bound between 0 and 1, i.e. $0 \leq p \leq 1$
+- This can be reasoned to be the same as  \\(p(success) \div p(failure)\\)
+- Odds are bound between 0 and 1, i.e. \\(0 \leq p \leq 1\\)
 
 Probabilities themselves are not that suitable to compare to one another, Instead we use an odds ratio.
 $$
 \frac{p_1(1-p_2)}{(1-p_1)p_2}
 $$
 
-- Above we can compare the probabilities $p_1$ and $p_2$ and be assured there are no issues.
-- Odds ratios also allow us to express the equality of two events as equal to 1. i.e. $p_1 = p_2 \equiv odds\space ratio\space of\space 1$ 
+- Above we can compare the probabilities \\(p_1\\) and \\(p_2\\) and be assured there are no issues.
+- Odds ratios also allow us to express the equality of two events as equal to 1. i.e. \\(p_1 = p_2 \equiv odds\space ratio\space of\space 1\\) 
 
 > Tip: Use a 2x2 contingency table to work with odds
 
@@ -509,7 +513,7 @@ fisher.test(x, alternative="less")
 
 - Fishers test, tests the equality of odds ratio. This is actually testing the independence of the classes.
 
- ### Hypergeometric distribution
+### Hypergeometric distribution
 
 > When you sample without  replacement (take a ball out a bag without putting it back) the samples are distributed hypergeometrically rather than binomially. Instead of using `dbinom` we would then use `dhyper`
 
@@ -523,13 +527,13 @@ $$
 p(A|B) = \frac{p(B|A)p(A)}{p(B)}​
 $$
 
-- We can suppose that $A$ becomes an hypothesis, and \\(B$ a distribution of data. We can use this to calculate the probability of our hypothesis given what our samples depict:
+- We can suppose that \\(a\\) becomes an hypothesis, and \\(B\\) a distribution of data. We can use this to calculate the probability of our hypothesis given what our samples depict:
 
 $$
 p(H|D) = \frac{p(D|H)p(H)}{p(D|H)p(H) + p(D|\overline{H})p(\overline{H})}
 $$
 
-Note: $P(x|y)\\) can be simulated using `xbinom`:
+Note: \\(p(x\|y)\\) can be simulated using `xbinom`:
 
 - Suppose we have a sample where 7 of 10 people like burgers. Person A hypothesizes 90% of the population likes burgers whilst Person B says  it is actually 50%. We can use Bayes's theorem to assert which is more plausible.
 
@@ -544,15 +548,15 @@ In Bayesian statistics we have two important probabilities, a prior and posterio
 
 | Name      | Description                                                  | Notation |
 | --------- | ------------------------------------------------------------ | -------- |
-| Prior     | The probability of our hypothesis or event                   | $p(H)\\)   |
-| Posterior | The probability of our hypothesis or event after accounting for our data | $p(H|D)\\) |
+| Prior     | The probability of our hypothesis or event                   | \\(p(H)\\)   |
+| Posterior | The probability of our hypothesis or event after accounting for our data | \\(p(H\|D)\\) |
 
 The posterior is equal to:
 $$
 P(H_1|D) = \frac{P(H_1|D)p(H_1)}{P(H_1|D)P(H_1) + P(H_2|D)P(H_2)...}
 $$
 
-- This means the posterior of a hypothesis is equal to $P(H|D)P(H)\\) divided by the sum of all other hypothesis or events.
+- This means the posterior of a hypothesis is equal to \\(p(H\|D)P(H)\\) divided by the sum of all other hypothesis or events.
   - For example if \\(H_1 = p(sunny)\\), then \\(H_2=p(rainy)\\) and \\(H_3 = p(snow)\\)
 
 This can be rewritten as:
@@ -562,7 +566,7 @@ P(H|D) \propto P(H)^{successes + \alpha - 1} \times (1 - P(H))^{failures + \beta
 $$
 
 - Note that \\(\propto\\) means proportional to
-- Note that our posterior $P(H|D)\\) tells us our successes and failures, as this is our data. Therefore our prior will be proportional to the same distribution minus the successes and failures.
+- Note that our posterior \\(p(H\|D)\\) tells us our successes and failures, as this is our data. Therefore our prior will be proportional to the same distribution minus the successes and failures.
 
 $$
 P(H) = P(H)^{a-1} \times (1- P(H))^{\beta-1}
@@ -597,7 +601,7 @@ Given a theory, which may be that the population mean is 10, we can check the de
 
 The likelihood represents how consistent the probability of a success is with the amount of observed successes in our data.
 
-- **The likelihood is equal to** $P(A|B)\\), **That is the probability of the known given the unknown variable**.
+- **The likelihood is equal to** \\(p(A\|B)\\), **That is the probability of the known given the unknown variable**.
 
 $$
 likelihood = c \times p^{no.\space successes}(1 - p)^{no.\space failures}
@@ -626,6 +630,7 @@ plot(p, log(dbinom(35,100,p))) # <-- support
 ### Gaussian likelihood
 
 If data is normally distributed we still use likelihood to estimate the parameters of our distribution. Instead of the  probability of a success varying, we can vary the deviation and mean.
+
 $$
 likelihood = \prod denisty(d_i)\\
 support = \sum \log density(d_i)
@@ -647,8 +652,6 @@ plot(m, sapply(m,f)) ##likelihood for each estimated mean
 s = function(m) { sum(dnorm(D, m, .1, log=TRUE)) }
 ```
 
-
-
 ## Poisson Distribution
 
 > A distribution with a large number of samples `n` and small `p` for every `n`. 
@@ -656,13 +659,13 @@ s = function(m) { sum(dnorm(D, m, .1, log=TRUE)) }
 The Poisson distribution is a discrete distribution. It distributes the expected number of successes, where a large number of samples will decrease the probability of success per sample. 
 
 - As `n` increases `p` decreases, therefore the mean stays constant. 
-- As \\(n \rarr \infin$ The variance \\(np(1-p)\\) also appears constant.
+- As \\(n \rarr \infin\\) The variance \\(np(1-p)\\) also appears constant.
 
 The Poisson distribution models many practical relationships. For example:
 
 - If it were raining, the probability of one drop hitting your hand. There are many rain drops, and very few hit your hand. Hence a large `n` and small `p`. As `n` increases `p` decreases.
 
-The inverse relationship between `n` and `p` results in the mean staying the same regardless of `n`. This is denoted as \\(\lambda$.
+The inverse relationship between `n` and `p` results in the mean staying the same regardless of `n`. This is denoted as \\(\lambda\\).
 
 | `n`   | `p`   | \\(\lambda $ |
 | ----- | ----- | ---------- |
@@ -682,7 +685,7 @@ qpois(prob, lambda)
 
 The Poisson distribution, as it deals with frequencies, can not go below 0. This means it is not symmetrical, however:
 
-- If \\(\lambda$ is large, the Poisson distribution is approximately gaussian.
+- If \\(\lambda\\) is large, the Poisson distribution is approximately gaussian.
 
 The Poisson density function is:
 $$
@@ -692,7 +695,7 @@ $$
 - `x` is the number of successes
 
 ## Chi-squared Distribution
-> The chi-squared distribution, denoted as \\(\chi^2$, contains no parameters. The constraints on the distribution are called degrees of freedom.
+> The chi-squared distribution, denoted as \\(\chi^2\\), contains no parameters. The constraints on the distribution are called degrees of freedom.
 
 ![chi](../Assets/chi.png)
 
@@ -716,12 +719,12 @@ B = \sum_i \frac{(e_i - o_i)^2}{e_i}
 $$
 - `e` : the expected value
 - `o` : the observed value
-- small \\(B$ reflects consistency between expectations and observations
-- large \\(B$ reflects an inconsistency. 
+- small \\(B\\) reflects consistency between expectations and observations
+- large \\(B\\) reflects an inconsistency. 
 
-Given a reasonable amount of data (Common practice is |data| > 5) and if the null is true, \\(B$ is distributed as a chi-squared distribution. Hence we can calculate the p-value of \\(\hat{B}\\).
+Given a reasonable amount of data (Common practice is `|data| > 5`) and if the null is true, \\(B\\) is distributed as a chi-squared distribution. Hence we can calculate the p-value of \\(\hat{B}\\).
 
-Consider \\(\hat{B} = 8$ and $D_f = 3$, we can calculate a p-value to test the null:
+Consider \\(\hat{B} = 8\\) and \\(D_f = 3\\), we can calculate a p-value to test the null:
 
 ```R
 x = seq(0,10,len=100)
@@ -742,8 +745,3 @@ pchisq(8, 3, lower.tail=FALSE)
 ```
 
 Hence we have evidence to reject the null.
-
----
-
-[Top](#Statistics)
-

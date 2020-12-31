@@ -88,6 +88,3 @@ Multidimensional subsetting is ordered by `[obs, var]`  an empty value is equiva
 > x[x$X3.5 == 4, 2]
 [1] 7
 ```
-
-
-

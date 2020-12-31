@@ -178,5 +178,3 @@ Types of stacks in java: `Stack`, `LinkedList`, `ArrayList`.
 Types of queues in java: `Queue`, `LinkedList`, `LinkedConcurrentQueue`
 
 ![iterator](../Assets/setLinkedIterator.png)
-
-[Top](#Java-Collections-Framework)

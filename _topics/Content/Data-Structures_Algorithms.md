@@ -502,5 +502,3 @@ A depth first search follows:
 - Visit an adjacent vertex that has not been visited
 - repeat unitl there is no adjacent vertex
 - take the last visited vertex and repeat the process until there are no more previous vertices
-
-[Top](#Data-Structures-and-Algorithms)

@@ -4,7 +4,7 @@ tag: Software Development
 layout: page
 ---
 
-Database design, implementation, and modelling using [SQL](SQL.md).
+Database design, implementation, and modelling using [SQL](\topics\Content\SQL).
 
 ## Databases
 > An organized collection of data stored an accessed electronically.
@@ -282,6 +282,3 @@ A DBMS has a scheduler to execute transactions at different time to ensure seria
 - Locks are only unlocked once a transaction is finished (committed or rolled back)
 - Page locks' lock partitions of a database that are stored in disk blocks. Many disk blocks (of a physical disk) may be used to store a table, when one transaction accesses information in a block the entire block is locked until the transaction is finished.
 - When two transactions try to access a locked resource by one another we get a deadlock, where both transactions infinitely wait for each other to unlock the resource.  
-
-
-[Top](#Database-Design)

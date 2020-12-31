@@ -1039,5 +1039,3 @@ private:
 ```
 
 - Varaibles can be initalized outside the constructor aswell.
-
-

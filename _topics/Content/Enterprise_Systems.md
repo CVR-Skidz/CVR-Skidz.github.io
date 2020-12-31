@@ -539,4 +539,3 @@ A **knowledge acquisition facility** is used to input knowledge into the system 
 ### User Interface Engine
 
 - Facilitates the use of decisions, inference, and knowledge in the system
-

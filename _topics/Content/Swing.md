@@ -138,5 +138,3 @@ Controller
 - Processes data by reacting to input 
 
 When one component is changed every model is updated 
-
-[Top](#Java-Swing)

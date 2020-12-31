@@ -363,5 +363,3 @@ There are two additional types of risk:
 
 - Residual risks (*risks present after all responses have been performed*)
 - Secondary risks (*risks created by responding to another risk*)
-
-[Top](#Project-Management)

@@ -6,8 +6,8 @@ layout: page
 
 Language reference for the Java programming language. 
 
-- For GUI programming using java see [here](./Swing.md).
-- For notes on the Java Collections Framework [here](./JCF.md)
+- For GUI programming using java see [here](/topics/Content/Swing).
+- For notes on the Java Collections Framework [here](/topics/Content/JCF)
 
 ## Types
 > Each type in java is either a class, interface, primitive, or array. 
@@ -508,5 +508,3 @@ Idioms that are not coherent with OOP are called abusers. Common examples includ
 - Change preventers: highly coupled classes that mean when you change one class or add a feature we must modify many other classes as well.
 
 > Coupling is the degree of interdependence modules have with one another. How closely connected two modules are. The opposite of coupling is cohesion, if a class has low coupling it will have high cohesion and is considered well-structured. 
-
-[Top](#Java)

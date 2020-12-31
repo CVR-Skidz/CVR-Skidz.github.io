@@ -275,5 +275,3 @@ A row can be deleted using `DELETE`:
 DELETE FROM {table_name}
 WHERE [row_name] = [value;]
 ```
-
-[Top](#SQL)
