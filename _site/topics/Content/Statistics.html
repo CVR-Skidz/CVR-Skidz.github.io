@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Statistics | Notes on Computer Science</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Statistics" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A reference of statistical mathematics. All code snippets are performed in R unless otherwise stated." />
+<meta property="og:description" content="A reference of statistical mathematics. All code snippets are performed in R unless otherwise stated." />
+<link rel="canonical" href="http://localhost:4000/topics/Content/Statistics.html" />
+<meta property="og:url" content="http://localhost:4000/topics/Content/Statistics.html" />
+<meta property="og:site_name" content="Notes on Computer Science" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-01T08:46:39+13:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Statistics.html","headline":"Statistics","dateModified":"2021-01-01T08:46:39+13:00","datePublished":"2021-01-01T08:46:39+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Statistics.html"},"description":"A reference of statistical mathematics. All code snippets are performed in R unless otherwise stated.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Notes on Computer Science</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Statistics</h1>
+  </header>
+
+  <div class="post-content">
+    <p>A reference of statistical mathematics. All code snippets are performed in R unless otherwise stated.</p>
+
+<h2 id="summary-statistics">Summary Statistics</h2>
+
+<p>To investigate data we consider the centre, dispersion, and distribution. Known as summary statistics</p>
+
+<h3 id="central-tendency">Central Tendency</h3>
+<p>The central tendency represents the expected value of a population and can be calculated by two averages:</p>
+
+<ul>
+  <li>Mean
+    <ul>
+      <li>Effected by outliers</li>
+    </ul>
+  </li>
+  <li>Median
+    <ul>
+      <li>Less effected by outliers</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="dispersion-spread">Dispersion (Spread)</h3>
+
+<p>The dispersion of data, also known as it’s spread, can be represented by the following values.</p>
+
+<ul>
+  <li>Maximum</li>
+  <li>Minimum</li>
+  <li>Range</li>
+  <li>Standard deviation</li>
+</ul>
+
+<p>This can be calculated in R easily:</p>
+
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">summary</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="distribution">Distribution</h3>
+
+<p>Graphing represents the distribution of data.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type of Data</th>
+      <th>Appropriate Graph</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Categorical</td>
+      <td>Box plot or bar chart</td>
+    </tr>
+    <tr>
+      <td>Continuous</td>
+      <td>Scatter plot</td>
+    </tr>
+    <tr>
+      <td>Discrete</td>
+      <td>Histogram</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="set-theory">Set Theory</h2>
+
+<p>The following are common notations for set operations:</p>
+
+\[\begin{align*}
+Union: \cup \\
+Intersection: \cap \\
+Symmetric \space Difference: \Delta \\
+Compliment: \bar{x} \\
+Empty \space Set: \emptyset \\
+\end{align*}\]
+
+<h3 id="general-theory">General Theory</h3>
+
+<ul>
+  <li>An entire <strong>Venn diagram’s</strong> probability is <code class="language-plaintext highlighter-rouge">1</code>, these are populated with sets (circles)</li>
+  <li><code class="language-plaintext highlighter-rouge">{1,2,3,4,5}</code> is a sample space, a set is a set of results (results that fit a category) from within a sample space</li>
+  <li>In the sample space <code class="language-plaintext highlighter-rouge">{1,2,3}</code> <code class="language-plaintext highlighter-rouge">1</code> is an element</li>
+  <li>Sets represent an event (e.g. I roll tow identical numbers on a dice)</li>
+</ul>
+
+<h3 id="sample-space-probability">Sample Space Probability</h3>
+<p>A particular value in a sample space is known as an event.</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">n(A)</code> : the number of elements in <code class="language-plaintext highlighter-rouge">A</code></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">p(A)</code> or <code class="language-plaintext highlighter-rouge">pr(A)</code> : the probability of the event <code class="language-plaintext highlighter-rouge">A</code></p>
+  </li>
+  <li>
+    <p>The compliment of (X ⋃ Y) = X̅ ⋂ Y̅</p>
+  </li>
+  <li>
+    <p>If the sample space consists of elements that have equal likelihoods (like a dice) then:</p>
+  </li>
+</ul>
+
+\[\begin{align}
+&amp; p(A) = n(A)/n({Sample Space}) \\
+&amp; 0 ≤ p(A) ≤  1
+\end{align}\]
+
+<h4 id="sample-space-formulae">Sample Space Formulae</h4>
+
+\[\begin{align}
+&amp; p(\bar{x}) = 1 - p(x) \\
+&amp; p(A \cup B) = p(A) + p(B) - p(A \cap B)\\
+&amp; p(A \cap B) = p(A)p(B)
+\end{align}\]
+
+<h3 id="conditional-probability">Conditional Probability</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">p(A|B)</code> : probability of <code class="language-plaintext highlighter-rouge">A</code> given <code class="language-plaintext highlighter-rouge">B</code></li>
+</ul>
+
+\[p(A|B) = p(A \cap B) / p(B)\]
+
+<ul>
+  <li>If <code class="language-plaintext highlighter-rouge">p(A) = p(A|B)</code> then the two events are independent.</li>
+</ul>
+
+<h3 id="probability-tree-formulae">Probability Tree Formulae</h3>
+
+<p>Note: <code class="language-plaintext highlighter-rouge">E[x]</code> refers to the expected value of the event <code class="language-plaintext highlighter-rouge">x</code></p>
+
+\[\begin{align}
+&amp; E[x]= sum(x_{i} ∗ P_i) \\
+&amp; E[x^2 ]= sum(x_{i}^2∗ P_i) \\
+&amp; VAR[x]= E[x^2 ]− (E[x])^2 \\
+\end{align}\]
+
+<ul>
+  <li>The probability of a set of results occurring is equal to the product of each event’s probability:</li>
+</ul>
+
+\[\begin{align}
+&amp; p = p(T) = 0.5\\
+&amp; Events = TTFFF\\
+&amp; p(Events) = p \cdot p \cdot (1-p) \cdot (1-p) \cdot (1-p)   
+\end{align}\]
+
+<h2 id="binomial-distributions">Binomial Distributions</h2>
+
+<p>\(Bin(n, p)\)</p>
+
+<ul>
+  <li>A <code class="language-plaintext highlighter-rouge">binomial distribution</code> plots <code class="language-plaintext highlighter-rouge">discrete</code> data</li>
+  <li>The simplest form of binomial distributions are called <code class="language-plaintext highlighter-rouge">Bernoulli trials</code>, which have two outcomes.
+    <ul>
+      <li>This can be simulated by the probability one will occur.</li>
+    </ul>
+  </li>
+  <li>Binomial distributions are distributions of tabulated data.</li>
+</ul>
+
+\[\begin{align}
+&amp; n = number\space of\space trials \\
+&amp; r = target\space number\space of\space successful\space results\\
+&amp; p = probability\space of\space one\space successful\space trial\\
+&amp;  bin(10,.3)\space denotes\space n = 10\space and\space p = .3
+\end{align}\]
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Formula</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Mean</td>
+      <td>\(np\)</td>
+    </tr>
+    <tr>
+      <td>Variance</td>
+      <td>\(np \cdot (1-p)\)</td>
+    </tr>
+    <tr>
+      <td>Standard Deviation</td>
+      <td>\(\sqrt{np(1-p)}\)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In a situation with multiple <code class="language-plaintext highlighter-rouge">n</code> we sum the individual <code class="language-plaintext highlighter-rouge">mean</code> of each trial.</p>
+
+<p>For example the chance I receive \(10, $5, or \(1 from a lottery ticket. As we know we take two outcomes. With binomial distributions we are saying the chances of getting \(10 or $0, $5 or 0, and so on. Therefore we add <code class="language-plaintext highlighter-rouge">(3)np + (5)np + (1)np</code> to find the overall <code class="language-plaintext highlighter-rouge">E[x]</code>.</p>
+
+<p>The probability of <code class="language-plaintext highlighter-rouge">x</code> successes from <code class="language-plaintext highlighter-rouge">n</code> trials (<code class="language-plaintext highlighter-rouge">dbinom</code>) is calculated from:</p>
+
+\[\frac{n!}{x!(n-x)!} \cdot p^x \cdot (1-p)^{n-x}\]
+
+<p><strong>Note</strong> \(\frac{n!}{x!(n-x)!} \equiv\) <code class="language-plaintext highlighter-rouge">choose(n, x)</code></p>
+
+<h2 id="normal-distributions">Normal Distributions</h2>
+
+<blockquote>
+  <p>\(X \sim N(\mu, \sigma)\)</p>
+</blockquote>
+
+<p>A Normal distribution, or Gaussian distribution, is a model in which data is symmetrical about the mean.</p>
+
+<p>As <code class="language-plaintext highlighter-rouge">n</code> (the number of observations) approaches infinity the gaussian distribution approaches 0.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Formula</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Mean</td>
+      <td>\(np\)</td>
+    </tr>
+    <tr>
+      <td>Standard Deviation</td>
+      <td>\(\sqrt{np*(1-p)}\)</td>
+    </tr>
+    <tr>
+      <td>Standard Error</td>
+      <td>\(\frac{\sigma}{\sqrt{n}}\)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="formulae">Formulae</h3>
+
+<p><code class="language-plaintext highlighter-rouge">x</code> represents the observation, <code class="language-plaintext highlighter-rouge">mu</code> represents the mean value, <code class="language-plaintext highlighter-rouge">sd</code> represents the standard deviation</p>
+
+<p>The probability of obtaining the observation or below in the distribution:</p>
+
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The probability of obtaining the observation:</p>
+
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+<p>\(\frac{1}{\sqrt{2\pi} \cdot \sigma} \cdot e^{-\frac{(x - \mu)^2}{2\sigma^2}}\)
+Generate <code class="language-plaintext highlighter-rouge">count</code>amount of random variables along the distribution:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rnorm(count, mu, sd)
+</code></pre></div></div>
+
+<p>The associated value with the given probability:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qnorm(prob, mu, sd)
+</code></pre></div></div>
+
+<h3 id="normal-approximation">Normal Approximation</h3>
+
+<p>Binomial distributions are approximately normal distributions with a large amount of observations (<code class="language-plaintext highlighter-rouge">n</code>).</p>
+
+<h3 id="random-variance">Random Variance</h3>
+
+<p>The mean value of a sample does not in practice account for the entire population and is a representation of the population mean only.</p>
+
+<p>The mean value of a sample (the sample mean) varies between samples (known as random variance), it turns out that the distribution of these values should be normally distributed. <strong>As such the distribution of a sample mean is:</strong></p>
+
+\[x_i \sim N(\mu, \frac{\sigma}{\sqrt{n}})\]
+
+<p>The standard deviation of the mean sample is the <strong>standard error of the mean</strong>. The true population mean lies between \(\mu \pm SEM\)</p>
+
+<h2 id="null-hypothesis">Null Hypothesis</h2>
+
+<p>A null hypothesis is a hypothesis that represents the opposite of what you wish to investigate in a sample space. We can use this to prove a trend in data.</p>
+
+<h3 id="the-p-value">The P-Value</h3>
+
+<p>The probability if \(H_o\) is true of obtaining an observation equal to or greater than the observation</p>
+
+<ul>
+  <li>Define a null hypothesis \(H_o\)</li>
+  <li>Decide what the observation is \(X_i\)</li>
+  <li>Create the distribution of \(X_i\)</li>
+  <li>Calculate the <code class="language-plaintext highlighter-rouge">p-value</code>
+    <ul>
+      <li>If this is &lt; 5% then we reject \(H_o\)</li>
+      <li>If this is ≥ 5% we can not reject \(H_o\), this does not mean it is true, but we have no evidence to disprove it</li>
+      <li>If we reject the \(H_o\) we accept the original Hypothesis</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The smaller the p-value the stronger the evidence against the null becomes.</p>
+
+<h3 id="z-scores">Z-Scores</h3>
+
+<p>Z-scores represent the amount of standard deviations we are away from the mean. We can calculate the z-scores of values using:
+\(z =\frac{x_i − \mu}{SEM}\)
+These transformed values are distributed in a standard normal distribution \(\sim N(0,1)\).</p>
+
+<h3 id="critical-regions">Critical Regions</h3>
+<p>The critical regions are the value we calculate to attempt to reject the null hypothesis.</p>
+
+<p>The critical region is specified before hand to determine the strictness of the test, for example 5%.
+<strong>If our observation is within this region we reject the null hypothesis.</strong></p>
+
+<h3 id="notes">Notes</h3>
+
+<ul>
+  <li>When we have a small sample size the variance in the standard deviation is significant and we use the student t-test method.</li>
+  <li>The null hypothesis distributes the average values (mean) over a normal distribution.</li>
+</ul>
+
+<h2 id="student-t-test">Student T-Test</h2>
+
+<p>With normally distributed data if our sample size is small and we have not been given the standard deviation, we do not have enough samples to calculate an accurate estimate of \(\sigma\) and we must use a t-test instead of standard null hypothesis tests.</p>
+
+<p>With a large amount of samples (n &gt; 30):
+\(x_i − x_n \sim n(\mu, \sigma) \\\)</p>
+
+<p>This \(p_{value}\) can be calculated as:</p>
+
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="err">−</span><span class="w"> </span><span class="n">pnorm</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">Ho</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="w">
+</span></code></pre></div></div>
+
+<p>With a small amount of samples (n &lt; 30) we use an estimated \(\sigma\) . We need to translate our <code class="language-plaintext highlighter-rouge">x</code> axis with:
+\(\frac{\mu−H_o}{SEM}\)</p>
+<h4 id="one-or-two-sided-tests">One or Two sided tests</h4>
+
+<p>We use a one sided test when we have reason to believe the effect is biased to being positive or negative, otherwise we conduct two sided tests.</p>
+
+<h3 id="t-test-formulae">T-Test Formulae</h3>
+
+<p>The \(t_{value}\), which has the same purpose as the \(p_{value}\), is derived from:
+\(T =\frac{x − H_o}{SEM}\)</p>
+
+<h2 id="confidence-intervals">Confidence Intervals</h2>
+
+<p>A confidence interval is the range of values a mean could be considered accurate.</p>
+
+<p>If our null mean falls within such a confidence interval we consider it to be consistent with our population in some way, and hence would fail to reject it.</p>
+
+<ul>
+  <li>Standard error = \(\frac{\sigma}{\sqrt{n}}\)</li>
+  <li>Margin of error = \(\frac{\sigma}{\sqrt{n}} \cdot z\)</li>
+  <li>\(z\) is the <code class="language-plaintext highlighter-rouge">qnorm</code> of any percent on a standard distribution</li>
+  <li>Upper limit = \(\mu + \frac{\sigma}{\sqrt{n}} \cdot z\)</li>
+  <li>Lower limit = \(\mu - \frac{\sigma}{\sqrt{n}} \cdot z\)</li>
+</ul>
+
+<h3 id="interval-formula">Interval Formula</h3>
+
+<p>The complete interval which consists of the upper and lower limit can be found with:
+\(\mu \pm \frac{\sigma}{\sqrt{n}} \cdot z\)</p>
+
+<p>To find intervals of proportions the following formula is used instead</p>
+
+\[\mu \pm z \cdot \sqrt{\frac{p\cdot(1−p)}{n}}\]
+
+<h3 id="refinements">Refinements</h3>
+
+<p>To refine intervals there are some common steps we can take.</p>
+
+<p><strong>The finite population factor:</strong>
+\(\sqrt{\frac{N − n}{N−1}}\)</p>
+
+<ul>
+  <li>Narrows the confidence interval
+    <ul>
+      <li>\(n\) = total population</li>
+      <li>\(n\) = sample population</li>
+      <li>The resultant factor of this equation can multiply the margin of error, meaning your range is now smaller</li>
+    </ul>
+  </li>
+</ul>
+
+<p><em>For example:</em></p>
+
+<p>If we observe a point estimate of <code class="language-plaintext highlighter-rouge">803</code>, and our interval is between <code class="language-plaintext highlighter-rouge">801.6</code> and <code class="language-plaintext highlighter-rouge">804.4</code>. Our margin of error is therefore \(\pm 1.4\). If our population factor was <code class="language-plaintext highlighter-rouge">0.64</code> our confidence would be \(803 \pm 1.4\cdot0.64\).</p>
+
+<p>This equals \(802.1 &lt; 803 &lt; 803.9\) , now a tighter margin.</p>
+
+<p>Calculating the required sample size for a given margin of error:</p>
+
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pFactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">qnorm</span><span class="p">(</span><span class="n">confidence</span><span class="p">)</span><span class="err">∗</span><span class="w"> </span><span class="n">sigma</span><span class="p">)</span><span class="o">/</span><span class="n">marginOfError</span><span class="p">)</span><span class="o">^</span><span class="m">2</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="type-i-and-type-ii-errors">Type I and Type II errors</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Error</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Type I</td>
+      <td>Rejecting the null hypothesis when it is true</td>
+    </tr>
+    <tr>
+      <td>Type II</td>
+      <td>Failing to reject the null hypothesis when it is false</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The probability of rejecting the null when it is true is known as the size (\(\alpha\)) of the test. i.e. the probability of getting a type 1 error is \(\alpha\) .</p>
+
+<p>The probability of a type 2 error is denoted as \(\beta\). <strong>When the size (\(\alpha\)) decreases the size of \(\beta\) increases.</strong></p>
+
+<p>The power of a test is equal to \(1 - \beta\). In general \(\beta\) decreases the further away the alternative is from the null.</p>
+
+<p>When choosing the desired size of \(\alpha\) or \(\beta\) , \(\alpha \leq 0.05\) must be true.</p>
+
+<h2 id="linear-regression">Linear Regression</h2>
+
+<p>Linear regression can find relationships between variables. This can be used to draw a line on a scatter plot, used to predict values. Variables are categorized as either response (unknown) or independent (known).</p>
+
+<p>The equation of a regression line is given by:
+\(y_i = A+B_{x_i }+ϵ_i\)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A</td>
+      <td>The Y intercept</td>
+    </tr>
+    <tr>
+      <td>B</td>
+      <td>The gradient also known as the model coefficient</td>
+    </tr>
+    <tr>
+      <td>ϵ</td>
+      <td>The error also known as the residual</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>R Function</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">lm(y~x, data)</code></td>
+      <td>Gives the equation of the line</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">abline()</code></td>
+      <td>Plots the equation of a line on a graph</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">summary(x)</code></td>
+      <td>Gives the summary of an equation of a line <code class="language-plaintext highlighter-rouge">x</code>, including the p-value</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The \(\sum{\epsilon^2}\) is the badness of our regression. To minimize this we need to optimise \(a\) and \(B\). This means minimizing \(\sum{(y_i - (A + Bx_i))^2}\)</p>
+
+<h3 id="correlation">Correlation</h3>
+
+<p>Correlation is measured by the variable <code class="language-plaintext highlighter-rouge">r</code>, this is usually a value between <code class="language-plaintext highlighter-rouge">-1</code> and <code class="language-plaintext highlighter-rouge">1</code> and represents the strength of the model coefficient. <code class="language-plaintext highlighter-rouge">-1</code> would display a perfect negative correlation, whilst <code class="language-plaintext highlighter-rouge">1</code> is a perfect positive correlation, <code class="language-plaintext highlighter-rouge">0</code> would have no correlation.</p>
+
+<p>We often use hypothesis tests on correlation, where we might say \(H_o\) is <code class="language-plaintext highlighter-rouge">r = 0</code>, where the alternative would be there is a correlation.</p>
+
+<p><em>Always draw a scatter plot first.</em></p>
+
+<h3 id="scatter-plots">Scatter Plots</h3>
+<p>When describing a scatter plot describe the relationship, and its strength, as well as the range of both variables.</p>
+
+<h3 id="multiple-regression">Multiple Regression</h3>
+
+<p>When a response variable can be effected by multiple variables we can plot the regression on a plane instead of a line.</p>
+
+<p>The regression equation becomes: 
+\(Y_i = A + B_{x_{i_1}} + B_{x_{i_2}} + \in_i\)
+This can be generated with:</p>
+
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Predictions must be to the same accuracy as the original data</strong></p>
+
+<h3 id="coefficient-of-determination">Coefficient of Determination</h3>
+
+<p>The coefficient of determination is equal to \(r^2\). This number represents the percentage of the variation in the response variable attributed to the independent variable.</p>
+
+<h3 id="assumptions-of-linear-regression">Assumptions of Linear Regression</h3>
+
+<p>We can only use linear regression assuming (LINE):</p>
+
+<ul>
+  <li>The data must be <strong>linear</strong></li>
+  <li>The variables must be <strong>independent</strong></li>
+  <li>The data must be <strong>normally distributed</strong></li>
+  <li>The data must have <strong>equal variance</strong></li>
+</ul>
+
+<ol>
+  <li>
+    <p><strong>Pair data:</strong>
+ a. <code class="language-plaintext highlighter-rouge">par(mfrow=c(2,2))</code></p>
+  </li>
+  <li>
+    <p><strong>Check Linearity:</strong></p>
+  </li>
+</ol>
+
+<p>a. <code class="language-plaintext highlighter-rouge">plot(x, y)</code></p>
+
+<p>b. <code class="language-plaintext highlighter-rouge">abline(lm(x~y))</code></p>
+
+<ol>
+  <li>
+    <p><strong>Check Independence:</strong></p>
+
+    <p>a.  <code class="language-plaintext highlighter-rouge">plot(x, rstandard(lm(x~y)))</code></p>
+
+    <p>b. <code class="language-plaintext highlighter-rouge">abline(h=0)</code></p>
+  </li>
+  <li>
+    <p><strong>Check normality:</strong></p>
+
+    <p>a. <code class="language-plaintext highlighter-rouge">hist(lm(x~y)\\)residuals)</code></p>
+  </li>
+  <li>
+    <p><strong>If the data follows this main line it could be normal:</strong></p>
+
+    <p>a. <code class="language-plaintext highlighter-rouge">qnorm(rstandard(lm(x~y)))</code></p>
+
+    <p>b. <code class="language-plaintext highlighter-rouge">abline(0,1) </code></p>
+  </li>
+</ol>
+
+<h3 id="calculating-the-standard-deviation">Calculating The Standard Deviation</h3>
+<p>To calculate statistics of the distribution we can use the t value. \(t = \frac{x-\mu}{SEM}\) .</p>
+
+<p><em>The t-score gets smaller when the sample size grows.</em></p>
+
+<h2 id="analysis-of-variance">Analysis of Variance</h2>
+
+<p>Analysis of variance compares three or more means to test if the degree at which they differ is significant.</p>
+
+<p><img src="../Assets/aov.png" alt="Image result for analysis of variance" /></p>
+
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">aov</span><span class="p">(</span><span class="k">function</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>If the p-value in this test is significant, the variance between means is important and could indicate a test bias.</p>
+
+<h2 id="odds">Odds</h2>
+
+<blockquote>
+  <p>A different measure of probability. Useful for working with measurements not bound between 0 &lt; p &lt; 1, making odds ratios the go-to tool for comparing the probabilities.</p>
+</blockquote>
+
+<p>An odd is equal to the probability of the event divide by it’s complement:
+\(\frac{p}{1-p}\)</p>
+
+<ul>
+  <li>This can be reasoned to be the same as  \(p(success) \div p(failure)\)</li>
+  <li>Odds are bound between 0 and 1, i.e. \(0 \leq p \leq 1\)</li>
+</ul>
+
+<p>Probabilities themselves are not that suitable to compare to one another, Instead we use an odds ratio.
+\(\frac{p_1(1-p_2)}{(1-p_1)p_2}\)</p>
+
+<ul>
+  <li>Above we can compare the probabilities \(p_1\) and \(p_2\) and be assured there are no issues.</li>
+  <li>Odds ratios also allow us to express the equality of two events as equal to 1. i.e. \(p_1 = p_2 \equiv odds\space ratio\space of\space 1\)</li>
+</ul>
+
+<blockquote>
+  <p>Tip: Use a 2x2 contingency table to work with odds</p>
+</blockquote>
+
+<h2 id="fischer-test">Fischer Test</h2>
+
+<p>Fischer’s test deals with frequencies rather than measurements (discrete data) to test ratios between categorical data, this means we create a <strong>contingency table:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>T</th>
+      <th>Full time</th>
+      <th>Part time</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Male</td>
+      <td>10</td>
+      <td>15</td>
+      <td><strong>25</strong></td>
+    </tr>
+    <tr>
+      <td>Female</td>
+      <td>14</td>
+      <td>13</td>
+      <td><strong>27</strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>24</strong></td>
+      <td><strong>28</strong></td>
+      <td><strong>52</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>This allows us to calculate the odds (10 to 15, and 14 to 13)</strong></p>
+
+<p>We can use Fischer’s test to check if one class is more likely to exhibit a certain attribute, using p-values. We can manually calculate this using density formulae, but we can also just use:</p>
+
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fisher.test</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1"># x =&gt; the contingency table as a matrix</span><span class="w">
+
+</span><span class="c1"># we can change the alternative hypothesis to one sided</span><span class="w">
+</span><span class="n">fisher.test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">alternative</span><span class="o">=</span><span class="s2">"greater"</span><span class="p">)</span><span class="w">
+</span><span class="n">fisher.test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">alternative</span><span class="o">=</span><span class="s2">"less"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>Fishers test, tests the equality of odds ratio. This is actually testing the independence of the classes.</li>
+</ul>
+
+<h3 id="hypergeometric-distribution">Hypergeometric distribution</h3>
+
+<blockquote>
+  <p>When you sample without  replacement (take a ball out a bag without putting it back) the samples are distributed hypergeometrically rather than binomially. Instead of using <code class="language-plaintext highlighter-rouge">dbinom</code> we would then use <code class="language-plaintext highlighter-rouge">dhyper</code></p>
+</blockquote>
+
+<ul>
+  <li>If a p-value is insignificant we could conclude there is no difference between the two classifications and has no effect on the frequency.</li>
+</ul>
+
+<h2 id="bayess-theorem">Bayes’s Theorem</h2>
+
+<blockquote>
+  <p>Bayes’s theorem denotes the probability of one event given another, we can use this to assert the plausibility of hypothesis’.</p>
+</blockquote>
+
+\[p(A|B) = \frac{p(B|A)p(A)}{p(B)}​\]
+
+<ul>
+  <li>We can suppose that \(a\) becomes an hypothesis, and \(B\) a distribution of data. We can use this to calculate the probability of our hypothesis given what our samples depict:</li>
+</ul>
+
+\[p(H|D) = \frac{p(D|H)p(H)}{p(D|H)p(H) + p(D|\overline{H})p(\overline{H})}\]
+
+<p>Note: \(p(x|y)\) can be simulated using <code class="language-plaintext highlighter-rouge">xbinom</code>:</p>
+
+<ul>
+  <li>Suppose we have a sample where 7 of 10 people like burgers. Person A hypothesizes 90% of the population likes burgers whilst Person B says  it is actually 50%. We can use Bayes’s theorem to assert which is more plausible.</li>
+</ul>
+
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">dbinom</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">.9</span><span class="p">)</span><span class="o">*</span><span class="m">.9</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">dbinom</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">.9</span><span class="p">)</span><span class="o">*</span><span class="m">.9</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dbinom</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">.5</span><span class="p">)</span><span class="o">*</span><span class="m">.5</span><span class="p">)</span><span class="w"> </span><span class="c1"># &lt;-- less plausible</span><span class="w">
+</span><span class="c1">## 0.4685365</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">dbinom</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">.5</span><span class="p">)</span><span class="o">*</span><span class="m">.5</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">dbinom</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">.9</span><span class="p">)</span><span class="o">*</span><span class="m">.9</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dbinom</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">.5</span><span class="p">)</span><span class="o">*</span><span class="m">.5</span><span class="p">)</span><span class="w"> </span><span class="c1"># &lt;-- more plausible</span><span class="w">
+</span><span class="c1">## 0.5314635</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In Bayesian statistics we have two important probabilities, a prior and posterior.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Notation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Prior</td>
+      <td>The probability of our hypothesis or event</td>
+      <td>\(p(H)\)</td>
+    </tr>
+    <tr>
+      <td>Posterior</td>
+      <td>The probability of our hypothesis or event after accounting for our data</td>
+      <td>\(p(H|D)\)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The posterior is equal to:
+\(P(H_1|D) = \frac{P(H_1|D)p(H_1)}{P(H_1|D)P(H_1) + P(H_2|D)P(H_2)...}\)</p>
+
+<ul>
+  <li>This means the posterior of a hypothesis is equal to \(p(H|D)P(H)\) divided by the sum of all other hypothesis or events.
+    <ul>
+      <li>For example if \(H_1 = p(sunny)\), then \(H_2=p(rainy)\) and \(H_3 = p(snow)\)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>This can be rewritten as:
+\(P(H_y|D) \propto P(H)P(D|H_y)\\
+P(H|D) \propto P(H)^{successes + \alpha - 1} \times (1 - P(H))^{failures + \beta - 1}\)</p>
+
+<ul>
+  <li>Note that \(\propto\) means proportional to</li>
+  <li>Note that our posterior \(p(H|D)\) tells us our successes and failures, as this is our data. Therefore our prior will be proportional to the same distribution minus the successes and failures.</li>
+</ul>
+
+\[P(H) = P(H)^{a-1} \times (1- P(H))^{\beta-1}\]
+
+<p><strong>THIS DISTRIBUTION IS CALLED A BETA DISTRIBUTION</strong></p>
+
+<h2 id="point-estimation">Point Estimation</h2>
+
+<blockquote>
+  <p>Estimating unknown measurements of distributions from the given data</p>
+</blockquote>
+
+<p>Often in practice we are not going to be told the variance or population mean of our sample.  So we use point estimation to estimate these using our sample data to keep estimations sane.</p>
+
+<p>Say we had 100 observations with 35 successes, our sample probability is 35%, but due to variance if our population probability really was 35% it is unlikely we get exactly 35 successes.</p>
+
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rbinom</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="m">0.35</span><span class="p">)</span><span class="w">
+</span><span class="c1">## [1] 37 38 30 41 31 28 34 42 30 32 35 41 38 36 31 40 30 28 38 3</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Here we need to estimate the likelihood of our predicted probability, that is how likely is it that our estimated probability is the real probability. Obviously 35% has the highest likelihood, but we may not be able to reject the notion it is 37%. We can safely reject 99% though, assuming our samples were not obscure.</p>
+
+<h2 id="likelihood">Likelihood</h2>
+
+<blockquote>
+  <p>A measurement useful for asserting the plausibility of a theoretical distribution by observing how likely our data occurs given the theoretical parameters. (Parameters may be mean, standard deviation, probability, etc.)</p>
+</blockquote>
+
+<p>Given a theory, which may be that the population mean is 10, we can check the density of our actual data given this distribution. If it is low, it is unlikely we can actually observe the data we did, meaning this theory is inconsistent with real life.</p>
+
+<ul>
+  <li>We want to understand the density of our observation on the theoretical distribution. Therefore the general practice is to calculate the density given the theoretical parameters, and check which parameter has the highest density.</li>
+</ul>
+
+<h3 id="binomial-probability">Binomial Probability</h3>
+
+<p>The likelihood represents how consistent the probability of a success is with the amount of observed successes in our data.</p>
+
+<ul>
+  <li><strong>The likelihood is equal to</strong> \(p(A|B)\), <strong>That is the probability of the known given the unknown variable</strong>.</li>
+</ul>
+
+<p>\(likelihood = c \times p^{no.\space successes}(1 - p)^{no.\space failures}\)</p>
+<ul>
+  <li>C is an arbitrary constant number used to change the scale of this distribution.</li>
+  <li>A high likelihood suggests our probability is consistent with our data</li>
+  <li>Note this will use Bayes’s theorem, hence the likelihood uses the density function of your chosen distribution. Above is <code class="language-plaintext highlighter-rouge">dbinom</code>.</li>
+</ul>
+
+<p>Often we may want to use the support of our likelihood, rather than direct likelihood, as it changes the distribution in a way that allows us to more easily identify a suitable range of probabilities. A high support suggests our likelihood is consistent with what we actually observed.
+\(support =log(likelihood)\)
+The point of maximum likelihood and support is the same, this is he probability of our sample data.</p>
+
+<p>If we choose a probability far from the maximum likelihood it is unlikely we really will see the observed number of successes.</p>
+
+<ul>
+  <li>If we hypothesize that a certain probability is 1/2, and then plot the likelihood, if our support for this value of p is close to the maximum likelihood we cannot reject the hypothesis.</li>
+  <li>In contrast to normal statistics likelihood fixes the data, and varies the probability. (Usually the probability remains the same, and you could under or overachieve)</li>
+</ul>
+
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="c1">#0, 0.05, 0.1</span><span class="w">
+</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">dbinom</span><span class="p">(</span><span class="m">35</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">))</span><span class="w"> </span><span class="c1">#P(35|p = some prob) &lt;-- likelihood</span><span class="w">
+</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">dbinom</span><span class="p">(</span><span class="m">35</span><span class="p">,</span><span class="m">100</span><span class="p">,</span><span class="n">p</span><span class="p">)))</span><span class="w"> </span><span class="c1"># &lt;-- support</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="gaussian-likelihood">Gaussian likelihood</h3>
+
+<p>If data is normally distributed we still use likelihood to estimate the parameters of our distribution. Instead of the  probability of a success varying, we can vary the deviation and mean.</p>
+
+\[likelihood = \prod denisty(d_i)\\
+support = \sum \log density(d_i)\]
+
+<ul>
+  <li>The gaussian likelihood function is equal to the product of the density for each observation given our theoretical distribution.  Our distribution is going to use our estimated mean and deviation, and we will take the product of each samples density on this distribution.</li>
+</ul>
+
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="c1">#observations --&gt; mean = 2</span><span class="w">
+</span><span class="nf">prod</span><span class="p">(</span><span class="n">dnorm</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">.1</span><span class="p">))</span><span class="w"> </span><span class="c1">#likelihood of observing our samples given estimated mean and devitaion </span><span class="w">
+</span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="m">.2</span><span class="p">)</span><span class="w"> </span><span class="c1">#estimated means</span><span class="w">
+
+</span><span class="c1">#gaussian likelihood function</span><span class="w">
+</span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="nf">prod</span><span class="p">(</span><span class="n">dnorm</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="m">.1</span><span class="p">)}</span><span class="w">
+
+</span><span class="n">plot</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">sapply</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">f</span><span class="p">))</span><span class="w"> </span><span class="c1">##likelihood for each estimated mean </span><span class="w">
+                      
+</span><span class="c1">#gaussian support function</span><span class="w">
+</span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">dnorm</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="m">.1</span><span class="p">,</span><span class="w"> </span><span class="n">log</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">))</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="poisson-distribution">Poisson Distribution</h2>
+
+<blockquote>
+  <p>A distribution with a large number of samples <code class="language-plaintext highlighter-rouge">n</code> and small <code class="language-plaintext highlighter-rouge">p</code> for every <code class="language-plaintext highlighter-rouge">n</code>.</p>
+</blockquote>
+
+<p>The Poisson distribution is a discrete distribution. It distributes the expected number of successes, where a large number of samples will decrease the probability of success per sample.</p>
+
+<ul>
+  <li>As <code class="language-plaintext highlighter-rouge">n</code> increases <code class="language-plaintext highlighter-rouge">p</code> decreases, therefore the mean stays constant.</li>
+  <li>As \(n \rarr \infin\) The variance \(np(1-p)\) also appears constant.</li>
+</ul>
+
+<p>The Poisson distribution models many practical relationships. For example:</p>
+
+<ul>
+  <li>If it were raining, the probability of one drop hitting your hand. There are many rain drops, and very few hit your hand. Hence a large <code class="language-plaintext highlighter-rouge">n</code> and small <code class="language-plaintext highlighter-rouge">p</code>. As <code class="language-plaintext highlighter-rouge">n</code> increases <code class="language-plaintext highlighter-rouge">p</code> decreases.</li>
+</ul>
+
+<p>The inverse relationship between <code class="language-plaintext highlighter-rouge">n</code> and <code class="language-plaintext highlighter-rouge">p</code> results in the mean staying the same regardless of <code class="language-plaintext highlighter-rouge">n</code>. This is denoted as \(\lambda\).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code class="language-plaintext highlighter-rouge">n</code></th>
+      <th><code class="language-plaintext highlighter-rouge">p</code></th>
+      <th>\(\lambda $</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>10</td>
+      <td>.1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1000</td>
+      <td>.001</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>10000</td>
+      <td>.0001</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We apply the Poisson distribution much like any other, where the density of a certain number of successes is the probability of that many successes occurring.</p>
+
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dpois</span><span class="p">(</span><span class="n">integer</span><span class="p">,</span><span class="w"> </span><span class="n">lambda</span><span class="p">)</span><span class="w">
+</span><span class="n">rpois</span><span class="p">(</span><span class="n">num_results</span><span class="p">,</span><span class="w"> </span><span class="n">lambda</span><span class="p">)</span><span class="w">
+</span><span class="n">ppois</span><span class="p">(</span><span class="n">quantile</span><span class="p">,</span><span class="w"> </span><span class="n">lambda</span><span class="p">)</span><span class="w">
+</span><span class="n">qpois</span><span class="p">(</span><span class="n">prob</span><span class="p">,</span><span class="w"> </span><span class="n">lambda</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The Poisson distribution, as it deals with frequencies, can not go below 0. This means it is not symmetrical, however:</p>
+
+<ul>
+  <li>If \(\lambda\) is large, the Poisson distribution is approximately gaussian.</li>
+</ul>
+
+<p>The Poisson density function is:
+\(e^{-\lambda}\frac{\lambda^x}{x!}\\\)</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">x</code> is the number of successes</li>
+</ul>
+
+<h2 id="chi-squared-distribution">Chi-squared Distribution</h2>
+<blockquote>
+  <p>The chi-squared distribution, denoted as \(\chi^2\), contains no parameters. The constraints on the distribution are called degrees of freedom.</p>
+</blockquote>
+
+<p><img src="../Assets/chi.png" alt="chi" /></p>
+
+<p>We can see as the degrees of freedom increase the distribution moves right.</p>
+
+<ul>
+  <li>The degrees of freedom varies based on your data and tests, in general it will equal the length of your data minus each parameter calculated from the data.</li>
+</ul>
+
+<h2 id="pearsons-chi-square-test">Pearson’s Chi-square (Test)</h2>
+<blockquote>
+  <p>A way to measure the difference between observations and expectations when only data is supplied.</p>
+</blockquote>
+
+<p>Often hypothesis do not express an obvious distribution. A hypothesis usually consists of a theory and not necessarily “x is distributed normally with a mean of y”.</p>
+
+<ul>
+  <li>This hypothesis informs what our expected data is.</li>
+  <li>We must interpret the hypothesis to generate the expected values for our data.</li>
+</ul>
+
+<p>Without two obvious distributions to calculate a p-value we can employ a chi-square test (AKA Pearson’s chi-square) to measure the deviation of our expected data from our observed data.</p>
+
+<p>The measure of this deviation is known as the badness of fit:
+\(B = \sum_i \frac{(e_i - o_i)^2}{e_i}\)</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">e</code> : the expected value</li>
+  <li><code class="language-plaintext highlighter-rouge">o</code> : the observed value</li>
+  <li>small \(B\) reflects consistency between expectations and observations</li>
+  <li>large \(B\) reflects an inconsistency.</li>
+</ul>
+
+<p>Given a reasonable amount of data (Common practice is <code class="language-plaintext highlighter-rouge">|data| &gt; 5</code>) and if the null is true, \(B\) is distributed as a chi-squared distribution. Hence we can calculate the p-value of \(\hat{B}\).</p>
+
+<p>Consider \(\hat{B} = 8\) and \(D_f = 3\), we can calculate a p-value to test the null:</p>
+
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="n">len</span><span class="o">=</span><span class="m">100</span><span class="p">)</span><span class="w">
+</span><span class="n">null_dist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dchisq</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w">
+</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">null_dist</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s2">"l"</span><span class="p">)</span><span class="w">
+
+</span><span class="n">abline</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="m">8</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span><span class="w">
+</span><span class="n">polygon</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">8</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="n">len</span><span class="o">=</span><span class="m">21</span><span class="p">),</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> 
+        </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="n">null_dist</span><span class="p">[</span><span class="m">80</span><span class="o">:</span><span class="m">100</span><span class="p">],</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> 
+        </span><span class="n">col</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span><span class="w"> </span><span class="n">border</span><span class="o">=</span><span class="kc">NA</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p><img src="../Assets/chi_test.png" alt="" /></p>
+
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pchisq</span><span class="p">(</span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">lower.tail</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span><span class="w">
+</span><span class="c1"># [1] 0.04601171</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Hence we have evidence to reject the null.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+  
+    <div class="wrapper">
+  
+      <h2 class="footer-heading">Notes on Computer Science</h2>
+  
+      <ul class="contact-list">
+      <li class="p-name">Notes on Computer Science<p>Information and takes on subjects related to computer science, mathematics, and technology in general.</p>
+          </li><li><a class="u-email" href="mailto:callum.cvr@gmail.com">callum.cvr@gmail.com</a></li></ul><ul class="social-media-list"><li><a href="https://github.com/CVR-Skidz"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CVR-Skidz</span></a></li></ul>
+</div>
+  
+  </footer>
+  </body>
+
+</html>

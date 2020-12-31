@@ -1,0 +1,2229 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Algebra | Notes on Computer Science</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Algebra" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Algebra and discrete mathematics" />
+<meta property="og:description" content="Algebra and discrete mathematics" />
+<link rel="canonical" href="http://localhost:4000/topics/Content/Algebra.html" />
+<meta property="og:url" content="http://localhost:4000/topics/Content/Algebra.html" />
+<meta property="og:site_name" content="Notes on Computer Science" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-01T08:46:39+13:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Algebra.html","headline":"Algebra","dateModified":"2021-01-01T08:46:39+13:00","datePublished":"2021-01-01T08:46:39+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Algebra.html"},"description":"Algebra and discrete mathematics","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Notes on Computer Science</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Algebra</h1>
+  </header>
+
+  <div class="post-content">
+    <p>Algebra and discrete mathematics</p>
+
+<h2 id="addition">Addition</h2>
+
+<h3 id="properties-of-addition">Properties of Addition</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(x + 0 = x\)</td>
+      <td>identity</td>
+    </tr>
+    <tr>
+      <td>\(x + y = y + x\)</td>
+      <td>commutativity</td>
+    </tr>
+    <tr>
+      <td>\((x + y) + z = x + (z + y)\)</td>
+      <td>associativity</td>
+    </tr>
+    <tr>
+      <td>\(x + (-1) = x - 1\)</td>
+      <td>additive inverse</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="subtraction">Subtraction</h2>
+
+<h3 id="properties-of-subtraction">Properties of Subtraction</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(x - 0 = x\)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>\(x-x = 0\)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="multiplication">Multiplication</h2>
+
+<h3 id="properties-of-multiplication">Properties of Multiplication</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(x * y = y * x\)</td>
+      <td>associativity</td>
+    </tr>
+    <tr>
+      <td>\(x * 0 = 0\)</td>
+      <td>absorbing element</td>
+    </tr>
+    <tr>
+      <td>\(x * 1 = x\)</td>
+      <td>identity element</td>
+    </tr>
+    <tr>
+      <td>\((x * y) * z = x * (y * z)\)</td>
+      <td>commutativity</td>
+    </tr>
+    <tr>
+      <td>\(x * (y * z) = x * y + x * z\)</td>
+      <td>distributivity</td>
+    </tr>
+    <tr>
+      <td>\(\frac{1}{x}\)</td>
+      <td>multiplicative inverse</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="division">Division</h2>
+
+<h3 id="properties-of-division">Properties of Division</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(6365 \equiv 5 (mod \space 20)\)</td>
+      <td>congruency, expressing terms are categorically equivalent to one another (for example the category could be even)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="modulo">Modulo</h3>
+
+\[\begin {aligned}
+&amp; n = m (mod\space k) \\
+&amp; the\space remainder \space of \space n / k \space is \space m \\
+\end{aligned}\]
+
+<h3 id="notes">Notes</h3>
+
+<ul>
+  <li>The type of congruency to determine even or odd numbers is called parity.</li>
+</ul>
+
+<h2 id="divisibility">Divisibility</h2>
+
+<p>We say a number <code class="language-plaintext highlighter-rouge">k</code> <strong>divides</strong> a number <code class="language-plaintext highlighter-rouge">n</code> evenly, written <code class="language-plaintext highlighter-rouge">k|n</code> if:
+\(n \equiv 0(mod\space k)\)
+\(2|16\) as \(16 \equiv 0 (mod \space 2)\)</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">k</code> is known as a <code class="language-plaintext highlighter-rouge">divisor</code> of <code class="language-plaintext highlighter-rouge">n</code></li>
+  <li><code class="language-plaintext highlighter-rouge">n</code> is known as a <code class="language-plaintext highlighter-rouge">mulitple</code> of <code class="language-plaintext highlighter-rouge">k</code></li>
+</ul>
+
+<h3 id="prime-numbers">Prime Numbers</h3>
+
+<p>Numbers are <code class="language-plaintext highlighter-rouge">prime</code> if the only <code class="language-plaintext highlighter-rouge">divisors</code> of <code class="language-plaintext highlighter-rouge">n</code> are 1 and <code class="language-plaintext highlighter-rouge">n</code></p>
+
+<blockquote>
+  <p>Any number <code class="language-plaintext highlighter-rouge">n</code> can be written as the product of prime numbers, known as the fundamental theorem of arithmetic.</p>
+</blockquote>
+
+<blockquote>
+  <p>Euclid’s Theory proves there are an infinite amount of prime numbers.</p>
+</blockquote>
+
+<h2 id="real-numbers">Real Numbers</h2>
+
+<p>Real numbers are either rational, irrational, natural, or integers.</p>
+
+<p>Sets of numbers can be closed under an operation, meaning when two numbers of the same set are operated on with said operator, they remain in that set.</p>
+
+<h3 id="natural-numbers">Natural Numbers</h3>
+
+<blockquote>
+  <p>0,1,2,3,4…</p>
+</blockquote>
+
+<ul>
+  <li>Natural numbers allow us to count</li>
+  <li>We can perform 4 operations on them: <code class="language-plaintext highlighter-rouge">+,-,/,*</code></li>
+  <li>Natural numbers could divide another</li>
+</ul>
+
+<p><strong>Natural numbers are closed under:</strong></p>
+
+<ul>
+  <li>Addition</li>
+  <li>Multiplication</li>
+</ul>
+
+<p><strong>Natural numbers are not closed under:</strong></p>
+
+<ul>
+  <li>Subtraction</li>
+</ul>
+
+<h3 id="integers">Integers</h3>
+
+<blockquote>
+  <p>Integers are all natural and negative numbers.</p>
+</blockquote>
+
+<p><strong>They are closed under:</strong></p>
+
+<ul>
+  <li>Addition</li>
+  <li>Subtraction</li>
+</ul>
+
+<h3 id="rational-numbers">Rational Numbers</h3>
+
+<blockquote>
+  <p>Rational numbers are of the form \(\frac{x}{y}\) where <code class="language-plaintext highlighter-rouge">x</code>and <code class="language-plaintext highlighter-rouge">y</code> are integers not equal to 0.</p>
+</blockquote>
+
+<p><strong>Rational numbers are closed under:</strong></p>
+
+<ul>
+  <li>Division</li>
+</ul>
+
+<p>The <strong>greatest common divisor</strong> of two integers <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> is denoted as <code class="language-plaintext highlighter-rouge">gcd(x, y)</code>. It is the largest number that divides both <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code>. Pairs of numbers that have the same greatest common divisor are called <code class="language-plaintext highlighter-rouge">coprime</code>.</p>
+
+<p>Rational numbers can be in reduced form, where both the denominator and numerator are <code class="language-plaintext highlighter-rouge">coprime</code> of the original number. \(\frac{2}{3}\) is the reduced form of \(\frac{4}{6}\).</p>
+
+<p>Expanding rational numbers results in an infinitely reoccurring decimal.</p>
+
+<h3 id="irrational-numbers">Irrational Numbers</h3>
+
+<p>Numbers that can not be represented as a simple fraction. They are the last type of real numbers.</p>
+
+<h2 id="euclids-algorithm">Euclid’s Algorithm</h2>
+
+<blockquote>
+  <p>Euclid’s algorithm is an algorithm to find the reduced form of any rational number</p>
+</blockquote>
+
+<p><img src="../Assets/euclidAlgo.png" alt="Euclid's algorithm" /></p>
+
+<p>Euclid’s algorithm is based off the expression \(x \equiv k \space mod(n)\) which itself is based of  the expression \(x = n(i) + k\)</p>
+
+<h2 id="logic">Logic</h2>
+
+<blockquote>
+  <p>Logic is the art of thinking, or reasoning. It can provide mathematical rigor, or the soundness of an algorithm.</p>
+</blockquote>
+
+<p>The basic principle of logic is as follows</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if p, then q:
+p;
+therefore q;
+</code></pre></div></div>
+
+<p>Logic works with propositions, statements that can be <code class="language-plaintext highlighter-rouge">true</code> or <code class="language-plaintext highlighter-rouge">false</code> but not both.</p>
+
+<h3 id="logical-gates">Logical Gates</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Gate</th>
+      <th>Symbol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">and</code></td>
+      <td><img src="..\Assets\andGate.png" alt="and" /></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">or</code></td>
+      <td><img src="../Assets/orGate.png" alt="" /></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">not</code></td>
+      <td><img src="../Assets/notGate.png" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="logical-conjunctions">Logical Conjunctions</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Conjunction</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Negation</td>
+      <td>\(\neg p\)</td>
+      <td>not <code class="language-plaintext highlighter-rouge">p</code></td>
+    </tr>
+    <tr>
+      <td>Conjunction</td>
+      <td>\(q \land p\)</td>
+      <td><code class="language-plaintext highlighter-rouge">q</code> and <code class="language-plaintext highlighter-rouge">p</code></td>
+    </tr>
+    <tr>
+      <td>Disjunction</td>
+      <td>\(q \lor p\)</td>
+      <td><code class="language-plaintext highlighter-rouge">q</code> or <code class="language-plaintext highlighter-rouge">p</code></td>
+    </tr>
+    <tr>
+      <td>Implication</td>
+      <td>\(q \implies p\)</td>
+      <td>if <code class="language-plaintext highlighter-rouge">p</code> then <code class="language-plaintext highlighter-rouge">q</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When evaluating a logical formula we define tautologies, contradictions, and contingencies:</p>
+
+<ul>
+  <li>A tautology is a formula which is true in every possible valuation.</li>
+  <li>A contradiction is a formula which is false in every possible valuation</li>
+  <li>A contingency is a formula which is neither a tautology or contradiction</li>
+</ul>
+
+<h3 id="truth-tables">Truth Tables</h3>
+
+<blockquote>
+  <p>Truth tables show all possible values of logical equations</p>
+</blockquote>
+
+<p>A truth table for any proposition <code class="language-plaintext highlighter-rouge">p</code> is as follows.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>\(p\)</th>
+      <th>\(\neg \space p\)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>T</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>T</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A truth table for propositions <code class="language-plaintext highlighter-rouge">q</code> and <code class="language-plaintext highlighter-rouge">p</code> is as follows.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>\(p\)</th>
+      <th>\(q\)</th>
+      <th>\(p \land q\)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <td>T</td>
+      <td>F</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>T</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>F</td>
+      <td>F</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A truth table for propositions <code class="language-plaintext highlighter-rouge">q</code> implies <code class="language-plaintext highlighter-rouge">p</code> is as follows.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>\(p\)</th>
+      <th>\(q\)</th>
+      <th>\(p \implies q\)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <td>T</td>
+      <td>F</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>T</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>F</td>
+      <td>T</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The implication operation can be represented by the function:</p>
+
+<pre><code class="language-C">bool implication(bool p, bool q) {
+    if(p) {
+        return q;
+    }
+    else {
+        return true;
+        }
+}
+</code></pre>
+
+<ul>
+  <li>For <code class="language-plaintext highlighter-rouge">n</code> propositions  there are \(2^n\) rows.</li>
+</ul>
+
+<h3 id="equivelance">Equivelance</h3>
+
+<p>Equivalence is the symbol \(P \leftrightarrow q$ and implies that <code class="language-plaintext highlighter-rouge">p</code> and <code class="language-plaintext highlighter-rouge">q</code> implie one another. This is the same as \((p \implies q) \land (q \implies p)\). i.e. both <code class="language-plaintext highlighter-rouge">p</code> a nd <code class="language-plaintext highlighter-rouge">q</code> are the same logical value as one another.</p>
+
+<p>The following is an example truth table of \((p \implies q) \leftrightarrow (\neg p \lor q)\)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>\(p\)</th>
+      <th>\(q\)</th>
+      <th>\(\neg p\)</th>
+      <th>\(\neg p \lor q\)</th>
+      <th>\(p \implies q\)</th>
+      <th>\((p \implies q) \leftrightarrow (\neg p \lor q)\)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>T</td>
+      <td>T</td>
+      <td>F</td>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <td>T</td>
+      <td>F</td>
+      <td>F</td>
+      <td>F</td>
+      <td>F</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>F</td>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>A logically equivelant formula is always a tautology</li>
+  <li>\(p \leftrightarrow q \implies p \equiv q\)</li>
+</ul>
+
+<h3 id="laws-of-logic">Laws of logic</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Logical Formula</th>
+      <th>Law</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(p \implies q \equiv \neg p \lor q\)</td>
+      <td>Implication</td>
+    </tr>
+    <tr>
+      <td>\(p \land p \equiv p\)</td>
+      <td>Idempotent</td>
+    </tr>
+    <tr>
+      <td>\(p \land q \equiv q \land p\)</td>
+      <td>Commutative</td>
+    </tr>
+    <tr>
+      <td>\((p \land q) \land r \equiv p \land (q \land r)\)</td>
+      <td>Associative</td>
+    </tr>
+    <tr>
+      <td>\(p \land (p \lor q) \equiv p\)</td>
+      <td>Absorption</td>
+    </tr>
+    <tr>
+      <td>\(p \land (q \lor r) \equiv (p \land q) \lor (p \land r)\)</td>
+      <td>Distributive</td>
+    </tr>
+    <tr>
+      <td>\(\neg\neg p \equiv p\)</td>
+      <td>Involution</td>
+    </tr>
+    <tr>
+      <td>\(\neg(p \lor q) \equiv \neg p \land \neg q\)</td>
+      <td>De Morgan’s</td>
+    </tr>
+    <tr>
+      <td>\(p \lor \neg p \equiv T\)</td>
+      <td>Excluded Middle</td>
+    </tr>
+    <tr>
+      <td>\(p \land T \equiv p\)</td>
+      <td>Identity</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="duality">Duality</h3>
+
+<p>Consider any formula that contains only the binary connectives <code class="language-plaintext highlighter-rouge">∨</code> and <code class="language-plaintext highlighter-rouge">∧</code> and \(\neg\), the dual of the formula is found by replacing every <code class="language-plaintext highlighter-rouge">∨</code> with <code class="language-plaintext highlighter-rouge">∧</code> , <code class="language-plaintext highlighter-rouge">∧</code> with <code class="language-plaintext highlighter-rouge">∨</code>, <code class="language-plaintext highlighter-rouge">t</code> (truths) with <code class="language-plaintext highlighter-rouge">c</code> (contradictions) and <code class="language-plaintext highlighter-rouge">c</code> with <code class="language-plaintext highlighter-rouge">t</code>.</p>
+
+<p><strong>E.g.</strong> The dual of \(p \land t\) is \(p \lor c\)</p>
+
+<h3 id="contrapositive">Contrapositive</h3>
+
+<p>\(p \implies q \equiv \bar q \implies \bar p\), if <code class="language-plaintext highlighter-rouge">p</code> is <code class="language-plaintext highlighter-rouge">true</code> then <code class="language-plaintext highlighter-rouge">q</code> is equivelant to if <code class="language-plaintext highlighter-rouge">!q</code> is <code class="language-plaintext highlighter-rouge">true</code> then <code class="language-plaintext highlighter-rouge">!p</code></p>
+
+<h2 id="logical-consequences">Logical Consequences</h2>
+
+<p>Given a set of formulas \(\gamma\), and a formula \(\psi\), we call \(\psi\) the logical consequence of \(\gamma\), denoted as \(\gamma\) <code class="language-plaintext highlighter-rouge">|=</code> \(\psi\), if \(\psi\)  is true whenever all formulas in \(\gamma\)  are <code class="language-plaintext highlighter-rouge">true</code>.</p>
+
+<p><strong>Example</strong></p>
+
+<p>Show that \({p \implies q, p}  |= q\)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>\(p\)</th>
+      <th>\(q\)</th>
+      <th>\(p\implies q\)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>T</strong></td>
+      <td><strong>T</strong></td>
+      <td><strong>T</strong></td>
+    </tr>
+    <tr>
+      <td>T</td>
+      <td>F</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>T</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>F</td>
+      <td>T</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Note: the bold row is all true, therefore all formula of \(\gamma\) is true, and so is \(q\), the consequence of the implication.</p>
+
+<p><strong>It is also possible to prove \(((p \implies q) \land p) \implies q\) is a tautology. This will also show the logical consequence is \(q\).</strong></p>
+
+<h2 id="transitivity">Transitivity</h2>
+
+<p>Reasoning by transitivity denotes if one term implies another, and that other term implies <code class="language-plaintext highlighter-rouge">x</code> , then the first term implies <code class="language-plaintext highlighter-rouge">x</code></p>
+
+\[((p \implies q) \land (q \implies r))\space |= p \implies r\]
+
+<h2 id="proofs">Proofs</h2>
+
+<blockquote>
+  <p>Mathematics establishes facts through logic</p>
+</blockquote>
+
+<p>A proof of a statement must demonstrate the the statement holds in all cases without exception. Once proved the statement becomes a theorem, otherwise we consider it a conjecture.</p>
+
+<h3 id="terminology">Terminology</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(\forall\)</td>
+      <td>“for all positive integers”</td>
+    </tr>
+    <tr>
+      <td>\(\exists\)</td>
+      <td>“there exists a positive integer”</td>
+    </tr>
+    <tr>
+      <td>\(\mathbb{N}\)</td>
+      <td>“natural numbers set”</td>
+    </tr>
+    <tr>
+      <td>\(\mathbb{Z}\)</td>
+      <td>“integers set”</td>
+    </tr>
+    <tr>
+      <td>\(E\)</td>
+      <td>“program(s)”</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="techniques">Techniques</h3>
+
+<h4 id="direct-proof">Direct Proof</h4>
+
+<p>\(\phi\) is denoted as the hypothesis and \(\psi\) the conclusion. Direct proof techniques try to prove if \(\phi\) is true so is \(\psi\).
+\(\phi \implies \psi\)
+In general the process works as follows:</p>
+
+<ul>
+  <li>Form a logical equation for \(\phi\) and \(\psi\)</li>
+  <li>Prove that \(\phi \implies \psi\) is a tautology.</li>
+</ul>
+
+<h4 id="proof-by-contrapositive">Proof by Contrapositive</h4>
+
+<p>\(\neg q \implies \neg p\) is the <strong>contrapositive</strong> of \(p \implies q\)</p>
+
+<p>A proof by contrapositive forms logical equations for both \(p\) and \(q\), and then forms another set for the contrapositive. <strong>Note both p and q are consequences</strong>. From this we model them as the contrapositive hypothesis. Once we prove this we can consider the theorem proved.</p>
+
+<h4 id="proof-by-contradiction">Proof by Contradiction</h4>
+
+<p>If \((p \implies q) |= T\) is stated to be true we could consider that \(\neg(p \implies q)\space |= F\)</p>
+
+<p>If we can prove this is <strong>false</strong> then we consider the theorem proved.</p>
+
+<h4 id="proof-by-cases">Proof by Cases</h4>
+
+<p>To prove by using cases we try to divide the hypothesis into as little sets as possible. For instance either an even and odd case (numbers have to be under the set even or odd). Then we try to prove the hypothesis for all sets.</p>
+
+<h4 id="disproof-by-counter-example">Disproof by Counter Example</h4>
+
+<p>Disproving by counter example attempts to prove the contradiction to \(\phi\) is <strong>true</strong> for at least one case.</p>
+
+<h4 id="proof-by-mathematical-induction">Proof by Mathematical Induction</h4>
+
+<blockquote>
+  <p>Proving the function denoted by <code class="language-plaintext highlighter-rouge">P(n)</code> for all numbers in a set <code class="language-plaintext highlighter-rouge">n</code></p>
+</blockquote>
+
+<p>Written in the form of \(\space \forall n \geq 1 : P(n)\)</p>
+
+<p>The steps to prove this are:</p>
+
+<ul>
+  <li>Calculate a base case \((P(base) \equiv T)\), <strong>Note the base case for \(\forall n \geq 1\) is 1.</strong></li>
+  <li>Inductive Step: Take a number \(\geq\) 1
+    <ul>
+      <li>Suppose \(P(n) \equiv T\) prove \(P(n + 1) \equiv T\)
+i.e. prove (\(P(n) \implies P(n + 1)\))</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="sets">Sets</h2>
+
+<blockquote>
+  <p>A set is a collection of objects</p>
+</blockquote>
+
+<ul>
+  <li>Objects within a set are called elements</li>
+</ul>
+
+<p>An element inside a set is denoted as \(x \in A\), otherwise it is not in the set and denoted by \(x \notin A\).</p>
+
+<p>Sets can be specified as:</p>
+
+<ul>
+  <li>Enumeration: [1, 2, 3 , 4] (sets are not ordered, and repetitions are not classified as separate number)</li>
+  <li>Comprehension: propositions to describe a set such as{ \(x\space | \space x\) is an even integer and \(2 \leq x \leq 8\) } (Note the “|” is a separator between the element’s notation and description)</li>
+</ul>
+
+<h3 id="set-notations">Set Notations</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Notation</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(\emptyset\)</td>
+      <td>Empty Set</td>
+    </tr>
+    <tr>
+      <td>\(\mathbb{N}\)</td>
+      <td>Natural Numbers</td>
+    </tr>
+    <tr>
+      <td>\(\mathbb{Z}\)</td>
+      <td>Integers</td>
+    </tr>
+    <tr>
+      <td>\(\mathbb{Q}\)</td>
+      <td>Rational Numbers</td>
+    </tr>
+    <tr>
+      <td>\(\mathbb{R}\)</td>
+      <td>Real Numbers</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cardinality">Cardinality</h3>
+
+<blockquote>
+  <p>The cardinality of a set is the length of a set</p>
+</blockquote>
+
+<p>The cardinality of set \(A\) is denoted as \(A\)</p>
+
+<h3 id="universal-sets">Universal Sets</h3>
+
+<blockquote>
+  <p>Universal sets are sets consisting of all the elements under consideration</p>
+</blockquote>
+
+<p><strong>Example:</strong></p>
+
+\[let \space S = \{x | x^2 = 2\}\]
+
+<ul>
+  <li>If the universal set is \(\mathbb{q}\), then \(S = \emptyset\)</li>
+  <li>If the universal set is \(\mathbb{R}\), then \(S = {\sqrt{2}, - \sqrt{2}}\)</li>
+</ul>
+
+<h3 id="subsets">Subsets</h3>
+
+<blockquote>
+  <p>A set \(A\) is said to be a subset of \(B\) if every element of \(A\) is also an element of \(B\)</p>
+</blockquote>
+
+<p>Subsets are denoted by \(A \subseteq B\)</p>
+
+<p><strong>A proper subset is a subset where every element of \(A\) is in \(B\) and \(A \neq B\) denoted by \(A \subset B\).</strong></p>
+
+<h4 id="subset-notation">Subset Notation</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Notation</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(\subset\)</td>
+      <td>Subset</td>
+    </tr>
+    <tr>
+      <td>\(\subseteq\)</td>
+      <td>Proper Subset</td>
+    </tr>
+    <tr>
+      <td>\(\not\subset\)</td>
+      <td>Not a Subset</td>
+    </tr>
+    <tr>
+      <td>\(\not\subseteq\)</td>
+      <td>Not a Proper Subset</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="set-operations">Set Operations</h3>
+
+<p>Operations that can be performed on sets</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Notation</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Compliment</td>
+      <td>\(\bar A\)</td>
+      <td><strong>everything not in \(A\)</strong></td>
+    </tr>
+    <tr>
+      <td>Union</td>
+      <td>\(B \cup A\)</td>
+      <td><strong>everything in \(A\) or \(B\)</strong></td>
+    </tr>
+    <tr>
+      <td>Intersection</td>
+      <td>\(B \cap A\)</td>
+      <td><strong>everything in \(A\) and \(B\)</strong></td>
+    </tr>
+    <tr>
+      <td>Difference</td>
+      <td>\(A \setminus B\)</td>
+      <td><strong>The difference of sets \(A\) and \(B\)</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="set-laws">Set Laws</h4>
+
+<blockquote>
+  <p>Set notation can also be replaced with logical notation to use Logical laws</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>Law</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Distributive</td>
+      <td>\(A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\)</td>
+    </tr>
+    <tr>
+      <td>De Morgan’s</td>
+      <td>\(\bar{A} \space \bar{\cap} \space \bar{B} = \bar{A} \cup \bar{B}\)</td>
+    </tr>
+    <tr>
+      <td>Idempotent</td>
+      <td>\(A \cap A = A\)</td>
+    </tr>
+    <tr>
+      <td>Commutative</td>
+      <td>\(A \cap B = B \cap A\)</td>
+    </tr>
+    <tr>
+      <td>Associative</td>
+      <td>\(A \cap (B \cap C) = (A \cap B) \cap C\)</td>
+    </tr>
+    <tr>
+      <td>Absorption</td>
+      <td>\(A \cap (A \cup B) = A\)</td>
+    </tr>
+    <tr>
+      <td>Involution</td>
+      <td>\(\bar{\bar{A}} = A\)</td>
+    </tr>
+    <tr>
+      <td>Difference</td>
+      <td>\(A - B = A \cap \bar{B}\)\)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="set-proofs">Set Proofs</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Proof</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(A = B\)</td>
+      <td>Prove that \(A \subseteq B\) and  \(B \subseteq A\)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="families-of-sets">Families of Sets</h4>
+
+<blockquote>
+  <p>A set of sets.</p>
+</blockquote>
+
+<p>Consider that sets can contain elements that are sets themselves, such as: \( \{\{1,2,3\}, \{3,4,5\}, \{6,7,8\}\}\)</p>
+
+<p>If we have a large amount of these elements we can use comprehension to describe them:</p>
+
+\[\{A_i \space | \space i \in \mathbb{N}\}\]
+
+<p>\(i\) denotes an index, an index in the family of sets \(A_0, A_1, …\), where each index is a set itself.</p>
+
+<ul>
+  <li>The set <code class="language-plaintext highlighter-rouge">N</code> above is known as the indexing set.</li>
+  <li>We can define a set using comprehension using indexing, such as: \(A_i = \{x | x \in \mathbb{N}, x &gt; i\}\), where each index uses the comprehension notation to define itself.</li>
+  <li>Note that the indexing set is arbitrary, and can be any set.</li>
+</ul>
+
+<p>We can also specify a set using set notations, such as the union or intersection of a set:</p>
+
+<p><img src="../Assets/setFamilyGroups.png" alt="unions and sets" /></p>
+
+<ul>
+  <li>Above we define the set of the union between \(i \in \mathbb{I}\) and \(A_i\) as well as the intersection.</li>
+  <li>Two handy generalisations are:
+    <ul>
+      <li>The union of a family of sets where elements are pure subsets of one another will return the biggest set.</li>
+      <li>The intersection of a family of sets whose elements are pure subsets of one another will return the smallest set.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="power-sets">Power Sets</h3>
+
+<blockquote>
+  <p>The family of sets consisting of all the subsets of a set.</p>
+</blockquote>
+
+<p>The power set of a is denoted as:
+\(P(A) = \{B|B \subseteq A\}\)
+The cardinality of power sets is denoted as:
+\(n \in \mathbb{Z}, \space n \ge 0, \space |A| = n \implies |P(A)| = 2^n\)</p>
+
+<h3 id="cartesian-product">Cartesian Product</h3>
+
+<blockquote>
+  <p>A way to produce ordered pairs</p>
+</blockquote>
+
+<p><strong>Ordered pairs:</strong> An ordered pair is of the form \((x,y)\), in which the order of elements is important, and repetition counts as separate elements.</p>
+
+<ul>
+  <li>\((1,2) \not= (2,1)\)</li>
+  <li>\({1,2} = {2,1}\)</li>
+  <li>\((1,1) \not= (1)\)</li>
+  <li>\({1,1} = {1}\)</li>
+  <li>\(\therefore (x_1, y_1) = (x_2, y_2) \iff x_1 = x_2 \land y_1 = y_2\)</li>
+</ul>
+
+<p>The <strong>Cartesian product</strong> \(A \times B\) is the set of all ordered pairs \((a,b)\) where \(A \in A\) and \(B \in B\).</p>
+
+\[A \times B = \{(a,b) |a \in A, b \in B\}\]
+
+<p><img src="../Assets/cartesianProduct.png" alt="Cartesian Products" /></p>
+
+<p>\(X = {a,b,c}\)</p>
+
+<p>\(X^2 = X \times X = {(a,a),(a,b),(a,c),(b,a),(b,b),(b,a),(c,a),(c,b),(c,c)}\)</p>
+
+<p>Ordered pairs, in relation to their size are called <strong>n</strong>-<strong>tuples</strong>. (1,2,3) is a 3-tuple for example.</p>
+
+<p><strong>The cardinality of cartesian products is equal to the product of the cardinality of all the underlying sets:</strong></p>
+
+\[|X_1 \times X_2 \times ... \times X_{n+1}| = |X_1| \times |X_2| \times ... \times |X_{n+1}|\]
+
+<h2 id="relations">Relations</h2>
+
+<h3 id="binary-relations">Binary relations</h3>
+
+<blockquote>
+  <p>A relation between two objects.</p>
+</blockquote>
+
+<p>Taking a binary relation from objects in one set to those in another, makes the resultant sets a pure subset of the Cartesian product of those sets. \(R \subseteq A \times B\)</p>
+
+<ul>
+  <li>If set <code class="language-plaintext highlighter-rouge">A</code> were equal to set <code class="language-plaintext highlighter-rouge">B</code> the relationships would be a subset of the Cartesian product of only <code class="language-plaintext highlighter-rouge">A</code>, and we say <code class="language-plaintext highlighter-rouge">R</code> is a binary relation on <code class="language-plaintext highlighter-rouge">A</code>. \(R \subseteq A \times A\)</li>
+  <li>For an ordered pair in <code class="language-plaintext highlighter-rouge">R</code>, \((x,y) \in R\), we say <code class="language-plaintext highlighter-rouge">x</code> is related to <code class="language-plaintext highlighter-rouge">y</code> in <code class="language-plaintext highlighter-rouge">R</code>, sometimes denoted as \(xRy\)</li>
+</ul>
+
+<p>A relationship can thus be thought of as a Cartesian product with a condition.</p>
+
+<p><img src="../Assets/binaryRelation.png" alt="Binary Relation" /></p>
+
+<ul>
+  <li>The Cartesian product of <code class="language-plaintext highlighter-rouge">HandShape</code> would have a cardinality of 9, however the beats relationship specifies a condition, and we only have 3 pairs in the set.</li>
+</ul>
+
+<p><img src="../Assets/binaryRelationTwo.png" alt="Binary Relation Two" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property of Binary Relations</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>If for every \(A \in A\) there is an ordered pair \((a,a) \in R$</td>
+      <td>Reflexive</td>
+    </tr>
+    <tr>
+      <td>If for every pair \(A,b \in A\) there are ordered pairs \((a,b) \in R \implies (b,a) \in R$</td>
+      <td>Symmetric</td>
+    </tr>
+    <tr>
+      <td>If for every pair \(A,b \in A\) , \(((a,b) \in R \land (b,a) \in R) \implies a = B\) is true.</td>
+      <td>Antisymmetric</td>
+    </tr>
+    <tr>
+      <td>If for every pair \(A,b, c \in A\) there are ordered pairs \(((a,b) \in R \land (b,c) \in R) \implies (a,c) \in R$</td>
+      <td>Transitive</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">R is the binary relation on A</code></li>
+</ul>
+
+<h3 id="equivalence-relation">Equivalence Relation</h3>
+
+<blockquote>
+  <p>A reflexive, symmetric, and transitive relation</p>
+</blockquote>
+
+<p><img src="../Assets/equivRelation.png" alt="Equivalence Relation Conditions" /></p>
+
+<p>Equivalence relations are often noted by \(\sim, \equiv, \cong$.</p>
+
+<h3 id="partial-orders">Partial Orders</h3>
+
+<blockquote>
+  <p>A reflexive, antisymmetric, and transitive relation</p>
+</blockquote>
+
+<p><img src="../Assets/partialRelation.png" alt="Partially ordered conditions" /></p>
+
+<h2 id="partitions">Partitions</h2>
+
+<blockquote>
+  <p>Dividing a set into subsets which do not overlap each other, known as partitions.</p>
+</blockquote>
+
+<p>Partitions are the result of an equivalence relation applied to a set. To be a partition the following rules must be satisfied:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Equation</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pairwise disjoint</td>
+      <td>\(A_i \cap A_j = \emptyset, i \not= j\)</td>
+      <td>Each subset does not overlap with another</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>\(\cup_{0\leq i \leq 1} A_i = A\)</td>
+      <td>The union of all partitions equals the set itself.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A set made of only one element (a singleton) has only one partition. A set that is empty also only has one partition (\({\emptyset}\)). These are <strong>trivial partitions</strong>.</p>
+
+<ul>
+  <li>A set with <code class="language-plaintext highlighter-rouge">n</code> elements has \(B_n\) possible partitions, where <code class="language-plaintext highlighter-rouge">B</code> is a <strong>bell number</strong>.</li>
+</ul>
+
+\[A=\{x,y,z\}\]
+
+\[P1 = \{\{x,y,z\}\}\]
+
+\[P2 = \{\{x,y\}, \{z\}\}\]
+
+\[P3 = \{\{y,z\}, \{x\}\}\]
+
+\[P4 = \{\{x\},\{y\},\{z\}\}\]
+
+\[P5 = \{\{y\},\{z,x\}\}\]
+
+<p>An equivalence relation <code class="language-plaintext highlighter-rouge">~</code> defines a partition when applied to a set (e.g. <code class="language-plaintext highlighter-rouge">A</code>). For every element <code class="language-plaintext highlighter-rouge">x</code> in <code class="language-plaintext highlighter-rouge">A</code> the subset in the partition that contains <code class="language-plaintext highlighter-rouge">x</code> is called <strong>the equivalence class</strong> denoted by <code class="language-plaintext highlighter-rouge">[x]</code>.</p>
+
+<ul>
+  <li>\([X]\) refers to the whole partition containing <code class="language-plaintext highlighter-rouge">x</code>. This is itself some class of object imposed by an equivalence relation.</li>
+</ul>
+
+<h2 id="functions">Functions</h2>
+
+<blockquote>
+  <p>A mapping between elements of one set to another, based on some operation.</p>
+</blockquote>
+
+<p>Usually denoted as <code class="language-plaintext highlighter-rouge">f(x)</code>, the map between elements can be thought of as ordered pairs, and hence denote the function as a relation.</p>
+
+<p>A function <code class="language-plaintext highlighter-rouge">f</code> from a set <code class="language-plaintext highlighter-rouge">A</code> to a set <code class="language-plaintext highlighter-rouge">B</code> is a subset of <code class="language-plaintext highlighter-rouge">A x B</code> where for every input (\(A \in A\)) the is one output (\(B \in B\)) for which \((a,b) \in f\).</p>
+
+<ul>
+  <li>
+    <p>The output <code class="language-plaintext highlighter-rouge">b</code> is labelled <code class="language-plaintext highlighter-rouge">f(x)</code>, or as above \(f(a) = B\)</p>
+  </li>
+  <li>The range of a function is the set of \(\{b \in B | b = f(a) for\space some \space a \in A\}\) (the range of <code class="language-plaintext highlighter-rouge">B</code>)</li>
+  <li>A composite function is one which can map <code class="language-plaintext highlighter-rouge">B</code> to another set <code class="language-plaintext highlighter-rouge">C</code>. Hence with the composite function <code class="language-plaintext highlighter-rouge">g</code>, \(C_i = g(f(a_i))\)</li>
+</ul>
+
+<p>Functions can be categorised as:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Equation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1-1</td>
+      <td>Each element of <code class="language-plaintext highlighter-rouge">B</code> is only mapped to one element of <code class="language-plaintext highlighter-rouge">A</code></td>
+      <td>\(\forall x, w \in A: x\not= w \implies f(x) \not=f(w)\)</td>
+    </tr>
+    <tr>
+      <td>Surjective (onto)</td>
+      <td>Each element of <code class="language-plaintext highlighter-rouge">B</code> has at least one mapping in <code class="language-plaintext highlighter-rouge">A</code></td>
+      <td>\(\forall y \in B: \exists x \in A \space with \space f(x) = y\)</td>
+    </tr>
+    <tr>
+      <td>Bijection</td>
+      <td>Both 1-1 and onto.</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>A single element in <code class="language-plaintext highlighter-rouge">A</code> can not be mapped to more than one element in <code class="language-plaintext highlighter-rouge">B</code> to satisfy as a function.</li>
+</ul>
+
+<h3 id="inverse-functions">Inverse Functions</h3>
+
+<blockquote>
+  <p>The inverse of a function \(f\) , denoted as \(f^{-1}\), is a relation where \((b,a) \in f^{-1}\) if and only if \(f(a) = B\).</p>
+</blockquote>
+
+\[f^{-1} = \{(b,a) \in B \times A| f(a) = b\}\]
+
+<ul>
+  <li>Inverse functions must abide by the same rules as regular functions</li>
+</ul>
+
+<p>Consider the following:
+\(f:A \rarr A\space defined \space as \space id_A(a) = a, \forall a \in A\)</p>
+
+<ul>
+  <li>
+    <p>This is known as the identity function, one which maps elements of the domain to themselves, hence \(id_A(1) = 1 \implies 1 \in A\).</p>
+  </li>
+  <li>
+    <p>An inverse function given the argument of it’s non inverse counterpart returns it’s argument:
+\(f^{-1}(f(a)) = a\\
+f(f^{-1}(b)) = b\\\)</p>
+  </li>
+</ul>
+
+<h2 id="polynomial-functions">Polynomial Functions</h2>
+
+<blockquote>
+  <p>Functions that are defined from variables which use $+ \space and \space \times$ a fixed amount of times.</p>
+</blockquote>
+
+<p>A polynomial only uses addition and multiplication. Some examples of polynomials are:
+\(f_1(x) = 3x + 5\\
+f_2(x) = x^2 + 24\\
+f_5(x, y) = xy + y^3 - \frac{1}{3}x^2 + 1\\\)
+Polynomials are closed under addition and multiplication. If \(f\) and $g$ are polynomials the following are too:
+\(f(x) + g(x)\\
+f(x) \times g(x)\)</p>
+
+<ul>
+  <li>These are known as composite polynomials</li>
+</ul>
+
+<p>Two polynomials are said to be equivalent if they compute the same function:
+\(f_1(x) = (x+1)^2\\
+f_2(x) = x^2 + 2x + 1\)
+Assume \(P, Q, R$ are polynomials.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Equation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Commutativity</td>
+      <td>\(P + Q = Q + P$, \(PQ = QP\)</td>
+    </tr>
+    <tr>
+      <td>Associativity</td>
+      <td>\((P + Q) + R = P + (Q + R)\), \((PQ)R = P(QR)\)</td>
+    </tr>
+    <tr>
+      <td>Distributivity</td>
+      <td>\(P(Q + R) = PQ + PR\)</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Polynomials are said to be in <strong>expanded form</strong> if they have no brackets.</li>
+  <li>A <strong>term</strong> is a product of variables or constants, e.g. \(2x^2y\)</li>
+  <li>An expanded polynomial consists of the sum of a finite amount of terms.</li>
+  <li>Every polynomial can be expanded.</li>
+</ul>
+
+<p>Any polynomial can be written in normal form:
+\(a_1x^p + a_2x^{p-1} + ... + a_px + a_{p+1}\\
+Degree \space 5: 2x^5 + 3x^4 - x^3 + 6x + 9\)</p>
+
+<ul>
+  <li>The degree of a polynomial is the greatest exponent of \(x\) when expanded.
+    <ul>
+      <li>Degree 0: \(A\)  (Constant functions)</li>
+      <li>Degree 1: \(Ax + B\)  (Linear functions)</li>
+      <li>Degree 2: \(Ax^2 + bx + c\)  (Quadratics)</li>
+      <li>Degree 3: \(Ax^3 + bx^2 + cx + d\)  (Cubics)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="rational-functions">Rational Functions</h2>
+
+<blockquote>
+  <p>Functions consisting of the division between two polynomials. They are not polynomials.</p>
+</blockquote>
+
+<p>Consider the polynomials \(P, Q\), a rational function is written in the form:
+\(f(x_1, ..., x_n) = \frac{P(x_1, ..., x_n)}{Q(x_1,...,x_n)}\)</p>
+
+<p>Examples:
+\(f(x) = \frac{1}{x}\\
+f(x) = \frac{x + 1}{x^2 + 1}\)</p>
+
+<ul>
+  <li>Every rational function has a <strong>multiplicative inverse</strong>. e,g \(f_1(x) = 1/x\) has the inverse \(x\)</li>
+</ul>
+
+<h2 id="exponential-functions">Exponential Functions</h2>
+
+<blockquote>
+  <p>Functions that are not polynomial and written in the following form.</p>
+</blockquote>
+
+<p>An exponential function is written as:
+\(f(x) = ab^{cx+d}\)</p>
+
+<ul>
+  <li>\(B\) is known as the base of the function</li>
+  <li>\(A,b,c\) are constants, where \(B &gt; 0\)</li>
+</ul>
+
+\[f(x) = 2^x (base=2)\\
+f(x) = 3^{x+2} (base = 3)\]
+
+<h2 id="sequences--series">Sequences &amp; Series</h2>
+
+<blockquote>
+  <p>A sequence is a possibly infinite list of numbers</p>
+</blockquote>
+
+<p>e.g. $1,1,1,1,1,1,1,1\)</p>
+
+<blockquote>
+  <p>A series is the result of adding a sequence of numbers</p>
+</blockquote>
+
+\[\sum\limits_{i=0}^{n}a = a_0 + a_1 + a_2 + ... + a_n\]
+
+<h3 id="arithmetic-progressions">Arithmetic Progressions</h3>
+
+<blockquote>
+  <p>A sequence of numbers where the difference between consecutive terms is constant</p>
+</blockquote>
+
+\[\begin{aligned}
+1,2,3,4,5,6,...\\
+a+b, a+2b, a+3b,...\\
+15,20,25,30,...
+\end{aligned}\]
+
+<p>An <strong>arithmetic series</strong> is the sum of a finite arithmetic progression, written in the form:
+\(\begin{aligned} 
+&amp; \sum\limits_{i=0}^{n-1}(a +ib) = a + (a+b) + (a+2b) + ... + (a + (n-1)b)\\
+&amp; e.g. 1 + 2 + 3 + 4 + 5 + 6 = \sum\limits_{i=0}^{5}(1 + i)\\
+&amp; 15 + 25 + 35 + 45 + 55 + 65 = \sum\limits_{i=0}^{5}(15 + 10i)\\
+\end{aligned}\)</p>
+
+<ul>
+  <li>To quickly calculate the arithmetic series we use the formula:</li>
+</ul>
+
+\[n(a + (a + (n-1)b)) \div 2\]
+
+<h3 id="geometric-progression">Geometric progression</h3>
+
+<blockquote>
+  <p>A sequence where the ratios between consecutive terms is constant, not their difference</p>
+</blockquote>
+
+\[a, a \times b, a \times b^2, ..., a \times b^n\]
+
+<p>A <strong>geometric series</strong> is the sum of a geometric progression:
+\(\sum\limits_{i=0}^{n-1} a\times b^i = a + a\times b + a \times b^2 + ... + a \times b^{n-1}\)</p>
+
+<ul>
+  <li>To calculate a geometric series quickly we can use:</li>
+</ul>
+
+\[\frac{a(b^n)-a}{b-1}\]
+
+<h3 id="quadratic-progression">Quadratic Progression</h3>
+
+<blockquote>
+  <p>A sequence of numbers in the form \(A^2, (a+1)^2, … ,(a + (n-1))^2\)</p>
+</blockquote>
+
+<p>Again a <strong>quadratic series</strong> is the sum of a quadratic progression
+\(\sum\limits_{i=0}^{n} i^2 = 1 + 4 + 9 + 16 + 25 + ... + n^2\)</p>
+
+<ul>
+  <li>We can calculate these efficiently using:</li>
+</ul>
+
+\[\frac{n(n+1)(2n+1)}{6}\]
+
+<h2 id="vectors--coordinates">Vectors &amp; Coordinates</h2>
+
+<blockquote>
+  <p>Coordinates represent points in a space.</p>
+</blockquote>
+
+<p>Coordinate systems contain:</p>
+
+<ul>
+  <li>Points in a space</li>
+  <li>Line segments, the space between two points</li>
+  <li>Euclidean Metrics, the absolute difference between two points. The distance between two points.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>System</th>
+      <th>Coordinates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>One Dimensional</td>
+      <td>Numbers</td>
+    </tr>
+    <tr>
+      <td>Two Dimensional</td>
+      <td>Ordered Pairs</td>
+    </tr>
+    <tr>
+      <td>Three dimensional</td>
+      <td>Vector 3</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>The cosine of the angle between two vectors is equal to \(Cos \theta = \frac{a \cdot b}{|a| \cdot |b|}\)</li>
+</ul>
+
+<h2 id="two-dimensional-systems">Two Dimensional Systems</h2>
+
+<blockquote>
+  <p>Two dimensional systems represent coordinates in a plane</p>
+</blockquote>
+
+<p>A <code class="language-plaintext highlighter-rouge">2D</code> system consists of a plane, origin (usually <code class="language-plaintext highlighter-rouge">(0,0)</code> ), and an axes. The coordinates in a <code class="language-plaintext highlighter-rouge">2D</code> system are represented by ordered pairs.</p>
+
+<p>The origin point is denoted as \(O\). Line segments create vectors in a <code class="language-plaintext highlighter-rouge">2d</code> space, denoted as  \(\overrightarrow{\text{OA}}\).</p>
+
+<ul>
+  <li>The beginning of this line is called the tail \(O\), and the end the head \(A\).</li>
+  <li>A vector has a direction and magnitude.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Vector Operation</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Addition</td>
+      <td>\((x, y) + (a, b) = (x + a, y + b)\)</td>
+    </tr>
+    <tr>
+      <td>Scalar Multiplication</td>
+      <td>\(C(x, y) = (cx, cy)\)</td>
+    </tr>
+    <tr>
+      <td>Dot Product</td>
+      <td>\((a_1 , b_1) \cdot (a_2, b_2) = a_1a_2 + b_1b_2\)</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property of Vectors</th>
+      <th>Formula</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Commutativity</td>
+      <td>\(A + B = B + A\)</td>
+    </tr>
+    <tr>
+      <td>Associativity</td>
+      <td>\((A + B) + C = A + (B + C)\)</td>
+    </tr>
+    <tr>
+      <td>Identity</td>
+      <td>\(A + 0 = A\)</td>
+    </tr>
+    <tr>
+      <td>Inverse</td>
+      <td>\(A - A = 0\)</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Multiplying a vector by \(-x\) will flip it’s direction</li>
+</ul>
+
+<p>Vectors can start at any position on the plane, not just \((0, 0)\), these are called free vectors. Therefore the same vector can be represented at different positions on the plane.</p>
+
+<p><img src="..\Assets\Vectors.png" alt="" /></p>
+
+<p><img src="..\Assets\ScalarMultiplication.png" alt="" /></p>
+
+<h2 id="decomposing-a-vector">Decomposing a Vector</h2>
+
+<blockquote>
+  <p>We can break a vector into two other vectors to apply trigonometry to the vector.</p>
+</blockquote>
+
+<p>Any  vector \((a, b)\) is equal to the sum of two other vectors \(V_1 + V_2\) where \(V_1 = (a, 0), V_2 = (0, b)\).</p>
+
+<p><img src="..\Assets\VectorDecomposed.png" alt="" /></p>
+
+<p><strong>Projections:</strong> Expressing the component of a vector related to another vector.</p>
+
+<ul>
+  <li>Projections involve decomposing a vector into its different axis, and can be projected onto another vector other than just the x and y axis.</li>
+</ul>
+
+<p>The following shows vector <code class="language-plaintext highlighter-rouge">A</code> projected onto both axis:</p>
+
+<p><img src="..\Assets\vectors\axisProj.png" alt="" /></p>
+
+<p>The following formula can be used to project a vector onto another:
+\(\frac{a \cdot b}{b \cdot b}b\)
+Below shows vector <code class="language-plaintext highlighter-rouge">A</code> projected onto vector <code class="language-plaintext highlighter-rouge">B</code></p>
+
+<p><img src="..\Assets\vectors\vecProj.png" alt="" /></p>
+
+<h2 id="lines">Lines</h2>
+
+<blockquote>
+  <p>Vectors can ‘link’ together to create lines, which in turn can be represented by an equation.</p>
+</blockquote>
+
+<p>Such lines have the following properties:</p>
+
+<ul>
+  <li>A straight line is infinite</li>
+  <li>Any two points themselves determine a straight line</li>
+  <li>The part of a line that connects two points is called a line segment</li>
+</ul>
+
+<p><strong>Two lines are identical if they are parallel and any point on one line is also on the other</strong></p>
+
+<h3 id="parametric-equations">Parametric Equations</h3>
+
+<p>Straight lines can be represented by <strong>parametric equations</strong>:
+\((x,y) = (c,d) + t(a,b), t \in \mathbb{R}\)</p>
+
+<ul>
+  <li>\(t\) is known as the parameter, and \(A, b, c, d\) are constants.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>To populate a parametric equation going through points \(P_1\) and \(P_2\):</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(let \space a,b = p_2 - p_1\)</td>
+    </tr>
+    <tr>
+      <td>\(let \space c,d = x_1, y_1\)</td>
+    </tr>
+    <tr>
+      <td>\((x, y) = (x_1, y_1) + t(p_2 - p_1)\)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A parametric equation describes a line with a scale superimposed on it. This scale is measured by \(t\). As there can be many scales for a line there can exist many parametric equations for a line.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Line relationship</th>
+      <th>condition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Parallel</td>
+      <td>\(C_1 = c_2 = 0\) or $d_1 = d_2 = 0\)</td>
+    </tr>
+    <tr>
+      <td>Parallel</td>
+      <td>\(\frac{c_1}{d_1} = \frac{c_2}{d_2}\)</td>
+    </tr>
+    <tr>
+      <td>Intersection</td>
+      <td>not parallel</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>The above considers the lines \((x,y)_1 = (a_1, b_1) + t(c_1, d_1)\) and \((x,y)_2 = (a_2, b_2) + t(c_2, d_2)\)</li>
+</ul>
+
+<h3 id="non-parametric-equations">Non-parametric Equations</h3>
+
+<blockquote>
+  <p>Removing the parameters of a parametric equation</p>
+</blockquote>
+
+<p>Nonparametric equations are written in the form:
+\(ax + by = c\)</p>
+
+<ul>
+  <li>We can remove the parameters from a parametric equation by eliminating \(t\).</li>
+</ul>
+
+\[\begin{aligned}
+&amp; (x,y) = (a,b) + t(c,d) = (a,b) + (tc, td)\\
+&amp; (x,y) = (a + tc, b + td)\\
+&amp; x = a + tc\\
+&amp; y = b + td\\
+&amp; \frac{x - a}{c} = t\\
+&amp; \therefore y = b + \frac{dx-da}{c}\\
+&amp; dx - cy = da - cb
+\end{aligned}\]
+
+<ul>
+  <li>To reverse this we must find two points that satisfy the nonparametric equation, and substitute these into the parametric form.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Line relationship</th>
+      <th>condition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>parallel</td>
+      <td>\(B_1 = b_2 = 0\) or \(A_1 = a_2 = 0\)</td>
+    </tr>
+    <tr>
+      <td>parallel</td>
+      <td>\(\frac{a_1}{b_1} = \frac{a_2}{a_2}\)</td>
+    </tr>
+    <tr>
+      <td>intersection</td>
+      <td>not parallel</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>The above considers the lines \((x,y)_1 = (a_1, b_1) + t(c_1, d_1)\) and \((x,y)_2 = (a_2, b_2) + t(c_2, d_2)\)</li>
+</ul>
+
+<h3 id="intersecting-lines">Intersecting lines</h3>
+<blockquote>
+  <p>Lines are infinitely long, hence to find a single point where they intersect we can solve the equation for each axis simultaneously</p>
+</blockquote>
+
+<p>e.g. We are given the lines:</p>
+
+\[\begin{aligned}
+&amp; L_1 = (x,y) = (1,0) + t(2,3)\\
+&amp; L_2 = (x,y) = (3,2) + s(-2,1)\\
+\end{aligned}\]
+
+<p>First separate x and y coordinates:</p>
+
+\[\begin{aligned}
+&amp; x_1 = x_2\\
+&amp; y_1 = y_2\\
+&amp; 1 + 2t = 3 - 2s\\
+&amp; 0 + 3t = 2 + s\\
+\end{aligned}\]
+
+<p>Then solve for <code class="language-plaintext highlighter-rouge">s</code>:</p>
+
+\[\begin{aligned}
+&amp; 2t = 2 - 2s, t = 1-s\\
+&amp; 3(1-s) = 2 + s\\
+&amp; 3 - 3s = 2 + s\\
+&amp; 1 = 4s, s = \frac{1}{4}\\
+\end{aligned}\]
+
+<p>Substitute in <code class="language-plaintext highlighter-rouge">s</code> to solve for the point of intersection:</p>
+
+\[\begin{aligned}
+&amp; (3,2) + 0.25(-2,1) = (3,2) + (-0.5, 0.25)\\
+&amp; (x_i, y_i) = (2.5, 2.25) 
+\end{aligned}\]
+
+<blockquote>
+  <p>This concept applies to non-parametric equations as well, apart from we solve for <code class="language-plaintext highlighter-rouge">x</code> instead of <code class="language-plaintext highlighter-rouge">s</code></p>
+</blockquote>
+
+<h2 id="3d-planes">3d Planes</h2>
+<blockquote>
+  <p>A point in a 3d space is represented by a vector <code class="language-plaintext highlighter-rouge">(x,y,z)</code></p>
+</blockquote>
+
+<p>Lines on a 3 dimensional plane can be represented by parametric equations:  \((x,y,z) = (a,b,c) + t(d,e,f)\)</p>
+<ul>
+  <li>These are solved the same way as with 2 dimensional planes, however we use a vector(3) instead of a vector(2)</li>
+</ul>
+
+<p>In 3 dimensional spaces lines can relate to each other in one of three ways:</p>
+<ul>
+  <li>They are parallel</li>
+  <li>They intersect</li>
+  <li>They are not parallel but do not intersect</li>
+</ul>
+
+<p><strong>Parallel 3d lines:</strong></p>
+
+<p>Given the lines:
+\(\begin{aligned}
+&amp; L_1 = (x,y,z)_1 = (a_1,b_1,c_1) + t(d_1,e_1,f_2)\\
+&amp; L_2 = (x,y,z)_2 = (a_2, b_2, c_2) + t(d_2, e_2, f_2)\\
+\end{aligned}\)</p>
+
+<p>These lines are parallel if the direction vectors are scalar multiples of one another, i.e. \((d_1, e_1, f_1) = s(d_2, e_2, f_2), s \in \mathbb{R}\)</p>
+
+<p><strong>Intersecting 3d lines</strong>:
+Lines that intersect in 3 dimensional spaces can be solved in the same way as in 2d. However we have 3 simultaneous equations.</p>
+
+<blockquote>
+  <p>There are no lines in 3d which are written in non parametric form, these are known as planes.</p>
+</blockquote>
+
+<p>\(Ax + by + cz = d\) forms a plane in a 3 dimensional space. Planes can also be represented in parametric form:</p>
+
+\[(x,y,z) = (a_0, b_0, c_0) + t(a_1, b_1, c_1) + s(a_2, b_2, c_2)\]
+
+<p>Planes can be parallel or they can intersect.</p>
+
+<h2 id="linear-systems">Linear Systems</h2>
+<blockquote>
+  <p>simultaneous linear equations, whose solution is the solution of all these equations</p>
+</blockquote>
+
+<p>A linear equation is an equation written in the form:</p>
+
+\[a_1x_1 + a_2x_2 + a_3x_3 ... a_kx_k = b\]
+
+<ul>
+  <li>\(A_i\) are constants, \(x_i\) are variables</li>
+  <li>The solution to a linear equation will be a vector of the form (c_1, c_2, …, c_k)</li>
+</ul>
+
+<p>Here the equation will hold when \(x_1 = c_1\) etc.</p>
+
+<p>e.g.</p>
+
+\[\begin{aligned}
+&amp; x - 2y = 3\\
+&amp; Solutions: \space (1,-1), (-1, -2), (3, 0), (5, 1) ...
+\end{aligned}\]
+
+<p><strong>All of the solutions are points on a straight line.</strong> Hence a linear equation is a straight line. Note that if we had a linear equation in the form \(Ax + by + cz = d\) the line would be a plane in a 3 dimensional space.</p>
+
+<p>The solution to a linear system will find the intersection of all given linear equations.</p>
+
+<h2 id="gaussian-elimination">Gaussian Elimination</h2>
+<blockquote>
+  <p>A formal method for solving linear systems by eliminating variables</p>
+</blockquote>
+
+<p>Gaussian elimination contains two steps:</p>
+
+<ul>
+  <li>Forward elimination: Eliminating variables line by line (top-down)</li>
+  <li>Backward elimination: Substituting values back into equations (bottom-up)</li>
+</ul>
+
+<p>Forward elimination permits the use of the following operations: (row = instance of equation)</p>
+<ul>
+  <li>Swapping rows (equations)</li>
+  <li>Multiply / divide rows by non-zero constants</li>
+  <li>Add / Subtract rows</li>
+</ul>
+
+<h3 id="matrix-transformation">Matrix transformation</h3>
+<blockquote>
+  <p>The terms a linear system is expressed in are not used during forward elimination, hence we can use their coefficients instead</p>
+</blockquote>
+
+<p>For instance the equations:</p>
+
+\[\begin{aligned}
+&amp; 2x + 3y - x = 8\\
+&amp; 4x - 2y + z = 5\\
+&amp; x + 5y - z = 9\\ 
+\end{aligned}\]
+
+<p>become the matrix (AKA an augmented matrix):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>ans</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td>-1</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>-2</td>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>5</td>
+      <td>-1</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Our aim is to make one set of co-efficient(s) (e.g. x, y, or z) 0, by using any of the permitted operations in all rows except the first.</p>
+
+<p>Here we can apply the following:</p>
+
+\[\begin{aligned}
+&amp; r_2 - 2(r_1) = (4, -2, 1, 5) - (4, 6, -2, 16) = (0, -8, 3, -9)\\
+&amp; r_3 - 1/2(r_1) = (1, 5, -1, 9) - (1, 1.5, -.5, 4) = (0, 3.5, .5, 5)
+\end{aligned}\]
+
+<p>Then for each row we need to eliminate an extra co-efficient, i.e. since we eliminated <code class="language-plaintext highlighter-rouge">x</code> in row one, we need to eliminate <code class="language-plaintext highlighter-rouge">y</code> in row two.</p>
+
+\[r_3 - 7/16(r_2) = (0, 0, -3/16, 3/16)\]
+
+<table>
+  <thead>
+    <tr>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>ans</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td>-1</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>-8</td>
+      <td>3</td>
+      <td>-9</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>-3/16</td>
+      <td>3/16</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>From here we can backwards eliminate:</p>
+
+\[\begin{aligned}
+&amp; 2x + 3y -z = 8 \implies 12/8 + 3y +1 = 8 \implies 3y = 7 - 12/8 = 5.5/3\\
+&amp; -8x + 3z = -9 \implies -8x -3 = -9 \implies x = 6/8\\
+&amp; -3/16(z) = 3/16 \implies z = -1 
+\end{aligned}\]
+
+<h2 id="matrices">Matrices</h2>
+<blockquote>
+  <p>A two dimensional array</p>
+</blockquote>
+
+<p>A matrix has a size of \(m \times n\):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>This matrix is $2\times3$</li>
+</ul>
+
+<p>We can index into a matrix with \(A_{mn}\), for example \(A_{1,2} = 2\)</p>
+
+<ul>
+  <li>Two matrices are equal when they have the same size and all entries are equal.</li>
+  <li>Each column is called a column vector of size \(1 \times n\)</li>
+  <li>Each row is a row vector of size \(n \times 1\)</li>
+</ul>
+
+<p>A linear system can be characterised as one of the following:</p>
+
+<ul>
+  <li>has a single solution</li>
+  <li>has infinite solution</li>
+  <li>has no solutions</li>
+</ul>
+
+<h2 id="echelon-matrices">Echelon Matrices</h2>
+<blockquote>
+  <p>Matrices which exhibit a “staircase” like pattern, the result of forward elimination</p>
+</blockquote>
+
+<p>An echelon matrix is described by:</p>
+
+<ul>
+  <li>Any rows consisting of all zero elements are at the bottom</li>
+  <li>Any row’s leftmost value above zero (AKA pivot), is to the right of any pivotd in the rows above.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>1 (pivot)</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>4 (pivot)</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>6 (pivot)</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>The rank of an echelon matrix is the amount of pivots it contains.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Solution Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>No solutions</td>
+      <td>The rank is less than the number of rows</td>
+    </tr>
+    <tr>
+      <td>One Solution</td>
+      <td>The rank is equal to the amount of columns</td>
+    </tr>
+    <tr>
+      <td>Infinite solutions</td>
+      <td>The rank is less than the amount of columns</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>If there are no solutions, there can not be infinite solutions (even if the conditions are met)</li>
+</ul>
+
+<p>An equation with infinite solutions should be expressed in parametric form, where we express every other variable in the terms of a variable without a pivot. Example:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>ans</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>= 4</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>= 2</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>There is no pivot for <code class="language-plaintext highlighter-rouge">b</code></li>
+</ul>
+
+\[\begin{aligned}
+&amp; a + 2b + 3c = 4\\
+&amp; c = 2\\
+&amp; a + 2b +3(2) = 4\\
+&amp; \therefore a + 2b = -2\\
+&amp; let \space 2b = t\\
+&amp; a = -2 - t\\
+&amp; (a,b,c) = (-t -2, t, 2) \\
+&amp; (a,b,c) = (-2,0,2) + t(-1, 1, 0)\\
+\end{aligned}\]
+
+<h2 id="matrices-1">Matrices</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operation</th>
+      <th>Condition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Addition</td>
+      <td>Matrices must be the same size</td>
+    </tr>
+    <tr>
+      <td>Scalar Multiplication</td>
+      <td>Each element is multiplied by the constant</td>
+    </tr>
+    <tr>
+      <td>Multiplication</td>
+      <td>The columns of one matrix is equal to the amount of rows in the other</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Y/N</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Associative</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Distributive</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Commutative</td>
+      <td>N</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Examples:</p>
+
+\[\begin{pmatrix}
+1 &amp; 2\\
+3 &amp; 4\\
+\end{pmatrix}
++ 
+\begin{pmatrix}
+5 &amp; 6\\
+7 &amp; 8\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+1+5 &amp; 2+6\\
+3+7 &amp; 4+8\\
+\end{pmatrix}\]
+
+\[\begin{pmatrix}
+1 &amp; 2\\
+3 &amp; 4\\
+\end{pmatrix}
+\times
+2
+\begin{pmatrix}
+1(2) &amp; 2(2)\\
+3(2) &amp; 4(2)\\
+\end{pmatrix}\]
+
+<h2 id="matrix-multiplication">Matrix multiplication</h2>
+<blockquote>
+  <p>Multiplying a matrix by another matrix or vector</p>
+</blockquote>
+
+<p>Vector-Matrix multiplication:</p>
+<ul>
+  <li>The result is the dot product of each row with the vector</li>
+  <li>A vector must be as long as the number of columns in a matrix</li>
+  <li>If <code class="language-plaintext highlighter-rouge">v</code> is a vector and <code class="language-plaintext highlighter-rouge">M</code> a matrix we can write <code class="language-plaintext highlighter-rouge">Mv</code> but not <code class="language-plaintext highlighter-rouge">vM</code>.</li>
+</ul>
+
+\[\begin{pmatrix} 1 &amp; 2\\ 3 &amp; 4\\ \end{pmatrix}\times (1, 2)=\]
+
+\[\begin{pmatrix} (1,2) \cdot (1,2)\\ (3,4) \cdot (1,2)\\ \end{pmatrix} = (5, 11)\]
+
+<p>Matrix-Matrix multiplication:</p>
+<blockquote>
+  <p>Calculating the dot product of a column matrix and a row matrix</p>
+  <ul>
+    <li>Matrix multiplication only applies when the matrices \(A, B = m\times x, x\times n\)</li>
+    <li>The result is a \(m \times n\) matrix</li>
+    <li><code class="language-plaintext highlighter-rouge">A</code> is treated as a row matrix, and <code class="language-plaintext highlighter-rouge">b</code> a row column matrix</li>
+    <li>Each row in <code class="language-plaintext highlighter-rouge">A</code> is transformed by the dot product with each row in <code class="language-plaintext highlighter-rouge">B</code></li>
+    <li>Matrix multiplication is associative \((A\times B)x = A(Bx)\)</li>
+  </ul>
+</blockquote>
+
+<p>Example:</p>
+
+\[A = \begin{pmatrix} 2 &amp; -2 &amp; 4\\ 1 &amp; 3 &amp; 5\\ \end{pmatrix}
+B = \begin{pmatrix} 2 &amp; -1\\ 4 &amp; -2\\ 6 &amp; 3 \\ \end{pmatrix}\\\]
+
+\[A \times B = \begin{pmatrix} (2,-2,4)\cdot (2,4,6) &amp; (2,-2,4) \cdot (-1,-2,3)\\ (1,3,5)\cdot (2,4,6) &amp; (1,3,5) \cdot (-1,-2,3) \\ \end{pmatrix} = \\
+\begin{pmatrix} 20 &amp; 14\\ 44 &amp; 8 \\ \end{pmatrix}\]
+
+<h3 id="matrix-division">Matrix division</h3>
+<blockquote>
+  <p>Given \(A \div B\) find a matrix \(x\) such that \(BX = A\)</p>
+</blockquote>
+
+<p><strong>Find the inverse of <code class="language-plaintext highlighter-rouge">B</code> then times <code class="language-plaintext highlighter-rouge">A</code> by inverse <code class="language-plaintext highlighter-rouge">B</code></strong>
+To find the inverse of  a matrix we use gaussian elimination on an identity matrix.</p>
+
+\[B = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4\end{pmatrix}
+I = \begin{pmatrix} 1 &amp; 0\\ 0 &amp; 1\end{pmatrix}\\\]
+
+\[\begin{pmatrix}
+1 &amp; 2 | 1 &amp; 0\\ 
+3 &amp; 4 | 0 &amp; 1
+\end{pmatrix}\]
+
+\[then \space r_2 - 3(r_1)\\
+\begin{pmatrix}
+1 &amp; 2 | 1 &amp; 0\\ 
+0 &amp; -2 | -3 &amp; 1
+\end{pmatrix}\]
+
+\[then \space r_2 \times -1/2\\
+\begin{pmatrix}
+1 &amp; 2 | 1 &amp; 0\\ 
+0 &amp; 1 | 3/2 &amp; -1/2
+\end{pmatrix}\]
+
+\[then \space r_1 - 2(r_2)\\
+\begin{pmatrix}
+1 &amp; 0 | -2 &amp; 1\\ 
+0 &amp; 1 | 3/2 &amp; -1/2
+\end{pmatrix}\]
+
+\[\therefore B^{-1} = 
+\begin{pmatrix}
+-2 &amp; 1\\ 
+3/2 &amp; -1/2
+\end{pmatrix}\]
+
+<ul>
+  <li>If the left hand side can not be transformed to an identity matrix there is no solution</li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+  
+    <div class="wrapper">
+  
+      <h2 class="footer-heading">Notes on Computer Science</h2>
+  
+      <ul class="contact-list">
+      <li class="p-name">Notes on Computer Science<p>Information and takes on subjects related to computer science, mathematics, and technology in general.</p>
+          </li><li><a class="u-email" href="mailto:callum.cvr@gmail.com">callum.cvr@gmail.com</a></li></ul><ul class="social-media-list"><li><a href="https://github.com/CVR-Skidz"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CVR-Skidz</span></a></li></ul>
+</div>
+  
+  </footer>
+  </body>
+
+</html>

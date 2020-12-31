@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Sql | Notes on Computer Science</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Sql" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Ultra simple Structured Query Language reference" />
+<meta property="og:description" content="Ultra simple Structured Query Language reference" />
+<link rel="canonical" href="http://localhost:4000/topics/Content/SQL.html" />
+<meta property="og:url" content="http://localhost:4000/topics/Content/SQL.html" />
+<meta property="og:site_name" content="Notes on Computer Science" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-01T08:46:39+13:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/SQL.html","headline":"Sql","dateModified":"2021-01-01T08:46:39+13:00","datePublished":"2021-01-01T08:46:39+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/SQL.html"},"description":"Ultra simple Structured Query Language reference","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Notes on Computer Science</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Sql</h1>
+  </header>
+
+  <div class="post-content">
+    <p>Ultra simple Structured Query Language reference</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>SQL type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DDL</td>
+      <td>Data definition languages create the database relationships</td>
+    </tr>
+    <tr>
+      <td>DML</td>
+      <td>Data Manipulation languages insert, delete, and modify a database</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Use UPPERCASE for keys and observers</li>
+  <li>Terminate a statement with a <code class="language-plaintext highlighter-rouge">;</code></li>
+</ul>
+
+<h2 id="selection">Selection</h2>
+<blockquote>
+  <p>Querying the value of columns in a table</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Select [DISTINCT] {*, column {alias}, ...}
+FROM table;
+</code></pre></div></div>
+
+<p>An example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT * 
+FROM departments
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Selector</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">*</code></td>
+      <td>All</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">[COLUMN, ...]</code></td>
+      <td>Selects all of the specified columns for each row, multiple columns are comma separated.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Alias:</strong></p>
+<blockquote>
+  <p>Renames a column heading in the output of a query</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT [DISTINCT] {column [AS] {alias}}
+FROM {table};
+</code></pre></div></div>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT name AS "First Name", familly AS "Last Name"
+FROM customers
+</code></pre></div></div>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">AS</code> keyword is optional</li>
+</ul>
+
+<p><strong>Conditions:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT ... WHERE {column}{operator}{value} ... ; 
+</code></pre></div></div>
+
+<p>Example: Selecting the names of customers who live in London.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT last_name, first_name
+FROM customers
+WHERE city = 'London';
+</code></pre></div></div>
+
+<p><strong>Unique Selection:</strong>
+We can select only unique values (remove duplicates) from a query using the <code class="language-plaintext highlighter-rouge">DISTINCT</code> keyword.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT DISTINCT dep_id
+FROM employees;
+</code></pre></div></div>
+
+<h2 id="viewing-tables">Viewing Tables</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DESCRIBE table
+</code></pre></div></div>
+
+<h2 id="importing-scripts">Importing Scripts</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@[PATH_TO_SCRIPT]
+...
+</code></pre></div></div>
+
+<h2 id="types">Types</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Syntax</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Character data (Strings)</td>
+      <td><code class="language-plaintext highlighter-rouge">'[TEXT]'</code></td>
+    </tr>
+    <tr>
+      <td>Character data with formatting</td>
+      <td><code class="language-plaintext highlighter-rouge">"[TEXT]"</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Character data is case sensitive.</li>
+</ul>
+
+<h2 id="arithmetic">Arithmetic</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">+</code></td>
+      <td>Add</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-</code></td>
+      <td>Subtract</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">*</code></td>
+      <td>Multiply</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\</code></td>
+      <td>Divide</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">{pipe}{pipe}</code></td>
+      <td>Concatenation: combining columns</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="concatenation">Concatenation</h2>
+<blockquote>
+  <p>Combining the values present in multiple specified rows</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT familly || ', ' || first AS "Full Name"
+FROM customers;
+</code></pre></div></div>
+
+<ul>
+  <li>The result of concatenation is always a character expression.</li>
+</ul>
+
+<h2 id="comparison-operators">Comparison Operators</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;</code></td>
+      <td>Less than</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&gt;</code></td>
+      <td>Greater than</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;=</code></td>
+      <td>Less than equal to</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&gt;=</code></td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">=</code></td>
+      <td>equal to</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">!=</code> or <code class="language-plaintext highlighter-rouge">&lt;&gt;</code></td>
+      <td>Not equal to</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BETWEEN x AND y</code></td>
+      <td>Between <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> inclusive</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">IN (list)</code></td>
+      <td>Is in list</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">LIKE {char sequence}</code></td>
+      <td>Matches character sequence</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">IS NULL</code></td>
+      <td>Is <code class="language-plaintext highlighter-rouge">x</code>, in this case <code class="language-plaintext highlighter-rouge">NULL</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NOT</code></td>
+      <td>Logical inverse</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AND</code></td>
+      <td>Logical intersect</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OR</code></td>
+      <td>Logical conjunction</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Character matching e.g <code class="language-plaintext highlighter-rouge">LIKE 'A_C%'</code>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">%</code> matches zero or more characters</li>
+  <li><code class="language-plaintext highlighter-rouge">_</code> matches one character</li>
+  <li>The above example matches a string starting with ‘A’, then has any character separating ‘C’, followed by any sequence of characters.</li>
+  <li>We can escape characters using <code class="language-plaintext highlighter-rouge">LIKE 'ABC{c}%' ESCAPE '{c}'</code>, which designates an escape character <code class="language-plaintext highlighter-rouge">c</code>.</li>
+</ul>
+
+<h2 id="sorting">Sorting</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ORDER BY {column [ASC(default) or DESC], ...}; 
+</code></pre></div></div>
+
+<ul>
+  <li>When sorting by multiple columns it will sort by column 1 then by column 2 etc</li>
+</ul>
+
+<h2 id="substitution-variables">Substitution Variables</h2>
+<blockquote>
+  <p>Temporarily storing values</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{Statement} &amp;{variable_name};
+</code></pre></div></div>
+
+<p>A variable can be set in the script, but if it is not, it will be prompted when running the query.</p>
+
+<h2 id="creation-statements">Creation Statements</h2>
+<blockquote>
+  <p>Statements used to create database objects</p>
+
+  <h3 id="creating-tables">Creating Tables</h3>
+</blockquote>
+
+<p>To create a table we must have the appropriate privilege.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE TABLE {name}  ({column name} {type}({size}), ...);
+</code></pre></div></div>
+
+<p>We can also use <code class="language-plaintext highlighter-rouge">DEFAULT</code> to provide a default attribute: e.g. <code class="language-plaintext highlighter-rouge">dob date DEFAULT sysdate</code> provides the default <code class="language-plaintext highlighter-rouge">dob</code> as the current system date</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CHAR(size)</code></td>
+      <td>Character string of length <code class="language-plaintext highlighter-rouge">size</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VARCAHR2</code></td>
+      <td>Variable length character data</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CLOB</code></td>
+      <td>Character data up to 8TB</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NUMBER(p, s)</code></td>
+      <td>Variable length numeric data</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DATE</code></td>
+      <td>Date and time</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BLOB</code></td>
+      <td>Binary data up to 8TB</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RAW</code></td>
+      <td>Raw binary data</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BFILE</code></td>
+      <td>Binary data stored in the operating system (outside the database)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Tables can also be created from a subquery, where a new table will created from a query.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE TABLE {name} AS {subquery};
+</code></pre></div></div>
+
+<p>Tables are created as user tables (where the user owns them). The server maintains a data dictionary which is a database owned by the server containing information on other databases, users, etc.</p>
+
+<h3 id="modifying-tables">Modifying Tables</h3>
+
+<p>Tables can be modified using <code class="language-plaintext highlighter-rouge">ALTER</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ALTER TABLE {name} {ADD or MODIFY} ({name} {type} [DEFAULT])
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ADD</code> insets a new column</li>
+  <li><code class="language-plaintext highlighter-rouge">MODIFY</code> changes the type or size of a column (only if there are no values stored in that column)</li>
+</ul>
+
+<p>We can also rename:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RENAME TABLE {name} TO {new name}
+</code></pre></div></div>
+
+<p>… or we can truncate (remove all data but do not drop table):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TRUNCATE TABLE {name};
+</code></pre></div></div>
+
+<p>Furthermore we can comment an attribute:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>COMMENT ON COLUMN {table}.{column} IS '{comment}';
+</code></pre></div></div>
+
+<h3 id="dropping-tables">Dropping Tables</h3>
+
+<p>Tables can be deleted with <code class="language-plaintext highlighter-rouge">DROP</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DROP TABLE {name};
+</code></pre></div></div>
+
+<h2 id="constraints">Constraints</h2>
+<blockquote>
+  <p>Constraints are used to enforce how data is inserted.</p>
+</blockquote>
+
+<p>Some constraints include: <code class="language-plaintext highlighter-rouge">NOT NULL</code>, <code class="language-plaintext highlighter-rouge">UNIQUE</code>, <code class="language-plaintext highlighter-rouge">PRIMARY KEY</code>, <code class="language-plaintext highlighter-rouge">FOREIGN_KEY</code>, <code class="language-plaintext highlighter-rouge">CHECK</code>, <code class="language-plaintext highlighter-rouge">INDEX</code></p>
+
+<p>Constraints should be named to be easily referenced. Constraints can be specified for a table or column:</p>
+
+<ul>
+  <li>Table constraint: <code class="language-plaintext highlighter-rouge">CREATE TABLE ... ( ... CONSTRAINT {name} {constraint} {column name}, ...)</code></li>
+  <li>Column constraints: <code class="language-plaintext highlighter-rouge">{name} {type} [DEFAULT] [column constraint]</code> (<em>Note that the <code class="language-plaintext highlighter-rouge">CONSTRAINT</code> keyword is not used for columns</em>)</li>
+</ul>
+
+<p>Composite keys must be declared at a table level with <code class="language-plaintext highlighter-rouge">PRIMARY KEY({a}, {b}, ...)</code>.</p>
+
+<p>Foreign keys follow the following syntax:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONSTRAINT {constraint name} FOREIGN KEY ({column name}) REFERENCES {foreign table name} ({column name});
+</code></pre></div></div>
+
+<h2 id="data-manipulation">Data Manipulation</h2>
+<blockquote>
+  <p>Making changes to data.</p>
+</blockquote>
+
+<p>Adding data to a table uses <code class="language-plaintext highlighter-rouge">INSERT</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INSERT INTO {table_name} ([column], ...) values ([value], ...);
+</code></pre></div></div>
+
+<ul>
+  <li>You do not have to specify column names when inserting values to all the columns in a row.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">INSERT</code> can also copy values from one table to another (by selecting the values to copy):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INSERT INTO {table_name} ([colunm], ...) SELECT ...;
+</code></pre></div></div>
+
+<p>A row can be updated using <code class="language-plaintext highlighter-rouge">UPDATE</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UPDATE {table_name} 
+SET [row_name] = [value]
+WHERE [row_name] = [value]; 
+</code></pre></div></div>
+
+<p>A row can be deleted using <code class="language-plaintext highlighter-rouge">DELETE</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE FROM {table_name}
+WHERE [row_name] = [value;]
+</code></pre></div></div>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+  
+    <div class="wrapper">
+  
+      <h2 class="footer-heading">Notes on Computer Science</h2>
+  
+      <ul class="contact-list">
+      <li class="p-name">Notes on Computer Science<p>Information and takes on subjects related to computer science, mathematics, and technology in general.</p>
+          </li><li><a class="u-email" href="mailto:callum.cvr@gmail.com">callum.cvr@gmail.com</a></li></ul><ul class="social-media-list"><li><a href="https://github.com/CVR-Skidz"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CVR-Skidz</span></a></li></ul>
+</div>
+  
+  </footer>
+  </body>
+
+</html>

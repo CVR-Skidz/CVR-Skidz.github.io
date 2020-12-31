@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Java | Notes on Computer Science</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Java" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Language reference for the Java programming language." />
+<meta property="og:description" content="Language reference for the Java programming language." />
+<link rel="canonical" href="http://localhost:4000/topics/Content/Java.html" />
+<meta property="og:url" content="http://localhost:4000/topics/Content/Java.html" />
+<meta property="og:site_name" content="Notes on Computer Science" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-01T08:46:39+13:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Java.html","headline":"Java","dateModified":"2021-01-01T08:46:39+13:00","datePublished":"2021-01-01T08:46:39+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Java.html"},"description":"Language reference for the Java programming language.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Notes on Computer Science</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Java</h1>
+  </header>
+
+  <div class="post-content">
+    <p>Language reference for the Java programming language.</p>
+
+<ul>
+  <li>For GUI programming using java see <a href="/topics/Content/Swing">here</a>.</li>
+  <li>For notes on the Java Collections Framework <a href="/topics/Content/JCF">here</a></li>
+</ul>
+
+<h2 id="types">Types</h2>
+<blockquote>
+  <p>Each type in java is either a class, interface, primitive, or array.</p>
+</blockquote>
+
+<p>Types can either be a primitive (int, char etc.) or a reference (pointer) to an object. Interfaces declare the methods defining an objects behaviour. The declared methods are defined in a class that implements  the interface. Types can be cast or promoted, promotion will truncate values.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">(</span><span class="kt">float</span><span class="o">)</span> <span class="mi">10</span><span class="o">/</span><span class="mi">2</span><span class="o">;</span>       <span class="c1">//2.5</span>
+<span class="kt">float</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">10</span><span class="o">/</span><span class="mi">2</span><span class="o">;</span><span class="err"> </span>  <span class="c1">//2.0 </span></code></pre></figure>
+
+<h3 id="primitive-types">Primitive Types</h3>
+<blockquote>
+  <p>Primitives start with a lower case letter, of which there are 8.</p>
+</blockquote>
+
+<ul>
+  <li>int - 32 bit number</li>
+  <li>short - 16 bit number</li>
+  <li>long - 64 bit number</li>
+  <li>char - unicode character</li>
+  <li>boolean - <code class="language-plaintext highlighter-rouge">true</code> or <code class="language-plaintext highlighter-rouge">false</code></li>
+  <li>byte - 8 bit number</li>
+  <li>double - Floating point number taking double the space of a float in memory</li>
+  <li>float - Floating point number</li>
+</ul>
+
+<p>Primitive types can only be passed by value, to pass by reference or convert between complex types use a wrapper such as Integer. Wrappers are classes that automatically pack or unpack primitive types. Hence <code class="language-plaintext highlighter-rouge">test(int x)</code> will accept <code class="language-plaintext highlighter-rouge">new Integer(4)</code>.</p>
+
+<h2 id="arrays">Arrays</h2>
+<blockquote>
+  <p>Consecutive spans of memory designated to holding a certain type of data. Indexable.</p>
+</blockquote>
+
+<p>A variable set equal to an array object contain a reference to the array. Arrays must be initialized by creating a <code class="language-plaintext highlighter-rouge">new type[length] {values}</code> array.</p>
+
+<p>Values in arrays will have default values. Arrays have a length member.</p>
+
+<p>Implicit:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">new</span> <span class="kt">int</span><span class="o">[]</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span> </code></pre></figure>
+
+<p>Explicit</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">5</span><span class="o">];</span> </code></pre></figure>
+
+<h3 id="multi-dimensional-arrays">Multi Dimensional Arrays</h3>
+<blockquote>
+  <p>Arrays which contain “sub-arrays”, i.e. an array of arrays</p>
+</blockquote>
+
+<p>Multi dimensional arrays use multiple <code class="language-plaintext highlighter-rouge">[]</code> to declare dimensions. In a multi dimensional array the length of an unspecified dimension will return the array length of the first element</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">grid.length</code> gives <code class="language-plaintext highlighter-rouge">2</code> (the same as <code class="language-plaintext highlighter-rouge">grid[0].length</code>)</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[][]</span> <span class="o">{{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">}}</span> 
+<span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="err"> </span><span class="c1">//2 </span>
+
+<span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span> 
+<span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="err"> </span><span class="c1">//2 </span></code></pre></figure>
+
+<h2 id="casting">Casting</h2>
+<blockquote>
+  <p>Casting explicitly converts type - allowing the truncation of data.</p>
+</blockquote>
+
+<ul>
+  <li>
+    <p>Implicitly converting types will not truncate data, and therefore if types possibly do cause data loss will cause a compiler error.</p>
+  </li>
+  <li>
+    <p>Promotion is the automatic casting of data where two operands differ in type. The smaller operand (type size) will be promoted to the bigger.</p>
+  </li>
+</ul>
+
+<p>Up casting is the promotion or cast of a child class to a parent class. Down casting is the cast of a parent class to a child class (can not promote)</p>
+
+<p>Casting does not change object data only reference types, you can not cast a parent object to a child object you can however cast a parent reference to child reference that’s object is of the child type.</p>
+
+<h2 id="generics">Generics</h2>
+<blockquote>
+  <p>A generic allows the implementation of an interface or class without being type specific.</p>
+</blockquote>
+
+<p>Generics are a concept related to generic programming. This allows general behaviour on any data type passed as a generic.</p>
+
+<p>For instance <code class="language-plaintext highlighter-rouge">ArrayList&lt;T&gt;</code> defines a generic <code class="language-plaintext highlighter-rouge">T</code>, allowing the list to be implemented over any type. The type of elements in an <code class="language-plaintext highlighter-rouge">ArrayList</code> is irrelevant for it’s implementation.</p>
+
+<p>To pass a value of any generic we can use a wildcard testMethod(ArrayList&lt;?&gt; value). You can only access data defined in the ArrayList interface in this case. You can however use: testMethod(ArrayList&lt;? extends yourClass&gt; value) and inherit a specific class.</p>
+
+<h2 id="encapsulation">Encapsulation</h2>
+<blockquote>
+  <p>Encapsulation protects the scope of a class and exposes functions by endpoints in an API</p>
+</blockquote>
+
+<ul>
+  <li>This prevents people worrying over how the class works and just what it can do.</li>
+  <li>An object instance data should only be able to modified by that object.</li>
+  <li>Through this we should define getters (accessors) and setters (mutators).</li>
+  <li>Fields that do not change state are immutable</li>
+</ul>
+
+<h3 id="access-modifiers">Access modifiers</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>public </th>
+      <th>private </th>
+      <th>protected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Accessed anywhere in an application</td>
+      <td>Accessed within the class it is declared</td>
+      <td>Accessed by the declared class, any sub-classes, and the same package.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="objects">Objects</h2>
+
+<p>Objects in Java have a state (fields/members) and a behaviour (methods). Instances are allocated to the heap, and do not contain an object but a pointer to one - called a reference</p>
+
+<p>Objects are the result of a Class, and are instantiated with a Constructor, Constructors have the following signature <code class="language-plaintext highlighter-rouge">[accessor] [name] ([arguments]])</code></p>
+<ul>
+  <li>Constructors can not be static</li>
+</ul>
+
+<p>Files that define a class must be named the same as the class.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">==</code> will compare the reference of an object, not the state. Use <code class="language-plaintext highlighter-rouge">equals(x, y)</code> for the later.</li>
+</ul>
+
+<p>Objects can only inherit one parent class, only objects can be instantiated (not interfaces etc.).</p>
+
+<p>All methods in an object can be overloaded (changing the signature of a method to provide an additional method) and overridden (Changing the body of an inherited method to provide specific behaviour).</p>
+
+<p>Variables assigned to objects are given a reference to the object in memory. The type of the variable can be casted to change the interface of the object, however the underlying instance <strong>is not</strong> mutated.</p>
+
+<p><strong>Memory is only allocated once an object is defined (instantiated).</strong></p>
+
+<ul>
+  <li>Objects are passed by reference. Except <code class="language-plaintext highlighter-rouge">String</code>(s).</li>
+</ul>
+
+<h2 id="classes">Classes</h2>
+<blockquote>
+  <p>Classes are structures that can be instantiated to create an object</p>
+</blockquote>
+
+<p>Classes define the interface or behaviour (or both) of an object. Traditional classes (concrete classes) define both the interface and behaviour of an object, and can be inherited or inherit other classes, as well as implementing an interface.</p>
+
+<ul>
+  <li>Classes can only inherit one parent (super) class.</li>
+  <li>One java source file can only have one public class.</li>
+  <li>One java source file can contain many protected or private classes.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Accessibility</th>
+      <th>Class</th>
+      <th>package</th>
+      <th>Subclass</th>
+      <th>World</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">public</code></td>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">proteted</code></td>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">default</code></td>
+      <td>T</td>
+      <td>T</td>
+      <td>F</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">private</code></td>
+      <td>T</td>
+      <td>F</td>
+      <td>F</td>
+      <td>F</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="abstract-classes">Abstract Classes</h3>
+<blockquote>
+  <p>Abstract classes declare general behaviour to be inherited by a sub class.</p>
+</blockquote>
+
+<ul>
+  <li>Usually represent something intangible</li>
+  <li>Abstract classes cannot be instantiated, but can be a reference type</li>
+  <li>Declares but does not define behaviour associated with abstract methods, this is the responsibility of any class that inherits the abstract class.</li>
+  <li>Abstract classes can also contain abstract methods, whilst non-abstract classes can not.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">myAbstractClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myConcreteClass</span><span class="o">()</span> <span class="c1">//valid</span>
+<span class="n">myAbstractClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myAbstractClass</span><span class="o">()</span> <span class="c1">//invalid</span></code></pre></figure>
+
+<p><strong>NOTE:</strong> Abstract classes can still contain all a normal class can, but anything declared as abstract within it can have no body</p>
+
+<h3 id="anonymous-classes">Anonymous Classes</h3>
+<blockquote>
+  <p>Anonymous classes are instances of a class where their behaviour is overridden at instantiation.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/* 
+    AN ANONYMOUS CLASS EXAMPLE 
+*/</span>
+<span class="nc">Machine</span> <span class="n">camera</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Machine</span><span class="o">()</span> <span class="o">{</span> 
+        <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">(){</span> 
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Camera Started"</span><span class="o">);</span> 
+        <span class="o">}</span> 
+<span class="o">}</span> </code></pre></figure>
+
+<h2 id="polymorphism">Polymorphism</h2>
+<blockquote>
+  <p>Polymorphism allows the use of child classes in place of parent classes</p>
+</blockquote>
+
+<p>Through inheritance, classes can contain parent and child classes. Casting either object between one another is known as polymorphism.</p>
+
+<ul>
+  <li>Allows overriding (abstract) method definitions</li>
+  <li>Inheritance is only one way</li>
+</ul>
+
+<p>Casting a parent to child class is known as down casting, casting a child to parent is known as up casting.</p>
+
+<p>Allows:</p>
+<ul>
+  <li>Code reuse</li>
+  <li>Eliminates redundancy</li>
+  <li>Generic programming</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kd">class</span> <span class="nc">Number</span> <span class="kd">extends</span> <span class="nc">Integer</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">square</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span> <span class="o">*</span> <span class="k">this</span><span class="o">;</span>
+    <span class="o">}</span>    
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="kd">static</span> <span class="nf">intFunc</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span> 
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">n</span><span class="o">);</span> 
+    <span class="n">n</span><span class="o">.</span><span class="na">square</span><span class="o">();</span> <span class="c1">//error int has no method square    </span>
+<span class="o">}</span>
+
+<span class="c1">//...</span>
+<span class="nc">Number</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
+<span class="n">intFun</span><span class="o">(</span><span class="n">n</span><span class="o">);</span> <span class="c1">//upcasting</span></code></pre></figure>
+
+<ul>
+  <li>Static methods cannot be overridden.</li>
+</ul>
+
+<h2 id="interfaces">Interfaces</h2>
+<blockquote>
+  <p>Interfaces allow us to define shared method signatures between classes not directly related. E.g. the classes do not share a common parent etc.</p>
+</blockquote>
+
+<p>Interfaces do not contain definitions, they exist to tell us that objects implementing the interface will contain a method of the same signature (to allow us to use the same methods) with unique functionality.</p>
+
+<ul>
+  <li>Interfaces can allow you to pass objects to methods with different types.</li>
+  <li>An interface only has method-signatures</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">MyInterface</span> <span class="o">{}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="kd">extends</span> <span class="nc">MyParent</span> <span class="kd">implements</span> <span class="nc">MyInterface</span> <span class="o">{}</span> </code></pre></figure>
+
+<ul>
+  <li>Interface methods need to be public</li>
+  <li>A class can implement multiple interfaces</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="err">[...]</span> <span class="nc">implements</span> <span class="nc">Int1</span><span class="o">,</span> <span class="nc">Int2</span><span class="o">,</span> <span class="nc">Int3</span> <span class="o">...</span> </code></pre></figure>
+
+<h2 id="collections">Collections</h2>
+<blockquote>
+  <p>A collection is an object that gathers and organises a group of objects (called elements).</p>
+</blockquote>
+
+<p>A Collection is a type of interface to give a general methods for all groupings of data, with specific functionality based on the type of data structure desired.</p>
+
+<ul>
+  <li>Collections have an abstract data type (ADT)</li>
+  <li>Describes methods used to access and manipulate data in the collection.</li>
+</ul>
+
+<p>Collections use a data structure to store and manipulate data. Beneath this are algorithms used to search, set, get etc.</p>
+
+<h2 id="hash-maps--sets">Hash Maps &amp; Sets</h2>
+<blockquote>
+  <p>Performant unordered collections that split data into multiple collections identified by a hash, providing constant time operations.</p>
+</blockquote>
+
+<p><strong>HashMap</strong></p>
+<ul>
+  <li>Implements Map</li>
+  <li>Maps keys to values</li>
+  <li>Unordered, the order is not guaranteed</li>
+  <li>Values are stored in a collection</li>
+  <li>Keys are stored in a HashSet</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nc">HashMap</span><span class="o">&lt;</span><span class="no">K</span><span class="o">,</span><span class="no">V</span><span class="o">&gt;</span> </code></pre></figure>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">put(K, V)</code> adds a new key and value to the map</li>
+  <li><code class="language-plaintext highlighter-rouge">get(K)</code> returns the related V value from the collection of values</li>
+  <li>Key-value pairs are stored in an object called <code class="language-plaintext highlighter-rouge">Entry&lt;K, V&gt;</code></li>
+</ul>
+
+<p>The HashMap contains a set for keys and entries, as well as a collection for values.</p>
+
+<p><strong>HashSet</strong></p>
+<ul>
+  <li>Implements Set</li>
+  <li>Contains no duplicate items</li>
+  <li>Items have no indices (unordered)</li>
+  <li>Items do not shift (removing the first element will not move the second down)</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nc">HashSet</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> </code></pre></figure>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">add(T)</code> does not add elements in a specific position</li>
+  <li>If the item already exists in the set <code class="language-plaintext highlighter-rouge">add()</code> returns false</li>
+  <li>Sets can not access indices, therefore we can not use a for loop to access elements</li>
+</ul>
+
+<h2 id="packages">Packages</h2>
+<blockquote>
+  <p>A package is a namespace for related classes. These classes provide functionality (similar to a library).</p>
+</blockquote>
+
+<p>When providing classes for a package the package is declared first, then any imported packages used to provide functionality are listed. This precedes the definition of any class.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">mypackage</span><span class="o">;</span> <span class="c1">//declare package</span>
+<span class="kn">import</span> <span class="nn">anotherpackage</span><span class="o">;</span> <span class="c1">//import package</span></code></pre></figure>
+
+<p>Packages collect java files into one group. Packages are unaware of other packages unless imported. i.e I can create a test package and an application package both with main methods, only the one I am using (run/compile from) will run. This is the same with sub packages.</p>
+
+<h2 id="exceptions">Exceptions</h2>
+<blockquote>
+  <p>An Exception is an object, when it is thrown Java will look for something to handle the exception. an unhandled exception will either break the program at runtime, or prevent successfully compiling.</p>
+</blockquote>
+
+<p>Exceptions are thrown and can be caught to handle them. Throwing an exception will break out of the scope of a method. Catching an exception can be used in a try - catch block. This will not break the scope.</p>
+
+<p>Where it is possible to throw different exceptions you must declare</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="err"> </span>
+<span class="o">[</span><span class="n">method</span> <span class="n">signature</span><span class="o">]</span> <span class="kd">throws</span> <span class="o">[</span><span class="n">exception</span> <span class="mi">1</span><span class="o">],</span> <span class="o">[</span><span class="n">exception</span> <span class="mi">2</span><span class="o">]</span></code></pre></figure>
+
+<p>To catch multiple exceptions we use a multi catch.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">try</span> <span class="o">{</span>
+    <span class="c1">//...</span>
+<span class="o">}</span>
+<span class="k">catch</span><span class="o">([</span><span class="n">exception</span> <span class="mi">1</span><span class="o">]</span> <span class="n">a</span> <span class="o">|</span> <span class="o">[</span><span class="n">exception</span> <span class="mi">2</span><span class="o">]</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">//...</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>To throw an exception at a specific point in code we throw a new exception</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">throw</span> <span class="k">new</span> <span class="nc">IOException</span><span class="o">(</span><span class="s">"Error message"</span><span class="o">);</span> <span class="c1">//example</span></code></pre></figure>
+
+<p><strong>General Rules:</strong></p>
+<ul>
+  <li>Exceptions should not be caused by the programmer, and we should not try to handle these</li>
+  <li>Exceptions should be handled from user input, or an unpredictable event</li>
+  <li>Checked exceptions will stop compilation</li>
+  <li>Unchecked exceptions (Such as errors or runtime exceptions) will not stop compilation and cause errors when running the program</li>
+</ul>
+
+<p>Methods that have unchecked exceptions automatically throw the exception, in the calling method it will also need to throw this exception if it does not want to handle it.</p>
+
+<h2 id="streams">Streams</h2>
+<blockquote>
+  <p>Sequence of data to be read in the form of binary digits.</p>
+</blockquote>
+
+<p>Streams can be written to and read from. There are two types of streams:</p>
+
+<ul>
+  <li>Data streams deal directly with the sources of data</li>
+  <li>Filtering streams manipulate data into a more useful form</li>
+</ul>
+
+<p>Input streams read data into a program, whilst output streams write data from a program to a destination.</p>
+
+<p>In general Unicode text streams are children of <code class="language-plaintext highlighter-rouge">Reader</code> and <code class="language-plaintext highlighter-rouge">Writer</code>. Whereas <code class="language-plaintext highlighter-rouge">InputStream</code> and <code class="language-plaintext highlighter-rouge">OutputStream</code> are byte-oriented streams.</p>
+
+<h2 id="file-io">File I/O</h2>
+<blockquote>
+  <p>File I/O allows persistent storage of data</p>
+</blockquote>
+
+<p>Non-Buffered I/O writes each bit/byte as soon as possible and introduces some overhead for each byte. Buffered I/O on the other hands stores data and then writes “chunks” to disk.</p>
+
+<ul>
+  <li>Text Files: Bits are represented as printable characters. e.g. “1” or “A”.</li>
+  <li>Binary Files: Bits represent encoded information. e.g. “01111111”.</li>
+</ul>
+
+<h3 id="writing">Writing</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">FileWriter</code>: non-buffered I/O</li>
+  <li><code class="language-plaintext highlighter-rouge">BufferedWriter</code>: buffered I/O</li>
+  <li><code class="language-plaintext highlighter-rouge">PrintWriter</code>: buffered I/O</li>
+</ul>
+
+<h3 id="reading">Reading</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">FileReader</code>: non-buffered I/O</li>
+  <li><code class="language-plaintext highlighter-rouge">BufferedReader</code>: buffered I/O</li>
+  <li><code class="language-plaintext highlighter-rouge">StringTokenizer</code>: token I/O (reading strings between delimiters)</li>
+</ul>
+
+<h2 id="the-final-modifier">The Final Modifier</h2>
+<blockquote>
+  <p>Classes, methods, variables, and references can be final</p>
+</blockquote>
+
+<p>A final:</p>
+<ul>
+  <li>Class can not be inherited</li>
+  <li>Methods can not be overridden</li>
+  <li>Variables can only be initialised</li>
+  <li>References can not point to another object</li>
+</ul>
+
+<h2 id="class-design">Class Design</h2>
+<blockquote>
+  <p>Determining classes that contribute to the program, and designing them.</p>
+</blockquote>
+
+<p>Using linguistic analysis, nouns are generally objects unless they are clearly primitive. When an attribute is too complex to be a primitive, it is therefor a class.</p>
+
+<p>Classes can relate to on another, as described below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Relationship</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Association</td>
+      <td>Class <code class="language-plaintext highlighter-rouge">x</code> uses <code class="language-plaintext highlighter-rouge">y</code> in some way</td>
+    </tr>
+    <tr>
+      <td>Aggregation</td>
+      <td>Class <code class="language-plaintext highlighter-rouge">x</code> has a <code class="language-plaintext highlighter-rouge">y</code></td>
+    </tr>
+    <tr>
+      <td>Composition</td>
+      <td>Class <code class="language-plaintext highlighter-rouge">x</code> exists as long as it has a <code class="language-plaintext highlighter-rouge">y</code></td>
+    </tr>
+    <tr>
+      <td>Inheritance</td>
+      <td>Class <code class="language-plaintext highlighter-rouge">y</code> is an extension of <code class="language-plaintext highlighter-rouge">x</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>If a <code class="language-plaintext highlighter-rouge">has a</code> relationship is a composition the member of the composed class is usually marked <code class="language-plaintext highlighter-rouge">final</code>.</li>
+</ul>
+
+<p><strong>A class should only represent a single entity, with a set of similar operations.</strong></p>
+
+<h2 id="solid-oo-design">SOLID OO Design</h2>
+<blockquote>
+  <p>An object oriented design methodology</p>
+</blockquote>
+
+<ul>
+  <li>(S)ingle responsibility. A class should focus on doing only one thing.</li>
+  <li>(O)pen-closed principle. Each object should be able to be extended without affecting existing implementations, and after adding new functionality we should not modify the original implementation.</li>
+  <li>(L)iskov substitution principle. Subclasses must be able to substitute base types without breaking functionality. A subclass must satisfy the constraints of a base class.</li>
+  <li>(I)nterface segregation. Clients should not be forced to rely on an interfaces they do not use.</li>
+  <li>(D)ependency inversion. High level models should depend on low level models, both should depends on abstract classes or interfaces.</li>
+</ul>
+
+<h2 id="multi-threading">Multi Threading</h2>
+<blockquote>
+  <p>Intercommunication between threads</p>
+</blockquote>
+
+<p>When a process is run by a processor it is assigned a self-contained execution environment and its own runtime resources. Threads share all the resources allocated to a process, because of this a thread requires less resources than a process.</p>
+
+<p>In java to create a thread we must create an object containing the task to run in the thread, as well as a <code class="language-plaintext highlighter-rouge">Thread</code> object itself. We can use the <code class="language-plaintext highlighter-rouge">Runnable</code> interface to create such a task.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">void</span> <span class="nf">myTask</span><span class="o">()</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+
+<span class="nc">Runnable</span> <span class="n">task</span> <span class="o">=</span> <span class="k">this</span><span class="o">::</span><span class="n">myTask</span><span class="o">;</span>
+<span class="nc">Thread</span> <span class="n">thread</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Thread</span><span class="o">(</span><span class="n">task</span><span class="o">);</span>
+<span class="n">thread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span></code></pre></figure>
+
+<p><code class="language-plaintext highlighter-rouge">Thread</code>(s) start method is marked as <code class="language-plaintext highlighter-rouge">native</code> which specifies the method is implemented in the JVM not JDK (running machine compliable code). Hence the thread is started by a native instruction in the JVM. The scheduler will run a thread if its state is runnable.</p>
+
+<ul>
+  <li>A threads state can change to blocked, sleeping, waiting, or dead.</li>
+  <li>The scheduler will run threads based on their priority (1-10, higher -&gt; more priority). A higher priority has a higher probability to run.</li>
+</ul>
+
+<p>We can stop (set its state to runnable from running) the currently executing thread with <code class="language-plaintext highlighter-rouge">yeild</code>. We can <strong>block</strong> (set its state to blocked from running) it temporarily with <code class="language-plaintext highlighter-rouge">sleep</code>. Additionally we can interrupt a thread, this is an indication to the thread to stop what it is doing and run something else.</p>
+
+<p>Before a thread is scheduled by the processor we can call <code class="language-plaintext highlighter-rouge">join</code> which will wait a certain amount of time before starting another thread. A value of zero means to wait until the thread is finished.</p>
+
+<h2 id="java-database-connectivity">Java Database Connectivity</h2>
+
+<p>The java database connectivity (JDBC) is a common API for databases to implement to allow java applications to connect to many DBMS (Oracle, MySQL etc.). It provides methods to execute SQL commands (CRUD). The JDBC is contained within <code class="language-plaintext highlighter-rouge">java.sql</code>, using it requires:</p>
+
+<ul>
+  <li>A database driver (as a <code class="language-plaintext highlighter-rouge">jar</code>)</li>
+  <li>Establishing a connection</li>
+</ul>
+
+<p>The <code class="language-plaintext highlighter-rouge">DriverManager</code> class can be used to establish a connection to a database. To use a database that is integrated as part of the application we can run a database in embedded mode. From a database connection we can create and execute SQL statements, as well as query database metadata.</p>
+
+<h2 id="design-patterns">Design Patterns</h2>
+<blockquote>
+  <p>A general reusable solution to a commonly occurring problem. A description of a solution to be used in many situation.</p>
+</blockquote>
+
+<p>Patterns are can be thought of as a problem and solution pair, patterns occur at three levels:</p>
+
+<ul>
+  <li>Code level (idioms: a common practice, algorithm, or data structure)</li>
+  <li>Subsystem level (design patterns)</li>
+  <li>System level (architectural styles)</li>
+</ul>
+
+<p>There are mainly three types of design patterns (subsystem level):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Design pattern type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Creational</td>
+      <td>Object creation mechanisms</td>
+    </tr>
+    <tr>
+      <td>Structural</td>
+      <td>Organising objects to form larger structures providing new functionality, identifying a simple way to realize the relationship between entities</td>
+    </tr>
+    <tr>
+      <td>Behavioural</td>
+      <td>Realizing common communication patterns between objects</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="creational-patterns">Creational Patterns</h3>
+<blockquote>
+  <p>Object Creation Mechanisms</p>
+</blockquote>
+
+<ul>
+  <li><strong>Factory</strong> patterns facilitate the creation of sub classes when the number of sub classes is large enough to introduce complexity by providing a separate class capable of creating sub classes based off input.</li>
+  <li><strong>Singleton</strong> patterns limit the instances of an object within a <em>running program</em> to <strong>one</strong> to provide a centralised point to manage internal data.
+    <ul>
+      <li>This is achieved by creating a default private constructor, then making available a synchronized public method to access a reference to the static instance (the object we are limiting). Additionally the <code class="language-plaintext highlighter-rouge">clone</code> method needs to be overridden to disable it.</li>
+    </ul>
+  </li>
+  <li><strong>Adapter</strong> patterns allow unrelated interfaces to work together. By providing an additional class we can perform operations to make the input for one class compatible with another, to produce the intended output.</li>
+  <li><strong>Mediator</strong> patterns allow multiple loosely coupled classes to be maintained easily. Only one class (the mediator) is aware of all the coupled objects, and each of these objects only interact with the mediator. This allows each class to only focus on their isolated responsibilities.</li>
+</ul>
+
+<h3 id="architectural-styles">Architectural Styles</h3>
+<blockquote>
+  <p>Organizing components of a program, and how they interact with each other.</p>
+</blockquote>
+
+<h4 id="mvc">MVC</h4>
+<blockquote>
+  <p>Architectural style separating components into a model, view, and controller.</p>
+</blockquote>
+
+<p>MVC styles firstly separate the UI and model (program logic). The UI is then further separated into view (displaying information) and controller (processing input).</p>
+
+<ul>
+  <li>Model: Data and rules governing the access to and updates of this data.</li>
+  <li>View: Rendering the content of the model.</li>
+  <li>Controller: Translates interactions from the view to processes for the model to execute.</li>
+</ul>
+
+<p>The general pattern is: The <code class="language-plaintext highlighter-rouge">view</code> displays data &gt; The <code class="language-plaintext highlighter-rouge">controller</code> captures input &gt; The <code class="language-plaintext highlighter-rouge">model</code> updates data and notifies the <code class="language-plaintext highlighter-rouge">view</code>.</p>
+
+<h2 id="testing">Testing</h2>
+<blockquote>
+  <p>Verifying software against use cases either manually or automatically.</p>
+</blockquote>
+
+<p>Human errors that create incorrect results are seen as mistakes. These mistakes lead to software faults (bugs) that create failures (incorrect results, outputs etc.). As developers we <strong>verify</strong> there are no faults, and <strong>validate</strong> the software meets requirements.</p>
+
+<p>Verification can be accomplished by:</p>
+
+<ul>
+  <li>Testing (demonstrating correct behaviour over multiple cases)</li>
+  <li>Formal verification (proving the underlying algorithm)</li>
+</ul>
+
+<p>Developers perform unit and integration testing (low-level). Usually system, usability, performance, and stress testing id performed by a testing group. Unit testing tests components in isolation to identify the location of a fault whereas integration testing combines and tests multiple components to discover interface errors.</p>
+
+<p>Tests can be:</p>
+
+<ul>
+  <li>Black-box: comparing the input and output (no internals).</li>
+  <li>White-box: evaluating the structure of code.</li>
+</ul>
+
+<p>Flow graphs can be used to identify the steps present when performing white-box testing. One a flow graph is created a test should be created for each edge.</p>
+
+<h3 id="unit-testing">Unit Testing</h3>
+
+<p>Unit tests pass or fail components by using black-box testing. In java <code class="language-plaintext highlighter-rouge">JUnit</code> is a common unit testing framework.</p>
+
+<p><code class="language-plaintext highlighter-rouge">JUnit</code> tests are methods created with the <code class="language-plaintext highlighter-rouge">@Test</code> tag, that contain an <code class="language-plaintext highlighter-rouge">Assertion</code> to pass or fail the input and output. If an assertion is true the test continues, otherwise it exits prematurely. If a test completes it will pass, otherwise it will fail. The <code class="language-plaintext highlighter-rouge">Assert</code> class provides:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">assertEquals</code> to check if input matches output</li>
+  <li><code class="language-plaintext highlighter-rouge">assertTrue</code> to check if input is true</li>
+  <li><code class="language-plaintext highlighter-rouge">assertFalse</code> to check if input is false</li>
+  <li>And more …</li>
+</ul>
+
+<p>Any context required for a test to run is provided by a test fixture. Using the <code class="language-plaintext highlighter-rouge">@Before</code> tag will ensure a method is called before each test case, whilst <code class="language-plaintext highlighter-rouge">@After</code> does the opposite. <code class="language-plaintext highlighter-rouge">@BeforeClass</code> will ensure a method is called when the class is created, and <code class="language-plaintext highlighter-rouge">@AfterClass</code> runs only once after all test cases are completed.</p>
+
+<h2 id="code-smells">Code Smells</h2>
+<blockquote>
+  <p>Symptoms of poor program design</p>
+</blockquote>
+
+<p>Code smells can be trivial or severe, and represent poor design that impedes the maintainability and readability of code. Some common trivial code smells include:</p>
+
+<ul>
+  <li>Dead code: Code that is no longer used by the system</li>
+  <li>Meaningless variable names</li>
+  <li>Inappropriate indenting</li>
+</ul>
+
+<p>To remove code smells we can refactor. Refactoring is the discipline of altering existing code structure without changing external behaviour.</p>
+
+<h3 id="code-smell---bloaters">Code Smell - Bloaters</h3>
+
+<p>Code that has increased to huge proportions over time that make it difficult to deal with. Often bloaters can be identified by:</p>
+
+<ul>
+  <li>Long methods: excessively long methods can be refactored into a different class.</li>
+  <li>Long classes: huge classes can be refactored by extracting smaller classes categorized by the many functions the original class is responsible for.</li>
+  <li>Data clumps: large groups of variables shared throughout a program should be encapsulated into their own class.</li>
+</ul>
+
+<h3 id="code-smell-object-orientation-abuse">Code Smell Object Orientation Abuse</h3>
+
+<p>Idioms that are not coherent with OOP are called abusers. Common examples include:</p>
+
+<ul>
+  <li>Inappropriate switch statements: using switch statements to change the output of a method is better resolved by using polymorphism and overriding the method for a specific child class.</li>
+  <li>Unrelated inheritance: creating a child class that only inherits specific behaviour from a parent to provide code reuse often causes an inconsistent interface to that object and can cause errors. For example if an animal super was extended by a class “Chair” only because an animal has “legs”.</li>
+  <li>Change preventers: highly coupled classes that mean when you change one class or add a feature we must modify many other classes as well.</li>
+</ul>
+
+<blockquote>
+  <p>Coupling is the degree of interdependence modules have with one another. How closely connected two modules are. The opposite of coupling is cohesion, if a class has low coupling it will have high cohesion and is considered well-structured.</p>
+</blockquote>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+  
+    <div class="wrapper">
+  
+      <h2 class="footer-heading">Notes on Computer Science</h2>
+  
+      <ul class="contact-list">
+      <li class="p-name">Notes on Computer Science<p>Information and takes on subjects related to computer science, mathematics, and technology in general.</p>
+          </li><li><a class="u-email" href="mailto:callum.cvr@gmail.com">callum.cvr@gmail.com</a></li></ul><ul class="social-media-list"><li><a href="https://github.com/CVR-Skidz"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CVR-Skidz</span></a></li></ul>
+</div>
+  
+  </footer>
+  </body>
+
+</html>

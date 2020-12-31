@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Cpp | Notes on Computer Science</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Cpp" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="C++ Language reference" />
+<meta property="og:description" content="C++ Language reference" />
+<link rel="canonical" href="http://localhost:4000/topics/Content/Cpp.html" />
+<meta property="og:url" content="http://localhost:4000/topics/Content/Cpp.html" />
+<meta property="og:site_name" content="Notes on Computer Science" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-01T08:46:39+13:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Cpp.html","headline":"Cpp","dateModified":"2021-01-01T08:46:39+13:00","datePublished":"2021-01-01T08:46:39+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Cpp.html"},"description":"C++ Language reference","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Notes on Computer Science</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Cpp</h1>
+  </header>
+
+  <div class="post-content">
+    <p>C++ Language reference</p>
+
+<h2 id="types">Types</h2>
+
+<h3 id="type-information">Type Information</h3>
+
+<blockquote>
+  <p>Ways to obtain the type of something.</p>
+</blockquote>
+
+<p>To retrieve the type of a variable we can use the <code class="language-plaintext highlighter-rouge">typeid</code> operator, from the <code class="language-plaintext highlighter-rouge">&lt;typeinfo&gt;</code> header. This returns a <code class="language-plaintext highlighter-rouge">type_info</code> object.</p>
+
+<pre><code class="language-C++">Circle c(5.0);
+const std::type_info&amp; t = typeid(Circle);
+const std::type_info&amp; v = typeid(c);
+</code></pre>
+
+<p>Each type has a single <code class="language-plaintext highlighter-rouge">type_info</code> instance associated with it. The returned object is also a reference. <strong><code class="language-plaintext highlighter-rouge">type_info</code> objects can be compared.</strong> We can also get the name of the type id with <code class="language-plaintext highlighter-rouge">name()</code>.</p>
+
+<pre><code class="language-C++">if (typeid(a) == typeid(b)) {
+  //a and b are the same type
+}
+std::cout &lt;&lt; typeid(a).name() &lt;&lt; std::endl;
+</code></pre>
+
+<h2 id="literals">Literals</h2>
+
+<blockquote>
+  <p>Literals are explicit values</p>
+</blockquote>
+
+<p>Literals can be a value of any basic data type. Literal values are fixed and referred to as <strong>constants</strong>. They are not limited to simple values however, and can be lambda functions called <strong>function literals</strong>.</p>
+
+<h3 id="raw-string-literals">Raw String literals</h3>
+
+<p>Raw string literals are literal <code class="language-plaintext highlighter-rouge">strings</code> that are not interpreted (escape characters are not processed etc.).</p>
+
+<pre><code class="language-C++">R"(Text)";
+</code></pre>
+
+<p>Raw strings can place separators either side of <code class="language-plaintext highlighter-rouge">( or )</code>, these are a maximum of 16 characters long without whitespace, backslashes, or colons.</p>
+
+<pre><code class="language-C++">R"Sep(Text)Sep";
+</code></pre>
+
+<p><strong>Raw strings are important in expressing paths or regular expressions as they are not interpreted.</strong></p>
+
+<pre><code class="language-C++">R"(C:\temp.txt)"; //path
+R"(c\+\+)"; //regular expression
+</code></pre>
+
+<hr />
+
+<h3 id="user-defined-literals">User Defined Literals</h3>
+
+<p>With <code class="language-plaintext highlighter-rouge">C++11</code> we can define our own literals by adding a suffix to built-in literals for <code class="language-plaintext highlighter-rouge">integers</code>, <code class="language-plaintext highlighter-rouge">floats</code>, <code class="language-plaintext highlighter-rouge">characters</code>, or <code class="language-plaintext highlighter-rouge">c strings</code>. Their syntax is as follows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;built-in literal&gt; + _ + &lt;suffix&gt;
+</code></pre></div></div>
+
+<p>In general we use a unit as the suffix:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Line</th>
+      <th>Built-in literal</th>
+      <th>Suffix</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">1010_b</code></td>
+      <td><code class="language-plaintext highlighter-rouge">1010</code></td>
+      <td><code class="language-plaintext highlighter-rouge">b</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">123.45_km</code></td>
+      <td><code class="language-plaintext highlighter-rouge">123.45</code></td>
+      <td><code class="language-plaintext highlighter-rouge">km</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">'1'_character</code></td>
+      <td><code class="language-plaintext highlighter-rouge">'1'</code></td>
+      <td><code class="language-plaintext highlighter-rouge">character</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The <code class="language-plaintext highlighter-rouge">C++ runtime</code> maps literals to <code class="language-plaintext highlighter-rouge">literal operators</code>:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">1_m</code> = <code class="language-plaintext highlighter-rouge">operator"" _m(1)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"hello"_i18n</code> = <code class="language-plaintext highlighter-rouge">operator"" _i18n("hello", 5)</code></li>
+</ul>
+
+<p>For example <code class="language-plaintext highlighter-rouge">0101_b</code> is mapped to the operator <code class="language-plaintext highlighter-rouge">operator"" _n(long long int bin) </code>,  <strong>the rules this follows are:</strong></p>
+
+<ul>
+  <li>The variable <code class="language-plaintext highlighter-rouge">bin</code> must be of the type <code class="language-plaintext highlighter-rouge">long long int</code></li>
+  <li>There must be a space between <code class="language-plaintext highlighter-rouge">""</code> and <code class="language-plaintext highlighter-rouge">_</code>.</li>
+</ul>
+
+<p>In the case where the compiler can not find the corresponding <code class="language-plaintext highlighter-rouge">literal operator</code> compilation fails. With the introduction of <code class="language-plaintext highlighter-rouge">C++14</code> the space is not required and allows us to define literals with <strong>reserved keywords</strong> such as <code class="language-plaintext highlighter-rouge">_C</code>. In <code class="language-plaintext highlighter-rouge">C++14</code> the simple rule is that we can use suffixes that start with a cpatial letter.</p>
+
+<p><strong>User defined literals are important as they allow us to perform type safe arithmetic, ensuring we cannot add apples to pears.</strong></p>
+
+<hr />
+
+<h3 id="built-in-literals">Built-in Literals</h3>
+
+<p>There are some built-in literals for binary numbers, c-strings etc.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Suffix</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Binary Number</td>
+      <td>0b</td>
+      <td>0b1010</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">std::string</code></td>
+      <td>s</td>
+      <td>“Hello”s</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">complex&lt;double&gt;</code></td>
+      <td>i</td>
+      <td>5i</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">complex&lt;long double&gt;</code></td>
+      <td>il</td>
+      <td>5il</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">complex&lt;float&gt;</code></td>
+      <td>if</td>
+      <td>5if</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">std::chrono::hours</code></td>
+      <td>h</td>
+      <td>5h</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">std::chrono::minutes</code></td>
+      <td>min</td>
+      <td>5min</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">std::chrono::seconds</code></td>
+      <td>s</td>
+      <td>5s</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">std::chrono::milliseconds</code></td>
+      <td>ms</td>
+      <td>5ms</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">std::chrono::microseconds</code></td>
+      <td>us</td>
+      <td>5us</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">std::chrono::nanoseconds</code></td>
+      <td>ns</td>
+      <td>5ns</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Built-in literals do not use an underscore and in <code class="language-plaintext highlighter-rouge">C++14</code> for the fist time we are able to us string literals, meaning we can initialize a string without using a <code class="language-plaintext highlighter-rouge">c-string</code>.</p>
+
+<hr />
+
+<h3 id="raw-and-cooked">Raw and Cooked</h3>
+
+<blockquote>
+  <p>The literal operator comes in the raw type, or cooked type.</p>
+</blockquote>
+
+<h3 id="raw">Raw</h3>
+
+<p>Raw literal operators accept arguments as either <code class="language-plaintext highlighter-rouge">(const char*, size_t)</code>, <code class="language-plaintext highlighter-rouge">(const char*)</code>, or <code class="language-plaintext highlighter-rouge">(const char)</code>.</p>
+
+<pre><code class="language-C++">1.45_km =&gt; operator"" _km("1.45");
+</code></pre>
+
+<p><code class="language-plaintext highlighter-rouge">Raw strings</code> fall under this category.</p>
+
+<h3 id="cooked">Cooked</h3>
+
+<p>Cooked literal operators accept arguments as either <code class="language-plaintext highlighter-rouge">(long double)</code> or <code class="language-plaintext highlighter-rouge">(unsigned long long int)</code>.</p>
+
+<pre><code class="language-C++">1.45_km =&gt; operator"" _km(1.45);
+</code></pre>
+
+<blockquote>
+  <p>It is important to add an “_” in front of the suffix to distinguish user defined literals from built-ins</p>
+</blockquote>
+
+<p><strong>Raw form can be used for number types or string types, whereas cooked can only be used for number types.</strong></p>
+
+<h2 id="enumeration"><a href="https://en.cppreference.com/w/cpp/language/enum">Enumeration</a></h2>
+
+<blockquote>
+  <p>Defining custom data types containing constant integer values</p>
+</blockquote>
+
+<p>These constant integer values are known as enumerators.</p>
+
+<pre><code class="language-C++">enum Classic { //unscoped enumeration
+  red,
+  green,
+  blue = 3
+};
+</code></pre>
+
+<pre><code class="language-C++">std::cout &lt;&lt; red &lt;&lt; std::endl //0
+std::cout &lt;&lt; green &lt;&lt; std::endl //1  
+std::cout &lt;&lt; blue &lt;&lt; std::endl //3  
+</code></pre>
+
+<h3 id="statically-typed-enumerations-scoped-enumerations">Statically Typed Enumerations (Scoped Enumerations)</h3>
+
+<p>With the introduction of <code class="language-plaintext highlighter-rouge">C++11</code> enumerations can only be accessed within the scope of the <code class="language-plaintext highlighter-rouge">enum</code> (i.e. we have to access enumerators from the namespace of the <code class="language-plaintext highlighter-rouge">enum</code>) and are not imported to the enclosing scope. By default the type of an <code class="language-plaintext highlighter-rouge">enum</code> is an <code class="language-plaintext highlighter-rouge">int</code> in <code class="language-plaintext highlighter-rouge">C++11</code> and later, which allows us to forward declare them. <strong>These <code class="language-plaintext highlighter-rouge">enums</code> are called statically-typed</strong>.</p>
+
+<pre><code class="language-C++">enum struct Statically {
+  red,
+  green,
+  blue = 3
+};
+</code></pre>
+
+<ul>
+  <li>We must use the <code class="language-plaintext highlighter-rouge">static</code> or <code class="language-plaintext highlighter-rouge">class</code> keyword to define a statically typed <code class="language-plaintext highlighter-rouge">enum</code></li>
+  <li>We must use a <code class="language-plaintext highlighter-rouge">static cast</code> to access a statically-typed <code class="language-plaintext highlighter-rouge">enum</code> as an <code class="language-plaintext highlighter-rouge">int</code></li>
+</ul>
+
+<pre><code class="language-C++">std::cout &lt;&lt; static_cast&lt;int&gt;(Statically::red) &lt;&lt; std::endl //0
+std::cout &lt;&lt; static_cast&lt;int&gt;(Statically::green) &lt;&lt; std::endl //1  
+std::cout &lt;&lt; static_cast&lt;int&gt;(Statically::blue) &lt;&lt; std::endl //3  
+</code></pre>
+
+<p>These <code class="language-plaintext highlighter-rouge">enums</code> do not have to be of the <code class="language-plaintext highlighter-rouge">int</code> type however. We can use  all <a href="https://docs.microsoft.com/en-us/cpp/cpp/fundamental-types-cpp?view=vs-2019">integral types</a> such as <code class="language-plaintext highlighter-rouge">bool</code>, <code class="language-plaintext highlighter-rouge">char</code>, and <code class="language-plaintext highlighter-rouge">long long int</code>.</p>
+
+<p>The type of the enumerators is implicit based on the value of the number (0-255 would be a <code class="language-plaintext highlighter-rouge">char</code> for example). In addition as scoped <code class="language-plaintext highlighter-rouge">enums</code> are not implicitly converted to <code class="language-plaintext highlighter-rouge">int</code> the following is valid:</p>
+
+<pre><code class="language-C++">void enumType(Satically e) {
+  switch(e) {
+    case Statically::red:
+      std::cout &lt;&lt; "Statically::red" &lt;&lt; std::endl;
+   		break;
+    case Statically::green:
+      std::cout &lt;&lt; "Statically::green" &lt;&lt; std::endl;
+      break; 
+    default:
+      std::cout &lt;&lt; "Statically::blue" &lt;&lt; std::endl;
+  }
+}
+</code></pre>
+
+<h2 id="pointers">Pointers</h2>
+
+<blockquote>
+  <p>A pointer holds the memory address of a value</p>
+</blockquote>
+
+<p>A pointer can be created using the <code class="language-plaintext highlighter-rouge">*</code> operator, and the address of a value can be accessed by the <code class="language-plaintext highlighter-rouge">&amp;</code> operand.</p>
+
+<pre><code class="language-C++">int i = 10;
+int* iptr = &amp;i;
+
+std::cout &lt;&lt; i &lt;&lt; "is at address: " &lt;&lt; iptr &lt;&lt; std::endl;
+</code></pre>
+
+<p>Accessing the value of pointed to by a pointer is called <strong>dereferencing</strong>.</p>
+
+<pre><code class="language-C++">std::cout &lt;&lt; "i = " &lt;&lt; *iptr &lt;&lt; std::endl; //dereferencing
+</code></pre>
+
+<p>Pointers store data in heap memory, hence we can modify them  regardless of scope.</p>
+
+<hr />
+
+<h3 id="pointer-arithmetic">Pointer Arithmetic</h3>
+
+<p>Pointer arithmetic allows us to change the address we use to access a value, and is the same process as <code class="language-plaintext highlighter-rouge">indexing</code>.</p>
+
+<pre><code class="language-C++">intArray[i];
+*(intArray + i); //equivelant
+</code></pre>
+
+<p>Adding a value to a pointer moves the address pointed to by the pointer, and then dereferencing this pointer retrieves this new value. This is how the compiler treats <code class="language-plaintext highlighter-rouge">[]</code> .</p>
+
+<h3 id="dynamic-memory">Dynamic memory</h3>
+
+<blockquote>
+  <p>Creating new data in memory is done with the <code class="language-plaintext highlighter-rouge">new</code> keyword</p>
+</blockquote>
+
+<pre><code class="language-C++">int* intArray = new int[10];
+</code></pre>
+
+<h3 id="null-pointers">Null Pointers</h3>
+
+<blockquote>
+  <p>Before C++11, <code class="language-plaintext highlighter-rouge">0</code> was often used to represent an empty or null value when the <code class="language-plaintext highlighter-rouge">NULL</code> macro was not applicable. The issue with the literal <code class="language-plaintext highlighter-rouge">0</code> is that it can be the null pointer <code class="language-plaintext highlighter-rouge">(void*)0</code> or the number <code class="language-plaintext highlighter-rouge">0</code>. This is defined by the context.</p>
+</blockquote>
+
+<p>Often we may accidentally apply pointer arithmetic to a value we thought was just an integer. An alternative to this is to use the <code class="language-plaintext highlighter-rouge">NULL</code> macro, which helps readability, but functionally is equivalent.</p>
+
+<p>The new standard is to use <code class="language-plaintext highlighter-rouge">nullptr</code>, which is a type by itself <code class="language-plaintext highlighter-rouge">std::nullptr_t</code>, and does not evaluate to 0.</p>
+
+<ul>
+  <li>You cannot dereference a <code class="language-plaintext highlighter-rouge">nullptr</code></li>
+  <li>Any pointer can be assigned <code class="language-plaintext highlighter-rouge">nullptr</code></li>
+  <li>A <code class="language-plaintext highlighter-rouge">nullptr</code> can be compared and converted to all types of pointer</li>
+</ul>
+
+<p>We cannot compare or convert a <code class="language-plaintext highlighter-rouge">nullptr</code> to an integral type, except for <code class="language-plaintext highlighter-rouge">bools</code>, allowing us to use <code class="language-plaintext highlighter-rouge">nullptr</code> in logical expressions.</p>
+
+<hr />
+
+<h3 id="function-pointers">Function Pointers</h3>
+
+<p>Creating a pointer to a function follows the following syntax:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;return type&gt; (*&lt;pointer name&gt;)(&lt;arg 1&gt;, ...&lt;arg n&gt;) = &lt;function name&gt;
+</code></pre></div></div>
+
+<p>Calling the function from the pointer is as you would expect:</p>
+
+<pre><code class="language-C++">fptr(a);
+</code></pre>
+
+<h3 id="member-pointers">Member Pointers</h3>
+
+<blockquote>
+  <p>We can make pointers to class or struct members as well</p>
+</blockquote>
+
+<pre><code class="language-C++">struct X{
+  int data;
+};
+
+int X:: * p = &amp;X::data; //pointer to member
+X object;
+object.data = 2011; //set instance memeber
+X* objptr = new object;
+objptr-&gt;data = 2014; //set instance member
+
+std::cout &lt;&lt; object.*p &lt;&lt; std::endl; //dereferencing
+std::cout &lt;&lt; objptr-&gt;*p &lt;&lt; std::endl; //dereferencing
+</code></pre>
+
+<h2 id="references">References</h2>
+
+<blockquote>
+  <p>A reference is an alias for an existing variable, created with the <code class="language-plaintext highlighter-rouge">&amp;</code> operator</p>
+</blockquote>
+
+<p>Once created a reference can be used instead of the original variable, changes made to either one are reflected in the other.</p>
+
+<pre><code class="language-C++">int i = 30;
+int&amp; iref = i;
+
+std::cout &lt;&lt; i &lt;&lt; std::endl; //30
+std::cout &lt;&lt; iref &lt;&lt; std::endl; //30
+</code></pre>
+
+<h3 id="references-vs-pointers">References vs Pointers</h3>
+
+<ul>
+  <li>References can never be <code class="language-plaintext highlighter-rouge">NULL</code>, it must always be initialized with an existing variable.</li>
+  <li>References can not be assigned to another variable, acting like a <code class="language-plaintext highlighter-rouge">constant</code> pointer.</li>
+</ul>
+
+<h3 id="references-as-parameters">References as Parameters</h3>
+
+<blockquote>
+  <p>References allow functions to modify the value of a variable</p>
+</blockquote>
+
+<p>References are not copied, they are not passed by value.</p>
+
+<blockquote>
+  <p>This functionality is also very useful when dealing with a large argument. Passing it by value would mean that a copy has to be made in the function. This is memory-intensive.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="type-deduction">Type Deduction</h2>
+
+<blockquote>
+  <p>The <code class="language-plaintext highlighter-rouge">auto</code> keyword can be used to let the compiler decide the data type itself</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">auto</code> determines a type from an initializer, all variables therefore need an initializer. By using <code class="language-plaintext highlighter-rouge">auto</code> the compiler ensures that all types is initialized.</p>
+
+<ul>
+  <li>Non-constant members of a class should not be initialized with an <code class="language-plaintext highlighter-rouge">auto</code> type</li>
+  <li>Using <code class="language-plaintext highlighter-rouge">auto</code> allows us to easily refactor our code, as we can change the value of variables from <code class="language-plaintext highlighter-rouge">int</code> to <code class="language-plaintext highlighter-rouge">double</code> without changing the types of expressions and other variables.</li>
+  <li>To force an <code class="language-plaintext highlighter-rouge">auto</code> deduction to become a pointer use <code class="language-plaintext highlighter-rouge">auto*</code>, and <code class="language-plaintext highlighter-rouge">auto&amp;</code> for references.</li>
+</ul>
+
+<pre><code class="language-C++">auto i = 5; //int
+auto* iptr = &amp;i; //int*
+auto&amp; iref = i; //int&amp;
+
+int func(){return 2011;}
+
+auto fptr = func; //int (* &lt; fptr &gt;)()
+</code></pre>
+
+<h3 id="decltype"><code class="language-plaintext highlighter-rouge">decltype</code></h3>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">decltype</code> returns the type of an expression or entity, i.e. <code class="language-plaintext highlighter-rouge">decltype(expression)</code></p>
+</blockquote>
+
+<ul>
+  <li>If the expression is an <code class="language-plaintext highlighter-rouge">lvalue</code> a reference to the data type is returned</li>
+  <li>If the expression is an <code class="language-plaintext highlighter-rouge">rvalue</code> the data type is returned</li>
+</ul>
+
+<pre><code class="language-C++">int i = 2011;
+decltype(i) i2 = i; //int i2 = i; (rvalue)
+
+decltype((i)) iref = i2; //int&amp; iref = i2; (lvalue)
+</code></pre>
+
+<h3 id="automatic-return-types">Automatic Return Types</h3>
+
+<p>To deduce the return type of a function automatically we need to do two things, delay the declaration of the functions return type, and include a trailing return type.</p>
+
+<ul>
+  <li>Declaring a functions return type as <code class="language-plaintext highlighter-rouge">auto</code> in it’s signature delays the return type declaration</li>
+  <li>Using the <code class="language-plaintext highlighter-rouge">decltype()</code> keyword in the trailing return type will let the automatic type deduction recognise the correct data type.</li>
+  <li>We must use the trailing return type syntax as our method signature:</li>
+</ul>
+
+<pre><code class="language-C++">template &lt;typename T1, typename T2&gt;	
+auto add(T1 a, T2 b) -&gt; decltype(a + b) {	//before "-&gt;" = signature, after "-&gt;" = trailing type
+  return a + b;
+}
+</code></pre>
+
+<p><strong>With the introduction of <code class="language-plaintext highlighter-rouge">C++14</code> <code class="language-plaintext highlighter-rouge">auto</code> does not require a trailing type</strong></p>
+
+<pre><code class="language-C++">template &lt;typename T1, typename T2&gt;	
+auto add(T1 a, T2 b) {
+  return a + b;
+}
+</code></pre>
+
+<h2 id="casting">Casting</h2>
+
+<p>There are four different types of cast operators:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">dynamic_cast</code></li>
+  <li><code class="language-plaintext highlighter-rouge">static_cast</code></li>
+  <li><code class="language-plaintext highlighter-rouge">const_cast</code></li>
+  <li><code class="language-plaintext highlighter-rouge">reinterperet_cast</code></li>
+</ul>
+
+<p>Explicit casting requires the type we want to cast our data to.</p>
+
+<pre><code class="language-C++">int i = static_cast&lt;int&gt;(5.5);
+</code></pre>
+
+<p>We can also use the C syntax, known as a c-cast:</p>
+
+<pre><code class="language-C">int i = (int) 5.5;
+</code></pre>
+
+<p><strong>It is not encouraged to use c-casts as we do not know which type of cast occurs, and usually follows multiple casts.</strong></p>
+
+<hr />
+
+<h3 id="dynamic_cast"><code class="language-plaintext highlighter-rouge">dynamic_cast</code></h3>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">dynamic_cast</code> only deals with references or pointers</p>
+</blockquote>
+
+<p>A dynamic cast converts a pointer or reference of a class to a pointer or reference in the same inheritance hierarchy. It can only be used with polymorphic classes, allowing us to cast up, down, and across. This cast’s validity is determined at runtime, and if it is not possible we will receive  a <code class="language-plaintext highlighter-rouge">nullptr</code> or <code class="language-plaintext highlighter-rouge">std::bad_cast-exception</code> for a reference.</p>
+
+<pre><code class="language-C++">class Account{
+public:
+  virtual ~Account() = default;
+};
+
+class BankAccount: virtual public Account{};
+
+Account* a = nullptr;
+BankAccount* b = nullptr;
+
+BankAccount c;
+
+a = dynamic_cast&lt;Account*&gt;(&amp;c); //upcast
+b = dynamic_cast&lt;BankAccount*&gt;(a) //downcast
+</code></pre>
+
+<h3 id="static_cast"><code class="language-plaintext highlighter-rouge">static_cast</code></h3>
+
+<p>Static casts only perform conversions well-defined by the compiler, e.g. not a string to integer. It allows bidirectional conversion between related data types and cannot be used with polymorphic types. The <code class="language-plaintext highlighter-rouge">static_cast</code> is performed at compile time.</p>
+
+<pre><code class="language-C++">class Account{};
+class BankAccount: public Account{};
+
+enum Color{
+  red,
+  blue,
+  green
+};
+
+Account * a = nullptr;
+BankAccount * b = nullptr;
+
+a = static_cast&lt;Account*&gt;(b); //upcast
+b = static_cast&lt;BankAccount*&gt;(a); //downcast
+
+int i{2};
+Color col = static_cast&lt;Color&gt;(i); //green
+</code></pre>
+
+<h3 id="const_cast"><code class="language-plaintext highlighter-rouge">const_cast</code></h3>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">const_cast</code> allows us to add or remove the <code class="language-plaintext highlighter-rouge">const</code> or <code class="language-plaintext highlighter-rouge">volatile</code> property from a variable</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">const_cast</code> is rarely used because removing <code class="language-plaintext highlighter-rouge">const</code> or <code class="language-plaintext highlighter-rouge">volatile</code> from a variable declared as such in the first place is undefined behaviour.</p>
+
+<pre><code class="language-C++">int i{2011};
+const int* constI = const_cast&lt;const int*&gt;(&amp;i);//make constant pointer
+int* nonConstI = const_cast&lt;int*&gt;(constI);//remove constant pointer
+</code></pre>
+
+<h3 id="reinterpret_cast"><code class="language-plaintext highlighter-rouge">reinterpret_cast</code></h3>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">reinterpret_cast</code> allows us to convert a pointer of a particular type to another type, whether or not the types are related.</p>
+</blockquote>
+
+<p>A <code class="language-plaintext highlighter-rouge">reinterpret_cast</code> also allows the conversion between an integral and pointer. The cast guarantees that is a pointer is canst into another type casting it back would return the original value. <strong>Using this cast is not recommended as it does not take any safety measures.</strong></p>
+
+<pre><code class="language-C++">double * aDouble = 3.14;
+void * aVoid = reinterpret_cast&lt;void*&gt;(aDouble);
+double * doubleAgain = reinterpret_cast&lt;double*&gt;(aVoid); //3.14
+</code></pre>
+
+<h2 id="unified-initialization">Unified Initialization</h2>
+
+<blockquote>
+  <p>In <code class="language-plaintext highlighter-rouge">C++11</code> initialization became uniform, uniform initialization uses <code class="language-plaintext highlighter-rouge">{}</code>.</p>
+</blockquote>
+
+<p>Uniform initialization is always applicable by the <code class="language-plaintext highlighter-rouge">C++</code> standard. Variables can be initialized in this way with or without assignment:</p>
+
+<pre><code class="language-C++">int i{2011};
+std::string j = {"my string"};
+</code></pre>
+
+<p>When using assignment the value is first created, and then implicitly converted to the correct type. Without initialization the type’s constructor is directly called.</p>
+
+<p>When using unified initialization we <strong>cannot overflow</strong> the size of a type.</p>
+
+<pre><code class="language-C++">char a = 999; //999 does not fit into a char type. We loose the extra data.
+char b{999}; //Error compiler will not allow overflow. No data loss.
+</code></pre>
+
+<h3 id="calling-the-constructor">Calling the Constructor</h3>
+
+<p>When using a <code class="language-plaintext highlighter-rouge">{}</code> initialiser we call the types constructor with <code class="language-plaintext highlighter-rouge">(std::initializer_list&lt;T&gt;)</code> as arguments. Hence to work we can define a constructor in a class as such:</p>
+
+<pre><code class="language-C++"> class MyData {
+   public:
+   	MyData(std::initializer_list&lt;int&gt; data) {
+      for (auto i : data) std::cout &lt;&lt; i &lt;&lt; std::endl;
+    }
+ }
+</code></pre>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">{...}</code> is of the type <code class="language-plaintext highlighter-rouge">std::initializer_list&lt;T&gt;</code> and therefore <code class="language-plaintext highlighter-rouge">auto i {42}</code> is of the type <code class="language-plaintext highlighter-rouge">std::initializer_list&lt;int&gt;</code>. <em>Specify a type to call a specific constructor.</em></li>
+  <li>As of <code class="language-plaintext highlighter-rouge">C++17</code> <code class="language-plaintext highlighter-rouge">{}</code> initialization without assignment resolves to the type of the element inside the provided list, there can only be one element.</li>
+</ul>
+
+<pre><code class="language-C++">//C++ 14
+auto a {42}; //std::initializer_list&lt;int&gt;
+auto b {42, 43}; //std::initializer_list&lt;int&gt;
+auto c = {42}; //std::initializer_list&lt;int&gt;
+auto d = {42, 43}; //std::initializer_list&lt;int&gt;
+
+//C++ 17
+auto a {42}; //int
+auto b {42, 43}; //Error: too many values
+auto c = {42}; //std::initializer_list&lt;int&gt;
+auto d = {42, 43}; //std::initializer_list&lt;int&gt;
+</code></pre>
+
+<h2 id="variable-modifiers">Variable Modifiers</h2>
+
+<blockquote>
+  <p>Modifiers change the properties of a variable</p>
+</blockquote>
+
+<h3 id="const"><code class="language-plaintext highlighter-rouge">Const</code></h3>
+
+<blockquote>
+  <p>Any variable marked with <code class="language-plaintext highlighter-rouge">const</code> can not be modified later on.</p>
+</blockquote>
+
+<ul>
+  <li>Class methods can also be marked as <code class="language-plaintext highlighter-rouge">const</code>, and only <code class="language-plaintext highlighter-rouge">const</code> instances can call them.</li>
+  <li>In a <code class="language-plaintext highlighter-rouge">const</code> pointer both the data and pointer can be  <code class="language-plaintext highlighter-rouge">const</code>. Read these from  right to left.</li>
+</ul>
+
+<pre><code class="language-C++">int i = 10; //normal variable
+int const* ip = &amp;i; //constant pointer, ip is a pointer to a const int. ip is not constant.
+
+*ip = 11; //error
+ip = ip + 1; //error: non-const pointer
+
+int* const ip1 = &amp;i; // ip1 is a constant pointer to an int.
+
+*ip1 = 11; //error: pointer being non-constant
+ip1 = ip1 + 1; //error
+
+int const* const ip2 = &amp;i; //ip2 is a constant pointer to a constant int. 
+//We can modify i, but not through ip2.
+
+*ip2 = 11; //error
+ip2 = ip2 + 1; //error
+</code></pre>
+
+<h3 id="constexpr"><code class="language-plaintext highlighter-rouge">Constexpr</code></h3>
+
+<blockquote>
+  <p>Defines an expression evaluated at compile time</p>
+</blockquote>
+
+<p>Can be used for functions, variables, and user-defined types. A constant expression variable can be used anywhere that requires a truly constant value, like an array size.</p>
+
+<pre><code class="language-C++">constexpr double a = 3.14;
+</code></pre>
+
+<p>A <code class="language-plaintext highlighter-rouge">constexpr</code> value is automatically <code class="language-plaintext highlighter-rouge">const</code>, has to be initialized, and this initialization must also be a constant expression.</p>
+
+<blockquote>
+  <p>“The rules make sense. If we evaluate a variable at compile-time, the variable can only depend on values that can be evaluated at compile time.”</p>
+</blockquote>
+
+<h4 id="constant-expression-user-defined-types">Constant Expression User Defined Types</h4>
+
+<p>When using a constant expression with a user defined type there are some restrictions:</p>
+
+<ul>
+  <li>A <code class="language-plaintext highlighter-rouge">constexpt</code> constructor can only:
+    <ul>
+      <li>be invoked by a constant expression</li>
+      <li>cannot use exceptions</li>
+      <li>has to be declared as <code class="language-plaintext highlighter-rouge">default</code> or <code class="language-plaintext highlighter-rouge">delete</code>, or the body must be empty</li>
+    </ul>
+  </li>
+  <li>Each base object and non-static member must be initialized in the constructors initializer list (see later) or directly.</li>
+  <li>The constructor body must be empty.</li>
+  <li>Methods within the class do not have to be constant expressions.</li>
+</ul>
+
+<h4 id="constant-expression-functions">Constant Expression Functions</h4>
+
+<blockquote>
+  <p>Constant expression functions can be run at compile time, and the results instantly available at runtime.</p>
+</blockquote>
+
+<p>These functions are implicitly <code class="language-plaintext highlighter-rouge">inline</code>. Their restrictions:</p>
+
+<ul>
+  <li>Non-virtual</li>
+  <li>Arguments and return values are <code class="language-plaintext highlighter-rouge">literal types</code>. So are function variables.</li>
+  <li>Only one return statement</li>
+  <li>Must return a value</li>
+  <li>Executed at runtime when invoked by a constant expression.</li>
+  <li>Can only have a body consisting of a return statement.</li>
+  <li>Must have a constant return value.</li>
+</ul>
+
+<pre><code class="language-C++">constexpr int gcd(int a, int b) {
+  return (b == 0) ? a : gcd(b, a % b)
+}
+</code></pre>
+
+<p>As of <code class="language-plaintext highlighter-rouge">C++14</code> there were changes made, when using <code class="language-plaintext highlighter-rouge">C++14</code> we only have to remember we cannot use <code class="language-plaintext highlighter-rouge">static</code> or <code class="language-plaintext highlighter-rouge">thread_local</code> data.</p>
+
+<pre><code class="language-C++">constexpr auto gcd(int a, int b){
+  while (b != 0){
+    auto t= b;
+    b= a % b;
+    a= t;
+  }
+  return a;
+}
+</code></pre>
+
+<p>**constant expression functions do not rely on the state of the program, even if executed at run time. This means they are always pure functions (always return the same value). **</p>
+
+<h3 id="volatile">Volatile</h3>
+<blockquote>
+  <p>The volatile variable is one who’s value may change due to an external event.</p>
+</blockquote>
+
+<p>We usually only change the value of a variable within our code, and an external I/O call which tries to do so would not be allowed for example.
+This would be possible if the variable was marked <code class="language-plaintext highlighter-rouge">volatile</code>.</p>
+
+<pre><code class="language-C++">volatile int i{2011};
+</code></pre>
+
+<p>Compared to the same modifier in Java or C# there is no multithreading semantics involve with <code class="language-plaintext highlighter-rouge">volatile</code> in C++.</p>
+
+<p><code class="language-plaintext highlighter-rouge">volatile</code> is usually used in embedded programming to denote an object that can change independently of the regular program flow.</p>
+
+<p>Hence we can modify and read variables in separate threads marked <code class="language-plaintext highlighter-rouge">volatile</code>. If we do this we can not guarantee the values of these variable in either thread.</p>
+
+<h2 id="rvalues-and-lvalues">Rvalues and Lvalues</h2>
+<p>Rvalues are temporary objects without a name. We can no get an address from them, and are always on the right hand sie of assignment.</p>
+
+<p>All others are Lvalues, these can only be on the left hand side.</p>
+
+<pre><code class="language-C++">int lvalue = 2011 // 2011 is an rvalue
+</code></pre>
+
+<h3 id="references-1">References</h3>
+<p>Lvalue references have a single <code class="language-plaintext highlighter-rouge">&amp;</code> , whilst rvalue references have two <code class="language-plaintext highlighter-rouge">&amp;&amp;</code>.</p>
+
+<p>Lvalues can only be bound to Lvalue references, whilst rvalues can als be bound to constant lvalue references as well as rvlaue references.</p>
+
+<pre><code class="language-C++">MyData a;
+MyData&amp; lvalRef(a); //lvalue ref
+MyData&amp;&amp; rvalRef(MyData()); //rvalue ref
+const MyData&amp; rvalRef2(MyData()); //rvalue ref
+</code></pre>
+
+<p>Rvalues are very efficient when moving objects, as we dont have to copy them. They also require no memory allocation or de-allocation.</p>
+
+<h2 id="move-and-copy">Move and Copy</h2>
+<blockquote>
+  <p>Move and copy are operations we can perform on memory.</p>
+</blockquote>
+
+<p>Copying duplicates the elements of ne object into another and is considered expensive. If we do not have enough memory we could get a <code class="language-plaintext highlighter-rouge">std::bad_alloc</code> exception.</p>
+
+<p>Moving takes the elements from one element and puts them in another, it is however not guaranteed to leave the source object empty. This means we have valid but unspecified behavior.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>copy</th>
+      <th>move</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../Assets/c++_copy.png" alt="copy" /></td>
+      <td><img src="../Assets/c++_move.png" alt="move" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>An object supports copying if it has a copy constructor and operator, and supports moving if it has a moving constructor and operator.</li>
+  <li>Copy operations use constant <code class="language-plaintext highlighter-rouge">lvalue</code> references, whilst move uses <code class="language-plaintext highlighter-rouge">rvalue</code> references.</li>
+</ul>
+
+<p>Remember the point of a move operation is to set the new values and erase the old ones, while copy is just to set the new ones.</p>
+
+<pre><code class="language-C++">class MyData{
+  public:
+    //move constructor 
+    MyData(MyData&amp;&amp; m): i(std::move(m.i)), j(std::move(m.j)) {
+      m.i = 0;
+      m.j = ""s;
+    };
+  	
+  	//move operator
+    MyData&amp; operator = (MyData&amp;&amp; m) {
+      i = std::move(m.i);
+      j = std::move(m.j);
+      m.i = 0;
+      m.j = ""s;
+    }
+  
+  	//copy constructor
+    MyData(const MyData&amp; m): i(m.i), j(m.j) {};
+  
+  	//copy operator
+    MyData&amp; operator = (const myData&amp; m) {
+      i = m.i;
+      j = m.j;
+    }
+  
+  private:
+  int i;
+  std::string j;
+};
+</code></pre>
+
+<h3 id="move">Move</h3>
+
+<blockquote>
+  <p>Requires the <code class="language-plaintext highlighter-rouge">&lt;utility&gt;</code> header</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">std::move</code>  converts its argument to an <code class="language-plaintext highlighter-rouge">rvalue</code> by a <code class="language-plaintext highlighter-rouge">static_cast</code>, if we try to move a non-moveable object the compiler will fall back to a copy operation.</p>
+
+<p><em>Moving is very fast.</em></p>
+
+<h2 id="forwarding">Forwarding</h2>
+
+<blockquote>
+  <p>The act of a function forwarding its arguments without changing their properties (<code class="language-plaintext highlighter-rouge">lvalue</code> or <code class="language-plaintext highlighter-rouge">rvalue</code>), known as perfect forwarding</p>
+</blockquote>
+
+<p>Such methods are known as perfect factory methods. They:</p>
+
+<ul>
+  <li>accept any number of lvalues and rvalues as arguments.</li>
+  <li>forwards its arguments the same way as the underlying constructor.</li>
+</ul>
+
+<p><strong>In essence a perfect factory method is a way of constructing a type which maintains whether the value is an rvalue or lvalue</strong></p>
+
+<pre><code class="language-C++">//the perfect factory method will be called create
+
+template &lt;typename T, typename Arg&gt;
+T create(Arg&amp;&amp; a) {
+  return T(std::forward&lt;Arg&gt;(a));
+}
+</code></pre>
+
+<ul>
+  <li>Above we take a <code class="language-plaintext highlighter-rouge">universal reference</code> as <code class="language-plaintext highlighter-rouge">Arg&amp;&amp;</code>, this is a special reference that can take both r and l values.</li>
+  <li>note the <code class="language-plaintext highlighter-rouge">return</code> statement can be replaced with any function call as needed for the function, the idea is that we can do something whilst moving and rvalue or copying an lvalue automatically by using <code class="language-plaintext highlighter-rouge">std::forward</code>.</li>
+</ul>
+
+<pre><code class="language-C++">//variadic function to work with any number of arguments
+
+template &lt;typename T, typename ... Args&gt;
+T create(Args&amp;&amp; ... args) {
+  return T(std::forward&lt;Args&gt;(args)...);
+}
+</code></pre>
+
+<p>Above we can call <code class="language-plaintext highlighter-rouge">create</code> with 0 to n number of arguments.</p>
+
+<h2 id="functions">Functions</h2>
+
+<p>There are two style of syntax to write functions in <code class="language-plaintext highlighter-rouge">c++</code>, the newer of which is compulsory when using the <code class="language-plaintext highlighter-rouge">auto</code> keyword as a return type.</p>
+
+<p>Old:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;return type&gt; &lt;name&gt;(&lt;params&gt;) { &lt;body&gt; }
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">C++11</code> and above:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>auto &lt;name&gt;(&lt;params&gt;) -&gt; &lt;return type&gt; { &lt;body&gt; }
+</code></pre></div></div>
+
+<h3 id="default-arguments">Default Arguments</h3>
+
+<blockquote>
+  <p>Values to be used for parameters when none are specified</p>
+</blockquote>
+
+<pre><code class="language-C++">int func(int x, int y = 0, bool t = false) {
+  return x + y;
+}
+</code></pre>
+
+<ul>
+  <li>Default arguments use an <code class="language-plaintext highlighter-rouge">=</code> inside the parameter list</li>
+  <li>The arguments must com after all non default arguments</li>
+</ul>
+
+<hr />
+
+<h3 id="overloading">Overloading</h3>
+
+<blockquote>
+  <p>Changing function behaviour by changing the signature of a method of the same name as another</p>
+</blockquote>
+
+<p>We can provide alternate behaviour for functions using overloads, where two functions have the same name but different signature. <strong>Note</strong> that overloading disregards references <code class="language-plaintext highlighter-rouge">int x</code> is treated the same as <code class="language-plaintext highlighter-rouge">int&amp; x</code> when determining the signature of the method.</p>
+
+<hr />
+
+<h3 id="lambda-functions">Lambda Functions</h3>
+
+<blockquote>
+  <p>Functions without a name</p>
+</blockquote>
+
+<p>Lambdas can be treated as data values, allowing them to be assigned to variables etc.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[&lt;used variables&gt;] (&lt;params&gt;) -&gt; { &lt;function body&gt; }
+</code></pre></div></div>
+
+<ul>
+  <li>Lambda’s have a constant function body unless they are specified by the <code class="language-plaintext highlighter-rouge">mutable</code> keyword 
+<code class="language-plaintext highlighter-rouge">[...] (...) mutable -&gt; {...}</code></li>
+  <li>The <code class="language-plaintext highlighter-rouge">-&gt;</code> is optional</li>
+</ul>
+
+<p>Lambdas are called function operators, classes that have their call operator (<code class="language-plaintext highlighter-rouge">operator ()</code>) overloaded. <strong>A function object can then have a state.</strong></p>
+
+<ul>
+  <li>All variables in the <code class="language-plaintext highlighter-rouge">[...] </code> are initialized in the function objects constructor. Known as binding.</li>
+</ul>
+
+<hr />
+
+<h3 id="closures">Closures</h3>
+
+<p>The act of binding variables accessible from the current scope (discussed above) to the function is called closure. Below are some types  of closure.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Binding</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">[]</code></td>
+      <td>No Binding</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">a</code></td>
+      <td>Copy <code class="language-plaintext highlighter-rouge">a</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&amp;a</code></td>
+      <td>Take a reference of <code class="language-plaintext highlighter-rouge">a</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">[=]</code></td>
+      <td>All used variables accessible in this scope should be taken as a copy</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">[&amp;]</code></td>
+      <td>All used variables accessible in this scope should be taken as a reference</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">[=,&amp;a]</code></td>
+      <td>Take all used variables by copy, and a by reference</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">[&amp;,a]</code></td>
+      <td>Take all used variables by reference, and a by copy</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">[this]</code></td>
+      <td>Copy the data and members of the enclosing scope (the current object etc.)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">[l = std::move(lock)]</code></td>
+      <td>L becomes lock by moving (see Move and Copy)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>As variable bindings are initialized in a constructor there value will remain whatever it was when defining the function unless it is a reference.</p>
+
+<pre><code class="language-C++">auto copy = "original"s;
+auto refer = "original"s;
+auto lambda = [copy, &amp;refer] () -&gt; {std::cout &lt;&lt; copy &lt;&lt; ", " &lt;&lt; refer &lt;&lt; std::endl};
+lambda(); //original, original
+copy = "new";
+refer = "new";
+lambda(); //original, new
+</code></pre>
+
+<h3 id="generic-lambdas">Generic Lambda’s</h3>
+
+<blockquote>
+  <p>As of <code class="language-plaintext highlighter-rouge">c++14</code>Lambda functions can take generics just as normal functions</p>
+</blockquote>
+
+<pre><code class="language-C++">[](auto a, auto b) -&gt; { return a + b; }
+</code></pre>
+
+<ul>
+  <li>Both <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code> are automatically deducted, as well as the return type. We could add any two compatible types wiht the above function.</li>
+</ul>
+
+<p>**Remember generics allow us to pass any type of data to a function or class enabling us to provide functionality for many types from one function or class body. **</p>
+
+<h2 id="memory-allocation">Memory Allocation</h2>
+
+<blockquote>
+  <p>Heap memory, or dynamic memory, must be explicitly requested and released 
+in C++</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">new</code> and <code class="language-plaintext highlighter-rouge">new[]</code> can be used to allocate memory, whilst <code class="language-plaintext highlighter-rouge">delete</code> and
+<code class="language-plaintext highlighter-rouge">delete[]</code> can be used to deallocate memory. <strong>The compiler will
+automatically manage memory on the stack</strong></p>
+
+<ul>
+  <li>Note that <code class="language-plaintext highlighter-rouge">smart pointers</code> manage memory automatically</li>
+</ul>
+
+<p>An important idiom in C++ is that resources required should be
+acquired in an objects constructor, and released in it’s destructor.</p>
+
+<ul>
+  <li>An objects destructor is called automatically called when it goes
+out of scope.</li>
+</ul>
+
+<h3 id="memory-allocation-1">Memory Allocation</h3>
+<pre><code class="language-C++">int* i = new int;
+double* d = new double(10.0);
+</code></pre>
+
+<p>The <code class="language-plaintext highlighter-rouge">new</code> operator dynamically allocates memory for the instance type.
+Parameters in brackets are passe to the object constructor.</p>
+
+<ul>
+  <li>Note that <code class="language-plaintext highlighter-rouge">new</code> returns a pointer to the object.</li>
+</ul>
+
+<p>We can also use <code class="language-plaintext highlighter-rouge">new[]</code> to allocate memory to a C array. 
+Each object in the array must have a default constructor, 
+which will be called for each element of the array.</p>
+
+<pre><code class="language-C++">double* d = new double[5];
+Point* p = new Point[10];
+</code></pre>
+
+<ul>
+  <li>Note STL containers and C++ strings automatically manage their memory.</li>
+</ul>
+
+<h3 id="memory-placement">Memory Placement</h3>
+<blockquote>
+  <p>defined in <new></new></p>
+</blockquote>
+
+<p>We can instantiate objects or arrays in a specific area of memory.
+We can also overload the <code class="language-plaintext highlighter-rouge">placement new</code> operator.</p>
+
+<pre><code class="language-C++">char* memory = new char[sizeof(Account)]; //allocates std::size_t
+Account* acc = new(memory) Account; //instantiates acc in memory
+</code></pre>
+
+<h3 id="memory-failure">Memory Failure</h3>
+
+<p>If <code class="language-plaintext highlighter-rouge">new</code> or <code class="language-plaintext highlighter-rouge">new[]</code> fail we will raise a <code class="language-plaintext highlighter-rouge">std::bad_alloc</code>, however we 
+can use the placement new operator with <code class="language-plaintext highlighter-rouge">std::nothrow</code> to return
+a <code class="language-plaintext highlighter-rouge">nullptr</code> instead.</p>
+
+<pre><code class="language-C++">char* c = new(std::nothrow) char[10]
+
+if(c) {
+	//success
+}
+else {
+	//failure
+}
+</code></pre>
+
+<p>In the case of a failed allocation, we can use <code class="language-plaintext highlighter-rouge">std::set_new_handler</code> with our 
+own handler. <code class="language-plaintext highlighter-rouge">std::set_new_handler</code> returns the older handler and 
+needs a callable unit. A callable unit is typically a function, 
+a function object, or a lambda-function. The callable unit should 
+take no arguments and return nothing. We can get the handler 
+currently being used by invoking the function <code class="language-plaintext highlighter-rouge">std::get_new_handler</code>.</p>
+
+<p>Our own handler allows us to implement special strategies for 
+failed allocations:</p>
+
+<ul>
+  <li>request more memory</li>
+  <li>terminate the program with <code class="language-plaintext highlighter-rouge">std::terminate</code></li>
+  <li>throw an exception of type <code class="language-plaintext highlighter-rouge">std::bad_alloc</code></li>
+</ul>
+
+<h3 id="memory-deallocation">Memory deallocation</h3>
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">delete</code> and <code class="language-plaintext highlighter-rouge">delete[]</code></p>
+</blockquote>
+
+<pre><code class="language-C++">Poin* p = new Point(10,2);
+delete p;
+</code></pre>
+
+<p>If the destructor of the base class is <code class="language-plaintext highlighter-rouge">virtual</code> we can destroy the 
+object with a pointer or reference to the base class. Once deleted
+we must point the old pointer to a different object.</p>
+
+<ul>
+  <li>Note <code class="language-plaintext highlighter-rouge">delete[]</code> is used to deallocate <code class="language-plaintext highlighter-rouge">new[]</code>, and <code class="language-plaintext highlighter-rouge">delete</code> 
+deallocates <code class="language-plaintext highlighter-rouge">new</code>.</li>
+</ul>
+
+<pre><code class="language-C++">Point* p = new Point[10];
+delete[] p;
+</code></pre>
+
+<p>The <code class="language-plaintext highlighter-rouge">delete[]</code> operator calls the destructor of a C array rather than
+the objects destructor as opposed to <code class="language-plaintext highlighter-rouge">delete</code>.</p>
+
+<h2 id="classes">Classes</h2>
+<blockquote>
+  <p>Data types encapsulating attributes and methods</p>
+</blockquote>
+
+<p>Instantiating a class, or creating an object, is done by invoking the constructor.</p>
+
+<pre><code class="language-C++">Account a(100); //creates an account object
+account b = new Account(100); //creates another account object
+</code></pre>
+
+<p>Accessing attributes r methods from an bject is done with the <code class="language-plaintext highlighter-rouge">.</code> operator, or the <code class="language-plaintext highlighter-rouge">-&gt;</code> operator the pointers.</p>
+
+<h3 id="constructors">Constructors</h3>
+<blockquote>
+  <p>Methods used hen initalizing an object</p>
+</blockquote>
+
+<p>In C++ a cmpiler needs the default constructor of an object to automatically make an object. When a object is instantiated
+all base classes used inisde the object are also called.</p>
+
+<p>Parameters in constructors do not need names if they are not used.</p>
+
+<p>Copy constructors allow an object to be instantiated by copying another:</p>
+<ul>
+  <li>They tak a constant reference to the object to copy</li>
+  <li>They do not require a body to copy values
+    <pre><code class="language-C++">public:
+  Example(const Account&amp; other);
+</code></pre>
+  </li>
+</ul>
+
+<p>Move constructors can instantiate an object by moving the values from another:</p>
+<ul>
+  <li>They take a r value reference to the bject to move</li>
+  <li>The do not rquire a body
+    <pre><code class="language-C++">public:
+  Example(Account&amp;&amp; other);
+</code></pre>
+  </li>
+</ul>
+
+<p>Objects can be instantiate implicitly:</p>
+<pre><code class="language-C++">Example e = {1, 2, 3}; //implicit
+</code></pre>
+
+<p>To prevent this we can use the keyword <code class="language-plaintext highlighter-rouge">explicit</code>:</p>
+<pre><code class="language-C++">public:
+    explicit Example(double b) { balance = b; } //explicit
+    Example(st::string c) { name = c; } //implicit
+
+//...
+Example e = {"Test"}; //works
+Example f = {100.0}; //error 
+</code></pre>
+
+<h3 id="accessors">Accessors</h3>
+<p>In C++ accessors are used as such:</p>
+
+<pre><code class="language-C++">class Example{
+    public:
+        //...
+    private:
+        //...
+}
+</code></pre>
+
+<h3 id="initializer-lists">Initializer lists</h3>
+<blockquote>
+  <p>A list of values to initalize an object with before the body of a constructor</p>
+</blockquote>
+
+<p>Initializer lists make constructors more readable:</p>
+<pre><code class="language-C++">public:
+    Example(int num): val(num), valb(1){ }
+</code></pre>
+<p>They also allow us to initalize const members to a specific value when the object is created.</p>
+<ul>
+  <li>We know we must initialize a const value to something as we can not write to it</li>
+  <li>As members are initiallized when an object is created, which happens before the constructor is called, <strong>we can’t set a 
+constant member in a constructor body</strong></li>
+  <li>Since an initializer list is used by the compiler at object creation, we cna initalize a constant member with an
+initializer list</li>
+</ul>
+
+<pre><code class="language-C++">public:
+    Example(int var) { 
+        //val = var; ERROR
+    }
+
+    Example(int var): val(var) {
+        //WORKS
+    } 
+private:
+    const int val;
+</code></pre>
+
+<ul>
+  <li>Varaibles can be initalized outside the constructor aswell.</li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+  
+    <div class="wrapper">
+  
+      <h2 class="footer-heading">Notes on Computer Science</h2>
+  
+      <ul class="contact-list">
+      <li class="p-name">Notes on Computer Science<p>Information and takes on subjects related to computer science, mathematics, and technology in general.</p>
+          </li><li><a class="u-email" href="mailto:callum.cvr@gmail.com">callum.cvr@gmail.com</a></li></ul><ul class="social-media-list"><li><a href="https://github.com/CVR-Skidz"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CVR-Skidz</span></a></li></ul>
+</div>
+  
+  </footer>
+  </body>
+
+</html>

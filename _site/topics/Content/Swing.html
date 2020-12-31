@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Swing | Notes on Computer Science</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Swing" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A traditional java framework to create cross platform desktop GUIs." />
+<meta property="og:description" content="A traditional java framework to create cross platform desktop GUIs." />
+<link rel="canonical" href="http://localhost:4000/topics/Content/Swing.html" />
+<meta property="og:url" content="http://localhost:4000/topics/Content/Swing.html" />
+<meta property="og:site_name" content="Notes on Computer Science" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-01T08:46:39+13:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Swing.html","headline":"Swing","dateModified":"2021-01-01T08:46:39+13:00","datePublished":"2021-01-01T08:46:39+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Swing.html"},"description":"A traditional java framework to create cross platform desktop GUIs.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Notes on Computer Science</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Swing</h1>
+  </header>
+
+  <div class="post-content">
+    <p>A traditional java framework to create cross platform desktop GUIs.</p>
+
+<hr />
+
+<p>Swing and AWT are GUI libraries in Java to create graphical user interfaces with which users interact with visual and audible feedback.</p>
+
+<p>The structure of such an application is split between:</p>
+
+<ul>
+  <li>Model. Consists of all the classes that represent the business logic of an application</li>
+  <li>UI . Part of the application that is attached to the model which handles the user and does not interact directly with the business logic</li>
+</ul>
+
+<p>The model and interface are sperate, but the interface can create instances of a model. Our UI will also control mouse and keyboard events.</p>
+
+<ul>
+  <li>AWT (abstract windowing toolkit)
+    <ul>
+      <li>Older java UI framework</li>
+      <li>Maps java code to OS specific UI framework</li>
+    </ul>
+  </li>
+  <li>Swing
+    <ul>
+      <li>Newer GUI library working with painting pixels directly</li>
+    </ul>
+  </li>
+</ul>
+
+<p>At least three kinds of objects are needed to create a GUI in Java:</p>
+<ul>
+  <li>components</li>
+  <li>events</li>
+  <li>listeners</li>
+</ul>
+
+<p>A GUI could be created with these three general steps:</p>
+<ul>
+  <li>Populate a window with the necessary components</li>
+  <li>Define handlers to react to events in the interface</li>
+  <li>Define the relationship between these components and listeners</li>
+</ul>
+
+<h2 id="components">Components</h2>
+<blockquote>
+  <p>An object with a visual representation</p>
+</blockquote>
+
+<p>A components position is relative to it’s parent’s, and specifies the top left corners location. Components can set their own visibility and status (enabled or disabled)</p>
+
+<h2 id="containers">Containers</h2>
+<blockquote>
+  <p>A component that can organize it’s children components</p>
+</blockquote>
+
+<p>Either heavyweight (controlled by OS, more complex) or lightweight (Managed by Java)</p>
+
+<p><strong>Types of Container:</strong></p>
+
+<p>Frame</p>
+<ul>
+  <li>A container used to display a window,</li>
+  <li>Frames have a top level panel, this is the body of the window without the window frame</li>
+  <li>Return a <code class="language-plaintext highlighter-rouge">JFrame</code>’s panel with:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public Jpanel getContentPane() 
+</code></pre></div></div>
+
+<p>Panel</p>
+<ul>
+  <li>Top Level Containers</li>
+  <li>A container that can not be displayed without a parent container</li>
+  <li>All top level containers add components to a child panel. Such top level panel instances include:
+    <ul>
+      <li>JFrame</li>
+      <li>JWindow</li>
+      <li>JDialog</li>
+      <li>JApplet</li>
+    </ul>
+  </li>
+  <li>Panels contain components</li>
+  <li>Default layouts for panels are FlowLayouts</li>
+</ul>
+
+<p>We should always add an additional panel to add a group of components</p>
+
+<h2 id="layout-manager">Layout Manager</h2>
+<blockquote>
+  <p>Swing uses a layout manager to position elements automatically 
+It is general practice to designate a whole class to a window and application components.</p>
+</blockquote>
+
+<p><strong>Types of Layout Manager:</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">BorderLayout</code> - Splits view into five areas: North, West, East, South, Center.</li>
+  <li><code class="language-plaintext highlighter-rouge">BoxLayout</code> - Stacks components on top of each other or in a row</li>
+  <li><code class="language-plaintext highlighter-rouge">CardLayout</code> - Manages components that share the same display space</li>
+  <li><code class="language-plaintext highlighter-rouge">FlowLayout</code> - Places components in a row and then wraps when out of space</li>
+  <li><code class="language-plaintext highlighter-rouge">GridBagLayout</code> - Displays in rows and columns of varying sizes</li>
+  <li><code class="language-plaintext highlighter-rouge">GridLayout</code> - Displays in equally sized rows and columns</li>
+  <li><code class="language-plaintext highlighter-rouge">GroupLayout</code> - Separates Horizontal and vertical layouts</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Single Component</th>
+      <th>GridLayout or BorderLayout</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Multiple components with natural size</td>
+      <td>Box or flow</td>
+    </tr>
+    <tr>
+      <td>Multiple components of the same size</td>
+      <td>Grid</td>
+    </tr>
+    <tr>
+      <td>Multiple components in a row or column with varying spacing</td>
+      <td>Box</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="events">Events</h2>
+<blockquote>
+  <p>GUI components respond to specific events (also an object) that occur during the runtime of a program.</p>
+</blockquote>
+
+<p>Some examples of events we may want to capture:</p>
+<ul>
+  <li>button clicks</li>
+  <li>selecting an item in a list</li>
+  <li>entering text in a field</li>
+</ul>
+
+<p>Events are all separate classes in java. An Events source is the object which triggered the event. Using events to develop a program is called Event-Driven.</p>
+
+<p>Common event interfaces are:</p>
+<ul>
+  <li>ActionEvent</li>
+  <li>WindowEvent</li>
+  <li>KeyEvent</li>
+</ul>
+
+<h3 id="event-handlers">Event Handlers</h3>
+<blockquote>
+  <p>An event handler defines the behaviour once an event is triggered from the user interface</p>
+</blockquote>
+
+<p>A listener is an object that waits for an event and then handles it. Listeners are abstract</p>
+
+<p>Adapters are special classes that can implement only one of the abstract methods from an event handler.</p>
+
+<h2 id="close-behaviours">Close Behaviours</h2>
+
+<p><code class="language-plaintext highlighter-rouge">EXIT_ON_CLOSE</code>:</p>
+<ul>
+  <li>Do not do anything when the user requests that the window close. Instead, the program should probably use a window listener that performs some other action in its windowClosing method.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">DO_NOTHING_ON_CLOSE</code>:</p>
+<ul>
+  <li>Hide the window when the user closes it. This removes the window from the screen but leaves it displayable.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">HIDE_ON_CLOSE</code>:</p>
+<ul>
+  <li>Hide and dispose of the window when the user closes it. This removes the window from the screen and frees up any resources used by it.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">DISPOSE_ON_CLOSE</code>:</p>
+<ul>
+  <li>Exit the application, using System.exit(0). This is recommended for applications only. If used within an applet, a SecurityException may be thrown.</li>
+</ul>
+
+<h2 id="mvc">MVC</h2>
+<blockquote>
+  <p>Model view controller architecture 
+Model</p>
+  <ul>
+    <li>Represents components data, its state</li>
+  </ul>
+</blockquote>
+
+<p>View</p>
+<ul>
+  <li>Visual representation of component</li>
+  <li>Also responsible for sending events to the controller</li>
+</ul>
+
+<p>Controller</p>
+<ul>
+  <li>Processes data by reacting to input</li>
+</ul>
+
+<p>When one component is changed every model is updated</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+  
+    <div class="wrapper">
+  
+      <h2 class="footer-heading">Notes on Computer Science</h2>
+  
+      <ul class="contact-list">
+      <li class="p-name">Notes on Computer Science<p>Information and takes on subjects related to computer science, mathematics, and technology in general.</p>
+          </li><li><a class="u-email" href="mailto:callum.cvr@gmail.com">callum.cvr@gmail.com</a></li></ul><ul class="social-media-list"><li><a href="https://github.com/CVR-Skidz"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CVR-Skidz</span></a></li></ul>
+</div>
+  
+  </footer>
+  </body>
+
+</html>

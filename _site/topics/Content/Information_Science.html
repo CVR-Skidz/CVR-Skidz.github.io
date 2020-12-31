@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Information_science | Notes on Computer Science</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Information_science" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Concepts related to the discipline of information science, covering data mining, classification, inference, GIS, and semantic web systems." />
+<meta property="og:description" content="Concepts related to the discipline of information science, covering data mining, classification, inference, GIS, and semantic web systems." />
+<link rel="canonical" href="http://localhost:4000/topics/Content/Information_Science.html" />
+<meta property="og:url" content="http://localhost:4000/topics/Content/Information_Science.html" />
+<meta property="og:site_name" content="Notes on Computer Science" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-01T08:46:39+13:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Information_Science.html","headline":"Information_science","dateModified":"2021-01-01T08:46:39+13:00","datePublished":"2021-01-01T08:46:39+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Information_Science.html"},"description":"Concepts related to the discipline of information science, covering data mining, classification, inference, GIS, and semantic web systems.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Notes on Computer Science</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Information_science</h1>
+  </header>
+
+  <div class="post-content">
+    <p>Concepts related to the discipline of information science, covering data mining, classification, inference, GIS, and semantic web systems.</p>
+
+<h2 id="data-mining">Data mining</h2>
+
+<blockquote>
+  <p>Non-trivial extraction of implicit, previously unknown and potentially useful information from data.</p>
+</blockquote>
+
+<ul>
+  <li>Data is any set of characters gathered and translated for some purpose. A collection of objects and their attributes.</li>
+</ul>
+
+<p>Data mining allows the extraction of data’s value. It facilitates the classification and segmentation of data. It is characterized by the enormity, and high dimensionality of data.</p>
+
+<p>Two of the most significant tasks in data mining are:</p>
+
+<ul>
+  <li>Prediction methods
+    <ul>
+      <li>Looking to predict future variables in data</li>
+    </ul>
+  </li>
+  <li>Descriptive methods
+    <ul>
+      <li>Looking to describe traits or details in data already present</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="attributes">Attributes</h3>
+
+<p>An attribute is a property or characteristic of an object. A collection of attributes is called an object. Attributes contain values, a number of symbols assigned to an attribute.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Data Type</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Nominal</td>
+      <td>Discrete / Distinct</td>
+      <td>ID, numbers, zip codes, eye color</td>
+    </tr>
+    <tr>
+      <td>Ordinal</td>
+      <td>Ordered</td>
+      <td>Rankings, grades, height</td>
+    </tr>
+    <tr>
+      <td>Interval</td>
+      <td>Differential / additive</td>
+      <td>Dates, temperature</td>
+    </tr>
+    <tr>
+      <td>Ratio</td>
+      <td>Difference / multiplicative</td>
+      <td>Ages, mass, electrical current</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Interval data types can be added or subtracted but not multiplied or divided</li>
+  <li>Ratio data can be multiplied or divided to become relative to an origin point. And can not be negative.</li>
+</ul>
+
+<h3 id="data-sets">Data sets</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible sources</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Record</td>
+      <td>A collection of attributes</td>
+      <td>Matrix, documents, transactions</td>
+    </tr>
+    <tr>
+      <td>Graph</td>
+      <td>A visualization of data</td>
+      <td>molecular structures, networks (such as the internet)</td>
+    </tr>
+    <tr>
+      <td>Ordered</td>
+      <td>Collections of attributes on an ordinal scale</td>
+      <td>Spatial data, temporal data, sequential data</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Structured data contains:</p>
+
+<ul>
+  <li>Dimensionality
+    <ul>
+      <li>Number of attributes each object is described with</li>
+    </ul>
+  </li>
+  <li>Sparsity
+    <ul>
+      <li>Attributes may not contain values</li>
+    </ul>
+  </li>
+  <li>Resolution</li>
+</ul>
+
+<p>The similarity or dissimilarity (the measure of proximity) between attributes is significant to identify patterns.</p>
+
+<h3 id="data-quality">Data Quality</h3>
+
+<p>Factors that effect data quality are:</p>
+
+<ul>
+  <li>noise (incorrect values) and outliers
+    <ul>
+      <li>Faulty data collection instruments</li>
+      <li>Data entry errors</li>
+      <li>Faulty data transmission</li>
+      <li>Differing sources</li>
+      <li>Modifying linked data</li>
+    </ul>
+  </li>
+  <li>missing values</li>
+  <li>duplicates</li>
+</ul>
+
+<h2 id="classification">Classification</h2>
+
+<blockquote>
+  <p>Supervised learning is known as classification. Given a collection of records we find a model for class attributes as a function of the values of other attributes</p>
+</blockquote>
+
+<p>Predicting categorical labels for databased on the training set and values in a classifying attribute. This facilitated numeric prediction and can model continuous-valued functions (predicting missing values).</p>
+
+<p>A model is used to classify and analyse data, this requires two sets of data. Training (development) and testing (operational) sets.</p>
+
+<p><strong>Previously unseen records should be assigned a class as accurately as possible.</strong></p>
+
+<p>Providing data to a model and is <strong>given</strong> the classification label indicating the category of observations. New data is then classified based on this data set.</p>
+
+<ul>
+  <li>Classification is categorized as supervised learning</li>
+</ul>
+
+<h5 id="decision-trees">Decision Trees</h5>
+
+<blockquote>
+  <p>An algorithm providing the means to classify data</p>
+</blockquote>
+
+<p><img src="../Assets/decisionTree.png" alt="Tree" /></p>
+
+<ul>
+  <li>At the end of a tree lies a classification for a record.</li>
+  <li>Decision trees split data into subsets
+    <ul>
+      <li>The data only stops being split if the subset is pure (all of the same value)</li>
+      <li>Efficient subsets are based in the <strong>node impurity</strong></li>
+    </ul>
+  </li>
+  <li>Decision trees are fast, accurate at low sample sizes, robust to noise, and can handle redundant data.</li>
+  <li>Decision trees can get very large, without accounting relations between attributes, and can only classify based off one attribute.</li>
+</ul>
+
+<h5 id="node-impurity">Node Impurity</h5>
+
+<blockquote>
+  <p>How clear the set of data is</p>
+</blockquote>
+
+<p>Node impurity checks the clarity of a set. If a set is skewed towards a value it is said to be pure (i.e. if 9/10 results were true). The more spread the results the less pure the set (if 5/10 results were true).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Impurity Measurement</th>
+      <th>Description</th>
+      <th>Formula</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Classification error</td>
+      <td> </td>
+      <td>$Error(t) = 1 - max\space P(i</td>
+      <td>t)$</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Entropy</td>
+      <td> </td>
+      <td>$Entropy(t) = -\sum p(j</td>
+      <td>t)log\space p(j</td>
+      <td>t)$</td>
+    </tr>
+    <tr>
+      <td>Gini index</td>
+      <td> </td>
+      <td>$GINI(t) = 1 - \sum[p(j</td>
+      <td>t)]^2$</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Impurity suggests that we are unable to make an accurate classification.</p>
+
+<h4 id="generalization">Generalization</h4>
+
+<ul>
+  <li>Underfitting: Underfitting occurs when a model is too simple and generalizes a trend which incorrectly classifies data.</li>
+  <li>Overfitting: Overfitting occurs when a model is too complex that it is too specific to the training data and fails to correctly classify test sets.</li>
+</ul>
+
+<p>When we have missing attributes we must come up with methods to generate reliable values to create an accurate generalization.</p>
+
+<h4 id="confusion-matrices--performance-metrics">Confusion Matrices &amp; Performance Metrics</h4>
+
+<p>Note: The row and column labels are usually determined by the software you use, and are not always the same</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>actually positive</th>
+      <th>actually negative</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>predicted positive</td>
+      <td>TP</td>
+      <td>FP (Type I error)</td>
+    </tr>
+    <tr>
+      <td>predicted negative</td>
+      <td>FN (Type II error)</td>
+      <td>TN</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Confusion matrices map positive and negative classifications, these can be any class and the value associated with positive or negative is arbitrary.</p>
+
+<p>The value associated with <code class="language-plaintext highlighter-rouge">t</code> or <code class="language-plaintext highlighter-rouge">f</code> is not arbitrary though, a true negative or positive classification is correct, whilst false true or negative classifications are incorrect.</p>
+
+<ul>
+  <li>true positive results are positively classified, and in reality are still positive</li>
+  <li>false positive results are positively classified, and in reality are negative</li>
+  <li>false negative results are negatively classified, and in reality are positive</li>
+  <li>true negative results are negatively classified, and in reality are still negative</li>
+</ul>
+
+<p>There are three measurements we can use to quantify how well our classifications reflect reality. They are:</p>
+<ul>
+  <li>Recall: $\frac{tp}{tp+fn}$ - The percentage of positive samples in reality that  we classified correctly.</li>
+  <li>Precision: $\frac{tp}{tp+fp}$ - The percentage of our positive classifications that are correct.</li>
+  <li>Accuracy: $\frac{tp + tn}{\sum tp,fp,tn,fn}$ - The overall accuracy of our classifications.</li>
+</ul>
+
+<p><strong>Multiclass Matrices:</strong></p>
+
+<blockquote>
+  <p>To calculate the recall and precision of a multiclass matrix follow the definitions of what each measurement is.</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>actually 1</th>
+      <th>actually 2</th>
+      <th>actually 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>predicted 1</td>
+      <td><strong><em>86</em></strong></td>
+      <td><em>1</em></td>
+      <td><em>1</em></td>
+    </tr>
+    <tr>
+      <td>predicted 2</td>
+      <td><strong>0</strong></td>
+      <td>88</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>predicted 3</td>
+      <td><strong>1</strong></td>
+      <td>0</td>
+      <td>87</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>1 recall: 86/87</strong></li>
+  <li><em>1 precision: 86/88</em></li>
+  <li>2 recall: 88/89</li>
+  <li>2 precision: 1/1</li>
+  <li>3 recall: 87/88</li>
+  <li>3 precision: 87/88</li>
+</ul>
+
+<h2 id="knn-classification">KNN Classification</h2>
+
+<blockquote>
+  <p>Classifying data by the classification of objects around it based on a distance metric. The distance metric is a measure of proximity to other data points in an <code class="language-plaintext highlighter-rouge">n</code> dimensional space.</p>
+</blockquote>
+
+<p>KNN classification is:</p>
+
+<ul>
+  <li>Hard to scale: Due to the scales of certain attributes being much larger (height in cm vs m) sometimes values have to be normalized.</li>
+  <li>A lazy learner (classifies on request as opposed to actively predicting data)</li>
+  <li>Relatively computationally expensive</li>
+</ul>
+
+<h5 id="distance-metric">Distance metric</h5>
+
+<p>There exist three means to calculate the distance metric. Euclidean, Manhattan, and “Q Norm” distance.</p>
+
+<h5 id="the-k-value">The k-value</h5>
+
+<blockquote>
+  <p>The distance to accept other data points informing the classification</p>
+</blockquote>
+
+<p>A k-value may specify the amount of neighbours used to classify data, if this number is to great then we run the risk of using the wrong classification.</p>
+
+<h2 id="bayes-classification">Bayes Classification</h2>
+
+<p>Bayes theorem is a way to combine probabilities.</p>
+
+<p>Naïve Bayes is a popular classification algorithm, it assumes all the predictors are independent of one another, used for binary classification.</p>
+
+<ul>
+  <li>Independence asserts there is no relationship between the probabilities of two events, that if it is likely that a will occur, b is no more or less likely to occur.</li>
+</ul>
+
+<p>A naïve Bayes classifier will calculate the probability of an object’s attribute value given it is of a certain class. 
+\(P_i = \frac{P(X|C) \times P(C)}{P(X)}\)
+It does this for all possible classes and is then repeated for all attributes. This results in a table like so:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Class 1</th>
+      <th>Class 2</th>
+      <th>Class 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Attribute 1</td>
+      <td>.4</td>
+      <td>.1</td>
+      <td>.5</td>
+    </tr>
+    <tr>
+      <td>Attribute 2</td>
+      <td>.2</td>
+      <td>.1</td>
+      <td>.7</td>
+    </tr>
+    <tr>
+      <td>Attribute 3</td>
+      <td>.1</td>
+      <td>.05</td>
+      <td>.85</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>We can put different weights on certain attributes as well</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Weight</th>
+      <th>Class 1</th>
+      <th>Class 2</th>
+      <th>Class 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Attribute 1</td>
+      <td>3</td>
+      <td>.4 * 3 = 1.2</td>
+      <td>.1 * 3 = .3</td>
+      <td>.5 * 3 = 1.5</td>
+    </tr>
+    <tr>
+      <td>Attribute 2</td>
+      <td>2</td>
+      <td>.2 * 2 = .4</td>
+      <td>.1 * 2 = .2</td>
+      <td>.7 * 2 = 1.4</td>
+    </tr>
+    <tr>
+      <td>Attribute 3</td>
+      <td>2</td>
+      <td>.1 * 2 = .2</td>
+      <td>.05 * 2 = .1</td>
+      <td>.85 * 2 = 1.7</td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td>-</td>
+      <td>1.8</td>
+      <td>.6</td>
+      <td><strong>4.6</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Above the object is most likely of class 3, then 1, then 2.</li>
+</ul>
+
+<h2 id="information-theory">Information Theory</h2>
+
+<blockquote>
+  <p>Achieving transmission over a noisy communication channel</p>
+</blockquote>
+
+<p>Sending data over a channel can arrive at the destination with errors introduced from noise. Information theory dictates  the necessity to decrease the probability of this (noise level). There are two solutions:</p>
+
+<ul>
+  <li>Improving the physical characteristics of the physical medium.</li>
+  <li>Building systems to detect and correct errors introduced by the channel.</li>
+</ul>
+
+<p>When transmitting bits we refer to this transmission as a binary symmetric channel. The probability of receiving a flipped bit is known as the noise level.</p>
+
+<ul>
+  <li>The ultimate goal is to reduce this noise level using an encoding system. We use the process of decoding an encoded channel to detect and correct errors.</li>
+  <li>Information theory is concerned with the practical limitations of such systems, and coding theory is concerned with building them.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Characteristic of Encoding</th>
+      <th>Application</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Compression</td>
+      <td>Removing redundancy to decrease amount of data</td>
+    </tr>
+    <tr>
+      <td>Encoding</td>
+      <td>Adding redundancy to ensure accuracy</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="repetition-encoding-majority-vote-decoding">Repetition Encoding (Majority Vote Decoding)</h3>
+
+<blockquote>
+  <p>For every bit we repeat it <code class="language-plaintext highlighter-rouge">n</code> times, creating redundancy per bit. This is decoded using Majority Vote decoding where the most common value per 3 bits is used as the decoded value.</p>
+</blockquote>
+
+<p>If we add noise to a Rx encoded stream it is less likely all <code class="language-plaintext highlighter-rouge">x</code> bits flip, hence we accept the most frequent bit per <code class="language-plaintext highlighter-rouge">x</code> bits as the original signal. AKA majority vote decoding. An example of R3 decoding:</p>
+
+<p>$t = original, n = noise, r = received, \hat{s} = decoded$</p>
+
+<p><img src="../Assets/r3-encoding.png" alt="r3" /></p>
+
+<ul>
+  <li>One problem with repetition encoding is a drastically increased transmission size</li>
+</ul>
+
+<h3 id="7-4-hamming-code">7; 4 Hamming Code</h3>
+
+<blockquote>
+  <p>Applying repetition encoding to blocks of data as opposed to bit by bit, by introducing parity bits.</p>
+</blockquote>
+
+<p>Hamming encoding is able to tell us if an error occurred, and if only one bit is flipped where the error is as well. Hamming encoding specifies the length of the transmitted stream, and the length of the original stream. In the case of 7,4 hamming codes, the transmitted length is 7 bits long, whilst the original is 4.</p>
+
+<ul>
+  <li>Hamming code will add 3 check-bits to the beginning of the message to be transmitted: <code class="language-plaintext highlighter-rouge">[p1, p2, p3, b1, b2, b3, b4]</code></li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parity Bit</th>
+      <th>Calculates Bits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>1, 2, 3</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>1, 3, 4</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2, 3, 4</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Each parity bit will  be either 1 (if paired bits have an odd amount of on bits ) or 0 (if the paired bits have an even amount of on bits)</li>
+</ul>
+
+<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span> <span class="mi">1011</span> <span class="o">--&gt;</span> <span class="mi">0101011</span>
+<span class="n">encode</span><span class="p">(</span><span class="s2">"1011"</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">"hamming/binary"</span><span class="p">)</span>
+<span class="err">##</span> <span class="mi">0101011</span>
+<span class="n">decode</span><span class="p">(</span><span class="s2">"0101011"</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">"hamming/binary"</span><span class="p">)</span>
+<span class="err">##</span> <span class="mi">1011</span>
+</code></pre></div></div>
+
+<h3 id="information-entropy">Information Entropy</h3>
+
+<blockquote>
+  <p>A mathematical concept introduced by Claude Shannon by sending all data as 1 or 0 (bits).</p>
+</blockquote>
+
+<p><img src="../Assets/Entropy.png" alt="" /></p>
+
+<p>We can use information entropy to find the smallest amount of bits we can represent information within, hence by reducing the amount of bits we reduce the probability of a bit flip due to noise.</p>
+
+<ul>
+  <li>This is calculated by considering the probability of each value, i.e. if you want to send the values of either A, B, C, or D and they are each as likely to be sent as the other they have a probability of 0.25.</li>
+</ul>
+
+<p>Hence the entropy is:
+\(-1/4 \times log_2(1/4)-1/4 \times log_2(1/4) -1/4 \times log_2(1/4) -1/4 \times log_2(1/4) = \\
+2/4 + 2/4 + 2/4 + 2/4 = 2bits\)</p>
+
+<p>This makes sense as we want to send one of 4 values, and it takes 2 bits to represent 4 number in binary (2^2)</p>
+
+<h2 id="information-gain">Information Gain</h2>
+
+<blockquote>
+  <p>A measure of a reduction in entropy</p>
+</blockquote>
+
+<p>To calculate the reduction in entropy you need to consider the entropy of the overall set you are drawing from. You can then subtract the weighted average of all it’s children (their entropy times their probability n the parent set): 
+\(H(p) - \sum H(c) \times P(c)\)</p>
+
+<h2 id="clustering">Clustering</h2>
+
+<blockquote>
+  <p>Unsupervised learning is known as clustering.</p>
+</blockquote>
+
+<p>Providing data without labels, with the goal of establishing classes, categories, or clusters of data.</p>
+
+<ul>
+  <li>Clustering is categorized as unsupervised learning</li>
+</ul>
+
+<h2 id="fuzzy-logic">Fuzzy Logic</h2>
+
+<blockquote>
+  <p>The logic applied to vague set membership</p>
+</blockquote>
+
+<p>Fuzzy logic is a way to use natural language in logic, a way to represent imprecise logic.</p>
+
+<ul>
+  <li>Often this logic deals with linguistic variables: <code class="language-plaintext highlighter-rouge">temperaure = {cold, warm, hot}</code>. These are known as <strong>fuzzy sets</strong>.</li>
+  <li>Variables using precise quantities (not fuzzy sets) are known as <strong>crisp sets</strong></li>
+  <li>Linguistic variables group a <strong>spectrum of quantities</strong>, a certain value is mapped to a fuzz set using a <strong>membership function</strong>.</li>
+</ul>
+
+<p>Fuzzy sets usually place edge values in two sets, or the intersection of sets. We say it belongs to one set to a <strong>certain degree</strong>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Degree</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td><code class="language-plaintext highlighter-rouge">x</code> does not belong to set <code class="language-plaintext highlighter-rouge">y</code></td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">x</code> belongs to set <code class="language-plaintext highlighter-rouge">y</code></td>
+    </tr>
+    <tr>
+      <td>0 &lt; <code class="language-plaintext highlighter-rouge">z</code> &lt; 1</td>
+      <td><code class="language-plaintext highlighter-rouge">x</code> somewhat belongs to set <code class="language-plaintext highlighter-rouge">y</code>, the higher the degree, the more <code class="language-plaintext highlighter-rouge">x</code> belongs to y.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When a two elements have different degrees we can perform two operations:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Term</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Disjunction $A \lor B = MAX(A, B)$</td>
+      <td>Take the maximum degree between <code class="language-plaintext highlighter-rouge">A</code> and <code class="language-plaintext highlighter-rouge">B</code> e.g. $.1 \lor .2 = .2$</td>
+    </tr>
+    <tr>
+      <td>Disjunction $A \land B = MIN(A, B)$</td>
+      <td>Take the minimum degree between <code class="language-plaintext highlighter-rouge">A</code> and <code class="language-plaintext highlighter-rouge">B</code> e.g. $.1 \land .2 = .1$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>To control an output using fuzzy logic we follow a general approach:</p>
+
+<ul>
+  <li>Fuzzification: Determine the degree of inputs and outputs in overlapping sets</li>
+  <li>Rules: Determine the rules to generate an output based on a certain input</li>
+  <li>Defuzzification: Combine all rules into one algorithm, and then turn this into a crisp set to produce an output.</li>
+</ul>
+
+<p><strong>Fuzzy logic allows smooth transitions between inputs and outputs (gradual changes)</strong></p>
+
+<h2 id="decision-making--support">Decision Making &amp; Support</h2>
+<blockquote>
+  <p>Techniques for narrowing choices and optimising outcomes</p>
+</blockquote>
+
+<p>Theoretically a decision is the choice between two alternatives. The process of this involves assessing all the possibilities and choosing the appropriate action.</p>
+
+<p>DSS (Decision Support Systems) exist to provide computational aid to this process.</p>
+
+<p>The process of making a decision could be broken into three parts:</p>
+<ul>
+  <li>Intelligence activity, identifying a problem that requires a decision, and collecting relevant information</li>
+  <li>Design Activity, creating, developing, and analysing of alternative actions</li>
+  <li>Choice activity, choosing a resultant action</li>
+</ul>
+
+<p>Intelligence:</p>
+<ul>
+  <li>Observing and collecting quantitative data relevant to the domain</li>
+  <li>Defining the objective through analysing quantitative data</li>
+</ul>
+
+<p>Design:</p>
+<ul>
+  <li>Forming a model through choice actions and outcome criteria, to manage uncontrolled variables.</li>
+  <li>Analysing model performance through testing and using the model, to reduce error.</li>
+</ul>
+
+<p>Choice:</p>
+<ul>
+  <li>Evaluating the outcomes of the model using <code class="language-plaintext highlighter-rouge">what-if</code> and <code class="language-plaintext highlighter-rouge">goal-seeking</code> analysis.</li>
+  <li>Selection through suggesting the best course of action.</li>
+</ul>
+
+<p>This is modelled by Mintzberg’s model:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Phase</th>
+      <th>Steps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identification</td>
+      <td>Recognition, Diagnosis</td>
+    </tr>
+    <tr>
+      <td>Development</td>
+      <td>Search, Design</td>
+    </tr>
+    <tr>
+      <td>Selection</td>
+      <td>Judgement, analysis, Bargaining, Authorization</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>There is an inherent uncertainty with any decision, and hence many different consequences of any decision made. This provides decision support systems quite a lot of value.</p>
+
+<p>Simply put, a good decision gives a good outcome. We are in the business of optimising this outcome to be the best outcome possible. The outcome therefore needs to be numerically measured. i.e. we want to measure the cost or number of deaths for each decision. This is known as the utility. We then multiply the likelihood of each outcome with there utility, to weight each outcome.</p>
+
+<h2 id="semantic-web-and-xml">Semantic Web and XML</h2>
+
+<p>Originally the world wide web was focussed on becoming a “mesh” of computers, linking information to one another. Today the protocols and standards used  to deliver and link this information is mostly governed by W3C, or the world wide web consortium.</p>
+
+<p>Information retrieval on the internet today can be characterized as:</p>
+<ul>
+  <li>High recall, low precision</li>
+  <li>Highly sensitive to vocabulary</li>
+</ul>
+
+<p>The two original protocols used to support this were:</p>
+<ul>
+  <li>Hyper Text Markup Language: HTML</li>
+  <li>Uniform Resource Identifiers: URIs</li>
+</ul>
+
+<p>Today the world wide web exists with an extension, known as the “semantic web” which operates to provide meaning to information. This meaning is defined as the logical ability for system inter-operability.</p>
+
+<p>The first obstacle in this regard is:</p>
+<ul>
+  <li>Web documents do not distinguish between information and presentation: solved by HTML and XML separating stylesheets.</li>
+</ul>
+
+<p>In it’s current state the semantic web is presented by machines and interpreted by humans. This means the internet is mainly focussed on machine-human interaction Currently machine-machine interactions are not well supported by protocols.</p>
+
+<ul>
+  <li>Machines are limited at retrieving useful information for the user from text.</li>
+</ul>
+
+<p>One approach to remedy this is providing structure to data, which is a key focus for XML. As such XML is a foundation for passing data between machines.</p>
+
+<p>Other than this the semantic web looks to overcome:</p>
+<ul>
+  <li>Different websites do not share the same structure</li>
+</ul>
+
+<p>The introduction of a semantic structure involves:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Layer</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Content Layer (XML layer)</td>
+      <td>Storing data in XML and providing universal links (URIs) for resources</td>
+    </tr>
+    <tr>
+      <td>RDF Layer</td>
+      <td>see below</td>
+    </tr>
+    <tr>
+      <td>Ontologies</td>
+      <td>A conceptual model of a topic, specifying the relationships between data</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Resource description frameworks</strong> map information by providing objects (a subject) with predicates (property) and values (data). They provide a schema not associated with a domain like XML.</p>
+
+<h3 id="xml">XML</h3>
+<blockquote>
+  <p>User defined and domain specific mark-up</p>
+</blockquote>
+
+<ul>
+  <li>XML does not have predefined tags</li>
+  <li>XML is made of many nodes: a label and it’s content</li>
+  <li>The structure of an XML document is defined by a DTD, document type definition</li>
+</ul>
+
+<h2 id="geographic-information-system">Geographic Information System</h2>
+<blockquote>
+  <p>A computer system to aid in the collection, maintenance, storage, analysis, and output of spatial data.</p>
+</blockquote>
+
+<p>This includes absolute and relative location. A GNSS (global navigation satellite system) allows small electronic receivers to determine the longitude, latitude, and altitude.
+Because of the curvature of the earth we can not determine the shortest distance between two points by drawing a straight line on a map. We can use a datum, which is a model of the earths ellipsoid surface, that describes the positions on the earths curved surface.</p>
+
+<ul>
+  <li>Datums exist for local areas (e.g. countries), and the coordinates do not change</li>
+  <li>Datums exist for global areas, where the coordinates are not fixed as countries can move.</li>
+</ul>
+
+<p>A common geographic coordinate system allows any point on the earth to be expressed b latitude, longitude, and elevation. This allows us to use maps in conjunction with one another.</p>
+
+<p>The process of flattening a datum onto a map (cartesian coordinate system) is called projection. There are three types:</p>
+<ul>
+  <li>Conical</li>
+  <li>Cylindrical</li>
+  <li>Orthographic</li>
+</ul>
+
+<p>At the center of all spatial analysis lies a place, made of a size and space. All spaces are linked to a coordinate system and are named.
+Geographic data consists of:</p>
+<ul>
+  <li>Spatial data (viuslazation of places)</li>
+  <li>Attribute data (Measures and classifications of a coordinate system or place)</li>
+</ul>
+
+<p>Maps are a means to display spatial data. A place can consist of many objects, known as layers. For example a river can pass through a forest, spatial objects can be superimposed upon one another (e.g. a road onto land).</p>
+
+<p>A map has two important attributes:</p>
+<ul>
+  <li>Resolution - the distance threshold which defines when something is relevant vs irrelevant</li>
+  <li>Scale</li>
+</ul>
+
+<p>Maps contain a topology, limits which allow a map to be distributed in different shapes. (e.g. a boundary between two countries can not overlap)</p>
+
+<p>Spatial data can be raster or vector data.</p>
+<ul>
+  <li>Rasterization can be used in one of two ways: central point rule, or largest share rule.</li>
+  <li>Vector data can be points, polygons, or lines.</li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+  
+    <div class="wrapper">
+  
+      <h2 class="footer-heading">Notes on Computer Science</h2>
+  
+      <ul class="contact-list">
+      <li class="p-name">Notes on Computer Science<p>Information and takes on subjects related to computer science, mathematics, and technology in general.</p>
+          </li><li><a class="u-email" href="mailto:callum.cvr@gmail.com">callum.cvr@gmail.com</a></li></ul><ul class="social-media-list"><li><a href="https://github.com/CVR-Skidz"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CVR-Skidz</span></a></li></ul>
+</div>
+  
+  </footer>
+  </body>
+
+</html>
