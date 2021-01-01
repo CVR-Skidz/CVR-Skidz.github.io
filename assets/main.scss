@@ -64,3 +64,90 @@ blockquote {
     font-style: normal;
     letter-spacing: normal;
 }
+
+/* TOC */
+.toc-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: -webkit-fill-available;
+    height: -moz-available;
+    min-height: 100vh;
+    overflow-y: scroll;
+    background: rgba(253, 253, 253, .75);
+    backdrop-filter: blur(5px);
+    border-right: 1px solid #ddd;
+    z-index: 2;
+    padding: 0;
+
+    label {
+        padding: 1rem;
+        font-size: 24px;
+    }
+
+    input[type=checkbox] {
+        display: none;
+    }
+
+    input ~ .toc{
+        visibility: hidden;
+        opacity: 0;
+        width: 0;
+    }
+
+    input + label:after {
+        content: "\02261";
+    }
+
+    input:checked ~ .toc{
+        opacity: 1;
+        visibility: visible;
+        width: 100%;
+    }
+
+    input:checked + label:after {
+        content: "\000D7"
+    }
+
+    .toc {
+        padding: 1rem;
+        max-width: 25vw;
+        transition: opacity .5s;
+    }
+
+    .toc li {
+        list-style-type: none;
+    }
+    
+    .toc ul {
+        margin-left: 0;
+    }
+
+    @media (max-width: 900px) {
+        display: none;
+    }
+}
+
+/* Scrollbars */
+*::-webkit-scrollbar {
+    width: .5rem;
+}
+ 
+*::-webkit-scrollbar-track {
+    opacity: 0;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+}
+  
+.toc-container::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+/* Override menu button */
+.site-nav {
+    @include media-query($on-palm) {
+        display: none;
+    }
+}

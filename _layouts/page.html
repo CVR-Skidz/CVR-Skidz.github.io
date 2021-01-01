@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<!-- TOC -->
+<div class="toc-container">
+  <!-- Controls for toggling TOC -->
+  <input type="checkbox" id="toc-control">
+  <label for="toc-control"></label>
+
+  <!-- The actual TOC -->
+  <nav class="toc">
+    <h3>Table of Contents</h3>
+    {% include toc.html html=content %}
+  </nav>
+</div>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+</article>
