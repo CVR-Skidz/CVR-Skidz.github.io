@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/topics/Content/Statistics.html" />
 <meta property="og:site_name" content="Notes on Computer Science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-12-27T09:41:02+13:00" />
+<meta property="article:published_time" content="2021-01-01T18:14:37+13:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Statistics.html","headline":"Statistics","dateModified":"2020-12-27T09:41:02+13:00","datePublished":"2020-12-27T09:41:02+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Statistics.html"},"description":"A reference of statistical mathematics. All code snippets are performed in R unless otherwise stated.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Statistics.html","headline":"Statistics","dateModified":"2021-01-01T18:14:37+13:00","datePublished":"2021-01-01T18:14:37+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Statistics.html"},"description":"A reference of statistical mathematics. All code snippets are performed in R unless otherwise stated.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -239,7 +239,7 @@ Empty \space Set: \emptyset \\
 
 <p>In a situation with multiple <code class="language-plaintext highlighter-rouge">n</code> we sum the individual <code class="language-plaintext highlighter-rouge">mean</code> of each trial.</p>
 
-<p>For example the chance I receive $10, $5, or $1 from a lottery ticket. As we know we take two outcomes. With binomial distributions we are saying the chances of getting $10 or $0, $5 or 0, and so on. Therefore we add <code class="language-plaintext highlighter-rouge">(3)np + (5)np + (1)np</code> to find the overall <code class="language-plaintext highlighter-rouge">E[x]</code>.</p>
+<p>For example the chance I receive \(10, $5, or \(1 from a lottery ticket. As we know we take two outcomes. With binomial distributions we are saying the chances of getting \(10 or $0, $5 or 0, and so on. Therefore we add <code class="language-plaintext highlighter-rouge">(3)np + (5)np + (1)np</code> to find the overall <code class="language-plaintext highlighter-rouge">E[x]</code>.</p>
 
 <p>The probability of <code class="language-plaintext highlighter-rouge">x</code> successes from <code class="language-plaintext highlighter-rouge">n</code> trials (<code class="language-plaintext highlighter-rouge">dbinom</code>) is calculated from:</p>
 
@@ -362,16 +362,17 @@ These transformed values are distributed in a standard normal distribution \(\si
 
 <h2 id="student-t-test">Student T-Test</h2>
 
-<p>With normally distributed data if our sample size is small and we have not been given the standard deviation, we do not have enough samples to calculate an accurate estimate of \(\sigma$ and we must use a t-test instead of standard null hypothesis tests.</p>
+<p>With normally distributed data if our sample size is small and we have not been given the standard deviation, we do not have enough samples to calculate an accurate estimate of \(\sigma\) and we must use a t-test instead of standard null hypothesis tests.</p>
 
 <p>With a large amount of samples (n &gt; 30):
-\(x_i − x_n \sim n(\mu, \sigma) \\\)
-This $p_{value}\) can be calculated as:</p>
+\(x_i − x_n \sim n(\mu, \sigma) \\\)</p>
+
+<p>This \(p_{value}\) can be calculated as:</p>
 
 <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="err">−</span><span class="w"> </span><span class="n">pnorm</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">Ho</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="w">
 </span></code></pre></div></div>
 
-<p>With a small amount of samples (n &lt; 30) we use an estimated \(\sigma$ . We need to translate our <code class="language-plaintext highlighter-rouge">x</code> axis with:
+<p>With a small amount of samples (n &lt; 30) we use an estimated \(\sigma\) . We need to translate our <code class="language-plaintext highlighter-rouge">x</code> axis with:
 \(\frac{\mu−H_o}{SEM}\)</p>
 <h4 id="one-or-two-sided-tests">One or Two sided tests</h4>
 
@@ -379,7 +380,7 @@ This $p_{value}\) can be calculated as:</p>
 
 <h3 id="t-test-formulae">T-Test Formulae</h3>
 
-<p>The $t_{value}\), which has the same purpose as the $p_{value}\), is derived from:
+<p>The \(t_{value}\), which has the same purpose as the \(p_{value}\), is derived from:
 \(T =\frac{x − H_o}{SEM}\)</p>
 
 <h2 id="confidence-intervals">Confidence Intervals</h2>
@@ -390,18 +391,21 @@ This $p_{value}\) can be calculated as:</p>
 
 <ul>
   <li>Standard error = \(\frac{\sigma}{\sqrt{n}}\)</li>
-  <li>Margin of error = \(\frac{\sigma}{\sqrt{n}} \cdot z$</li>
-  <li>$z$ is the <code class="language-plaintext highlighter-rouge">qnorm</code> of any percent on a standard distribution</li>
-  <li>Upper limit = \(\mu + \frac{\sigma}{\sqrt{n}} \cdot z$</li>
-  <li>Lower limit = \(\mu - \frac{\sigma}{\sqrt{n}} \cdot z$</li>
+  <li>Margin of error = \(\frac{\sigma}{\sqrt{n}} \cdot z\)</li>
+  <li>\(z\) is the <code class="language-plaintext highlighter-rouge">qnorm</code> of any percent on a standard distribution</li>
+  <li>Upper limit = \(\mu + \frac{\sigma}{\sqrt{n}} \cdot z\)</li>
+  <li>Lower limit = \(\mu - \frac{\sigma}{\sqrt{n}} \cdot z\)</li>
 </ul>
 
 <h3 id="interval-formula">Interval Formula</h3>
 
 <p>The complete interval which consists of the upper and lower limit can be found with:
-\(\mu \pm \frac{\sigma}{\sqrt{n}} \cdot z\)
-To find intervals of proportions the following formula is used instead 
-\(\mu \pm z \cdot \sqrt{\frac{p\cdot(1−p)}{n}}\)</p>
+\(\mu \pm \frac{\sigma}{\sqrt{n}} \cdot z\)</p>
+
+<p>To find intervals of proportions the following formula is used instead</p>
+
+\[\mu \pm z \cdot \sqrt{\frac{p\cdot(1−p)}{n}}\]
+
 <h3 id="refinements">Refinements</h3>
 
 <p>To refine intervals there are some common steps we can take.</p>
@@ -412,8 +416,8 @@ To find intervals of proportions the following formula is used instead
 <ul>
   <li>Narrows the confidence interval
     <ul>
-      <li>\(n$ = total population</li>
-      <li>\(n$ = sample population</li>
+      <li>\(n\) = total population</li>
+      <li>\(n\) = sample population</li>
       <li>The resultant factor of this equation can multiply the margin of error, meaning your range is now smaller</li>
     </ul>
   </li>
@@ -421,9 +425,9 @@ To find intervals of proportions the following formula is used instead
 
 <p><em>For example:</em></p>
 
-<p>If we observe a point estimate of $803$, and our interval is between $801.6$ and $804.4$. Our margin of error is therefore \(\pm 1.4$. If our population factor was $.64$ our confidence would be $803 \pm 1.4\cdot0.64$.</p>
+<p>If we observe a point estimate of <code class="language-plaintext highlighter-rouge">803</code>, and our interval is between <code class="language-plaintext highlighter-rouge">801.6</code> and <code class="language-plaintext highlighter-rouge">804.4</code>. Our margin of error is therefore \(\pm 1.4\). If our population factor was <code class="language-plaintext highlighter-rouge">0.64</code> our confidence would be \(803 \pm 1.4\cdot0.64\).</p>
 
-<p>This equals $802.1 &lt; 803 &lt; 803.9$ , now a tighter margin.</p>
+<p>This equals \(802.1 &lt; 803 &lt; 803.9\) , now a tighter margin.</p>
 
 <p>Calculating the required sample size for a given margin of error:</p>
 
@@ -451,13 +455,13 @@ To find intervals of proportions the following formula is used instead
   </tbody>
 </table>
 
-<p>The probability of rejecting the null when it is true is known as the size (\(\alpha$) of the test. i.e. the probability of getting a type 1 error is \(\alpha$ .</p>
+<p>The probability of rejecting the null when it is true is known as the size (\(\alpha\)) of the test. i.e. the probability of getting a type 1 error is \(\alpha\) .</p>
 
-<p>The probability of a type 2 error is denoted as \(\beta$. <strong>When the size (\(\alpha$) decreases the size of \(\beta$ increases.</strong></p>
+<p>The probability of a type 2 error is denoted as \(\beta\). <strong>When the size (\(\alpha\)) decreases the size of \(\beta\) increases.</strong></p>
 
-<p>The power of a test is equal to $1 - \beta$. In general \(\beta$ decreases the further away the alternative is from the null.</p>
+<p>The power of a test is equal to \(1 - \beta\). In general \(\beta\) decreases the further away the alternative is from the null.</p>
 
-<p>When choosing the desired size of \(\alpha$ or \(\beta$ , \(\alpha \leq 0.05$ must be true.</p>
+<p>When choosing the desired size of \(\alpha\) or \(\beta\) , \(\alpha \leq 0.05\) must be true.</p>
 
 <h2 id="linear-regression">Linear Regression</h2>
 
@@ -512,11 +516,11 @@ To find intervals of proportions the following formula is used instead
   </tbody>
 </table>
 
-<p>The \(\sum{\epsilon^2}\) is the badness of our regression. To minimize this we need to optimise $A$ and \(B$. This means minimizing \(\sum{(y_i - (A + Bx_i))^2}\)</p>
+<p>The \(\sum{\epsilon^2}\) is the badness of our regression. To minimize this we need to optimise \(a\) and \(B\). This means minimizing \(\sum{(y_i - (A + Bx_i))^2}\)</p>
 
 <h3 id="correlation">Correlation</h3>
 
-<p>Correlation is measured by the variable <code class="language-plaintext highlighter-rouge">r</code>, this is usually a value between -1 and 1 and represents the strength of the model coefficient. $-1$ would display a perfect negative correlation, whilst $1$ is a perfect positive correlation, $0$ would have no correlation.</p>
+<p>Correlation is measured by the variable <code class="language-plaintext highlighter-rouge">r</code>, this is usually a value between <code class="language-plaintext highlighter-rouge">-1</code> and <code class="language-plaintext highlighter-rouge">1</code> and represents the strength of the model coefficient. <code class="language-plaintext highlighter-rouge">-1</code> would display a perfect negative correlation, whilst <code class="language-plaintext highlighter-rouge">1</code> is a perfect positive correlation, <code class="language-plaintext highlighter-rouge">0</code> would have no correlation.</p>
 
 <p>We often use hypothesis tests on correlation, where we might say \(H_o\) is <code class="language-plaintext highlighter-rouge">r = 0</code>, where the alternative would be there is a correlation.</p>
 
@@ -540,7 +544,7 @@ This can be generated with:</p>
 
 <h3 id="coefficient-of-determination">Coefficient of Determination</h3>
 
-<p>The coefficient of determination is equal to $r^2$. This number represents the percentage of the variation in the response variable attributed to the independent variable.</p>
+<p>The coefficient of determination is equal to \(r^2\). This number represents the percentage of the variation in the response variable attributed to the independent variable.</p>
 
 <h3 id="assumptions-of-linear-regression">Assumptions of Linear Regression</h3>
 
@@ -590,7 +594,7 @@ This can be generated with:</p>
 </ol>
 
 <h3 id="calculating-the-standard-deviation">Calculating The Standard Deviation</h3>
-<p>To calculate statistics of the distribution we can use the t value. $T = \frac{x-\mu}{SEM}\) .</p>
+<p>To calculate statistics of the distribution we can use the t value. \(t = \frac{x-\mu}{SEM}\) .</p>
 
 <p><em>The t-score gets smaller when the sample size grows.</em></p>
 
@@ -615,16 +619,16 @@ This can be generated with:</p>
 \(\frac{p}{1-p}\)</p>
 
 <ul>
-  <li>This can be reasoned to be the same as  $p(success) \div p(failure)\)</li>
-  <li>Odds are bound between 0 and 1, i.e. $0 \leq p \leq 1$</li>
+  <li>This can be reasoned to be the same as  \(p(success) \div p(failure)\)</li>
+  <li>Odds are bound between 0 and 1, i.e. \(0 \leq p \leq 1\)</li>
 </ul>
 
 <p>Probabilities themselves are not that suitable to compare to one another, Instead we use an odds ratio.
 \(\frac{p_1(1-p_2)}{(1-p_1)p_2}\)</p>
 
 <ul>
-  <li>Above we can compare the probabilities $p_1$ and $p_2$ and be assured there are no issues.</li>
-  <li>Odds ratios also allow us to express the equality of two events as equal to 1. i.e. $p_1 = p_2 \equiv odds\space ratio\space of\space 1$</li>
+  <li>Above we can compare the probabilities \(p_1\) and \(p_2\) and be assured there are no issues.</li>
+  <li>Odds ratios also allow us to express the equality of two events as equal to 1. i.e. \(p_1 = p_2 \equiv odds\space ratio\space of\space 1\)</li>
 </ul>
 
 <blockquote>
@@ -681,7 +685,7 @@ This can be generated with:</p>
   <li>Fishers test, tests the equality of odds ratio. This is actually testing the independence of the classes.</li>
 </ul>
 
-<p>### Hypergeometric distribution</p>
+<h3 id="hypergeometric-distribution">Hypergeometric distribution</h3>
 
 <blockquote>
   <p>When you sample without  replacement (take a ball out a bag without putting it back) the samples are distributed hypergeometrically rather than binomially. Instead of using <code class="language-plaintext highlighter-rouge">dbinom</code> we would then use <code class="language-plaintext highlighter-rouge">dhyper</code></p>
@@ -700,19 +704,12 @@ This can be generated with:</p>
 \[p(A|B) = \frac{p(B|A)p(A)}{p(B)}​\]
 
 <ul>
-  <li>We can suppose that $A$ becomes an hypothesis, and \(B$ a distribution of data. We can use this to calculate the probability of our hypothesis given what our samples depict:</li>
+  <li>We can suppose that \(a\) becomes an hypothesis, and \(B\) a distribution of data. We can use this to calculate the probability of our hypothesis given what our samples depict:</li>
 </ul>
 
 \[p(H|D) = \frac{p(D|H)p(H)}{p(D|H)p(H) + p(D|\overline{H})p(\overline{H})}\]
 
-<table>
-  <tbody>
-    <tr>
-      <td>Note: $P(x</td>
-      <td>y)\) can be simulated using <code class="language-plaintext highlighter-rouge">xbinom</code>:</td>
-    </tr>
-  </tbody>
-</table>
+<p>Note: \(p(x|y)\) can be simulated using <code class="language-plaintext highlighter-rouge">xbinom</code>:</p>
 
 <ul>
   <li>Suppose we have a sample where 7 of 10 people like burgers. Person A hypothesizes 90% of the population likes burgers whilst Person B says  it is actually 50%. We can use Bayes’s theorem to assert which is more plausible.</li>
@@ -732,21 +729,18 @@ This can be generated with:</p>
       <th>Name</th>
       <th>Description</th>
       <th>Notation</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Prior</td>
       <td>The probability of our hypothesis or event</td>
-      <td>$p(H)\)</td>
-      <td> </td>
+      <td>\(p(H)\)</td>
     </tr>
     <tr>
       <td>Posterior</td>
       <td>The probability of our hypothesis or event after accounting for our data</td>
-      <td>$p(H</td>
-      <td>D)\)</td>
+      <td>\(p(H|D)\)</td>
     </tr>
   </tbody>
 </table>
@@ -755,15 +749,7 @@ This can be generated with:</p>
 \(P(H_1|D) = \frac{P(H_1|D)p(H_1)}{P(H_1|D)P(H_1) + P(H_2|D)P(H_2)...}\)</p>
 
 <ul>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>This means the posterior of a hypothesis is equal to $P(H</td>
-          <td>D)P(H)\) divided by the sum of all other hypothesis or events.</td>
-        </tr>
-      </tbody>
-    </table>
+  <li>This means the posterior of a hypothesis is equal to \(p(H|D)P(H)\) divided by the sum of all other hypothesis or events.
     <ul>
       <li>For example if \(H_1 = p(sunny)\), then \(H_2=p(rainy)\) and \(H_3 = p(snow)\)</li>
     </ul>
@@ -776,16 +762,7 @@ P(H|D) \propto P(H)^{successes + \alpha - 1} \times (1 - P(H))^{failures + \beta
 
 <ul>
   <li>Note that \(\propto\) means proportional to</li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>Note that our posterior $P(H</td>
-          <td>D)\) tells us our successes and failures, as this is our data. Therefore our prior will be proportional to the same distribution minus the successes and failures.</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
+  <li>Note that our posterior \(p(H|D)\) tells us our successes and failures, as this is our data. Therefore our prior will be proportional to the same distribution minus the successes and failures.</li>
 </ul>
 
 \[P(H) = P(H)^{a-1} \times (1- P(H))^{\beta-1}\]
@@ -825,16 +802,7 @@ P(H|D) \propto P(H)^{successes + \alpha - 1} \times (1 - P(H))^{failures + \beta
 <p>The likelihood represents how consistent the probability of a success is with the amount of observed successes in our data.</p>
 
 <ul>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td><strong>The likelihood is equal to</strong> $P(A</td>
-          <td>B)\), <strong>That is the probability of the known given the unknown variable</strong>.</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
+  <li><strong>The likelihood is equal to</strong> \(p(A|B)\), <strong>That is the probability of the known given the unknown variable</strong>.</li>
 </ul>
 
 <p>\(likelihood = c \times p^{no.\space successes}(1 - p)^{no.\space failures}\)</p>
@@ -862,9 +830,10 @@ The point of maximum likelihood and support is the same, this is he probability 
 
 <h3 id="gaussian-likelihood">Gaussian likelihood</h3>
 
-<p>If data is normally distributed we still use likelihood to estimate the parameters of our distribution. Instead of the  probability of a success varying, we can vary the deviation and mean.
-\(likelihood = \prod denisty(d_i)\\
-support = \sum \log density(d_i)\)</p>
+<p>If data is normally distributed we still use likelihood to estimate the parameters of our distribution. Instead of the  probability of a success varying, we can vary the deviation and mean.</p>
+
+\[likelihood = \prod denisty(d_i)\\
+support = \sum \log density(d_i)\]
 
 <ul>
   <li>The gaussian likelihood function is equal to the product of the density for each observation given our theoretical distribution.  Our distribution is going to use our estimated mean and deviation, and we will take the product of each samples density on this distribution.</li>
@@ -893,7 +862,7 @@ support = \sum \log density(d_i)\)</p>
 
 <ul>
   <li>As <code class="language-plaintext highlighter-rouge">n</code> increases <code class="language-plaintext highlighter-rouge">p</code> decreases, therefore the mean stays constant.</li>
-  <li>As \(n \rarr \infin$ The variance \(np(1-p)\) also appears constant.</li>
+  <li>As \(n \rarr \infin\) The variance \(np(1-p)\) also appears constant.</li>
 </ul>
 
 <p>The Poisson distribution models many practical relationships. For example:</p>
@@ -902,7 +871,7 @@ support = \sum \log density(d_i)\)</p>
   <li>If it were raining, the probability of one drop hitting your hand. There are many rain drops, and very few hit your hand. Hence a large <code class="language-plaintext highlighter-rouge">n</code> and small <code class="language-plaintext highlighter-rouge">p</code>. As <code class="language-plaintext highlighter-rouge">n</code> increases <code class="language-plaintext highlighter-rouge">p</code> decreases.</li>
 </ul>
 
-<p>The inverse relationship between <code class="language-plaintext highlighter-rouge">n</code> and <code class="language-plaintext highlighter-rouge">p</code> results in the mean staying the same regardless of <code class="language-plaintext highlighter-rouge">n</code>. This is denoted as \(\lambda$.</p>
+<p>The inverse relationship between <code class="language-plaintext highlighter-rouge">n</code> and <code class="language-plaintext highlighter-rouge">p</code> results in the mean staying the same regardless of <code class="language-plaintext highlighter-rouge">n</code>. This is denoted as \(\lambda\).</p>
 
 <table>
   <thead>
@@ -947,7 +916,7 @@ support = \sum \log density(d_i)\)</p>
 <p>The Poisson distribution, as it deals with frequencies, can not go below 0. This means it is not symmetrical, however:</p>
 
 <ul>
-  <li>If \(\lambda$ is large, the Poisson distribution is approximately gaussian.</li>
+  <li>If \(\lambda\) is large, the Poisson distribution is approximately gaussian.</li>
 </ul>
 
 <p>The Poisson density function is:
@@ -959,7 +928,7 @@ support = \sum \log density(d_i)\)</p>
 
 <h2 id="chi-squared-distribution">Chi-squared Distribution</h2>
 <blockquote>
-  <p>The chi-squared distribution, denoted as \(\chi^2$, contains no parameters. The constraints on the distribution are called degrees of freedom.</p>
+  <p>The chi-squared distribution, denoted as \(\chi^2\), contains no parameters. The constraints on the distribution are called degrees of freedom.</p>
 </blockquote>
 
 <p><img src="../Assets/chi.png" alt="chi" /></p>
@@ -989,21 +958,13 @@ support = \sum \log density(d_i)\)</p>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">e</code> : the expected value</li>
   <li><code class="language-plaintext highlighter-rouge">o</code> : the observed value</li>
-  <li>small \(B$ reflects consistency between expectations and observations</li>
-  <li>large \(B$ reflects an inconsistency.</li>
+  <li>small \(B\) reflects consistency between expectations and observations</li>
+  <li>large \(B\) reflects an inconsistency.</li>
 </ul>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Given a reasonable amount of data (Common practice is</td>
-      <td>data</td>
-      <td>&gt; 5) and if the null is true, \(B$ is distributed as a chi-squared distribution. Hence we can calculate the p-value of \(\hat{B}\).</td>
-    </tr>
-  </tbody>
-</table>
+<p>Given a reasonable amount of data (Common practice is <code class="language-plaintext highlighter-rouge">|data| &gt; 5</code>) and if the null is true, \(B\) is distributed as a chi-squared distribution. Hence we can calculate the p-value of \(\hat{B}\).</p>
 
-<p>Consider \(\hat{B} = 8$ and $D_f = 3$, we can calculate a p-value to test the null:</p>
+<p>Consider \(\hat{B} = 8\) and \(D_f = 3\), we can calculate a p-value to test the null:</p>
 
 <div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="n">len</span><span class="o">=</span><span class="m">100</span><span class="p">)</span><span class="w">
 </span><span class="n">null_dist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dchisq</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w">
@@ -1022,11 +983,6 @@ support = \sum \log density(d_i)\)</p>
 </span></code></pre></div></div>
 
 <p>Hence we have evidence to reject the null.</p>
-
-<hr />
-
-<p><a href="#Statistics">Top</a></p>
-
 
   </div>
 
