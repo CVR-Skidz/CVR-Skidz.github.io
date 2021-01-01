@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/topics/Content/Statistics.html" />
 <meta property="og:site_name" content="Notes on Computer Science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-01-01T18:14:37+13:00" />
+<meta property="article:published_time" content="2021-01-02T12:47:43+13:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Statistics.html","headline":"Statistics","dateModified":"2021-01-01T18:14:37+13:00","datePublished":"2021-01-01T18:14:37+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Statistics.html"},"description":"A reference of statistical mathematics. All code snippets are performed in R unless otherwise stated.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Statistics.html","headline":"Statistics","dateModified":"2021-01-02T12:47:43+13:00","datePublished":"2021-01-02T12:47:43+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Statistics.html"},"description":"A reference of statistical mathematics. All code snippets are performed in R unless otherwise stated.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -38,7 +38,21 @@
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <article class="post">
+        <!-- TOC -->
+<div class="toc-container">
+  <!-- Controls for toggling TOC -->
+  <input type="checkbox" id="toc-control">
+  <label for="toc-control"></label>
+
+  <!-- The actual TOC -->
+  <nav class="toc">
+    <h3>Table of Contents</h3>
+    <ul><li><a href="#summary-statistics">Summary Statistics</a><ul><li><a href="#central-tendency">Central Tendency</a></li><li><a href="#dispersion-spread">Dispersion (Spread)</a></li><li><a href="#distribution">Distribution</a></li></ul></li><li><a href="#set-theory">Set Theory</a><ul><li><a href="#general-theory">General Theory</a></li><li><a href="#sample-space-probability">Sample Space Probability</a><ul><li><a href="#sample-space-formulae">Sample Space Formulae</a></li></ul></li><li><a href="#conditional-probability">Conditional Probability</a></li><li><a href="#probability-tree-formulae">Probability Tree Formulae</a></li></ul></li><li><a href="#binomial-distributions">Binomial Distributions</a></li><li><a href="#normal-distributions">Normal Distributions</a><ul><li><a href="#formulae">Formulae</a></li><li><a href="#normal-approximation">Normal Approximation</a></li><li><a href="#random-variance">Random Variance</a></li></ul></li><li><a href="#null-hypothesis">Null Hypothesis</a><ul><li><a href="#the-p-value">The P-Value</a></li><li><a href="#z-scores">Z-Scores</a></li><li><a href="#critical-regions">Critical Regions</a></li><li><a href="#notes">Notes</a></li></ul></li><li><a href="#student-t-test">Student T-Test</a><ul><li><a href="#one-or-two-sided-tests">One or Two sided tests</a></li></ul></li><li><a href="#t-test-formulae">T-Test Formulae</a></li></ul></li><li><a href="#confidence-intervals">Confidence Intervals</a><ul><li><a href="#interval-formula">Interval Formula</a></li><li><a href="#refinements">Refinements</a></li></ul></li><li><a href="#type-i-and-type-ii-errors">Type I and Type II errors</a></li><li><a href="#linear-regression">Linear Regression</a><ul><li><a href="#correlation">Correlation</a></li><li><a href="#scatter-plots">Scatter Plots</a></li><li><a href="#multiple-regression">Multiple Regression</a></li><li><a href="#coefficient-of-determination">Coefficient of Determination</a></li><li><a href="#assumptions-of-linear-regression">Assumptions of Linear Regression</a></li><li><a href="#calculating-the-standard-deviation">Calculating The Standard Deviation</a></li></ul></li><li><a href="#analysis-of-variance">Analysis of Variance</a></li><li><a href="#odds">Odds</a></li><li><a href="#fischer-test">Fischer Test</a><ul><li><a href="#hypergeometric-distribution">Hypergeometric distribution</a></li></ul></li><li><a href="#bayess-theorem">Bayes’s Theorem</a></li><li><a href="#point-estimation">Point Estimation</a></li><li><a href="#likelihood">Likelihood</a><ul><li><a href="#binomial-probability">Binomial Probability</a></li><li><a href="#gaussian-likelihood">Gaussian likelihood</a></li></ul></li><li><a href="#poisson-distribution">Poisson Distribution</a></li><li><a href="#chi-squared-distribution">Chi-squared Distribution</a></li><li><a href="#pearsons-chi-square-test">Pearson’s Chi-square (Test)</a></li></ul>
+
+  </nav>
+</div>
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title">Statistics</h1>

@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/topics/Content/Algebra.html" />
 <meta property="og:site_name" content="Notes on Computer Science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-01-01T18:14:37+13:00" />
+<meta property="article:published_time" content="2021-01-02T12:47:43+13:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Algebra.html","headline":"Algebra","dateModified":"2021-01-01T18:14:37+13:00","datePublished":"2021-01-01T18:14:37+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Algebra.html"},"description":"Algebra and discrete mathematics","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Algebra.html","headline":"Algebra","dateModified":"2021-01-02T12:47:43+13:00","datePublished":"2021-01-02T12:47:43+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Algebra.html"},"description":"Algebra and discrete mathematics","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -38,7 +38,21 @@
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <article class="post">
+        <!-- TOC -->
+<div class="toc-container">
+  <!-- Controls for toggling TOC -->
+  <input type="checkbox" id="toc-control">
+  <label for="toc-control"></label>
+
+  <!-- The actual TOC -->
+  <nav class="toc">
+    <h3>Table of Contents</h3>
+    <ul><li><a href="#addition">Addition</a><ul><li><a href="#properties-of-addition">Properties of Addition</a></li></ul></li><li><a href="#subtraction">Subtraction</a><ul><li><a href="#properties-of-subtraction">Properties of Subtraction</a></li></ul></li><li><a href="#multiplication">Multiplication</a><ul><li><a href="#properties-of-multiplication">Properties of Multiplication</a></li></ul></li><li><a href="#division">Division</a><ul><li><a href="#properties-of-division">Properties of Division</a></li><li><a href="#modulo">Modulo</a></li><li><a href="#notes">Notes</a></li></ul></li><li><a href="#divisibility">Divisibility</a><ul><li><a href="#prime-numbers">Prime Numbers</a></li></ul></li><li><a href="#real-numbers">Real Numbers</a><ul><li><a href="#natural-numbers">Natural Numbers</a></li><li><a href="#integers">Integers</a></li><li><a href="#rational-numbers">Rational Numbers</a></li><li><a href="#irrational-numbers">Irrational Numbers</a></li></ul></li><li><a href="#euclids-algorithm">Euclid’s Algorithm</a></li><li><a href="#logic">Logic</a><ul><li><a href="#logical-gates">Logical Gates</a></li><li><a href="#logical-conjunctions">Logical Conjunctions</a></li><li><a href="#truth-tables">Truth Tables</a></li><li><a href="#equivelance">Equivelance</a></li><li><a href="#laws-of-logic">Laws of logic</a></li><li><a href="#duality">Duality</a></li><li><a href="#contrapositive">Contrapositive</a></li></ul></li><li><a href="#logical-consequences">Logical Consequences</a></li><li><a href="#transitivity">Transitivity</a></li><li><a href="#proofs">Proofs</a><ul><li><a href="#terminology">Terminology</a></li><li><a href="#techniques">Techniques</a><ul><li><a href="#direct-proof">Direct Proof</a></li><li><a href="#proof-by-contrapositive">Proof by Contrapositive</a></li><li><a href="#proof-by-contradiction">Proof by Contradiction</a></li><li><a href="#proof-by-cases">Proof by Cases</a></li><li><a href="#disproof-by-counter-example">Disproof by Counter Example</a></li><li><a href="#proof-by-mathematical-induction">Proof by Mathematical Induction</a></li></ul></li></ul></li><li><a href="#sets">Sets</a><ul><li><a href="#set-notations">Set Notations</a></li><li><a href="#cardinality">Cardinality</a></li><li><a href="#universal-sets">Universal Sets</a></li><li><a href="#subsets">Subsets</a><ul><li><a href="#subset-notation">Subset Notation</a></li></ul></li><li><a href="#set-operations">Set Operations</a><ul><li><a href="#set-laws">Set Laws</a></li><li><a href="#set-proofs">Set Proofs</a></li><li><a href="#families-of-sets">Families of Sets</a></li></ul></li><li><a href="#power-sets">Power Sets</a></li><li><a href="#cartesian-product">Cartesian Product</a></li></ul></li><li><a href="#relations">Relations</a><ul><li><a href="#binary-relations">Binary relations</a></li><li><a href="#equivalence-relation">Equivalence Relation</a></li><li><a href="#partial-orders">Partial Orders</a></li></ul></li><li><a href="#partitions">Partitions</a></li><li><a href="#functions">Functions</a><ul><li><a href="#inverse-functions">Inverse Functions</a></li></ul></li><li><a href="#polynomial-functions">Polynomial Functions</a></li><li><a href="#rational-functions">Rational Functions</a></li><li><a href="#exponential-functions">Exponential Functions</a></li><li><a href="#sequences--series">Sequences &amp; Series</a><ul><li><a href="#arithmetic-progressions">Arithmetic Progressions</a></li><li><a href="#geometric-progression">Geometric progression</a></li><li><a href="#quadratic-progression">Quadratic Progression</a></li></ul></li><li><a href="#vectors--coordinates">Vectors &amp; Coordinates</a></li><li><a href="#two-dimensional-systems">Two Dimensional Systems</a></li><li><a href="#decomposing-a-vector">Decomposing a Vector</a></li><li><a href="#lines">Lines</a><ul><li><a href="#parametric-equations">Parametric Equations</a></li><li><a href="#non-parametric-equations">Non-parametric Equations</a></li><li><a href="#intersecting-lines">Intersecting lines</a></li></ul></li><li><a href="#3d-planes">3d Planes</a></li><li><a href="#linear-systems">Linear Systems</a></li><li><a href="#gaussian-elimination">Gaussian Elimination</a><ul><li><a href="#matrix-transformation">Matrix transformation</a></li></ul></li><li><a href="#matrices">Matrices</a></li><li><a href="#echelon-matrices">Echelon Matrices</a></li><li><a href="#matrices-1">Matrices</a></li><li><a href="#matrix-multiplication">Matrix multiplication</a><ul><li><a href="#matrix-division">Matrix division</a></li></ul></li></ul>
+
+  </nav>
+</div>
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title">Algebra</h1>

@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/topics/Content/Cpp.html" />
 <meta property="og:site_name" content="Notes on Computer Science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-01-01T18:14:37+13:00" />
+<meta property="article:published_time" content="2021-01-02T12:47:43+13:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Cpp.html","headline":"Cpp","dateModified":"2021-01-01T18:14:37+13:00","datePublished":"2021-01-01T18:14:37+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Cpp.html"},"description":"C++ Language reference","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Cpp.html","headline":"Cpp","dateModified":"2021-01-02T12:47:43+13:00","datePublished":"2021-01-02T12:47:43+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Cpp.html"},"description":"C++ Language reference","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -38,7 +38,21 @@
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <article class="post">
+        <!-- TOC -->
+<div class="toc-container">
+  <!-- Controls for toggling TOC -->
+  <input type="checkbox" id="toc-control">
+  <label for="toc-control"></label>
+
+  <!-- The actual TOC -->
+  <nav class="toc">
+    <h3>Table of Contents</h3>
+    <ul><li><a href="#types">Types</a><ul><li><a href="#type-information">Type Information</a></li></ul></li><li><a href="#literals">Literals</a><ul><li><a href="#raw-string-literals">Raw String literals</a></li><li><a href="#user-defined-literals">User Defined Literals</a></li><li><a href="#built-in-literals">Built-in Literals</a></li><li><a href="#raw-and-cooked">Raw and Cooked</a></li><li><a href="#raw">Raw</a></li><li><a href="#cooked">Cooked</a></li></ul></li><li><a href="#enumeration"><a href="https://en.cppreference.com/w/cpp/language/enum">Enumeration</a></a><ul><li><a href="#statically-typed-enumerations-scoped-enumerations">Statically Typed Enumerations (Scoped Enumerations)</a></li></ul></li><li><a href="#pointers">Pointers</a><ul><li><a href="#pointer-arithmetic">Pointer Arithmetic</a></li><li><a href="#dynamic-memory">Dynamic memory</a></li><li><a href="#null-pointers">Null Pointers</a></li><li><a href="#function-pointers">Function Pointers</a></li><li><a href="#member-pointers">Member Pointers</a></li></ul></li><li><a href="#references">References</a><ul><li><a href="#references-vs-pointers">References vs Pointers</a></li><li><a href="#references-as-parameters">References as Parameters</a></li></ul></li><li><a href="#type-deduction">Type Deduction</a><ul><li><a href="#decltype"><code class="language-plaintext highlighter-rouge">decltype</code></a></li><li><a href="#automatic-return-types">Automatic Return Types</a></li></ul></li><li><a href="#casting">Casting</a><ul><li><a href="#dynamic_cast"><code class="language-plaintext highlighter-rouge">dynamic_cast</code></a></li><li><a href="#static_cast"><code class="language-plaintext highlighter-rouge">static_cast</code></a></li><li><a href="#const_cast"><code class="language-plaintext highlighter-rouge">const_cast</code></a></li><li><a href="#reinterpret_cast"><code class="language-plaintext highlighter-rouge">reinterpret_cast</code></a></li></ul></li><li><a href="#unified-initialization">Unified Initialization</a><ul><li><a href="#calling-the-constructor">Calling the Constructor</a></li></ul></li><li><a href="#variable-modifiers">Variable Modifiers</a><ul><li><a href="#const"><code class="language-plaintext highlighter-rouge">Const</code></a></li><li><a href="#constexpr"><code class="language-plaintext highlighter-rouge">Constexpr</code></a><ul><li><a href="#constant-expression-user-defined-types">Constant Expression User Defined Types</a></li><li><a href="#constant-expression-functions">Constant Expression Functions</a></li></ul></li><li><a href="#volatile">Volatile</a></li></ul></li><li><a href="#rvalues-and-lvalues">Rvalues and Lvalues</a><ul><li><a href="#references-1">References</a></li></ul></li><li><a href="#move-and-copy">Move and Copy</a><ul><li><a href="#move">Move</a></li></ul></li><li><a href="#forwarding">Forwarding</a></li><li><a href="#functions">Functions</a><ul><li><a href="#default-arguments">Default Arguments</a></li><li><a href="#overloading">Overloading</a></li><li><a href="#lambda-functions">Lambda Functions</a></li><li><a href="#closures">Closures</a></li><li><a href="#generic-lambdas">Generic Lambda’s</a></li></ul></li><li><a href="#memory-allocation">Memory Allocation</a><ul><li><a href="#memory-allocation-1">Memory Allocation</a></li><li><a href="#memory-placement">Memory Placement</a></li><li><a href="#memory-failure">Memory Failure</a></li><li><a href="#memory-deallocation">Memory deallocation</a></li></ul></li><li><a href="#classes">Classes</a><ul><li><a href="#constructors">Constructors</a></li><li><a href="#accessors">Accessors</a></li><li><a href="#initializer-lists">Initializer lists</a></li></ul></li></ul>
+
+  </nav>
+</div>
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title">Cpp</h1>

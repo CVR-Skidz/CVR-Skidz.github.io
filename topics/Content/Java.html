@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/topics/Content/Java.html" />
 <meta property="og:site_name" content="Notes on Computer Science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-01-01T18:14:37+13:00" />
+<meta property="article:published_time" content="2021-01-02T12:47:43+13:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Java.html","headline":"Java","dateModified":"2021-01-01T18:14:37+13:00","datePublished":"2021-01-01T18:14:37+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Java.html"},"description":"Language reference for the Java programming language.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Java.html","headline":"Java","dateModified":"2021-01-02T12:47:43+13:00","datePublished":"2021-01-02T12:47:43+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Java.html"},"description":"Language reference for the Java programming language.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -38,7 +38,21 @@
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <article class="post">
+        <!-- TOC -->
+<div class="toc-container">
+  <!-- Controls for toggling TOC -->
+  <input type="checkbox" id="toc-control">
+  <label for="toc-control"></label>
+
+  <!-- The actual TOC -->
+  <nav class="toc">
+    <h3>Table of Contents</h3>
+    <ul><li><a href="#types">Types</a><ul><li><a href="#primitive-types">Primitive Types</a></li></ul></li><li><a href="#arrays">Arrays</a><ul><li><a href="#multi-dimensional-arrays">Multi Dimensional Arrays</a></li></ul></li><li><a href="#casting">Casting</a></li><li><a href="#generics">Generics</a></li><li><a href="#encapsulation">Encapsulation</a><ul><li><a href="#access-modifiers">Access modifiers</a></li></ul></li><li><a href="#objects">Objects</a></li><li><a href="#classes">Classes</a><ul><li><a href="#abstract-classes">Abstract Classes</a></li><li><a href="#anonymous-classes">Anonymous Classes</a></li></ul></li><li><a href="#polymorphism">Polymorphism</a></li><li><a href="#interfaces">Interfaces</a></li><li><a href="#collections">Collections</a></li><li><a href="#hash-maps--sets">Hash Maps &amp; Sets</a></li><li><a href="#packages">Packages</a></li><li><a href="#exceptions">Exceptions</a></li><li><a href="#streams">Streams</a></li><li><a href="#file-io">File I/O</a><ul><li><a href="#writing">Writing</a></li><li><a href="#reading">Reading</a></li></ul></li><li><a href="#the-final-modifier">The Final Modifier</a></li><li><a href="#class-design">Class Design</a></li><li><a href="#solid-oo-design">SOLID OO Design</a></li><li><a href="#multi-threading">Multi Threading</a></li><li><a href="#java-database-connectivity">Java Database Connectivity</a></li><li><a href="#design-patterns">Design Patterns</a><ul><li><a href="#creational-patterns">Creational Patterns</a></li><li><a href="#architectural-styles">Architectural Styles</a><ul><li><a href="#mvc">MVC</a></li></ul></li></ul></li><li><a href="#testing">Testing</a><ul><li><a href="#unit-testing">Unit Testing</a></li></ul></li><li><a href="#code-smells">Code Smells</a><ul><li><a href="#code-smell---bloaters">Code Smell - Bloaters</a></li><li><a href="#code-smell-object-orientation-abuse">Code Smell Object Orientation Abuse</a></li></ul></li></ul>
+
+  </nav>
+</div>
+
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title">Java</h1>
@@ -59,8 +73,10 @@
 
 <p>Types can either be a primitive (int, char etc.) or a reference (pointer) to an object. Interfaces declare the methods defining an objects behaviour. The declared methods are defined in a class that implements  the interface. Types can be cast or promoted, promotion will truncate values.</p>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">(</span><span class="kt">float</span><span class="o">)</span> <span class="mi">10</span><span class="o">/</span><span class="mi">2</span><span class="o">;</span>       <span class="c1">//2.5</span>
-<span class="kt">float</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">10</span><span class="o">/</span><span class="mi">2</span><span class="o">;</span><span class="err"> </span>  <span class="c1">//2.0 </span></code></pre></figure>
+<figure class="highlight">
+  <pre><code class="language-java" data-lang="java"><span class="o">(</span><span class="kt">float</span><span class="o">)</span> <span class="mi">10</span><span class="o">/</span><span class="mi">2</span><span class="o">;</span>       <span class="c1">//2.5</span>
+<span class="kt">float</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">10</span><span class="o">/</span><span class="mi">2</span><span class="o">;</span><span class="err"> </span>  <span class="c1">//2.0 </span></code></pre>
+</figure>
 
 <h3 id="primitive-types">Primitive Types</h3>
 <blockquote>
@@ -91,11 +107,15 @@
 
 <p>Implicit:</p>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">new</span> <span class="kt">int</span><span class="o">[]</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span> </code></pre></figure>
+<figure class="highlight">
+  <pre><code class="language-java" data-lang="java"><span class="k">new</span> <span class="kt">int</span><span class="o">[]</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span> </code></pre>
+</figure>
 
 <p>Explicit</p>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">5</span><span class="o">];</span> </code></pre></figure>
+<figure class="highlight">
+  <pre><code class="language-java" data-lang="java"><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">5</span><span class="o">];</span> </code></pre>
+</figure>
 
 <h3 id="multi-dimensional-arrays">Multi Dimensional Arrays</h3>
 <blockquote>
@@ -107,11 +127,13 @@
   <li><code class="language-plaintext highlighter-rouge">grid.length</code> gives <code class="language-plaintext highlighter-rouge">2</code> (the same as <code class="language-plaintext highlighter-rouge">grid[0].length</code>)</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[][]</span> <span class="o">{{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">}}</span> 
+<figure class="highlight">
+  <pre><code class="language-java" data-lang="java"><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[][]</span> <span class="o">{{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">}}</span> 
 <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="err"> </span><span class="c1">//2 </span>
 
 <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span> 
-<span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="err"> </span><span class="c1">//2 </span></code></pre></figure>
+<span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="err"> </span><span class="c1">//2 </span></code></pre>
+</figure>
 
 <h2 id="casting">Casting</h2>
 <blockquote>
@@ -266,8 +288,10 @@
   <li>Abstract classes can also contain abstract methods, whilst non-abstract classes can not.</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">myAbstractClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myConcreteClass</span><span class="o">()</span> <span class="c1">//valid</span>
-<span class="n">myAbstractClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myAbstractClass</span><span class="o">()</span> <span class="c1">//invalid</span></code></pre></figure>
+<figure class="highlight">
+  <pre><code class="language-java" data-lang="java"><span class="n">myAbstractClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myConcreteClass</span><span class="o">()</span> <span class="c1">//valid</span>
+<span class="n">myAbstractClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myAbstractClass</span><span class="o">()</span> <span class="c1">//invalid</span></code></pre>
+</figure>
 
 <p><strong>NOTE:</strong> Abstract classes can still contain all a normal class can, but anything declared as abstract within it can have no body</p>
 
@@ -276,14 +300,16 @@
   <p>Anonymous classes are instances of a class where their behaviour is overridden at instantiation.</p>
 </blockquote>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/* 
+<figure class="highlight">
+  <pre><code class="language-java" data-lang="java"><span class="cm">/* 
     AN ANONYMOUS CLASS EXAMPLE 
 */</span>
 <span class="nc">Machine</span> <span class="n">camera</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Machine</span><span class="o">()</span> <span class="o">{</span> 
         <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">(){</span> 
             <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Camera Started"</span><span class="o">);</span> 
         <span class="o">}</span> 
-<span class="o">}</span> </code></pre></figure>
+<span class="o">}</span> </code></pre>
+</figure>
 
 <h2 id="polymorphism">Polymorphism</h2>
 <blockquote>
@@ -306,7 +332,8 @@
   <li>Generic programming</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kd">class</span> <span class="nc">Number</span> <span class="kd">extends</span> <span class="nc">Integer</span><span class="o">{</span>
+<figure class="highlight">
+  <pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kd">class</span> <span class="nc">Number</span> <span class="kd">extends</span> <span class="nc">Integer</span><span class="o">{</span>
     <span class="kd">public</span> <span class="nf">square</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="k">this</span> <span class="o">*</span> <span class="k">this</span><span class="o">;</span>
     <span class="o">}</span>    
@@ -319,7 +346,8 @@
 
 <span class="c1">//...</span>
 <span class="nc">Number</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
-<span class="n">intFun</span><span class="o">(</span><span class="n">n</span><span class="o">);</span> <span class="c1">//upcasting</span></code></pre></figure>
+<span class="n">intFun</span><span class="o">(</span><span class="n">n</span><span class="o">);</span> <span class="c1">//upcasting</span></code></pre>
+</figure>
 
 <ul>
   <li>Static methods cannot be overridden.</li>
@@ -337,15 +365,19 @@
   <li>An interface only has method-signatures</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">MyInterface</span> <span class="o">{}</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="kd">extends</span> <span class="nc">MyParent</span> <span class="kd">implements</span> <span class="nc">MyInterface</span> <span class="o">{}</span> </code></pre></figure>
+<figure class="highlight">
+  <pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">MyInterface</span> <span class="o">{}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="kd">extends</span> <span class="nc">MyParent</span> <span class="kd">implements</span> <span class="nc">MyInterface</span> <span class="o">{}</span> </code></pre>
+</figure>
 
 <ul>
   <li>Interface methods need to be public</li>
   <li>A class can implement multiple interfaces</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="err">[...]</span> <span class="nc">implements</span> <span class="nc">Int1</span><span class="o">,</span> <span class="nc">Int2</span><span class="o">,</span> <span class="nc">Int3</span> <span class="o">...</span> </code></pre></figure>
+<figure class="highlight">
+  <pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="err">[...]</span> <span class="nc">implements</span> <span class="nc">Int1</span><span class="o">,</span> <span class="nc">Int2</span><span class="o">,</span> <span class="nc">Int3</span> <span class="o">...</span> </code></pre>
+</figure>
 
 <h2 id="collections">Collections</h2>
 <blockquote>
@@ -375,7 +407,9 @@
   <li>Keys are stored in a HashSet</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nc">HashMap</span><span class="o">&lt;</span><span class="no">K</span><span class="o">,</span><span class="no">V</span><span class="o">&gt;</span> </code></pre></figure>
+<figure class="highlight">
+  <pre><code class="language-java" data-lang="java"><span class="nc">HashMap</span><span class="o">&lt;</span><span class="no">K</span><span class="o">,</span><span class="no">V</span><span class="o">&gt;</span> </code></pre>
+</figure>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">put(K, V)</code> adds a new key and value to the map</li>
@@ -393,7 +427,9 @@
   <li>Items do not shift (removing the first element will not move the second down)</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nc">HashSet</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> </code></pre></figure>
+<figure class="highlight">
+  <pre><code class="language-java" data-lang="java"><span class="nc">HashSet</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> </code></pre>
+</figure>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">add(T)</code> does not add elements in a specific position</li>
@@ -408,8 +444,10 @@
 
 <p>When providing classes for a package the package is declared first, then any imported packages used to provide functionality are listed. This precedes the definition of any class.</p>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">mypackage</span><span class="o">;</span> <span class="c1">//declare package</span>
-<span class="kn">import</span> <span class="nn">anotherpackage</span><span class="o">;</span> <span class="c1">//import package</span></code></pre></figure>
+<figure class="highlight">
+  <pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">mypackage</span><span class="o">;</span> <span class="c1">//declare package</span>
+<span class="kn">import</span> <span class="nn">anotherpackage</span><span class="o">;</span> <span class="c1">//import package</span></code></pre>
+</figure>
 
 <p>Packages collect java files into one group. Packages are unaware of other packages unless imported. i.e I can create a test package and an application package both with main methods, only the one I am using (run/compile from) will run. This is the same with sub packages.</p>
 
@@ -422,21 +460,27 @@
 
 <p>Where it is possible to throw different exceptions you must declare</p>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="err"> </span>
-<span class="o">[</span><span class="n">method</span> <span class="n">signature</span><span class="o">]</span> <span class="kd">throws</span> <span class="o">[</span><span class="n">exception</span> <span class="mi">1</span><span class="o">],</span> <span class="o">[</span><span class="n">exception</span> <span class="mi">2</span><span class="o">]</span></code></pre></figure>
+<figure class="highlight">
+  <pre><code class="language-java" data-lang="java"><span class="err"> </span>
+<span class="o">[</span><span class="n">method</span> <span class="n">signature</span><span class="o">]</span> <span class="kd">throws</span> <span class="o">[</span><span class="n">exception</span> <span class="mi">1</span><span class="o">],</span> <span class="o">[</span><span class="n">exception</span> <span class="mi">2</span><span class="o">]</span></code></pre>
+</figure>
 
 <p>To catch multiple exceptions we use a multi catch.</p>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">try</span> <span class="o">{</span>
+<figure class="highlight">
+  <pre><code class="language-java" data-lang="java"><span class="k">try</span> <span class="o">{</span>
     <span class="c1">//...</span>
 <span class="o">}</span>
 <span class="k">catch</span><span class="o">([</span><span class="n">exception</span> <span class="mi">1</span><span class="o">]</span> <span class="n">a</span> <span class="o">|</span> <span class="o">[</span><span class="n">exception</span> <span class="mi">2</span><span class="o">]</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
     <span class="c1">//...</span>
-<span class="o">}</span></code></pre></figure>
+<span class="o">}</span></code></pre>
+</figure>
 
 <p>To throw an exception at a specific point in code we throw a new exception</p>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">throw</span> <span class="k">new</span> <span class="nc">IOException</span><span class="o">(</span><span class="s">"Error message"</span><span class="o">);</span> <span class="c1">//example</span></code></pre></figure>
+<figure class="highlight">
+  <pre><code class="language-java" data-lang="java"><span class="k">throw</span> <span class="k">new</span> <span class="nc">IOException</span><span class="o">(</span><span class="s">"Error message"</span><span class="o">);</span> <span class="c1">//example</span></code></pre>
+</figure>
 
 <p><strong>General Rules:</strong></p>
 <ul>
@@ -569,11 +613,13 @@
 
 <p>In java to create a thread we must create an object containing the task to run in the thread, as well as a <code class="language-plaintext highlighter-rouge">Thread</code> object itself. We can use the <code class="language-plaintext highlighter-rouge">Runnable</code> interface to create such a task.</p>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">void</span> <span class="nf">myTask</span><span class="o">()</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+<figure class="highlight">
+  <pre><code class="language-java" data-lang="java"><span class="kt">void</span> <span class="nf">myTask</span><span class="o">()</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
 
 <span class="nc">Runnable</span> <span class="n">task</span> <span class="o">=</span> <span class="k">this</span><span class="o">::</span><span class="n">myTask</span><span class="o">;</span>
 <span class="nc">Thread</span> <span class="n">thread</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Thread</span><span class="o">(</span><span class="n">task</span><span class="o">);</span>
-<span class="n">thread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span></code></pre></figure>
+<span class="n">thread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span></code></pre>
+</figure>
 
 <p><code class="language-plaintext highlighter-rouge">Thread</code>(s) start method is marked as <code class="language-plaintext highlighter-rouge">native</code> which specifies the method is implemented in the JVM not JDK (running machine compliable code). Hence the thread is started by a native instruction in the JVM. The scheduler will run a thread if its state is runnable.</p>
 
