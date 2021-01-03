@@ -79,20 +79,25 @@ blockquote {
     border-right: 1px solid #ddd;
     z-index: 2;
     padding: 0;
+    transition: all .5s;
 
     label {
         padding: 1rem;
         font-size: 24px;
     }
 
-    input[type=checkbox] {
+    label:hover {
+        cursor: pointer;
+    }
+
+    input {
         display: none;
     }
 
     input ~ .toc{
-        visibility: hidden;
-        opacity: 0;
         width: 0;
+        visibility: hidden;
+        margin-left: -100%;
     }
 
     input + label:after {
@@ -100,9 +105,9 @@ blockquote {
     }
 
     input:checked ~ .toc{
-        opacity: 1;
+        width: initial;
         visibility: visible;
-        width: 100%;
+        margin-left: 0;
     }
 
     input:checked + label:after {
@@ -112,7 +117,8 @@ blockquote {
     .toc {
         padding: 1rem;
         max-width: 25vw;
-        transition: opacity .5s;
+        transition: margin-left .5s;
+        overflow-x: hidden;
     }
 
     .toc li {
@@ -143,6 +149,10 @@ body::-webkit-scrollbar-thumb {
   
 .toc-container::-webkit-scrollbar-thumb {
     display: none;
+}
+
+.toc-container::-webkit-scrollbar {
+    width: 0;
 }
 
 /* Override menu button */
