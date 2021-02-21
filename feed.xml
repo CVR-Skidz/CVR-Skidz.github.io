@@ -1,3 +1,319 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-03T13:54:50+13:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Notes on Computer Science</title><subtitle>Information and takes on subjects related to computer science, mathematics, and technology in general.</subtitle><entry><title type="html">Hello World!</title><link href="http://localhost:4000/miscellaneous/2020/12/27/hello-world.html" rel="alternate" type="text/html" title="Hello World!" /><published>2020-12-27T00:00:00+13:00</published><updated>2020-12-27T00:00:00+13:00</updated><id>http://localhost:4000/miscellaneous/2020/12/27/hello-world</id><content type="html" xml:base="http://localhost:4000/miscellaneous/2020/12/27/hello-world.html">&lt;p&gt;This is the first entry made after migrating from my own web server to jekyll, so I thought I would write a post instead of the regular pages I write.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-02-22T11:42:32+13:00</updated><id>/feed.xml</id><title type="html">Notes on Computer Science</title><subtitle>Information and takes on subjects related to computer science, mathematics, and technology in general.</subtitle><entry><title type="html">All The Tips From The Pragmatic Programmer</title><link href="/miscellaneous/2021/02/22/all-the-tips-from-the-pragmatic-programmer.html" rel="alternate" type="text/html" title="All The Tips From The Pragmatic Programmer" /><published>2021-02-22T00:00:00+13:00</published><updated>2021-02-22T00:00:00+13:00</updated><id>/miscellaneous/2021/02/22/all-the-tips-from-the-pragmatic-programmer</id><content type="html" xml:base="/miscellaneous/2021/02/22/all-the-tips-from-the-pragmatic-programmer.html">&lt;p&gt;The book The Pragmatic Programmer, written by David Thomas and Andrew Hunt, explains how to think and act like a pragmatic programmer. Over the course of the book 100 tips are given - providing concise descriptions of various pragmatic characteristics. In printed copies a list of all these tips is provided at the end of the book for daily reference, although this is ommited from the digital versions. Below is a list of all 100 tips found throughout the book.&lt;/p&gt;
+
+&lt;h2 id=&quot;its-your-life&quot;&gt;It’s Your Life&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 1: Care about your craft&lt;/li&gt;
+  &lt;li&gt;Tip 2: Think! About your work&lt;/li&gt;
+  &lt;li&gt;Tip 3: You have agency&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-cat-ate-my-source-code&quot;&gt;The Cat Ate My Source Code&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 4: Provide options, don’t make lame excuses&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;software-entropy&quot;&gt;Software Entropy&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 5: Don’t live with broken windows&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;stone-soup--boiled-frogs&quot;&gt;Stone Soup &amp;amp; Boiled Frogs&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 6: Be a catalyst for change&lt;/li&gt;
+  &lt;li&gt;Tip 7: Remember the big picture&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;good-enough-software&quot;&gt;Good Enough Software&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 8: Make quality a requirements issue&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;your-knowledge-portfolio&quot;&gt;Your Knowledge Portfolio&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 9: Invest regularly in yout knowledge portfolio&lt;/li&gt;
+  &lt;li&gt;Tip 10: Critically analyze what you read and hear&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;communicate&quot;&gt;Communicate!&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 11: English is just another programming language&lt;/li&gt;
+  &lt;li&gt;Tip 12: It’s both what you say and the way you say it&lt;/li&gt;
+  &lt;li&gt;Tip 13: Build documentation in, don’t bolt it on&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-essence-of-good-design&quot;&gt;The Essence of Good Design&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 14: Good design is easier to change than bad design&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;dry---the-evils-of-duplication&quot;&gt;DRY - The Evils of Duplication&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 15: DRY - Don’t repeat yourself&lt;/li&gt;
+  &lt;li&gt;Tip 16: Make it easy to reuse&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;orthogonality&quot;&gt;Orthogonality&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 17: Elminate effects between unrelated things&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reversibility&quot;&gt;Reversibility&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 18: There are no final decisions&lt;/li&gt;
+  &lt;li&gt;Tip 19: Forgo following fads&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;tracer-ullets&quot;&gt;Tracer ullets&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 20: Use tracer bullets to find the target&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;prototypes-and-post-it-notes&quot;&gt;Prototypes and Post-it Notes&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 21: Prototype to learn&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;domain-languages&quot;&gt;Domain Languages&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 22: Program close to the problem domain&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;estimating&quot;&gt;Estimating&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 23: Estimate to avoid surprises&lt;/li&gt;
+  &lt;li&gt;Tip 24: Iterate the schedule with the code&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-power-of-plain-text&quot;&gt;The Power of Plain Text&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 25: Keep knowledge in plain text&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;shell-games&quot;&gt;Shell Games&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 26: Use the power of command shells&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;power-editting&quot;&gt;Power Editting&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 27: Achieve editor fluency&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;version-control&quot;&gt;Version Control&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 28: Always use version control&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;debugging&quot;&gt;Debugging&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 29: Fix the problem not the blame&lt;/li&gt;
+  &lt;li&gt;Tip 30: Don’t panic&lt;/li&gt;
+  &lt;li&gt;Tip 31: Failing test before failing code&lt;/li&gt;
+  &lt;li&gt;Tip 32: Read the damn error message&lt;/li&gt;
+  &lt;li&gt;Tip 33: “select” isn’t broken (The system isn’t broken)&lt;/li&gt;
+  &lt;li&gt;Tip 34: Don’t assume it - prove it&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;text-manipulation&quot;&gt;Text Manipulation&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 35: Learn a text manipulation language&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;pragmatic-paranoia&quot;&gt;Pragmatic Paranoia&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 36: You can’t write perfect software&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;design-by-contract&quot;&gt;Design By Contract&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 37: Design with contracts&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;dead-programs-tell-no-lies&quot;&gt;Dead Programs Tell No Lies&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 38: Crash Early&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;assertive-programming&quot;&gt;Assertive Programming&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 39: Use assertions to prevent the impossible&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;how-to-balance-resources&quot;&gt;How To Balance Resources&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 40: Finish what you start (The function or object that allocates a resource should deallocate it as well)&lt;/li&gt;
+  &lt;li&gt;Tip 41: Act Locally&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;dont-outrun-your-headlights&quot;&gt;Don’t Outrun Your Headlights&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 42: Take small steps - always&lt;/li&gt;
+  &lt;li&gt;Tip 43: Avoid fortune-telling&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;decoupling&quot;&gt;Decoupling&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 44: Decoupled code is easier to change&lt;/li&gt;
+  &lt;li&gt;Tip 45: Tell, Don’t ask (Don’t make decisions based on an object’s state, and then update that state)&lt;/li&gt;
+  &lt;li&gt;Tip 46: Don’t chain method calls&lt;/li&gt;
+  &lt;li&gt;Tip 47: Avoid global data&lt;/li&gt;
+  &lt;li&gt;Tip 48: If it’s important enough to be gloabl, wrap it in an API&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;transforming-programming&quot;&gt;Transforming Programming&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 49: Programming is about code, but programs are about data&lt;/li&gt;
+  &lt;li&gt;Tip 50: Don’t hoard state, pass it around&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;inheritance-tax&quot;&gt;Inheritance Tax&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 51: Don’t pay inheritence tax&lt;/li&gt;
+  &lt;li&gt;Tip 52: Prefer interfaces to express polymorphism&lt;/li&gt;
+  &lt;li&gt;Tip 53: Delegate to Services: Has-A trumps Is-A&lt;/li&gt;
+  &lt;li&gt;Tip 54: Use mixins to share functionality&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;configuration&quot;&gt;Configuration&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 55: Parameterize your app using external configuration&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;breaking-temporal-coupling&quot;&gt;Breaking Temporal Coupling&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 56: Analyze workflow to improve concurrency (Find what can be done at the same time)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;shared-state-is-incorrect-state&quot;&gt;Shared State is Incorrect State&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 57: Shared state is incorrect state (threads sharing the same state is incorrect)&lt;/li&gt;
+  &lt;li&gt;Tip 58: Random failures are often concurrency issues&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;actors-and-processes&quot;&gt;Actors and Processes&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 59: Use actors for concurrency without shared state&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;blackboards&quot;&gt;Blackboards&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 60: Use blackboards to coordinate workflow&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;listen-to-your-lizard-brain&quot;&gt;Listen to Your Lizard Brain&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 61: Listen to your lizard brain (let your subconscious work for you)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;programming-by-conicidence&quot;&gt;Programming By Conicidence&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 62: Don’t program by coincidence (program deliberatley)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;algorithm-speed&quot;&gt;Algorithm Speed&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 63: Estimate the order of your algorithms&lt;/li&gt;
+  &lt;li&gt;Tip 64: Test your estimates&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;refactoring&quot;&gt;Refactoring&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 65: Refactor early, refactor often&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;test-to-code&quot;&gt;Test to Code&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 66: Testing is not about finding bugs&lt;/li&gt;
+  &lt;li&gt;Tip 67: A test is the first user of your code&lt;/li&gt;
+  &lt;li&gt;Tip 68: Build end-to-end not top-down or bottom-up&lt;/li&gt;
+  &lt;li&gt;Tip 69: Design to test&lt;/li&gt;
+  &lt;li&gt;Tip 70: Test your software or your users will&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;property-based-testing&quot;&gt;Property-based Testing&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 71: Use property-based testing to validate your assumptions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;stay-safe-out-there&quot;&gt;Stay Safe Out There&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Tip 72: Keep it simple and minimize attack surafces&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Tip 73: Apply security patches quickly&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;namiing-things&quot;&gt;Namiing Things&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 74: Name well; rename when needed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-requirements-pit&quot;&gt;The Requirements Pit&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 75: No one knows exactly what they want&lt;/li&gt;
+  &lt;li&gt;Tip 76: Programmers help people understand what they want&lt;/li&gt;
+  &lt;li&gt;Tip 77: Requirements are learned in a feedback loop&lt;/li&gt;
+  &lt;li&gt;Tip 78: Work with a user to think like a user&lt;/li&gt;
+  &lt;li&gt;Tip 79: Policy is metadata&lt;/li&gt;
+  &lt;li&gt;Tip 80: Use a project glossary&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;solving-impossible-puzzles&quot;&gt;Solving Impossible Puzzles&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 81: Don’t think outside the box - find the box&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;working-together&quot;&gt;Working Together&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 82: Don’t go into the code alone&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-essence-of-agility&quot;&gt;The Essence of Agility&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 83: Agile is not a noun; agile is how you do things&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;pragmatic-teams&quot;&gt;Pragmatic Teams&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 84: Maintain small, stable teams&lt;/li&gt;
+  &lt;li&gt;Tip 85: Schedule it to make it happen&lt;/li&gt;
+  &lt;li&gt;Tip 86: Organize fully funcitonal teams (make sure every role is covered in a team)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;coconuts-dont-cut-it&quot;&gt;Coconuts Don’t Cut It&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 87: Do what works, not what’s fashionable&lt;/li&gt;
+  &lt;li&gt;Tip 88: Deliver when users need it&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;pragmatic-starter-kit&quot;&gt;Pragmatic Starter Kit&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 89: Use version control to drive builds, tests, and releases&lt;/li&gt;
+  &lt;li&gt;Tip 90: Test early, test often, test automatically&lt;/li&gt;
+  &lt;li&gt;Tip 91: Coding ain’t done ‘til all the tests run&lt;/li&gt;
+  &lt;li&gt;Tip 92: Use saboteurs to test your testing (feed incorrect data)&lt;/li&gt;
+  &lt;li&gt;Tip 93: Test state coverage not code coverage&lt;/li&gt;
+  &lt;li&gt;Tip 94: Find bugs once&lt;/li&gt;
+  &lt;li&gt;Tip 95: Don’t use manual procedures&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;delight-your-users&quot;&gt;Delight Your Users&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 96: Delight users, don’t just deliver code&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;pride-and-prejudice&quot;&gt;Pride and Prejudice&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 97: Sign your work&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;postface&quot;&gt;Postface&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tip 98: First, do no harm (think, would I use this?)&lt;/li&gt;
+  &lt;li&gt;Tip 99: Don’t Enable Scumbags&lt;/li&gt;
+  &lt;li&gt;Tip 100: It’s your life. Share it. Celebrate it. Build it. AND HAVE FUN!&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="Miscellaneous" /><summary type="html">The book The Pragmatic Programmer, written by David Thomas and Andrew Hunt, explains how to think and act like a pragmatic programmer. Over the course of the book 100 tips are given - providing concise descriptions of various pragmatic characteristics. In printed copies a list of all these tips is provided at the end of the book for daily reference, although this is ommited from the digital versions. Below is a list of all 100 tips found throughout the book.</summary></entry><entry><title type="html">Hello World!</title><link href="/miscellaneous/2020/12/27/hello-world.html" rel="alternate" type="text/html" title="Hello World!" /><published>2020-12-27T00:00:00+13:00</published><updated>2020-12-27T00:00:00+13:00</updated><id>/miscellaneous/2020/12/27/hello-world</id><content type="html" xml:base="/miscellaneous/2020/12/27/hello-world.html">&lt;p&gt;This is the first entry made after migrating from my own web server to jekyll, so I thought I would write a post instead of the regular pages I write.&lt;/p&gt;
 
 &lt;p&gt;This site serves as a collection of notes and information I have written on a variety of computer science, mathematics, and tehcnolgoical subjects. Currently there is a roughly even split between topics taken from university papers and those I have covered personally. Topics are hopefully written as clearly as possible. I expect the layout of the site to change over time as I try to frakenstien some elements like page contents and searching together. With that being said I hope you find some useful information.&lt;/p&gt;</content><author><name></name></author><category term="Miscellaneous" /><summary type="html">This is the first entry made after migrating from my own web server to jekyll, so I thought I would write a post instead of the regular pages I write.</summary></entry></feed>
