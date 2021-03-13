@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/topics/Content/Distributed_Systems.html" />
 <meta property="og:site_name" content="Notes on Computer Science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-03-07T09:44:10+13:00" />
+<meta property="article:published_time" content="2021-03-14T10:09:47+13:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Distributed_Systems.html","headline":"Distributed_systems","dateModified":"2021-03-07T09:44:10+13:00","datePublished":"2021-03-07T09:44:10+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Distributed_Systems.html"},"description":"A distributed system is one in which components at networked computers coordinate their actions only by passing messages.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Distributed_Systems.html","headline":"Distributed_systems","dateModified":"2021-03-14T10:09:47+13:00","datePublished":"2021-03-14T10:09:47+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Distributed_Systems.html"},"description":"A distributed system is one in which components at networked computers coordinate their actions only by passing messages.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -47,7 +47,7 @@
   <!-- The actual TOC -->
   <nav class="toc">
     <h3>Table of Contents</h3>
-    <ul><li><a href="#characteristics-of-distributed-systems">Characteristics of Distributed Systems</a></li><li><a href="#internet-protocols">Internet Protocols</a></li><li><a href="#architectures">Architectures</a><ul><li><a href="#client-server">Client-Server</a></li><li><a href="#peer-to-peer">Peer to Peer</a></li></ul></li></ul>
+    <ul><li><a href="#characteristics-of-distributed-systems">Characteristics of Distributed Systems</a></li><li><a href="#internet-protocols">Internet Protocols</a></li><li><a href="#architectures">Architectures</a><ul><li><a href="#client-server">Client-Server</a></li><li><a href="#peer-to-peer">Peer to Peer</a></li></ul></li><li><a href="#system-models">System Models</a><ul><li><a href="#architectural-models">Architectural Models</a></li></ul></li><li><a href="#architectural-patterns">Architectural Patterns</a><ul><li><a href="#layering">Layering</a></li></ul></li><li><a href="#hypertext-transfer-protocol">Hypertext Transfer Protocol</a><ul><li><a href="#session-tracking">Session Tracking</a></li></ul></li><li><a href="#web-servers">Web Servers</a></li></ul>
 
   </nav>
 </div>
@@ -130,6 +130,145 @@ close socket
 <p>In a peer to peer architecture clients are also servers, any node can request a service from another, which can then do the same (aka proxy).</p>
 
 <p><img src="../Assets/Peer-to-Peer_Arch.png" alt="Peer to peer" /></p>
+
+<h2 id="system-models">System Models</h2>
+
+<blockquote>
+  <p>Models describing the design of and implementation of distributed systems</p>
+</blockquote>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Model</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td>Physical</td>
+      <td>Representation of hardware elements that abstract away specific details of the computer and network technologies used within the system</td>
+    </tr>
+    <tr>
+      <td>Architectural</td>
+      <td>The sturcture of the system in terms of seperated components and their inetrrelationships</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="architectural-models">Architectural Models</h3>
+
+<p>Architectural Models answer:</p>
+
+<ul>
+  <li>What entities exist in the system?</li>
+  <li>What communication paradigm is used?</li>
+  <li>What roles do they have in the overall architecture?</li>
+  <li>What is their placement?</li>
+</ul>
+
+<p>From a systems-level perspective all coounicating entities are processes, however from a programming persepective these could be ojects, software components, or web services. The communication between these is supported by a paradigm, which could include:</p>
+
+<ul>
+  <li>Interprocess communication</li>
+  <li>Remote Invocation</li>
+  <li>Remote Procedure Calls</li>
+  <li>Remote Method Invocation</li>
+</ul>
+
+<p>Paradigms that do not require a sender to know of the receiver exist to decouple systems. This is known as third party communication and include publish-subscribe and message queue systems.</p>
+
+<h2 id="architectural-patterns">Architectural Patterns</h2>
+
+<blockquote>
+  <p>Design patterns used in architectural models reffered to as architectural patterns.</p>
+</blockquote>
+
+<h3 id="layering">Layering</h3>
+
+<blockquote>
+  <p>Partitioning a system into layers where each layer can interact with the layer below it (without knowing it’s implementation) but none further beneathe - offering software abstraction.</p>
+</blockquote>
+
+<p><img src="../Assets/DMS_Layering.png" alt="Layering" /></p>
+
+<h2 id="hypertext-transfer-protocol">Hypertext Transfer Protocol</h2>
+
+<p>Http is a request-reply protocl on the application layer. Sitting atop TCP it can reuse TCP connections over multiple requests to a server.</p>
+
+<ul>
+  <li>HTTP is stateless, no client information is saved between requests and each request is independent. All client information is setn with each request.</li>
+  <li>As it is stateless sessions are not stored <em>in the protocol</em></li>
+</ul>
+
+<p>Requests appear in the form (all <code class="language-plaintext highlighter-rouge">{xxx}</code> are fields replaced by an appropriate type):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{METHOD} {URI} HTTP/{VERSION}
+HOST: {DNS NAME}
+{HEADERS}
+
+{BODY}
+
+</code></pre></div></div>
+
+<ul>
+  <li>Within a URI parameters can be sent following a <code class="language-plaintext highlighter-rouge">?</code> as key-value pairs. They can not contain special HTTP characters, and must be url-encoded.</li>
+</ul>
+
+<p>Responses appear in the form:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/{VERSION} {STATUS CODE(3 digits)} {STATUS MESSAGE(string equivelant)}
+{HEADERS}
+
+{BODY}
+
+</code></pre></div></div>
+
+<p>Headers are written in the form:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{HEADER NAME}: {VALUE 1}, {VALUE 2}, {...}
+</code></pre></div></div>
+
+<h3 id="session-tracking">Session Tracking</h3>
+
+<p>Web servers employ various techniques to track sessions as a result of HTTP being stateless. This invovles including session IDs with client requests which map to a session stored on the server. This can be done using many techniques</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Session Tracking</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cookies</td>
+      <td>Persistent storage placed on the client containing the session ID, as instructued by a server’s response</td>
+    </tr>
+    <tr>
+      <td>URL rewriting</td>
+      <td>Server responses re-write all URLs to include the session ID as a parameter</td>
+    </tr>
+    <tr>
+      <td>Hidden form fields</td>
+      <td>Hiding (making invisible) form fields that send the session ID as a field when submitted. Although this is rather unorthodox nowadays.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="web-servers">Web Servers</h2>
+
+<p>Web servers are generally used to support the OSI layers underneathe applications and services. Handling protocols such as TCP and HTTP for developers.</p>
+
+<blockquote>
+  <p>Java EE uses servlets to respond to requests handled by a server. In general a servlet is responsible for one resource. Web servers implementing Java EE manage containers, which in turn manage servelts. Destroying and instantiating servlets as requestes are made - and often offer a load balancer - known as managed code.</p>
+</blockquote>
+
+<p><img src="../Assets/Servlets.png" alt="Servlets" /></p>
+
+<p>Web servers will often implement session tracking, allowing services and applications atop to querry HTTP sessions without manually implementing session tracking techniques. Forwarding requests once inside the server (by a server resource etc.) is known as dispatching. This allows us to store state in the request and send this to another resource.</p>
+
+<blockquote>
+  <p>Java Beans are java objects that allow a request to store state when dispatched. They have no paramters in the constructor and provide methods to get and set fields within themselves. Beans are limited to per request, session, and application scopes.</p>
+</blockquote>
 
   </div>
 

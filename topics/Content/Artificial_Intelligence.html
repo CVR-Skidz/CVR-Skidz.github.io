@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/topics/Content/Artificial_Intelligence.html" />
 <meta property="og:site_name" content="Notes on Computer Science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-03-07T09:44:10+13:00" />
+<meta property="article:published_time" content="2021-03-14T10:09:47+13:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Artificial_Intelligence.html","headline":"Artificial_intelligence","dateModified":"2021-03-07T09:44:10+13:00","datePublished":"2021-03-07T09:44:10+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Artificial_Intelligence.html"},"description":"At the time of writing AI is a “buzzword”, and is often thought identical to Machine Learning and Deep Learning. In reality these are subsets of the AI field, specifically the application of models and in the later case models designed after the neural networks found in the human brain. So what is AI?","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Artificial_Intelligence.html","headline":"Artificial_intelligence","dateModified":"2021-03-14T10:09:47+13:00","datePublished":"2021-03-14T10:09:47+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Artificial_Intelligence.html"},"description":"At the time of writing AI is a “buzzword”, and is often thought identical to Machine Learning and Deep Learning. In reality these are subsets of the AI field, specifically the application of models and in the later case models designed after the neural networks found in the human brain. So what is AI?","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -47,7 +47,7 @@
   <!-- The actual TOC -->
   <nav class="toc">
     <h3>Table of Contents</h3>
-    
+    <ul><li><a href="#game-theory">Game Theory</a><ul><li><a href="#normal-form-games">Normal Form Games</a><ul><li><a href="#solving-normal-form-games">Solving Normal Form Games</a></li></ul></li></ul></li></ul>
 
   </nav>
 </div>
@@ -67,6 +67,105 @@
   <li>Systems that act rationally</li>
   <li>Systems that think rationally</li>
 </ul>
+
+<h2 id="game-theory">Game Theory</h2>
+
+<blockquote>
+  <p>One intersection of mathematics and artificial intelligence. The study of mathematical models of conflict and cooperation between rational decision makers known as agents.</p>
+</blockquote>
+
+<p>In game theory agents make perceptions about their environment, which results in said agents taking actions. A game(situation) is won based on the actions of all participating agents, not by an overarching judge.</p>
+
+<ul>
+  <li>Agents do not necessarilly take the action they consider suitable, but a response to what they consider the most popular action will be.</li>
+</ul>
+
+<p>Generally agents within games are known as self-interested agents, defined by:</p>
+
+<ul>
+  <li>An agent with it’s own description of the world (preferences). It acts based on the preferences.</li>
+  <li>An action results in some payoff (feedback) to the agent called utility. <strong>Rationality means to maximize utility.</strong></li>
+</ul>
+
+<p>Games are therefore made of:</p>
+
+<ul>
+  <li>Agents (players) - which artificial intelligence attempts to replicate.</li>
+  <li>Actions which define the capabilities of agents. Aritificial intelligence tries to decide when to perform which action.</li>
+  <li>Utilities - the motivation of the agent.</li>
+</ul>
+
+<p>Game theory is often used to create agent desgins and tune or construct rules.</p>
+
+<h3 id="normal-form-games">Normal Form Games</h3>
+
+<blockquote>
+  <p>A game where all agents perform their actions, recorded in a matrix, simultaneously. Utilities are calculated as a function of their actions.</p>
+</blockquote>
+
+<p>Utility functions map an agents actions, known as a profile, to the set of all actions to a quantity. This is typically expressed by \(u_i\).</p>
+
+<ul>
+  <li>An agents actions is usually expressed as \(s_i\), and alternatives as \(s_i\prime\)</li>
+  <li>An action set, that is all possible actions for an agent are usually expressed as \(A_i\)</li>
+</ul>
+
+<p>Normal form games are often expressed as matrices, where each cell describes agents utilities. Each column or row represents an action - the intersection of multiple actions forms a profile. Generally the first player is listed on the left.</p>
+
+<p>Example:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>\(i\) <em>(p2 actions)</em></th>
+      <th>\(j\) <em>(p2 actions)</em></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(x\) <em>(p1 actions)</em></td>
+      <td>-1 <em>(p1 utility)</em>,-1 <em>(p2 utility)</em></td>
+      <td>-4,0</td>
+    </tr>
+    <tr>
+      <td>\(y\) <em>(p1 actions)</em></td>
+      <td>0,-4</td>
+      <td>-3,-3</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>
+    <p>Games are considered games of pure competition when two players have opposite intersts: \(\forall a \in A, u_1(a) + u_2(a) = 0\).</p>
+  </li>
+  <li>
+    <p>Games are considered games of cooperation when players have the same interests: \(\forall a \in A, \forall(i, j) \in N, u_i(a) = u_j(a)\).</p>
+  </li>
+</ul>
+
+<h4 id="solving-normal-form-games">Solving Normal Form Games</h4>
+
+<p>If the actions of other agents are known, any agent should choose the action set that yields the highest utility. However if other agents actions are unknown the best action for each agent maximizes the utility of the other agents. This is known as a <strong>nash equilibrium</strong>.</p>
+
+<ul>
+  <li>In a nash equilibrium all agents yield the highest utility possible given the other agents actions.</li>
+</ul>
+
+<p>Knowing that each agent knows each other agent wants to maximize their utitlity we can use an iterated elimonation algorithm to find a games nash eqiuilibrium (their could be more than one). This involves iteratively removing all non-dominating strategies.</p>
+
+<p>Domination can be either stirct or week:</p>
+
+<ul>
+  <li>
+    <p>Stirctly dominating strategies always yield the highest utility for one agent whenever the other perfoms a specific action. \(s_1 \space dominates \space s_1\prime \implies \forall s_2 \in A_2, u_1(s_1, s_2) \gt u_1(s_1\prime, s_2)\)</p>
+  </li>
+  <li>
+    <p>Weekly dominating strategies always yield the highest utility for one agent wheneve the other performs a specific action. However other actions may also yield an equal utility. \(s_1 \space dominates \space s_1\prime \implies \forall s_2 \in A_2, u_1(s_1, s_2) \geq u_1(s_1\prime, s_2)\)</p>
+  </li>
+</ul>
+
 
   </div>
 
