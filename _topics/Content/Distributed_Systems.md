@@ -68,3 +68,97 @@ close socket
 In a peer to peer architecture clients are also servers, any node can request a service from another, which can then do the same (aka proxy).
 
 ![Peer to peer](../Assets/Peer-to-Peer_Arch.png)
+
+## System Models
+
+> Models describing the design of and implementation of distributed systems
+
+|Model|Description|
+|Physical|Representation of hardware elements that abstract away specific details of the computer and network technologies used within the system|
+|Architectural|The sturcture of the system in terms of seperated components and their inetrrelationships|
+
+### Architectural Models
+
+Architectural Models answer:
+
+- What entities exist in the system?
+- What communication paradigm is used?
+- What roles do they have in the overall architecture?
+-  What is their placement?
+
+From a systems-level perspective all coounicating entities are processes, however from a programming persepective these could be ojects, software components, or web services. The communication between these is supported by a paradigm, which could include:
+
+- Interprocess communication
+- Remote Invocation
+- Remote Procedure Calls
+- Remote Method Invocation
+
+Paradigms that do not require a sender to know of the receiver exist to decouple systems. This is known as third party communication and include publish-subscribe and message queue systems.
+
+## Architectural Patterns
+
+> Design patterns used in architectural models reffered to as architectural patterns. 
+
+### Layering
+
+> Partitioning a system into layers where each layer can interact with the layer below it (without knowing it's implementation) but none further beneathe - offering software abstraction.
+
+![Layering](../Assets/DMS_Layering.png)
+
+## Hypertext Transfer Protocol
+
+Http is a request-reply protocl on the application layer. Sitting atop TCP it can reuse TCP connections over multiple requests to a server.
+
+- HTTP is stateless, no client information is saved between requests and each request is independent. All client information is setn with each request.
+- As it is stateless sessions are not stored *in the protocol*
+
+Requests appear in the form (all `{xxx}` are fields replaced by an appropriate type):
+
+```
+{METHOD} {URI} HTTP/{VERSION}
+HOST: {DNS NAME}
+{HEADERS}
+
+{BODY}
+
+```
+
+- Within a URI parameters can be sent following a `?` as key-value pairs. They can not contain special HTTP characters, and must be url-encoded.
+
+Responses appear in the form:
+
+```
+HTTP/{VERSION} {STATUS CODE(3 digits)} {STATUS MESSAGE(string equivelant)}
+{HEADERS}
+
+{BODY}
+
+```
+
+Headers are written in the form:
+
+```
+{HEADER NAME}: {VALUE 1}, {VALUE 2}, {...}
+```
+
+### Session Tracking
+
+Web servers employ various techniques to track sessions as a result of HTTP being stateless. This invovles including session IDs with client requests which map to a session stored on the server. This can be done using many techniques
+
+|Session Tracking|Description|
+|----------------|-----------|
+|Cookies|Persistent storage placed on the client containing the session ID, as instructued by a server's response|
+|URL rewriting|Server responses re-write all URLs to include the session ID as a parameter|
+|Hidden form fields|Hiding (making invisible) form fields that send the session ID as a field when submitted. Although this is rather unorthodox nowadays.|
+
+## Web Servers
+
+Web servers are generally used to support the OSI layers underneathe applications and services. Handling protocols such as TCP and HTTP for developers.
+
+> Java EE uses servlets to respond to requests handled by a server. In general a servlet is responsible for one resource. Web servers implementing Java EE manage containers, which in turn manage servelts. Destroying and instantiating servlets as requestes are made - and often offer a load balancer - known as managed code.
+
+![Servlets](../Assets/Servlets.png)
+
+Web servers will often implement session tracking, allowing services and applications atop to querry HTTP sessions without manually implementing session tracking techniques. Forwarding requests once inside the server (by a server resource etc.) is known as dispatching. This allows us to store state in the request and send this to another resource. 
+
+> Java Beans are java objects that allow a request to store state when dispatched. They have no paramters in the constructor and provide methods to get and set fields within themselves. Beans are limited to per request, session, and application scopes. 
