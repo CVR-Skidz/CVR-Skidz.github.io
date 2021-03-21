@@ -162,3 +162,72 @@ Web servers are generally used to support the OSI layers underneathe application
 Web servers will often implement session tracking, allowing services and applications atop to querry HTTP sessions without manually implementing session tracking techniques. Forwarding requests once inside the server (by a server resource etc.) is known as dispatching. This allows us to store state in the request and send this to another resource. 
 
 > Java Beans are java objects that allow a request to store state when dispatched. They have no paramters in the constructor and provide methods to get and set fields within themselves. Beans are limited to per request, session, and application scopes. 
+
+## Server Pages
+
+Server pages are written as static HTML documents which are compiled into servlets, allowing code to be included in the source HTML, which is executed as code. Java EE calls their version of server pages JSP (Java server pages) but other popular frameworks exist. For example in .NET ASP & ASP core exist.
+
+## JSPs
+
+JSPs use a variety of tags to perform certain actions. Server pages can use beans and request objects just as a servlet could.
+
+|JSP Element|JSP Syntax|
+|-----------|----------|
+|Comment|`<%-- --%>`|
+|Directive|`<%@ page ... %>` `<%@ include ... %>` etc.|
+|Declaration|`<%! ... %>`|
+|Expression|`<%= %>`|
+|Scriptlet|`<% ... %>`|
+
+They also have access to in built servlet objects:
+
+* request
+* response
+* out (JspWriter)
+* session (HttpSession)
+* application (ServletContext)
+* config (ServletConfig)
+* pageContext
+* page (reference to compiled servlet)
+
+Server pages can access beans using the following tags:
+
+```
+<jsp:useBean id="beanName" class="beanPackage.beanClass" scope="beanScope"/>
+<jsp:setProperty id="beanName" property="propName" value="value"/>
+<jsp:getProperty id="beanName" property="propName"/>
+```
+
+Furthermore custom tags can be defined, the JSTL (JSP standard tag library) includes many. These tags are associated with a prefix (a prefix appears where jsp was written above), and the page must declare the location of each tags definition.
+
+|Library|Prefix|URI|
+|-------|------|---|
+|Core|`c`|http://java.sun.com/jsp/jstl/core|
+|XML|`x`|http://java.sun.com/jsp/jstl/xml|
+|Format|`fmt`|http://java.sun.com/jsp/jstl/fmt|
+|SQL|`sql`|http://java.sun.com/jsp/jstl/sql|
+|Functions|`fn`|http://java.sun.com/jsp/jstl/functions|
+
+```
+# use core JSTL directive
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+```
+
+## Databases
+> Scaled applications look to highly optimise the application models.
+
+Databases are teh defacto means to store an applications model, they may be relational, time-series, noSQL, or even maps/memory databases. Connecting to a database is resource intensive, hence in scaled applications we **do not want to create a connection to the database manually**. Instead we use a connection pool, which are collections of connections allocated to a database on a server which we can open and close without creating or destroying a new connection. As such connection pools have a limited number of connections.
+
+* Pools create connections when a server starts up
+* Application servers generally include a connection pool and pool managers
+
+Furthermore we can utilise naming services to directly inject (resource injection) connections as data sources into distributed objects. Naming services allow connection pools to be named on disk, and can inject a data source (connection) directly into an object. 
+
+Further optimisations can even be made to SQL or other database queries. Prepared statements allow us to construct queries with wild cards and optimise the resources used to access said tables etc. on the database at compile time. Wildcards can then be replaced at runtime.
+
+## ORM
+> Object relational mapping
+
+Instead of directly executing queries it is common to map the relationships between entities in a databse to objects, and then use a persitence service to serialize and deserialize objects to the database. 
+
+Java EE incorporates an ORM and persistence API by default, called the JPA. 
