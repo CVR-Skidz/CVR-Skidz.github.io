@@ -68,4 +68,47 @@ Domination can be either stirct or week:
 
 - Weekly dominating strategies always yield the highest utility for one agent wheneve the other performs a specific action. However other actions may also yield an equal utility. \\(s_1 \space dominates \space s_1\prime \implies \forall s_2 \in A_2, u_1(s_1, s_2) \geq u_1(s_1\prime, s_2)\\)
 
+## Extensive form games
 
+> When a game incorporates sequence, whereby there are turns, it can be modelled by extenive form and not normal form games.
+
+Extensive form games model the turns of each player in a game tree.
+
+* A game tree is a tree data structure, or more specifically a directed graph. 
+* A tree has a set of nodes \\(T\\) and a function \\(F\\) that given a node in set \\(T\\) returns the next sequence (level) of nodes in the tree.
+* There is always a root node with a direct path to any other node - there are no loops.
+* The terminal (leaf) nodes return agent utilities.
+
+![Game Tree](../Assets/game_tree.gif)
+
+A pure strategy for an agent is one that gives a possible action for each node under that agents control. For example {L, R} for player 1. 
+
+* An extensive from game cane be converted to a normal form game by creating a matrix of all pure strategies.
+* A subset perfect equilibrium is a nash equilibrium for any subset of the game.
+* The utility of any node in the tree can be found with **backwards induction**. Where the utility at the terminal nodes is propagated up the tree by taking into consideration what the agent in control will choose at each node.
+
+## Minimax
+
+> An algorithm to solve what action an agent should take in an extensive form game when we know the other rational agent understands we are rational in a game of pure competition.
+
+Minimax (minimize the maximum payoff) became renowned in the deep blue super computer. We give two agents a role. The player in our favour is the max player, and the other a min player. The max player always tries to maximise the utility whilst the min always tries to minimise it. As the utilities are exactly opposite by minimising player 1 player 2 is maximizing their return.
+
+* Minimax is only applicable in games of pure competition.
+* Utilties for each node are found using backwords induction.
+
+As game trees grow extremely large they grow enourmous algorithm complexity. The complexity of minimax is \\(O(b^m)\\) where b is the average number of children nodes, and m the depth of the tree.
+
+## Alpha Beta Pruning
+
+> A method to eliminate insignificant branches of a game tree to reduce minimax complexity.
+
+Alpha beta pruning revolves around the philosiphy that an agent will never take certain actions, and those branches in a tree can be pruned and do not need to be searched. Two values are stored, alpha and beta, and if at any point \\(\alpha \geq \beta\\) any sibling nodes on the current level are pruned. The alpha and beta values are always inherited by chidlren nodes but never propagated to their parents.
+
+* An alpha value is updated on max nodes - hence alpha is the largest utility for the current node in the search. 
+* A beta value is updated on min nodes - hence beta is the smallest utility for the current node in the search.
+
+Calculating alpha: 
+
+Calculating beta:
+
+![ab pruning](../Assets/ab_pruning.gif)

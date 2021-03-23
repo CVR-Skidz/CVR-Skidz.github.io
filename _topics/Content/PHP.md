@@ -96,3 +96,73 @@ Since PHP is dynamically typed equality can be either strict or not:
 
 - Strict equality: operands are of equal value and type `1 === 1`
 - Non-strict equality: operands are of equal value `"1" == 1`
+
+## Arrays
+
+PHP has a variety of inbuilt features to work with arrays.
+
+|Array function|Description|
+|--------------|-----------|
+|`array_shift()`|dequeue|
+|`array_unshift()`|enqueue|
+|`array_pop()`|pop|
+|`array_push()`|push|
+|`array_splice()`|replace a range of elements|
+|`in_array()`|contains|
+|`array_search()`|finds the index of a value|
+|`array_key_exists()`|contains key|
+|`array_slice()`|returns a range of an array|
+|`sort()`|sort|
+|`rsort()`|reverse sort|
+|`ksort()`|sort map|
+|`krsort`|reverse sort map|
+
+* Multidimensional arrays can be constructed as in c style languages, by nesting multiple arrays. They are indexed traditionally as well. 
+* Associative arrays (maps) are constructed like: `["key"=>"value"]` and indexed by key (`["key"]`)
+
+Iterating associative arrays:
+
+```php
+foreach($map as $key=>$value) {
+    echo $key.", ".$value;
+}
+```
+
+PHP also exposes unique associative arrays called superglobals containing various environment variables, including but not limited to:
+
+* `$_GET`
+* `$_POST`
+* `$_ENV`
+* `$_COOKIE`
+
+## Strings
+
+Strings are integral to PHP as philosophically it is a text processor. There are no character data types other than strings.
+
+* String operators, such as `.`, also have assignment operators such as `.=`.
+* Strings can explicity include varaibles by encompassing them in `{}` parenthesis.
+
+```php
+$vegetable = "carrot";
+
+#error
+echo "I like $vegetables";
+
+#ok
+echo "I like {$vegetable}s";
+```
+
+Strings also contain many utility functions:
+
+|String function|Description|
+|---------------|-----------|
+|`strcmp`|string comparison, such as strcmp in c|
+|`strcasecmp`|case agnostic string comparison|
+|`strlen`|string length|
+|`strpos`|returns index of substring|
+|`substr`|returns a substring of the given string|
+|`str_replace`|replaces a substring with another|
+|`strtok`|creates a string tokeniser, returning the first token|
+|`explode`|create array from string characters|
+|`implode`|concatenate arrays into a string|
+|`str_split`|delimit a string into an array|
