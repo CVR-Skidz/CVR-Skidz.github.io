@@ -162,3 +162,29 @@ Web servers are generally used to support the OSI layers underneathe application
 Web servers will often implement session tracking, allowing services and applications atop to querry HTTP sessions without manually implementing session tracking techniques. Forwarding requests once inside the server (by a server resource etc.) is known as dispatching. This allows us to store state in the request and send this to another resource. 
 
 > Java Beans are java objects that allow a request to store state when dispatched. They have no paramters in the constructor and provide methods to get and set fields within themselves. Beans are limited to per request, session, and application scopes. 
+
+## Server Pages
+
+Server pages are static HTML documents containing special elements capable of calling dynamic code.
+
+> Java EE uses JSP (java server pages), whilst other popular frameworks include ASP for .NET core.
+
+Server pages allow servers to repond with dynamic content to a client, without manually writing HTTP responses. Server pages are translated and compiled into servlets during the build process - which means server pages are compiled into servlets (they have access to beans etc.).
+
+- Server pages generally provide annotations or other language consturcts to define constants for the page to use. However an older pattern is to provide an external configuration file that the page reads.
+
+### JSPs
+
+JSPs contain special tags used to enclose Java statements, which users can also define adding to the JSTL (JSP standard library).
+
+![Tags](../Assets/JSP_Tags.png)
+
+JSPs can also access beans using 
+
+```
+<%--Use a bean--%>
+<JSP:useBean id="beanName" class="className" scope="beanScope"/>
+<%--properties--%>
+<JSP:setProperty name="beanName" property="propertyName" value="toSet"/>
+<JSP:getProperty name="beanName" property="propertyName"/>
+```
