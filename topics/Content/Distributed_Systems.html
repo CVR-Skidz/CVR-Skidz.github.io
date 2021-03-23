@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/topics/Content/Distributed_Systems.html" />
 <meta property="og:site_name" content="Notes on Computer Science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-03-14T10:09:47+13:00" />
+<meta property="article:published_time" content="2021-03-17T18:48:00+13:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Distributed_Systems.html","headline":"Distributed_systems","dateModified":"2021-03-14T10:09:47+13:00","datePublished":"2021-03-14T10:09:47+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Distributed_Systems.html"},"description":"A distributed system is one in which components at networked computers coordinate their actions only by passing messages.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Distributed_Systems.html","headline":"Distributed_systems","dateModified":"2021-03-17T18:48:00+13:00","datePublished":"2021-03-17T18:48:00+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Distributed_Systems.html"},"description":"A distributed system is one in which components at networked computers coordinate their actions only by passing messages.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -47,7 +47,7 @@
   <!-- The actual TOC -->
   <nav class="toc">
     <h3>Table of Contents</h3>
-    <ul><li><a href="#characteristics-of-distributed-systems">Characteristics of Distributed Systems</a></li><li><a href="#internet-protocols">Internet Protocols</a></li><li><a href="#architectures">Architectures</a><ul><li><a href="#client-server">Client-Server</a></li><li><a href="#peer-to-peer">Peer to Peer</a></li></ul></li><li><a href="#system-models">System Models</a><ul><li><a href="#architectural-models">Architectural Models</a></li></ul></li><li><a href="#architectural-patterns">Architectural Patterns</a><ul><li><a href="#layering">Layering</a></li></ul></li><li><a href="#hypertext-transfer-protocol">Hypertext Transfer Protocol</a><ul><li><a href="#session-tracking">Session Tracking</a></li></ul></li><li><a href="#web-servers">Web Servers</a></li></ul>
+    <ul><li><a href="#characteristics-of-distributed-systems">Characteristics of Distributed Systems</a></li><li><a href="#internet-protocols">Internet Protocols</a></li><li><a href="#architectures">Architectures</a><ul><li><a href="#client-server">Client-Server</a></li><li><a href="#peer-to-peer">Peer to Peer</a></li></ul></li><li><a href="#system-models">System Models</a><ul><li><a href="#architectural-models">Architectural Models</a></li></ul></li><li><a href="#architectural-patterns">Architectural Patterns</a><ul><li><a href="#layering">Layering</a></li></ul></li><li><a href="#hypertext-transfer-protocol">Hypertext Transfer Protocol</a><ul><li><a href="#session-tracking">Session Tracking</a></li></ul></li><li><a href="#web-servers">Web Servers</a></li><li><a href="#server-pages">Server Pages</a><ul><li><a href="#jsps">JSPs</a></li></ul></li></ul>
 
   </nav>
 </div>
@@ -269,6 +269,35 @@ HOST: {DNS NAME}
 <blockquote>
   <p>Java Beans are java objects that allow a request to store state when dispatched. They have no paramters in the constructor and provide methods to get and set fields within themselves. Beans are limited to per request, session, and application scopes.</p>
 </blockquote>
+
+<h2 id="server-pages">Server Pages</h2>
+
+<p>Server pages are static HTML documents containing special elements capable of calling dynamic code.</p>
+
+<blockquote>
+  <p>Java EE uses JSP (java server pages), whilst other popular frameworks include ASP for .NET core.</p>
+</blockquote>
+
+<p>Server pages allow servers to repond with dynamic content to a client, without manually writing HTTP responses. Server pages are translated and compiled into servlets during the build process - which means server pages are compiled into servlets (they have access to beans etc.).</p>
+
+<ul>
+  <li>Server pages generally provide annotations or other language consturcts to define constants for the page to use. However an older pattern is to provide an external configuration file that the page reads.</li>
+</ul>
+
+<h3 id="jsps">JSPs</h3>
+
+<p>JSPs contain special tags used to enclose Java statements, which users can also define adding to the JSTL (JSP standard library).</p>
+
+<p><img src="../Assets/JSP_Tags.png" alt="Tags" /></p>
+
+<p>JSPs can also access beans using</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;%--Use a bean--%&gt;
+&lt;JSP:useBean id="beanName" class="className" scope="beanScope"/&gt;
+&lt;%--properties--%&gt;
+&lt;JSP:setProperty name="beanName" property="propertyName" value="toSet"/&gt;
+&lt;JSP:getProperty name="beanName" property="propertyName"/&gt;
+</code></pre></div></div>
 
   </div>
 
