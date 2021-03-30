@@ -239,4 +239,126 @@ Further optimisations can even be made to SQL or other database queries. Prepare
 Instead of directly executing queries it is common to map the relationships between entities in a databse to objects, and then use a persitence service to serialize and deserialize objects to the database. 
 
 Java EE incorporates an ORM and persistence API by default, called the JPA. 
->>>>>>> f95ac38399fd5baf30f02939c51031e59fac0c9e
+
+## Time
+
+> Synchronising clocks and identifying the system state with time inconsistencies.
+
+Every processor has an internal clock which is not guaranteed to be synchronised with others in the system. For processors running at high speeds this can cause wasted clock cycles. Clocks can not be perfectly synchronised but their are algorithms that can give the system one representation of a plausible time between all computers. Timestamps can be coordinated within 10ms of UTC using the network time protocol.
+
+As such distributed systems have no absolute time, instead time is used as a logical sequence. An order in which events occurred.
+
+### Christians' Algorithm
+
+> Incorporating a time server
+
+One computer acts as a time server, when each other processor wants to query the time they send a request to this server. The round trip time is measured from the point the request is sent to the time when the response is received. One leg (half) of this trip time is added to the returned time to account for how long the time query took. Using this method time should be consistent to the time servers clock.
+
+### Berkley Algorithm
+
+> Time servers using averaging techniques between all times to form an expected real time.
+
+The time server is called a "time master" in such the Berkley algorithm. This processor sends a broadcast to all processors, querying their time. One leg of the round trip adjusts the returned times for each processor and the average of all times is calculated (including the masters' time). This is the "expected real time". Each request from other processors send their own timestamp and is checked against this time, it is then adjusted if it is faster or slower than the average time.
+
+### Happened-Before Diagrams
+
+A happened before diagram can map events on each processor and messages sent between processors on a timeline. This creates an order of events, even though the exact time is unknown. 
+
+- Any event that sends a message must happen before the event receiving it.
+- This order of events is only a **partial order**.
+
+![Happened Before Diagram](../Assets/happened_before.png)
+
+### Lamport Timestamps
+
+> A timestamp used to count events, attempting to create an order of events over multiple processes
+
+A lamport timestamp counts events on each process, when a timestamp is received with a message that process ensures it's counter is greater than the received counter.
+
+![lamport timestamps](../Assets/lamport.png)
+
+## Vector Timestamps
+
+> A multi-dimensional lamport timestamp
+
+Vector timestamps keep a lamport timestamp for each process in a vector. When a vector is smaller in all dimensions than another it is guaranteed to have happened before the other.
+
+- Lamport timestamps are updated independent of one another, as shown below.
+
+![vector timestamps](../Assets/vector_timestamp.png)
+
+## Global Snapshots
+
+> The state of all processes at some point in time including any messages in transit.
+
+A snapshot shows a plausible state of the system at some point in time, it is not guranteed to have occurred. But based on the messages and events between processes it is vaible that it was.
+
+- Used for logging
+- Capable of restoring a system
+- Increases in reliability
+
+A snapshot can be taken via a cut. A cut partitions events (as seen in a happened-before diagram) into two sets, those that happened after the cut and those before the cut. A cut is called consistent if \\(\forall (e \rightarrow e\prime) \implies (e \land e\prime) \in S\\) (the receive event and request event belong in the same partition).
+
+### Chandey Lamport Algorithm
+
+> An algorithm to take a global snapshot.
+
+Every process maintains a list of messages for each neighbour. When a marker message is recieved from a neighbour a process captures it's state, and continues to populate each list every time a message is sent to that process. When it's own state hase been captured a marker message is broadcast to all neighbours. Once a marker message is received from a neighbour whilst the given process is recording, that neighbour is said to be complete and the given processor stops capturing messages sent to that neighbour. Once a process stops monitoring messages to all neigbours it sends back it's local snapshot to the intiator.
+
+- A neighbour is a process able to directly communicate with another.
+- The initiator is the first process to broadcast a marker message.
+- This assumes messages arrive in FIFO order
+- This also assumes every processes is a neighbour of every other.
+
+As a result the Chandey Lamport algorithm can list all messages in transit during a snapshot.
+
+```
+if m is marker:
+    if not selfComplete:
+        capture current state
+        selfComplete <- TRUE
+        broadcast marker to each neighbour
+    neigbourComplete[sender] <- TRUE
+    if selfComplete and every neighbourComplete:
+        send snapshot to initiator
+else:
+    if selfComplete and not neighbourComplete[sender]:
+        neigbours[sender] append m
+    process m
+```
+
+## Global State Predicates
+
+> Assertions made about the state of a system.
+
+Predicates are statements made about a system, which we assert to be true or false. Some examples include:
+
+- Has algorithm `x` finished?
+- Is system `x` in a deadlock?
+- Does object `x` have any references?
+
+Predicates can be either stable or unstable. Stable predicates can never change back to false once being asserted as true, but unstable predicates can fluctuate between true and false at any time.
+
+An important algorithm in global state predicates are diffusion algorithms.
+
+|Diffusion Algorithms|
+|--------------------|
+|Algorithms that start on one process and start jobs on many other processes. When a job is active it can send outbound messages, when a job finishes it becomes passive. Once all jobs are passive the algorithm terminates.|
+
+### Dijkstra-Scholten Algorithm
+
+> An algorithm to determine if a diffusion algorithm is complete.
+
+A Dijkstra-Scholten algorithm builds a tree of all active processes in an algorithm where the root node is the first active process. When a process activates another process it adds it as a child node if it does not already exist in the tree. Nodes are removed once they have only passive children and once the tree is empty the algorithm is said to be complete.
+
+### Detecting Deadlocks
+
+Deadlocks occur when a process depends on another process to finsih, yet that process has either a trasnitive or direct dependency on the initial process. Hence the process, and any others involved, perpetually wait on each other to finish.
+
+A wait-for graph can be built to model the dependencies between processes. If the graph becomes closed a system is possibly in deadlock. One algorithm to detect this is the Marzullo-Neiger algorithm.
+
+### Marzullo-Neiger algorithm.
+
+
+
+

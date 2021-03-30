@@ -166,3 +166,35 @@ Strings also contain many utility functions:
 |`explode`|create array from string characters|
 |`implode`|concatenate arrays into a string|
 |`str_split`|delimit a string into an array|
+
+## Regular Expressions
+
+> Defining patterns of text.
+
+PHP uses perl compatible regular expressions. A regular expression is enclosed in a string like so `"/.../"`. The `preg` prefix identify php regular expression functions, such as:
+
+- `preg_match` to match expressions
+- `preg_replace` to replace based on expressions
+- `preg_split` to delimit based on expressions
+
+Some regular expression tokens include:
+
+|Token|Description|
+|-----|-----------|
+|`\w`|`[A-Za-z0-9]`|
+|`^`|Start of string|
+|`$`|End of string|
+|`?`|Match 0 or 1 character|
+|`+`|Match 1 or more characters|
+|`*`|Match 0 or more characters|
+|`(a|b)`|a or b|
+|`(...)`|Group of tokens|
+|`[abc]`|Match any of a, b, or c|
+|`[^abc]`|Not any of a, b, or c|
+|`[a-z]`|Match range|
+|`\d`|Match a digit|
+|`\s`|Match a space or tab|
+|`{3}`|Match 3 times|
+|`{3,}`|Match 3 or more times|
+|`{3,6}`|Match 3 to 6 times|
+|`!()`|Negate group - do not match|

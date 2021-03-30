@@ -32,6 +32,14 @@ Games are therefore made of:
 
 Game theory is often used to create agent desgins and tune or construct rules.
 
+|Types of game|Description|Antonym|
+|-------------|-----------|-------|
+|Perfect information|Access to the complete game state|Imperfect information|
+|Games of chance|Aspect of randomness|Deterministic Games|
+|Zero sum|Games of pure competition|General Sum Games|
+
+> Games simulate autonomous interactions between agents, whilst having simplistic mathematical data structures. Yet they still provide complex state spaces to develop and test intelligent algorithms.
+
 ### Normal Form Games
 
 > A game where all agents perform their actions, recorded in a matrix, simultaneously. Utilities are calculated as a function of their actions.
@@ -107,8 +115,41 @@ Alpha beta pruning revolves around the philosiphy that an agent will never take 
 * An alpha value is updated on max nodes - hence alpha is the largest utility for the current node in the search. 
 * A beta value is updated on min nodes - hence beta is the smallest utility for the current node in the search.
 
-Calculating alpha: 
-
-Calculating beta:
-
 ![ab pruning](../Assets/ab_pruning.gif)
+
+## General Game Playing
+
+> Alogrithms applicable to multiple games.
+
+General game playing is an effort to move from weak (intelligence for a specific task) to strong AI, although not yet fully realized. General game playing agents are systems that:
+
+- Understand the rules of unknown games
+- Learn to play without human interaction (unsupervised)
+
+In general game playing the rules of a game are unkown until the game starts. As such there are no algorithms designed in advance for that specific game.
+
+![Strong AI](../Assets/strong_AI.png)
+
+Game trees are replaced by syllogisms - logical statements used to derivve understanding.
+
+```
+man(socrates)
+human(x) <= man(x)
+mortal(x) <= human(x)
+mortal(socrates)
+---
+predicates: man, human, mortal
+constants: socrates
+variables: x
+output: mortal(socrates) TRUE
+```
+- Predicate: `is` e.g. `human(x) => x is human`
+- Function: `map` e.g. `mother(x) => y`
+
+General games must define:
+
+- The players of the game
+- The initial game state
+- Which moves are possible (move generator)
+- The effects of the moves (game physics)
+- Terminal conditions and utilities
