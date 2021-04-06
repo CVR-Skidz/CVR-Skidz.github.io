@@ -114,6 +114,7 @@ Alpha beta pruning revolves around the philosiphy that an agent will never take 
 
 * An alpha value is updated on max nodes - hence alpha is the largest utility for the current node in the search. 
 * A beta value is updated on min nodes - hence beta is the smallest utility for the current node in the search.
+* When nodes are in *optimal order* we can prune the most branches, minimizing the complexity of minimax algorithms. Optimal order occurs when for each node the best move for the player in control appears first.
 
 ![ab pruning](../Assets/ab_pruning.gif)
 
