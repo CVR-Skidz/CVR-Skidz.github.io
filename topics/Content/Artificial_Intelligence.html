@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/topics/Content/Artificial_Intelligence.html" />
 <meta property="og:site_name" content="Notes on Computer Science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-03-17T18:48:00+13:00" />
+<meta property="article:published_time" content="2021-03-31T10:00:51+13:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Artificial_Intelligence.html","headline":"Artificial_intelligence","dateModified":"2021-03-17T18:48:00+13:00","datePublished":"2021-03-17T18:48:00+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Artificial_Intelligence.html"},"description":"At the time of writing AI is a “buzzword”, and is often thought identical to Machine Learning and Deep Learning. In reality these are subsets of the AI field, specifically the application of models and in the later case models designed after the neural networks found in the human brain. So what is AI?","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Artificial_Intelligence.html","headline":"Artificial_intelligence","dateModified":"2021-03-31T10:00:51+13:00","datePublished":"2021-03-31T10:00:51+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Artificial_Intelligence.html"},"description":"At the time of writing AI is a “buzzword”, and is often thought identical to Machine Learning and Deep Learning. In reality these are subsets of the AI field, specifically the application of models and in the later case models designed after the neural networks found in the human brain. So what is AI?","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -47,7 +47,7 @@
   <!-- The actual TOC -->
   <nav class="toc">
     <h3>Table of Contents</h3>
-    <ul><li><a href="#game-theory">Game Theory</a><ul><li><a href="#normal-form-games">Normal Form Games</a><ul><li><a href="#solving-normal-form-games">Solving Normal Form Games</a></li></ul></li></ul></li></ul>
+    <ul><li><a href="#game-theory">Game Theory</a><ul><li><a href="#normal-form-games">Normal Form Games</a><ul><li><a href="#solving-normal-form-games">Solving Normal Form Games</a></li></ul></li></ul></li><li><a href="#extensive-form-games">Extensive form games</a></li><li><a href="#minimax">Minimax</a></li><li><a href="#alpha-beta-pruning">Alpha Beta Pruning</a></li><li><a href="#general-game-playing">General Game Playing</a></li></ul>
 
   </nav>
 </div>
@@ -55,7 +55,7 @@
 <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Artificial_intelligence</h1>
+    <h1 class="post-title">Artificial Intelligence</h1>
   </header>
 
   <div class="post-content">
@@ -96,6 +96,37 @@
 </ul>
 
 <p>Game theory is often used to create agent desgins and tune or construct rules.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Types of game</th>
+      <th>Description</th>
+      <th>Antonym</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Perfect information</td>
+      <td>Access to the complete game state</td>
+      <td>Imperfect information</td>
+    </tr>
+    <tr>
+      <td>Games of chance</td>
+      <td>Aspect of randomness</td>
+      <td>Deterministic Games</td>
+    </tr>
+    <tr>
+      <td>Zero sum</td>
+      <td>Games of pure competition</td>
+      <td>General Sum Games</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Games simulate autonomous interactions between agents, whilst having simplistic mathematical data structures. Yet they still provide complex state spaces to develop and test intelligent algorithms.</p>
+</blockquote>
 
 <h3 id="normal-form-games">Normal Form Games</h3>
 
@@ -166,6 +197,104 @@
   </li>
 </ul>
 
+<h2 id="extensive-form-games">Extensive form games</h2>
+
+<blockquote>
+  <p>When a game incorporates sequence, whereby there are turns, it can be modelled by extenive form and not normal form games.</p>
+</blockquote>
+
+<p>Extensive form games model the turns of each player in a game tree.</p>
+
+<ul>
+  <li>A game tree is a tree data structure, or more specifically a directed graph.</li>
+  <li>A tree has a set of nodes \(T\) and a function \(F\) that given a node in set \(T\) returns the next sequence (level) of nodes in the tree.</li>
+  <li>There is always a root node with a direct path to any other node - there are no loops.</li>
+  <li>The terminal (leaf) nodes return agent utilities.</li>
+</ul>
+
+<p><img src="../Assets/game_tree.gif" alt="Game Tree" /></p>
+
+<p>A pure strategy for an agent is one that gives a possible action for each node under that agents control. For example {L, R} for player 1.</p>
+
+<ul>
+  <li>An extensive from game cane be converted to a normal form game by creating a matrix of all pure strategies.</li>
+  <li>A subset perfect equilibrium is a nash equilibrium for any subset of the game.</li>
+  <li>The utility of any node in the tree can be found with <strong>backwards induction</strong>. Where the utility at the terminal nodes is propagated up the tree by taking into consideration what the agent in control will choose at each node.</li>
+</ul>
+
+<h2 id="minimax">Minimax</h2>
+
+<blockquote>
+  <p>An algorithm to solve what action an agent should take in an extensive form game when we know the other rational agent understands we are rational in a game of pure competition.</p>
+</blockquote>
+
+<p>Minimax (minimize the maximum payoff) became renowned in the deep blue super computer. We give two agents a role. The player in our favour is the max player, and the other a min player. The max player always tries to maximise the utility whilst the min always tries to minimise it. As the utilities are exactly opposite by minimising player 1 player 2 is maximizing their return.</p>
+
+<ul>
+  <li>Minimax is only applicable in games of pure competition.</li>
+  <li>Utilties for each node are found using backwords induction.</li>
+</ul>
+
+<p>As game trees grow extremely large they grow enourmous algorithm complexity. The complexity of minimax is \(O(b^m)\) where b is the average number of children nodes, and m the depth of the tree.</p>
+
+<h2 id="alpha-beta-pruning">Alpha Beta Pruning</h2>
+
+<blockquote>
+  <p>A method to eliminate insignificant branches of a game tree to reduce minimax complexity.</p>
+</blockquote>
+
+<p>Alpha beta pruning revolves around the philosiphy that an agent will never take certain actions, and those branches in a tree can be pruned and do not need to be searched. Two values are stored, alpha and beta, and if at any point \(\alpha \geq \beta\) any sibling nodes on the current level are pruned. The alpha and beta values are always inherited by chidlren nodes but never propagated to their parents.</p>
+
+<ul>
+  <li>An alpha value is updated on max nodes - hence alpha is the largest utility for the current node in the search.</li>
+  <li>A beta value is updated on min nodes - hence beta is the smallest utility for the current node in the search.</li>
+</ul>
+
+<p><img src="../Assets/ab_pruning.gif" alt="ab pruning" /></p>
+
+<h2 id="general-game-playing">General Game Playing</h2>
+
+<blockquote>
+  <p>Alogrithms applicable to multiple games.</p>
+</blockquote>
+
+<p>General game playing is an effort to move from weak (intelligence for a specific task) to strong AI, although not yet fully realized. General game playing agents are systems that:</p>
+
+<ul>
+  <li>Understand the rules of unknown games</li>
+  <li>Learn to play without human interaction (unsupervised)</li>
+</ul>
+
+<p>In general game playing the rules of a game are unkown until the game starts. As such there are no algorithms designed in advance for that specific game.</p>
+
+<p><img src="../Assets/strong_AI.png" alt="Strong AI" /></p>
+
+<p>Game trees are replaced by syllogisms - logical statements used to derivve understanding.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>man(socrates)
+human(x) &lt;= man(x)
+mortal(x) &lt;= human(x)
+mortal(socrates)
+---
+predicates: man, human, mortal
+constants: socrates
+variables: x
+output: mortal(socrates) TRUE
+</code></pre></div></div>
+<ul>
+  <li>Predicate: <code class="language-plaintext highlighter-rouge">is</code> e.g. <code class="language-plaintext highlighter-rouge">human(x) =&gt; x is human</code></li>
+  <li>Function: <code class="language-plaintext highlighter-rouge">map</code> e.g. <code class="language-plaintext highlighter-rouge">mother(x) =&gt; y</code></li>
+</ul>
+
+<p>General games must define:</p>
+
+<ul>
+  <li>The players of the game</li>
+  <li>The initial game state</li>
+  <li>Which moves are possible (move generator)</li>
+  <li>The effects of the moves (game physics)</li>
+  <li>Terminal conditions and utilities</li>
+</ul>
 
   </div>
 

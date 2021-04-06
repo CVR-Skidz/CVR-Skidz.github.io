@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/topics/Content/Distributed_Systems.html" />
 <meta property="og:site_name" content="Notes on Computer Science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-03-17T18:48:00+13:00" />
+<meta property="article:published_time" content="2021-03-31T10:00:51+13:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Distributed_Systems.html","headline":"Distributed_systems","dateModified":"2021-03-17T18:48:00+13:00","datePublished":"2021-03-17T18:48:00+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Distributed_Systems.html"},"description":"A distributed system is one in which components at networked computers coordinate their actions only by passing messages.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Distributed_Systems.html","headline":"Distributed_systems","dateModified":"2021-03-31T10:00:51+13:00","datePublished":"2021-03-31T10:00:51+13:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Distributed_Systems.html"},"description":"A distributed system is one in which components at networked computers coordinate their actions only by passing messages.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -47,7 +47,7 @@
   <!-- The actual TOC -->
   <nav class="toc">
     <h3>Table of Contents</h3>
-    <ul><li><a href="#characteristics-of-distributed-systems">Characteristics of Distributed Systems</a></li><li><a href="#internet-protocols">Internet Protocols</a></li><li><a href="#architectures">Architectures</a><ul><li><a href="#client-server">Client-Server</a></li><li><a href="#peer-to-peer">Peer to Peer</a></li></ul></li><li><a href="#system-models">System Models</a><ul><li><a href="#architectural-models">Architectural Models</a></li></ul></li><li><a href="#architectural-patterns">Architectural Patterns</a><ul><li><a href="#layering">Layering</a></li></ul></li><li><a href="#hypertext-transfer-protocol">Hypertext Transfer Protocol</a><ul><li><a href="#session-tracking">Session Tracking</a></li></ul></li><li><a href="#web-servers">Web Servers</a></li><li><a href="#server-pages">Server Pages</a><ul><li><a href="#jsps">JSPs</a></li></ul></li></ul>
+    <ul><li><a href="#characteristics-of-distributed-systems">Characteristics of Distributed Systems</a></li><li><a href="#internet-protocols">Internet Protocols</a></li><li><a href="#architectures">Architectures</a><ul><li><a href="#client-server">Client-Server</a></li><li><a href="#peer-to-peer">Peer to Peer</a></li></ul></li><li><a href="#system-models">System Models</a><ul><li><a href="#architectural-models">Architectural Models</a></li></ul></li><li><a href="#architectural-patterns">Architectural Patterns</a><ul><li><a href="#layering">Layering</a></li></ul></li><li><a href="#hypertext-transfer-protocol">Hypertext Transfer Protocol</a><ul><li><a href="#session-tracking">Session Tracking</a></li></ul></li><li><a href="#web-servers">Web Servers</a></li><li><a href="#server-pages">Server Pages</a></li><li><a href="#jsps">JSPs</a></li><li><a href="#databases">Databases</a></li><li><a href="#orm">ORM</a></li><li><a href="#time">Time</a><ul><li><a href="#christians-algorithm">Christians’ Algorithm</a></li><li><a href="#berkley-algorithm">Berkley Algorithm</a></li><li><a href="#happened-before-diagrams">Happened-Before Diagrams</a></li><li><a href="#lamport-timestamps">Lamport Timestamps</a></li></ul></li><li><a href="#vector-timestamps">Vector Timestamps</a></li><li><a href="#global-snapshots">Global Snapshots</a><ul><li><a href="#chandey-lamport-algorithm">Chandey Lamport Algorithm</a></li></ul></li><li><a href="#global-state-predicates">Global State Predicates</a><ul><li><a href="#dijkstra-scholten-algorithm">Dijkstra-Scholten Algorithm</a></li><li><a href="#detecting-deadlocks">Detecting Deadlocks</a></li><li><a href="#marzullo-neiger-algorithm">Marzullo-Neiger algorithm.</a></li></ul></li></ul>
 
   </nav>
 </div>
@@ -55,7 +55,7 @@
 <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Distributed_systems</h1>
+    <h1 class="post-title">Distributed Systems</h1>
   </header>
 
   <div class="post-content">
@@ -284,20 +284,286 @@ HOST: {DNS NAME}
   <li>Server pages generally provide annotations or other language consturcts to define constants for the page to use. However an older pattern is to provide an external configuration file that the page reads.</li>
 </ul>
 
-<h3 id="jsps">JSPs</h3>
+<p>Server pages are written as static HTML documents which are compiled into servlets, allowing code to be included in the source HTML, which is executed as code. Java EE calls their version of server pages JSP (Java server pages) but other popular frameworks exist. For example in .NET ASP &amp; ASP core exist.</p>
 
-<p>JSPs contain special tags used to enclose Java statements, which users can also define adding to the JSTL (JSP standard library).</p>
+<h2 id="jsps">JSPs</h2>
 
-<p><img src="../Assets/JSP_Tags.png" alt="Tags" /></p>
+<p>JSPs use a variety of tags to perform certain actions. Server pages can use beans and request objects just as a servlet could.</p>
 
-<p>JSPs can also access beans using</p>
+<table>
+  <thead>
+    <tr>
+      <th>JSP Element</th>
+      <th>JSP Syntax</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Comment</td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;%-- --%&gt;</code></td>
+    </tr>
+    <tr>
+      <td>Directive</td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;%@ page ... %&gt;</code> <code class="language-plaintext highlighter-rouge">&lt;%@ include ... %&gt;</code> etc.</td>
+    </tr>
+    <tr>
+      <td>Declaration</td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;%! ... %&gt;</code></td>
+    </tr>
+    <tr>
+      <td>Expression</td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;%= %&gt;</code></td>
+    </tr>
+    <tr>
+      <td>Scriptlet</td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;% ... %&gt;</code></td>
+    </tr>
+  </tbody>
+</table>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;%--Use a bean--%&gt;
-&lt;JSP:useBean id="beanName" class="className" scope="beanScope"/&gt;
-&lt;%--properties--%&gt;
-&lt;JSP:setProperty name="beanName" property="propertyName" value="toSet"/&gt;
-&lt;JSP:getProperty name="beanName" property="propertyName"/&gt;
+<p>They also have access to in built servlet objects:</p>
+
+<ul>
+  <li>request</li>
+  <li>response</li>
+  <li>out (JspWriter)</li>
+  <li>session (HttpSession)</li>
+  <li>application (ServletContext)</li>
+  <li>config (ServletConfig)</li>
+  <li>pageContext</li>
+  <li>page (reference to compiled servlet)</li>
+</ul>
+
+<p>Server pages can access beans using the following tags:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;jsp:useBean id="beanName" class="beanPackage.beanClass" scope="beanScope"/&gt;
+&lt;jsp:setProperty id="beanName" property="propName" value="value"/&gt;
+&lt;jsp:getProperty id="beanName" property="propName"/&gt;
 </code></pre></div></div>
+
+<p>Furthermore custom tags can be defined, the JSTL (JSP standard tag library) includes many. These tags are associated with a prefix (a prefix appears where jsp was written above), and the page must declare the location of each tags definition.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Library</th>
+      <th>Prefix</th>
+      <th>URI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Core</td>
+      <td><code class="language-plaintext highlighter-rouge">c</code></td>
+      <td>http://java.sun.com/jsp/jstl/core</td>
+    </tr>
+    <tr>
+      <td>XML</td>
+      <td><code class="language-plaintext highlighter-rouge">x</code></td>
+      <td>http://java.sun.com/jsp/jstl/xml</td>
+    </tr>
+    <tr>
+      <td>Format</td>
+      <td><code class="language-plaintext highlighter-rouge">fmt</code></td>
+      <td>http://java.sun.com/jsp/jstl/fmt</td>
+    </tr>
+    <tr>
+      <td>SQL</td>
+      <td><code class="language-plaintext highlighter-rouge">sql</code></td>
+      <td>http://java.sun.com/jsp/jstl/sql</td>
+    </tr>
+    <tr>
+      <td>Functions</td>
+      <td><code class="language-plaintext highlighter-rouge">fn</code></td>
+      <td>http://java.sun.com/jsp/jstl/functions</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># use core JSTL directive
+&lt;%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%&gt; 
+</code></pre></div></div>
+
+<h2 id="databases">Databases</h2>
+<blockquote>
+  <p>Scaled applications look to highly optimise the application models.</p>
+</blockquote>
+
+<p>Databases are teh defacto means to store an applications model, they may be relational, time-series, noSQL, or even maps/memory databases. Connecting to a database is resource intensive, hence in scaled applications we <strong>do not want to create a connection to the database manually</strong>. Instead we use a connection pool, which are collections of connections allocated to a database on a server which we can open and close without creating or destroying a new connection. As such connection pools have a limited number of connections.</p>
+
+<ul>
+  <li>Pools create connections when a server starts up</li>
+  <li>Application servers generally include a connection pool and pool managers</li>
+</ul>
+
+<p>Furthermore we can utilise naming services to directly inject (resource injection) connections as data sources into distributed objects. Naming services allow connection pools to be named on disk, and can inject a data source (connection) directly into an object.</p>
+
+<p>Further optimisations can even be made to SQL or other database queries. Prepared statements allow us to construct queries with wild cards and optimise the resources used to access said tables etc. on the database at compile time. Wildcards can then be replaced at runtime.</p>
+
+<h2 id="orm">ORM</h2>
+<blockquote>
+  <p>Object relational mapping</p>
+</blockquote>
+
+<p>Instead of directly executing queries it is common to map the relationships between entities in a databse to objects, and then use a persitence service to serialize and deserialize objects to the database.</p>
+
+<p>Java EE incorporates an ORM and persistence API by default, called the JPA.</p>
+
+<h2 id="time">Time</h2>
+
+<blockquote>
+  <p>Synchronising clocks and identifying the system state with time inconsistencies.</p>
+</blockquote>
+
+<p>Every processor has an internal clock which is not guaranteed to be synchronised with others in the system. For processors running at high speeds this can cause wasted clock cycles. Clocks can not be perfectly synchronised but their are algorithms that can give the system one representation of a plausible time between all computers. Timestamps can be coordinated within 10ms of UTC using the network time protocol.</p>
+
+<p>As such distributed systems have no absolute time, instead time is used as a logical sequence. An order in which events occurred.</p>
+
+<h3 id="christians-algorithm">Christians’ Algorithm</h3>
+
+<blockquote>
+  <p>Incorporating a time server</p>
+</blockquote>
+
+<p>One computer acts as a time server, when each other processor wants to query the time they send a request to this server. The round trip time is measured from the point the request is sent to the time when the response is received. One leg (half) of this trip time is added to the returned time to account for how long the time query took. Using this method time should be consistent to the time servers clock.</p>
+
+<h3 id="berkley-algorithm">Berkley Algorithm</h3>
+
+<blockquote>
+  <p>Time servers using averaging techniques between all times to form an expected real time.</p>
+</blockquote>
+
+<p>The time server is called a “time master” in such the Berkley algorithm. This processor sends a broadcast to all processors, querying their time. One leg of the round trip adjusts the returned times for each processor and the average of all times is calculated (including the masters’ time). This is the “expected real time”. Each request from other processors send their own timestamp and is checked against this time, it is then adjusted if it is faster or slower than the average time.</p>
+
+<h3 id="happened-before-diagrams">Happened-Before Diagrams</h3>
+
+<p>A happened before diagram can map events on each processor and messages sent between processors on a timeline. This creates an order of events, even though the exact time is unknown.</p>
+
+<ul>
+  <li>Any event that sends a message must happen before the event receiving it.</li>
+  <li>This order of events is only a <strong>partial order</strong>.</li>
+</ul>
+
+<p><img src="../Assets/happened_before.png" alt="Happened Before Diagram" /></p>
+
+<h3 id="lamport-timestamps">Lamport Timestamps</h3>
+
+<blockquote>
+  <p>A timestamp used to count events, attempting to create an order of events over multiple processes</p>
+</blockquote>
+
+<p>A lamport timestamp counts events on each process, when a timestamp is received with a message that process ensures it’s counter is greater than the received counter.</p>
+
+<p><img src="../Assets/lamport.png" alt="lamport timestamps" /></p>
+
+<h2 id="vector-timestamps">Vector Timestamps</h2>
+
+<blockquote>
+  <p>A multi-dimensional lamport timestamp</p>
+</blockquote>
+
+<p>Vector timestamps keep a lamport timestamp for each process in a vector. When a vector is smaller in all dimensions than another it is guaranteed to have happened before the other.</p>
+
+<ul>
+  <li>Lamport timestamps are updated independent of one another, as shown below.</li>
+</ul>
+
+<p><img src="../Assets/vector_timestamp.png" alt="vector timestamps" /></p>
+
+<h2 id="global-snapshots">Global Snapshots</h2>
+
+<blockquote>
+  <p>The state of all processes at some point in time including any messages in transit.</p>
+</blockquote>
+
+<p>A snapshot shows a plausible state of the system at some point in time, it is not guranteed to have occurred. But based on the messages and events between processes it is vaible that it was.</p>
+
+<ul>
+  <li>Used for logging</li>
+  <li>Capable of restoring a system</li>
+  <li>Increases in reliability</li>
+</ul>
+
+<p>A snapshot can be taken via a cut. A cut partitions events (as seen in a happened-before diagram) into two sets, those that happened after the cut and those before the cut. A cut is called consistent if \(\forall (e \rightarrow e\prime) \implies (e \land e\prime) \in S\) (the receive event and request event belong in the same partition).</p>
+
+<h3 id="chandey-lamport-algorithm">Chandey Lamport Algorithm</h3>
+
+<blockquote>
+  <p>An algorithm to take a global snapshot.</p>
+</blockquote>
+
+<p>Every process maintains a list of messages for each neighbour. When a marker message is recieved from a neighbour a process captures it’s state, and continues to populate each list every time a message is sent to that process. When it’s own state hase been captured a marker message is broadcast to all neighbours. Once a marker message is received from a neighbour whilst the given process is recording, that neighbour is said to be complete and the given processor stops capturing messages sent to that neighbour. Once a process stops monitoring messages to all neigbours it sends back it’s local snapshot to the intiator.</p>
+
+<ul>
+  <li>A neighbour is a process able to directly communicate with another.</li>
+  <li>The initiator is the first process to broadcast a marker message.</li>
+  <li>This assumes messages arrive in FIFO order</li>
+  <li>This also assumes every processes is a neighbour of every other.</li>
+</ul>
+
+<p>As a result the Chandey Lamport algorithm can list all messages in transit during a snapshot.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if m is marker:
+    if not selfComplete:
+        capture current state
+        selfComplete &lt;- TRUE
+        broadcast marker to each neighbour
+    neigbourComplete[sender] &lt;- TRUE
+    if selfComplete and every neighbourComplete:
+        send snapshot to initiator
+else:
+    if selfComplete and not neighbourComplete[sender]:
+        neigbours[sender] append m
+    process m
+</code></pre></div></div>
+
+<h2 id="global-state-predicates">Global State Predicates</h2>
+
+<blockquote>
+  <p>Assertions made about the state of a system.</p>
+</blockquote>
+
+<p>Predicates are statements made about a system, which we assert to be true or false. Some examples include:</p>
+
+<ul>
+  <li>Has algorithm <code class="language-plaintext highlighter-rouge">x</code> finished?</li>
+  <li>Is system <code class="language-plaintext highlighter-rouge">x</code> in a deadlock?</li>
+  <li>Does object <code class="language-plaintext highlighter-rouge">x</code> have any references?</li>
+</ul>
+
+<p>Predicates can be either stable or unstable. Stable predicates can never change back to false once being asserted as true, but unstable predicates can fluctuate between true and false at any time.</p>
+
+<p>An important algorithm in global state predicates are diffusion algorithms.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Diffusion Algorithms</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Algorithms that start on one process and start jobs on many other processes. When a job is active it can send outbound messages, when a job finishes it becomes passive. Once all jobs are passive the algorithm terminates.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="dijkstra-scholten-algorithm">Dijkstra-Scholten Algorithm</h3>
+
+<blockquote>
+  <p>An algorithm to determine if a diffusion algorithm is complete.</p>
+</blockquote>
+
+<p>A Dijkstra-Scholten algorithm builds a tree of all active processes in an algorithm where the root node is the first active process. When a process activates another process it adds it as a child node if it does not already exist in the tree. Nodes are removed once they have only passive children and once the tree is empty the algorithm is said to be complete.</p>
+
+<h3 id="detecting-deadlocks">Detecting Deadlocks</h3>
+
+<p>Deadlocks occur when a process depends on another process to finsih, yet that process has either a trasnitive or direct dependency on the initial process. Hence the process, and any others involved, perpetually wait on each other to finish.</p>
+
+<p>A wait-for graph can be built to model the dependencies between processes. If the graph becomes closed a system is possibly in deadlock. One algorithm to detect this is the Marzullo-Neiger algorithm.</p>
+
+<h3 id="marzullo-neiger-algorithm">Marzullo-Neiger algorithm.</h3>
+
 
   </div>
 
