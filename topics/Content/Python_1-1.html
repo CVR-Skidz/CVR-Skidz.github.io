@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Python | Notes on Computer Science</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Python" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Python language reference version 1.1 last revised April 2021." />
+<meta property="og:description" content="Python language reference version 1.1 last revised April 2021." />
+<link rel="canonical" href="http://localhost:4000/topics/Content/Python_1-1.html" />
+<meta property="og:url" content="http://localhost:4000/topics/Content/Python_1-1.html" />
+<meta property="og:site_name" content="Notes on Computer Science" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-04-08T14:49:38+12:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Python_1-1.html","headline":"Python","dateModified":"2021-04-08T14:49:38+12:00","datePublished":"2021-04-08T14:49:38+12:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Python_1-1.html"},"description":"Python language reference version 1.1 last revised April 2021.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Notes on Computer Science</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <!-- TOC -->
+<div class="toc-container">
+  <!-- Controls for toggling TOC -->
+  <input type="checkbox" id="toc-control">
+  <label for="toc-control"></label>
+
+  <!-- The actual TOC -->
+  <nav class="toc">
+    <h3>Table of Contents</h3>
+    <ul><li><a href="#modules--packages">Modules &amp; Packages</a><ul><li><a href="#relative-imports">Relative imports</a></li></ul></li><li><a href="#classes">Classes</a><ul><li><a href="#static-fields">Static Fields</a></li><li><a href="#class-methods">Class Methods</a></li><li><a href="#docstrings">Docstrings</a></li><li><a href="#pep-oop-conventions">PEP OOP Conventions</a></li><li><a href="#encapsulation">Encapsulation</a></li></ul></li><li><a href="#inheritence--polymorphism">Inheritence &amp; Polymorphism</a><ul><li><a href="#abstract-base-classes">Abstract Base Classes</a></li></ul></li><li><a href="#exceptions">Exceptions</a></li></ul>
+
+  </nav>
+</div>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"></h1>
+  </header>
+
+  <div class="post-content">
+    <p>Python language reference version 1.1 last revised April 2021.</p>
+
+<h2 id="modules--packages">Modules &amp; Packages</h2>
+
+<blockquote>
+  <p>Each python file is a module, a collection of modules in a directory can become a package.</p>
+</blockquote>
+
+<p>Modules contain a local namespace and importing one module into another appends the entire namespace to the current local namespace. Meaning any modules imported by the second are included in the first. A modules name is defined by it’s filename.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># import database module namespace
+</span><span class="kn">import</span> <span class="nn">database</span>
+
+<span class="c1"># import connection class from database namespace
+</span><span class="kn">from</span> <span class="nn">database</span> <span class="kn">import</span> <span class="n">connection</span>
+</code></pre></div></div>
+
+<p>Often we want to collect multiple modules into a package. A package is simply a directory of modules containing a <code class="language-plaintext highlighter-rouge">__init__.py</code> module. This module is executed when a package is first imported to a module. A common use for the package initializer is to move subpackage namespaces to the root of the package namespace.</p>
+
+<p>When a module is imported only code at a module level (global scope inside the module) is executed. Each module has a <code class="language-plaintext highlighter-rouge">__name__</code> variable listing the name of the current module when the given module was imported. When a module is executed without any active module (directly by the python interperater) this is set to <code class="language-plaintext highlighter-rouge">"__main__"</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- /
+- main.py
+- database/
+  - __init__.py --&gt; from connections import connection # allows: from database import connection 
+  - db.py
+  - connections/
+    - __init__.py
+    - connection.py
+</code></pre></div></div>
+
+<h3 id="relative-imports">Relative imports</h3>
+
+<p>Imports can be specified relatively or absolutely. When importing from the package name directly we call this an absolute import. However prefixing a package namespace with <code class="language-plaintext highlighter-rouge">.</code> allows us to traverse up a hierarchy of pacakges - a relative import. A single prefix specifies an import relative to the current package, and multiple prefixes traverses up parent packages.</p>
+
+<p>We can import the connection module with:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">database.connections</span> <span class="kn">import</span> <span class="n">connection</span>
+</code></pre></div></div>
+
+<p>From inside the db module we could use a relative import:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">.connections</span> <span class="kn">import</span> <span class="n">connection</span>
+</code></pre></div></div>
+
+<p>Similarly from inside the connection module we could import the db module with</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">..db</span>
+</code></pre></div></div>
+
+<h2 id="classes">Classes</h2>
+
+<p>Classes are defined with the <code class="language-plaintext highlighter-rouge">class</code> keyword and have both a contructor <code class="language-plaintext highlighter-rouge">__new__</code> and intializer <code class="language-plaintext highlighter-rouge">__init__</code>. The constructor is rarely used as each function is responsible for:</p>
+
+<ul>
+  <li>intializer: Intialize the class state</li>
+  <li>contructor: Allocate memory and return the object</li>
+</ul>
+
+<p>As such only specialized classes will define a specific constructor. The constructor can not take any additional arguments.</p>
+
+<ul>
+  <li>Classes are instantiated by calling the class name, such as <code class="language-plaintext highlighter-rouge">conn = Connection()</code>.</li>
+  <li>Classes do not require attributes to be pre-declared, and can be assigned directly to the object reference using dot notation.</li>
+  <li>If a class attribute is accessed without being initialized an <code class="language-plaintext highlighter-rouge">AttributeError</code> is raised.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># instantiate a connection
+</span><span class="n">conn</span> <span class="o">=</span> <span class="n">Connection</span><span class="p">()</span>
+
+<span class="c1"># the connection instance conn now has an attribute named target
+</span><span class="n">conn</span><span class="p">.</span><span class="n">target</span> <span class="o">=</span> <span class="s">"db.host.xyz"</span> 
+
+<span class="k">print</span><span class="p">(</span><span class="n">conn</span><span class="p">.</span><span class="n">target</span><span class="p">)</span> <span class="c1"># ok
+</span><span class="k">print</span><span class="p">(</span><span class="n">conn</span><span class="p">.</span><span class="n">user</span><span class="p">)</span> <span class="c1"># AttributeError exception
+</span></code></pre></div></div>
+
+<p>Classes can inherit from other classes using parenthesis in the class signature:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">DatabseConnection</span><span class="p">(</span><span class="n">Connection</span><span class="p">):</span>
+	<span class="k">pass</span>
+</code></pre></div></div>
+
+<h3 id="static-fields">Static Fields</h3>
+
+<p>Static varaibles are defined as regular fields in a class scope. For example the following is a static varaible to the StyleConfig class:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">StyleConfig</span><span class="p">:</span>
+	<span class="n">background</span> <span class="o">=</span> <span class="s">"#333"</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">StyleConfig</span><span class="p">.</span><span class="n">background</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>In python calling the attribute from a class reference (such as self) does not access the static attribute, but isntead an instance variable.</p>
+
+<h3 id="class-methods">Class Methods</h3>
+
+<p>Methods are defined just as a function would be, but all require a mandatory argument. Each method is passed a reference to the instance the method was invoked on, by convention this is called <code class="language-plaintext highlighter-rouge">self</code> although technically whatever the first argument is called will be assigned the reference. This argument is not passed by the caller however:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Connection</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span>
+
+  <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">user</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Connection</span><span class="p">(</span><span class="s">"db.host.xyz"</span><span class="p">)</span>
+<span class="n">conn</span><span class="p">.</span><span class="n">login</span><span class="p">(</span><span class="s">"admin"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Methods can define default values for arguments with a trailing <code class="language-plaintext highlighter-rouge">=</code>.</li>
+  <li>Overriding methods requires no additional syntax, the child class automatically overrides any parent methods.</li>
+  <li><code class="language-plaintext highlighter-rouge">super()</code> returns the current object as an instance of the parent class (used within a class)</li>
+</ul>
+
+<h3 id="docstrings">Docstrings</h3>
+
+<p>Including a string as the first statement in a method is known as a docstring, and documents the usage of a method. These can be single or multiline strings. Calling <code class="language-plaintext highlighter-rouge">help(Class)</code> will print all the docstrings for that class.</p>
+
+<h3 id="pep-oop-conventions">PEP OOP Conventions</h3>
+
+<blockquote>
+  <p>PEP (Python enhancement proposal) defines conventions for object-oriented python, as the language itself tries not to enforce strict rules on users.</p>
+</blockquote>
+
+<ul>
+  <li>Classes be named in CamelCase</li>
+  <li>Methods avoid using both leading and trailing underscores, such as <code class="language-plaintext highlighter-rouge">__MyMethod__</code></li>
+</ul>
+
+<h3 id="encapsulation">Encapsulation</h3>
+
+<p>Python does not enforce any kind of encapsualtion, everything is therefore public. Again python uses PEP to suggest convetions, and these are strongly followed. PEP suggests that any field prefixed with a single underscore only be called internally (privately) or under circumstances when a user has no other options. As such external calls to such fields are almost never seen. To take things a step further we can name mangle fields by prefixing the name wiht two underscores, this reqwrites the name for external calls but leaves it unmangled internally. This is very rare, and usually discouraged as a single prefix is treated as a protected field.</p>
+
+<ul>
+  <li>Name mangling prefixes a field name with <code class="language-plaintext highlighter-rouge">_&lt;classname&gt;.</code> externally</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Connection</span><span class="p">:</span>
+  <span class="k">class</span> <span class="nc">Connection</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">user</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">_login</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">_login</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">user</span><span class="p">,</span> <span class="s">"logged in"</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">__logout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">user</span><span class="p">,</span> <span class="s">"logged out"</span><span class="p">)</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">Connection</span><span class="p">(</span><span class="s">"db.host.xyz"</span><span class="p">,</span> <span class="s">"admin"</span><span class="p">)</span>
+<span class="n">conn</span><span class="p">.</span><span class="n">_login</span><span class="p">()</span> <span class="c1"># discouraged, protected
+</span><span class="n">conn</span><span class="p">.</span><span class="n">__logout</span><span class="p">()</span> <span class="c1"># error
+</span><span class="n">conn</span><span class="p">.</span><span class="n">_Connection</span><span class="p">.</span><span class="n">__logout</span><span class="p">()</span> <span class="c1"># must unmangle name, but even further discouraged
+</span></code></pre></div></div>
+
+<h2 id="inheritence--polymorphism">Inheritence &amp; Polymorphism</h2>
+
+<p>Classes in python can extend many classes, although this is frowned upon. We will stick to documenting single inheritence:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Connection</span><span class="p">(</span><span class="n">TCPEvent</span><span class="p">):</span>
+	<span class="k">pass</span>
+</code></pre></div></div>
+
+<p>Connection is an instance of TCPEvent by inheritence, however python has no explicit interfaces so we can not implement an interface in the class signature to achieve this polymorphism.</p>
+
+<p>Interfaces and polymorphism is fulfilled by duck-typing: where an object is classified as an instance of a type based on the methods it defines, and not it’s type. Hence strict interfaces don’t exist and instead we just implement a set of methods in a class.</p>
+
+<h3 id="abstract-base-classes">Abstract Base Classes</h3>
+
+<blockquote>
+  <p>Using abstract classes to define an interface for duck-typing.</p>
+</blockquote>
+
+<p>By using abstract classes we can define methods without implementations a class should provide, and is a way to add some guarantees to duck-typing. Abstract classes in Python are not an integral part of the language (such as Java or C++) and provide a module defining annotations and base classes to turn a regular class definition into an abstract class. This module is the <code class="language-plaintext highlighter-rouge">abc</code> module.</p>
+
+<p>An abstract class uses decorators to define properties and methods a subclass must implement, as well as marking the actual class as abstract. The basic four patterns an abstract base class fulfills are:</p>
+
+<ol>
+  <li>The class has a metaclass of ABCMeta</li>
+  <li>Abstract properties (variables etc.) are decorated with the <code class="language-plaintext highlighter-rouge">abstractproperty</code> decorator, and have an empty body.</li>
+  <li>Abstract methods are decorated with the <code class="language-plaintext highlighter-rouge">abstractmethod</code> decorator, and have an empty body.</li>
+  <li>The class overrides a class method called <code class="language-plaintext highlighter-rouge">__subclasshook__</code> that returns true if the given class is a subclass of this, or false or NotImplemented if it is not.</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">abc</span>
+
+<span class="c1"># define metaclass
+</span><span class="k">class</span> <span class="nc">MediaContainer</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">abc</span><span class="p">.</span><span class="n">ABCMeta</span><span class="p">):</span>
+	<span class="c1"># file extension, subclass must implement this e.g. mp3, flac ...
+</span>	<span class="o">@</span><span class="n">abc</span><span class="p">.</span><span class="n">abstractproperty</span>
+	<span class="k">def</span> <span class="nf">extension</span><span class="p">:</span>
+		<span class="k">pass</span>
+
+	<span class="c1"># abstract method, implement how to decode and play media in specified container
+</span>	<span class="o">@</span><span class="n">abc</span><span class="p">.</span><span class="n">abstractmethod</span>
+	<span class="k">def</span> <span class="nf">play</span><span class="p">:</span>
+		<span class="k">pass</span>
+
+	<span class="o">@</span><span class="nb">classmethod</span>
+	<span class="k">def</span> <span class="nf">__subclasshook__</span><span class="p">(</span><span class="n">baseclass</span><span class="p">,</span> <span class="n">subclass</span><span class="p">):</span>
+		<span class="c1"># ensure baseclass is instance of MediaContainer, not a subclass
+</span>		<span class="k">if</span> <span class="n">baseclass</span> <span class="ow">is</span> <span class="n">MediaContainer</span><span class="p">:</span>
+			<span class="n">other_attributes</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">subclass</span><span class="p">)</span> <span class="c1">#attributes of subclass
+</span>			
+			<span class="c1"># are the set of asbtract behaviours inplemented in the set of other attributes
+</span>			<span class="k">if</span> <span class="nb">set</span><span class="p">(</span><span class="n">baseclass</span><span class="p">.</span><span class="n">__abstractmethods__</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nb">set</span><span class="p">(</span><span class="n">other_attributes</span><span class="p">):</span>
+				<span class="k">return</span> <span class="bp">True</span>
+
+		<span class="k">return</span> <span class="nb">NotImplemented</span> <span class="c1"># is not a subclass, check if it is directly inherited (not duck-typing)
+</span></code></pre></div></div>
+
+<h2 id="exceptions">Exceptions</h2>
+
+<p>All exceptions in python inherit from the <code class="language-plaintext highlighter-rouge">BaseException</code> object. More specifically the standard library <code class="language-plaintext highlighter-rouge">Excpetion</code> inherits <code class="language-plaintext highlighter-rouge">BaseException</code>, common exceptions usually inherit from this class. Exceptions are raised with the <code class="language-plaintext highlighter-rouge">raise</code> keyword. If calling statements do not handle an excpetion it is raised (thrown) until something handles it, or the program terminates with an unhandled exception.</p>
+
+<p>Exceptions can be handled in a try…except block. An except statement can optionally specify types of exceptions to catch, if none are specified any exception is caught. Multiple types of exceptions can be caught by delimiting them with commas:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+	<span class="n">my_bad_function</span><span class="p">()</span>
+<span class="k">except</span> <span class="p">(</span><span class="nb">ZeroDivisionError</span><span class="p">,</span> <span class="nb">TypeError</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"There was a bad denominator or type"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Except statements can be stacked as well, only the first matching statement will execute. We can also reraise an exception in an except statement with raise.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+	<span class="n">my_bad_function</span><span class="p">()</span>
+<span class="k">except</span> <span class="nb">ZeroDivisionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"Bad denominator"</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+<span class="k">except</span> <span class="nb">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"Bad type"</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+	<span class="k">raise</span> <span class="c1">#reraise the type error
+</span></code></pre></div></div>
+
+<p>Adding an else statement to a try block executes when no exception occurs, and finally executes as you would expect, gauranteed after executing any other statement in the block. A finally clause still executes before a return statement in any other block.</p>
+
+<blockquote>
+  <p>Directly inheriting from Excpetion is an efficient way to create exceptions.</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyException</span><span class="p">(</span><span class="nb">Exception</span><span class="p">):</span>
+	<span class="k">pass</span>
+</code></pre></div></div>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+  
+    <div class="wrapper">
+  
+      <h2 class="footer-heading">Notes on Computer Science</h2>
+  
+      <ul class="contact-list">
+      <li class="p-name">Notes on Computer Science<p>Information and takes on subjects related to computer science, mathematics, and technology in general.</p>
+          </li><li><a class="u-email" href="mailto:callum.cvr@gmail.com">callum.cvr@gmail.com</a></li></ul><ul class="social-media-list"><li><a href="https://github.com/CVR-Skidz"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CVR-Skidz</span></a></li></ul>
+</div>
+  
+  </footer>
+  </body>
+
+</html>
