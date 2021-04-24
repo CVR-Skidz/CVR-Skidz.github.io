@@ -198,3 +198,80 @@ Some regular expression tokens include:
 |`{3,}`|Match 3 or more times|
 |`{3,6}`|Match 3 to 6 times|
 |`!()`|Negate group - do not match|
+
+## A Note on MYSQL Databases
+
+PHP provides a n API to connect to MYSQL databases in the standard library named [mysqli](https://www.php.net/manual/en/book.mysqli.php)
+
+## Managing State Information
+
+> State information: information about a visit to a web site shared over a set of user-server interactions.
+
+HTTP is stateless, web browsers store no persistent data about visists by themselves. Maintaining state requires temporary/persistent storage of user data which can be sent between a client and server.
+
+### Hidden Form Fields
+
+A type of temprary storage where hidden form fields embed state information. Once the form is submitted the request to the server will contain the embedded parameters. This invovles a server preparing a form by placing information in inputs of the `hidden` type and then processing them when the user resubmits them.
+
+A form will resubmit the exact same information embedded into them, hence the server must process the state before placing them in the form.
+
+```
+<input type="hidden"/>
+```
+
+### Query Strings
+
+A form of temporary storage where state information is stored as HTTP paramaters in a GET request. A server will rewrite URLs included in a web page to contain the state information. PHP provides `http_build_query` to build a query string from an array of properties.
+
+### Cookies
+
+Cookies are persistent storage capable of storing state beyond a single session. Cookies are stored on the client and it is advised to keep their size under 4KB (browsers usually limit cookie sizes based on RFC 6265). Additionally a browser can usually accomodate 50 cookies per site.
+
+```php
+set_cookie(...);
+$_COOKIE['my property'];
+```
+
+A cookie with no expiration time is temporary which are not stored beyond the user session.
+
+### Sessions
+
+Sessions are high-level concepts that provide a period of time where state is stored on the server. PHP will apply the previously discussed methods to provide session storage, and are generally helpful to abstract away the implementation of persiting state information. A session is identified by a session ID.
+
+```php
+session_start(); //start/continue
+$_SESSION['my property'];
+$_COOKIE['PHPSESSID'] //session ID stored in cookie for us
+session_destroy(); //kill
+```
+
+## OOP in PHP
+
+PHP is an object oriented scripting language. Classses support encapsulation and instance or class members. PHP predefines "magic" methods for classes, these are constructs such as constructors, destructors, toString methods etc.
+
+Classes are instantiated with the `new` keyword which returns a reference. A pointer is dereferenced with `->`. Whilst inside an instance method `$this` is used to obtain a reference to the current instance, unlike other languages all instance state must be derefrenced through this pointer.
+
+```php
+$c = new MyClass(); //instantiate
+$c->x; //get varaible x from c
+$c->print(); //invoke print in c
+
+//helpers
+is_a()
+instanceof
+unset() //delete reference
+serialize()
+unserialize()
+
+class MyClass {
+    public $x; //encapsualtion (or lack of it in this case)
+
+    function __construct() {}   //constructor
+    function __destruct() {}    //desctructor
+    function __sleep() {}       //how to serialize
+
+    function print() {
+        echo $this->x; //need `$this`
+    }
+}    
+```
