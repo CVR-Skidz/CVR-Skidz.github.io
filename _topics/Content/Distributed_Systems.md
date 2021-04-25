@@ -359,6 +359,89 @@ A wait-for graph can be built to model the dependencies between processes. If th
 
 ### Marzullo-Neiger algorithm.
 
+> An algorithm to assert unstable predicates. 
 
+Whenever a processes state changes in a way that may affect a predicate a message is sent to amonitoring process. This message only includes relevant state information and a vector timestamp. This monitoring process keeps a list of messages for each process - ordered by timestamp.
 
+A monitoring process calculatess all possible consistent cuts in chronological order. From any given cut the proceeding cut is found by advancing through the list of messages.
+
+If the predicate is true in any cut it is said to be possibly true. When a cut where the predicate is true is found recursive back-tracking allows the monitoring process to determine if teh sequence of all reachable states result in the predicate being true at some cut. In such a case the predicate is said to be definitely true.
+
+## Resource Coordination
+
+> Controlling concurrent access to shared resources.
+
+A resource coordination algorithm is mutually exclusive:
+
+- Only one process at a time is granted access.
+- Every request is eventually granted access.
+- Requests are granted access in chronological order.
+
+### Central-Server Algorithms
+
+A single server is elected to cooridnate resourcce access. Requests are sent to this server where they are added to a queue, which are sent a granted response when they are given access to the resource in question. Once a resource has been used a completion message is sent back to the server, unlocking the resource.
+
+Cental-Server algorithms are not fault-tolerant. Failures to the server can cripple a system and poor performance can bottleneck the entire system.
+
+### Token Ring Algorithms
+
+Given a network of nodes arranged in a ring topology a token is passed around the ring. Whilst a node holds the token for a given resources they aree granted permission to access it. Any node must wait for the token to arrive, and as such there is no gaurantee that access is granted in chronological order.
+
+- In a situation where no node is accessing the resource redundant messages are used to pass the token arounf the ring continuously.
+- Binary variants arrange nodes in a binary tree, causing access to change from O(n) complexity to O(log n)
+
+### Ricart-Agrawala Algorithm
+
+The Ricart-Agrawala algorithm relies on broadcast messages to each node in a network and an instance is run on each node. When a node wants access to a resource it broadcasts a request message and awaits a granted response from each peer in the network (every other node must grant access). Each node must maintain a queue of incoming requests in order to respond to each request chronologically. 
+
+- Central-Server algorithms are variants of Ricart-Agrawala Algorithms
+- O(n) complexity
+- Concurrent requests are reolved through chronological priority, however if two requests are considered chronologically equal MAC or IP addresses as an unbiased way to assign access (where the biggest address has priority).
+
+### Makawa's Voting Algorithm
+
+In Makawa's voting algorithm each process is assigned a representative. When a process requests access it sends a request to it's representative. If two processes request access to the same resource they must share a common representative amongst their voting sets (A process may have many representatives known as a set).
+
+- Ricart-Agrawala is a variation of a voting algorithm where every node has n-1 representatives.
+- By assigning representatives it is possible to reduce the complexity of O(n) resource coordination algorithms.
+
+![Makawa Voting Sets](../Assets/MakawaVoting.png)
+
+## Leader Election
+
+Throughout a distributed system many servers will have to perform a specific operation. Leader elections execute algorihtms that select one algorithm to perform a given operation, which could be to cooridnate a larger distributed algorithm as well. This relies on some wat to distringuish between nodes, especially in peer to peer systems.
+
+### Chang-Roberts Leader Algorithm
+
+Given a topological ring of processes each node is given a UUID, of which any can start an election. An election passes an election message around the ring containing the proposed leaders ID (the initiator must propose itself). If a receiving node has a greater ID it will replace the proposed leader with itself, then the message is forwarded to its successor. Once a node receives an election message with it's own ID the process terminates and that node is said to be "elected".
+
+- Once a node has voted (by forwarding the message) it's participant flag on that election is set, preventing it from voting twice on one election (critical for the algorithm to terminate).
+- Only one election can run for each task concurrently. Many elections can run on one system.
+- Once a leader is elected a leader message is broadcast to all nodes.
+
+### Bully Algorithms
+
+Bully algorithms are a form of leader elections designed to be crash tolerant. In ring based elections if a process crashes it's leader is lost forever.
+
+A bully algorithm broadcats one election message to all nodes with a greater UUID. Once the max node recieves the election messsage it broadcasts a leader message.
+
+By assuming the system is synchronous an upper time limit is impose on the leader response. If the most recent node to broadcast an election message does not recieve a response within this time it assumes it is the node with the biggest UUID - which hasn't crashed. It then assumes the role of the leader.
+
+## Consensus Problems
+
+When multiple processes propose a given value a system must be abke to come to a consensus on what value to use. This is described by:
+
+- Termination: each non-faluty process does eventually decide on a value to use.
+- Agreement: all non-crashed processes agree on the same value
+- Validity: if all processes propose the same value then that is the decided value.
+
+### Crash Consensus Algorithms 
+
+Crash consesus algorithms are distributed algorithms which assume the system is synchronous. Given this assumption we can give an estimate of the maximum number of processes which may crash during the algorithm - let this be \\(f\\). Subsequently we perform \\(f+1\\) round of broadcasting where:
+
+- Each process broadcasts a proposed value - which initially is the value it proposes.
+- Every round nodes will receive peers' proposed values - these are added to a list of known values.
+- Each round any value that was received but has not yet been broadcast does so.
+
+After \\(f+1\\) rounds all nodes will contain a list of the same known values, then an auxillary algorithm can use this state to come to a consensus by calculating a resulting value.
 
