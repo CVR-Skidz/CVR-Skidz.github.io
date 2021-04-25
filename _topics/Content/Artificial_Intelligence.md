@@ -154,3 +154,51 @@ General games must define:
 - Which moves are possible (move generator)
 - The effects of the moves (game physics)
 - Terminal conditions and utilities
+
+## Logical Agents
+
+Logical agents are game playing agents that use an inference engine to infer legal moves from a knowledge base. This is known as a declerative approach to building agents.
+
+- Knowledge base: set of sentences in formal language, using logic to represent information such that conclusions can be drawn.
+- Inference engine: domain independent algorithms
+
+A logical agent must:
+- Represent states and actions to incoporate new perceptions.
+- Update intenral representations of the world.
+- Deduce hidden properties of the world.
+- Deduce appropriate actions.
+
+A knowledge base is formed from sentences. These sentences use some defined syntax to convey the semantics ("meaning") of a rule/condition they represent. An inference engine turns a knowledge base into a game tree.
+
+![](../Assets/logical_agents.png)
+
+A knowledge base logically infers some sentence if when all other sentences are true that sentence os true as well. An inference engine enumerates all the states to understand what other conditions are true when siad state is true. For instance all terminal states are infered to reveal what conditions are true when the game is terminal. By recursively applying inference to each state we can populate the branches of a game tree.
+
+### First Order Resolution
+ 
+An algorihtm to derive knowledge from other knowledge used by an inference engine to build a game tree. By using forms of pattern matching we can derive logical consequences from the semantics of a knowledge base. i.e if this then that.
+
+Identifying logical consequences requires:
+- Unification (using substitutions to match two queries)
+- Resolution steps (resolving terms)
+- derivations (recursive resolution)
+
+A substitution is a finite set of terms to replace a variable with, a term could be anything apart from a constant.
+
+```
+sub({X/a, Y/f(b)}, P(X,X,Y)) = P(a,a,f(b))
+```
+
+A substitution $\theta$ is said to be a unifier if given two expressions \\(P,Q\\) \\(sub(\theta,P) = sub(\theta,Q)\\). When two expressions have a unifier they are "unifiable", doing so is the process of "unification".
+
+A substitution is more general than another if it imposes less restrictions (substitutes less terms). In general we always want to operate with the most general unifier for two expressions.
+
+Resolution involves unifying a query (some proposed state by an agent) with the rules in a knowledge base. Doing so involves matching the query with the head of a rule and finding the most general unifier between the query and the body of that rule. Resolution aims to resolve all terms of a query with a given unifier, by doing so we can infer what state each term can be in to be legal in the game tree.
+
+Derivations recusively reolve a query until all terms in the query have been resolved. At each step we identify a head matching the query, and then unificate the query and rule body. This unifier is chached for later use. Any resolved terms of the query are removed, the result is logically conjucted with any unresolved terms of the body resulting in the new query. We recursively apply this method until the query becomes empty. The combination of all most general unifiers allows us to resolve each term to their legal state given the query.
+
+## Learning Agents
+
+Machine learning is a field of study that gives a computer the ability to learn without being explicitly programmed. A comuter is said to learn from experience \\(E\\) at some task \\(T\\) if the programs performance \\(P\\) increases at \\(T\\) as \\(E\\) increases.
+
+![General Learning System](../Assets/LearningSystem.png)
