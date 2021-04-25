@@ -202,3 +202,53 @@ Derivations recusively reolve a query until all terms in the query have been res
 Machine learning is a field of study that gives a computer the ability to learn without being explicitly programmed. A comuter is said to learn from experience \\(E\\) at some task \\(T\\) if the programs performance \\(P\\) increases at \\(T\\) as \\(E\\) increases.
 
 ![General Learning System](../Assets/LearningSystem.png)
+
+## Machine Learning Algorithms
+
+Machine learning can be categorized broadly as supervised, unsupervised, or reinforcement. Supervised learning involves learning a function through provided inputs and outputs - often called labelled data. Unsupervised learning involves learning patterns in inputs wihtout labelled data being provided, this could often be building a utility function etc. Finally reinforcement learning learns from feedback where it's actions are rewarded or punished.
+
+Two common problems include regression (predicting the value of a continuous output) or classification (giving input a discrete class/label).
+
+![](../Assets/Regression_v_Classification.png)
+
+## Decision Tree Learning
+
+> A simple but proven learning algorithm.
+
+By taking a vector of inputs decision trees produce one output, a classification. Algorithms to build these trees are one of the simplest from of machine learning algorithms, performing a series of tests on each input and outputting a binary classification.
+
+In a decision tree paths (series of nodes - a branch) can be represented by the conjunction of attributes that form the path (e.g. \\(a \land b\\)). A classification is said to be true only if the input attributes form a path from the root of the tree to a true leaf node. **A classification is equivelant to the disjunction of all paths that lead to a node of that type.**
+
+Decision trees can express any function on a set of inputs, this is known as expressiveness. For example the following is the decision tree for a XOR gate:
+
+![](../Assets/XORTree.png)
+
+Input attributes are more suited to form a decision node (split the input into paths) if they split samples into pure subsets (either completeley true or completely false). We can mesaure the uncertainty of a set by it's entropy.
+
+$$
+H(s) = \sum_{x \in X} - p(x) \log_2 p(x)
+$$
+
+- let \\(X\\) be classes in set S
+- let \\(p(x)\\) be the proportion of set S that are of class x
+
+Ultimately one attributes is more appropriate for classification than another if it has a higher information gain:
+
+$$
+IG(A,S) = H(s) - \sum_{t \in T}p(t)H(t)
+$$
+
+- Let \\(T\\) be the subsets after splitting set S by attribute A such that \\(S \bigcup_{t \in T} t\\)
+- Let \\(p(t)\\) be the proportion of number of elements int t to the number of elements in S.
+
+### ID3 Algorithm
+
+The ID3 algorithm allows one to generate the smallest tree consistent with a dataset:
+
+```
+while not S is empty:
+    calculate IG for every attribute in S
+    A <- S[max(IG)]
+    split S by A
+    remove A from S
+```
