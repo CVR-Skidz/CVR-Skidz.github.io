@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/topics/Content/Distributed_Systems.html" />
 <meta property="og:site_name" content="Notes on Computer Science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-04-08T14:49:38+12:00" />
+<meta property="article:published_time" content="2021-04-25T18:43:27+12:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Distributed_Systems.html","headline":"Distributed_systems","dateModified":"2021-04-08T14:49:38+12:00","datePublished":"2021-04-08T14:49:38+12:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Distributed_Systems.html"},"description":"A distributed system is one in which components at networked computers coordinate their actions only by passing messages.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Distributed_Systems.html","headline":"Distributed_systems","dateModified":"2021-04-25T18:43:27+12:00","datePublished":"2021-04-25T18:43:27+12:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Distributed_Systems.html"},"description":"A distributed system is one in which components at networked computers coordinate their actions only by passing messages.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -47,7 +47,7 @@
   <!-- The actual TOC -->
   <nav class="toc">
     <h3>Table of Contents</h3>
-    <ul><li><a href="#characteristics-of-distributed-systems">Characteristics of Distributed Systems</a></li><li><a href="#internet-protocols">Internet Protocols</a></li><li><a href="#architectures">Architectures</a><ul><li><a href="#client-server">Client-Server</a></li><li><a href="#peer-to-peer">Peer to Peer</a></li></ul></li><li><a href="#system-models">System Models</a><ul><li><a href="#architectural-models">Architectural Models</a></li></ul></li><li><a href="#architectural-patterns">Architectural Patterns</a><ul><li><a href="#layering">Layering</a></li></ul></li><li><a href="#hypertext-transfer-protocol">Hypertext Transfer Protocol</a><ul><li><a href="#session-tracking">Session Tracking</a></li></ul></li><li><a href="#web-servers">Web Servers</a></li><li><a href="#server-pages">Server Pages</a></li><li><a href="#jsps">JSPs</a></li><li><a href="#databases">Databases</a></li><li><a href="#orm">ORM</a></li><li><a href="#time">Time</a><ul><li><a href="#christians-algorithm">Christians’ Algorithm</a></li><li><a href="#berkley-algorithm">Berkley Algorithm</a></li><li><a href="#happened-before-diagrams">Happened-Before Diagrams</a></li><li><a href="#lamport-timestamps">Lamport Timestamps</a></li></ul></li><li><a href="#vector-timestamps">Vector Timestamps</a></li><li><a href="#global-snapshots">Global Snapshots</a><ul><li><a href="#chandey-lamport-algorithm">Chandey Lamport Algorithm</a></li></ul></li><li><a href="#global-state-predicates">Global State Predicates</a><ul><li><a href="#dijkstra-scholten-algorithm">Dijkstra-Scholten Algorithm</a></li><li><a href="#detecting-deadlocks">Detecting Deadlocks</a></li><li><a href="#marzullo-neiger-algorithm">Marzullo-Neiger algorithm.</a></li></ul></li></ul>
+    <ul><li><a href="#characteristics-of-distributed-systems">Characteristics of Distributed Systems</a></li><li><a href="#internet-protocols">Internet Protocols</a></li><li><a href="#architectures">Architectures</a><ul><li><a href="#client-server">Client-Server</a></li><li><a href="#peer-to-peer">Peer to Peer</a></li></ul></li><li><a href="#system-models">System Models</a><ul><li><a href="#architectural-models">Architectural Models</a></li></ul></li><li><a href="#architectural-patterns">Architectural Patterns</a><ul><li><a href="#layering">Layering</a></li></ul></li><li><a href="#hypertext-transfer-protocol">Hypertext Transfer Protocol</a><ul><li><a href="#session-tracking">Session Tracking</a></li></ul></li><li><a href="#web-servers">Web Servers</a></li><li><a href="#server-pages">Server Pages</a></li><li><a href="#jsps">JSPs</a></li><li><a href="#databases">Databases</a></li><li><a href="#orm">ORM</a></li><li><a href="#time">Time</a><ul><li><a href="#christians-algorithm">Christians’ Algorithm</a></li><li><a href="#berkley-algorithm">Berkley Algorithm</a></li><li><a href="#happened-before-diagrams">Happened-Before Diagrams</a></li><li><a href="#lamport-timestamps">Lamport Timestamps</a></li></ul></li><li><a href="#vector-timestamps">Vector Timestamps</a></li><li><a href="#global-snapshots">Global Snapshots</a><ul><li><a href="#chandey-lamport-algorithm">Chandey Lamport Algorithm</a></li></ul></li><li><a href="#global-state-predicates">Global State Predicates</a><ul><li><a href="#dijkstra-scholten-algorithm">Dijkstra-Scholten Algorithm</a></li><li><a href="#detecting-deadlocks">Detecting Deadlocks</a></li><li><a href="#marzullo-neiger-algorithm">Marzullo-Neiger algorithm.</a></li></ul></li><li><a href="#resource-coordination">Resource Coordination</a><ul><li><a href="#central-server-algorithms">Central-Server Algorithms</a></li><li><a href="#token-ring-algorithms">Token Ring Algorithms</a></li><li><a href="#ricart-agrawala-algorithm">Ricart-Agrawala Algorithm</a></li><li><a href="#makawas-voting-algorithm">Makawa’s Voting Algorithm</a></li></ul></li><li><a href="#leader-election">Leader Election</a><ul><li><a href="#chang-roberts-leader-algorithm">Chang-Roberts Leader Algorithm</a></li><li><a href="#bully-algorithms">Bully Algorithms</a></li></ul></li><li><a href="#consensus-problems">Consensus Problems</a><ul><li><a href="#crash-consensus-algorithms">Crash Consensus Algorithms</a></li></ul></li></ul>
 
   </nav>
 </div>
@@ -563,6 +563,110 @@ else:
 <p>A wait-for graph can be built to model the dependencies between processes. If the graph becomes closed a system is possibly in deadlock. One algorithm to detect this is the Marzullo-Neiger algorithm.</p>
 
 <h3 id="marzullo-neiger-algorithm">Marzullo-Neiger algorithm.</h3>
+
+<blockquote>
+  <p>An algorithm to assert unstable predicates.</p>
+</blockquote>
+
+<p>Whenever a processes state changes in a way that may affect a predicate a message is sent to amonitoring process. This message only includes relevant state information and a vector timestamp. This monitoring process keeps a list of messages for each process - ordered by timestamp.</p>
+
+<p>A monitoring process calculatess all possible consistent cuts in chronological order. From any given cut the proceeding cut is found by advancing through the list of messages.</p>
+
+<p>If the predicate is true in any cut it is said to be possibly true. When a cut where the predicate is true is found recursive back-tracking allows the monitoring process to determine if teh sequence of all reachable states result in the predicate being true at some cut. In such a case the predicate is said to be definitely true.</p>
+
+<h2 id="resource-coordination">Resource Coordination</h2>
+
+<blockquote>
+  <p>Controlling concurrent access to shared resources.</p>
+</blockquote>
+
+<p>A resource coordination algorithm is mutually exclusive:</p>
+
+<ul>
+  <li>Only one process at a time is granted access.</li>
+  <li>Every request is eventually granted access.</li>
+  <li>Requests are granted access in chronological order.</li>
+</ul>
+
+<h3 id="central-server-algorithms">Central-Server Algorithms</h3>
+
+<p>A single server is elected to cooridnate resourcce access. Requests are sent to this server where they are added to a queue, which are sent a granted response when they are given access to the resource in question. Once a resource has been used a completion message is sent back to the server, unlocking the resource.</p>
+
+<p>Cental-Server algorithms are not fault-tolerant. Failures to the server can cripple a system and poor performance can bottleneck the entire system.</p>
+
+<h3 id="token-ring-algorithms">Token Ring Algorithms</h3>
+
+<p>Given a network of nodes arranged in a ring topology a token is passed around the ring. Whilst a node holds the token for a given resources they aree granted permission to access it. Any node must wait for the token to arrive, and as such there is no gaurantee that access is granted in chronological order.</p>
+
+<ul>
+  <li>In a situation where no node is accessing the resource redundant messages are used to pass the token arounf the ring continuously.</li>
+  <li>Binary variants arrange nodes in a binary tree, causing access to change from O(n) complexity to O(log n)</li>
+</ul>
+
+<h3 id="ricart-agrawala-algorithm">Ricart-Agrawala Algorithm</h3>
+
+<p>The Ricart-Agrawala algorithm relies on broadcast messages to each node in a network and an instance is run on each node. When a node wants access to a resource it broadcasts a request message and awaits a granted response from each peer in the network (every other node must grant access). Each node must maintain a queue of incoming requests in order to respond to each request chronologically.</p>
+
+<ul>
+  <li>Central-Server algorithms are variants of Ricart-Agrawala Algorithms</li>
+  <li>O(n) complexity</li>
+  <li>Concurrent requests are reolved through chronological priority, however if two requests are considered chronologically equal MAC or IP addresses as an unbiased way to assign access (where the biggest address has priority).</li>
+</ul>
+
+<h3 id="makawas-voting-algorithm">Makawa’s Voting Algorithm</h3>
+
+<p>In Makawa’s voting algorithm each process is assigned a representative. When a process requests access it sends a request to it’s representative. If two processes request access to the same resource they must share a common representative amongst their voting sets (A process may have many representatives known as a set).</p>
+
+<ul>
+  <li>Ricart-Agrawala is a variation of a voting algorithm where every node has n-1 representatives.</li>
+  <li>By assigning representatives it is possible to reduce the complexity of O(n) resource coordination algorithms.</li>
+</ul>
+
+<p><img src="../Assets/MakawaVoting.png" alt="Makawa Voting Sets" /></p>
+
+<h2 id="leader-election">Leader Election</h2>
+
+<p>Throughout a distributed system many servers will have to perform a specific operation. Leader elections execute algorihtms that select one algorithm to perform a given operation, which could be to cooridnate a larger distributed algorithm as well. This relies on some wat to distringuish between nodes, especially in peer to peer systems.</p>
+
+<h3 id="chang-roberts-leader-algorithm">Chang-Roberts Leader Algorithm</h3>
+
+<p>Given a topological ring of processes each node is given a UUID, of which any can start an election. An election passes an election message around the ring containing the proposed leaders ID (the initiator must propose itself). If a receiving node has a greater ID it will replace the proposed leader with itself, then the message is forwarded to its successor. Once a node receives an election message with it’s own ID the process terminates and that node is said to be “elected”.</p>
+
+<ul>
+  <li>Once a node has voted (by forwarding the message) it’s participant flag on that election is set, preventing it from voting twice on one election (critical for the algorithm to terminate).</li>
+  <li>Only one election can run for each task concurrently. Many elections can run on one system.</li>
+  <li>Once a leader is elected a leader message is broadcast to all nodes.</li>
+</ul>
+
+<h3 id="bully-algorithms">Bully Algorithms</h3>
+
+<p>Bully algorithms are a form of leader elections designed to be crash tolerant. In ring based elections if a process crashes it’s leader is lost forever.</p>
+
+<p>A bully algorithm broadcats one election message to all nodes with a greater UUID. Once the max node recieves the election messsage it broadcasts a leader message.</p>
+
+<p>By assuming the system is synchronous an upper time limit is impose on the leader response. If the most recent node to broadcast an election message does not recieve a response within this time it assumes it is the node with the biggest UUID - which hasn’t crashed. It then assumes the role of the leader.</p>
+
+<h2 id="consensus-problems">Consensus Problems</h2>
+
+<p>When multiple processes propose a given value a system must be abke to come to a consensus on what value to use. This is described by:</p>
+
+<ul>
+  <li>Termination: each non-faluty process does eventually decide on a value to use.</li>
+  <li>Agreement: all non-crashed processes agree on the same value</li>
+  <li>Validity: if all processes propose the same value then that is the decided value.</li>
+</ul>
+
+<h3 id="crash-consensus-algorithms">Crash Consensus Algorithms</h3>
+
+<p>Crash consesus algorithms are distributed algorithms which assume the system is synchronous. Given this assumption we can give an estimate of the maximum number of processes which may crash during the algorithm - let this be \(f\). Subsequently we perform \(f+1\) round of broadcasting where:</p>
+
+<ul>
+  <li>Each process broadcasts a proposed value - which initially is the value it proposes.</li>
+  <li>Every round nodes will receive peers’ proposed values - these are added to a list of known values.</li>
+  <li>Each round any value that was received but has not yet been broadcast does so.</li>
+</ul>
+
+<p>After \(f+1\) rounds all nodes will contain a list of the same known values, then an auxillary algorithm can use this state to come to a consensus by calculating a resulting value.</p>
 
 
   </div>

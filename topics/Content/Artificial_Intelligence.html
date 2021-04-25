@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/topics/Content/Artificial_Intelligence.html" />
 <meta property="og:site_name" content="Notes on Computer Science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-04-08T14:49:38+12:00" />
+<meta property="article:published_time" content="2021-04-25T18:43:27+12:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Artificial_Intelligence.html","headline":"Artificial_intelligence","dateModified":"2021-04-08T14:49:38+12:00","datePublished":"2021-04-08T14:49:38+12:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Artificial_Intelligence.html"},"description":"At the time of writing AI is a “buzzword”, and is often thought identical to Machine Learning and Deep Learning. In reality these are subsets of the AI field, specifically the application of models and in the later case models designed after the neural networks found in the human brain. So what is AI?","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Artificial_Intelligence.html","headline":"Artificial_intelligence","dateModified":"2021-04-25T18:43:27+12:00","datePublished":"2021-04-25T18:43:27+12:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Artificial_Intelligence.html"},"description":"At the time of writing AI is a “buzzword”, and is often thought identical to Machine Learning and Deep Learning. In reality these are subsets of the AI field, specifically the application of models and in the later case models designed after the neural networks found in the human brain. So what is AI?","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -47,7 +47,7 @@
   <!-- The actual TOC -->
   <nav class="toc">
     <h3>Table of Contents</h3>
-    <ul><li><a href="#game-theory">Game Theory</a><ul><li><a href="#normal-form-games">Normal Form Games</a><ul><li><a href="#solving-normal-form-games">Solving Normal Form Games</a></li></ul></li></ul></li><li><a href="#extensive-form-games">Extensive form games</a></li><li><a href="#minimax">Minimax</a></li><li><a href="#alpha-beta-pruning">Alpha Beta Pruning</a></li><li><a href="#general-game-playing">General Game Playing</a></li></ul>
+    <ul><li><a href="#game-theory">Game Theory</a><ul><li><a href="#normal-form-games">Normal Form Games</a><ul><li><a href="#solving-normal-form-games">Solving Normal Form Games</a></li></ul></li></ul></li><li><a href="#extensive-form-games">Extensive form games</a></li><li><a href="#minimax">Minimax</a></li><li><a href="#alpha-beta-pruning">Alpha Beta Pruning</a></li><li><a href="#general-game-playing">General Game Playing</a></li><li><a href="#logical-agents">Logical Agents</a><ul><li><a href="#first-order-resolution">First Order Resolution</a></li></ul></li><li><a href="#learning-agents">Learning Agents</a></li></ul>
 
   </nav>
 </div>
@@ -296,6 +296,59 @@ output: mortal(socrates) TRUE
   <li>The effects of the moves (game physics)</li>
   <li>Terminal conditions and utilities</li>
 </ul>
+
+<h2 id="logical-agents">Logical Agents</h2>
+
+<p>Logical agents are game playing agents that use an inference engine to infer legal moves from a knowledge base. This is known as a declerative approach to building agents.</p>
+
+<ul>
+  <li>Knowledge base: set of sentences in formal language, using logic to represent information such that conclusions can be drawn.</li>
+  <li>Inference engine: domain independent algorithms</li>
+</ul>
+
+<p>A logical agent must:</p>
+<ul>
+  <li>Represent states and actions to incoporate new perceptions.</li>
+  <li>Update intenral representations of the world.</li>
+  <li>Deduce hidden properties of the world.</li>
+  <li>Deduce appropriate actions.</li>
+</ul>
+
+<p>A knowledge base is formed from sentences. These sentences use some defined syntax to convey the semantics (“meaning”) of a rule/condition they represent. An inference engine turns a knowledge base into a game tree.</p>
+
+<p><img src="../Assets/logical_agents.png" alt="" /></p>
+
+<p>A knowledge base logically infers some sentence if when all other sentences are true that sentence os true as well. An inference engine enumerates all the states to understand what other conditions are true when siad state is true. For instance all terminal states are infered to reveal what conditions are true when the game is terminal. By recursively applying inference to each state we can populate the branches of a game tree.</p>
+
+<h3 id="first-order-resolution">First Order Resolution</h3>
+
+<p>An algorihtm to derive knowledge from other knowledge used by an inference engine to build a game tree. By using forms of pattern matching we can derive logical consequences from the semantics of a knowledge base. i.e if this then that.</p>
+
+<p>Identifying logical consequences requires:</p>
+<ul>
+  <li>Unification (using substitutions to match two queries)</li>
+  <li>Resolution steps (resolving terms)</li>
+  <li>derivations (recursive resolution)</li>
+</ul>
+
+<p>A substitution is a finite set of terms to replace a variable with, a term could be anything apart from a constant.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sub({X/a, Y/f(b)}, P(X,X,Y)) = P(a,a,f(b))
+</code></pre></div></div>
+
+<p>A substitution $\theta$ is said to be a unifier if given two expressions \(P,Q\) \(sub(\theta,P) = sub(\theta,Q)\). When two expressions have a unifier they are “unifiable”, doing so is the process of “unification”.</p>
+
+<p>A substitution is more general than another if it imposes less restrictions (substitutes less terms). In general we always want to operate with the most general unifier for two expressions.</p>
+
+<p>Resolution involves unifying a query (some proposed state by an agent) with the rules in a knowledge base. Doing so involves matching the query with the head of a rule and finding the most general unifier between the query and the body of that rule. Resolution aims to resolve all terms of a query with a given unifier, by doing so we can infer what state each term can be in to be legal in the game tree.</p>
+
+<p>Derivations recusively reolve a query until all terms in the query have been resolved. At each step we identify a head matching the query, and then unificate the query and rule body. This unifier is chached for later use. Any resolved terms of the query are removed, the result is logically conjucted with any unresolved terms of the body resulting in the new query. We recursively apply this method until the query becomes empty. The combination of all most general unifiers allows us to resolve each term to their legal state given the query.</p>
+
+<h2 id="learning-agents">Learning Agents</h2>
+
+<p>Machine learning is a field of study that gives a computer the ability to learn without being explicitly programmed. A comuter is said to learn from experience \(E\) at some task \(T\) if the programs performance \(P\) increases at \(T\) as \(E\) increases.</p>
+
+<p><img src="../Assets/LearningSystem.png" alt="General Learning System" /></p>
 
   </div>
 
