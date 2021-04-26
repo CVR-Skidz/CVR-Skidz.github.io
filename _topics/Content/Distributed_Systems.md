@@ -445,3 +445,35 @@ Crash consesus algorithms are distributed algorithms which assume the system is 
 
 After \\(f+1\\) rounds all nodes will contain a list of the same known values, then an auxillary algorithm can use this state to come to a consensus by calculating a resulting value.
 
+## Remote Method Invocation
+
+Remote method invocation (and RPC - remote procedure calls) are common middleware that allow objects/methods to be called on a process on a different machine in a native way. Underneathe these protocols use network messaging to route messages between processes.
+
+RMI enables an isntance to point to an object on a remote process. Note that the instance on the local process is not a pointer to memory on a remote machine, but a reference to a local object who forwards calls to it's interface to an object on a remote machine. To do so RMI maintians a registry. Instances can be registered in a registry, which other clients can lookup via some ID.
+
+A registry is responsible for returning a proxy (as described above) when an object is looked up. This proxy (AKA stub) imitates the remote object and implements all methods defined by an objects remote interface with TCP messaging. When invoked parameters are serialized, as are objects returned by the remote instance. 
+
+*In Java a remote interface must extend `java.rmi.Remote` and methods must throw a `RemoteException`.*
+
+## Enterprise Java Beans
+
+EJBs (or enterprise java beans) are reusable server-side units of logic. Although EJBs are a Java technology they implement many distributed concepts which are agnostic. Specifically EJBs simplify the salability of an application and run inside an EJB container on an application server. 
+
+EJBs typically provide a service or funtion to the rest of the system and are provisioned by the application server enterprise bean container. As such they are managed code which benefit from injection, load balancing, multithreading etc.
+
+There are two types of EJB, session and message driven beans.
+
+### Session Beans
+
+Session beans handle one session with a client. This is client is almost never the user, but another part of the system. Sessions can be:
+
+|Type|Description|
+|----|-----------|
+|Stateful|Instantiated for a client specifically, and it's state holds infomration for that client. This could be confidential, hence the application server needs to gaurantee the bean is never given to the wrong client session.|
+|Stateless|A reusable bean instantiated from a pool of beans. A stateless bean contains no state about the client it is serving and is atomic. As such an application server can perform many operations on them to increase performance, throughput, and scalability.|
+|Singleton|A bean with at most one instance at all times. These are often used to provide some kind of configuration service.|
+
+- A stateful session bean always points to the same object. When memory is running low an application server will passify (serialize) the bean to disk.
+- Stateless session beans can point to any bean available in a stateless pool. As soon as the been has been invoked and finished executing it can be garbage collected to conserve memory. A reference is gauranteed to always point to a reference in the pool.
+- EJBs can be injected from a pool using dependecy injection (annotate reference with `@EJB`)
+- EJBs are often used as DAOs (data access objects) which wrap calls to the application model (JDBC, JPA etc.).  
