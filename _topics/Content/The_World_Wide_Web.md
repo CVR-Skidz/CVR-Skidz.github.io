@@ -81,3 +81,41 @@ Javascript based:
 Micro-services:
 
 ![Micro services](../Assets/Micro_Services.png)
+
+## Web 2.0
+
+Web 2.0 represents a move from a server dominated web to a platform for computing where the server and client can communicate dynamically, allowing the client to provide computational resources.
+
+Traditionally web application models are synchornous, and changes in state require a whole page to reload which degrades pefromance. New application models, such as the Ajax application model, are asynchronous and can reload parts of the DOM - providing better performance and fluent user interactions.
+
+Limitations of traditional models are cuased by:
+
+- Synchoronous limitations
+- Large responses required to update the client (reload an entire page)
+- An inability to interact with the user wihtout forms etc.
+
+## AJAX
+
+AJAX (Asynchronous JavaScript and XML) referes to a collection of technologies to allow dynamic changes to part of the DOM whilst the server processes requests sent from the client - allowing a user to continue interacting with the client.
+
+The AJAX application model can be described as:
+
+1. Interface displayed in browser (client)
+2. Javascript client-side engine sends messages ansynchornously to a server requesting a service.
+3. Results sent back from server as XML, JSON, etc...
+4. Javascript client-side engine interprets response and updates the DOM.
+
+Ajax is generally implemented with XMLHttpRequest objects (XHRs), which are native JavaScript objects. It can facilitate JSON/XML asynchronous communication with another host. XML and JSON are used to describe a data sturcture to exchange data over the internet, they encode data into a structure. In general JSON is more concise and lightweight than XML.
+
+Partial screen updates are effected through a *dynamic change* to the representation of the document (interface) displayed on the client. This representation is refered to as the DOM (document object model). 
+
+AJAX requests are event driven, and threads are implicit (not explicitly provisioned by developer).
+
+- AJAX is increasingly adopting JSON as a means to transfer data.
+- An XHR can be instantiated as any other object: `new XMLHttpReuest();`
+
+### The Document Object Model
+
+The Document Object Model provides an API (object model) to manipulate HTML documents as sets of objects. This model defines the attributes associated with these objects and methods to interact with them.
+
+The DOM also encapsulates the client, providing interfaces to the browser window, history, and location (URL etc.). DOM supports all CRUD operations.
