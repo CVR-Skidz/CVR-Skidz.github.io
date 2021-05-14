@@ -114,7 +114,7 @@ AJAX requests are event driven, and threads are implicit (not explicitly provisi
 - AJAX is increasingly adopting JSON as a means to transfer data.
 - An XHR can be instantiated as any other object: `new XMLHttpReuest();`
 
-# Javascript
+## Javascript
 
 Javascript is a dynamically typed, object-oriented scripting language. A browser exposes the current context and DOM of the client to the javascript engine to enable client side processing and facilitate the Web 2.0 design model. Javascript is often executed in an event driven architecture.
 
@@ -173,23 +173,23 @@ Javascript is given access to the following objects natively by the browser:
 - `location`: the location of the client (current URL etc.)
 - `screen`: the screen of the client
 
-## Events
+### Events
 
 Events are bound to an event handler which is invoked when the event is triggered. Events are propogated through the DOM tree in one of two fashions: bubbling or capturing. 
 
-![Event Bubbling](../Assets/Bubble.png)
-
-![Event Capturing](../Assets/Capture.png)
+|Bubbling|Capturing|
+|--------|---------|
+|![Event Bubbling](../Assets/Bubble.png)|![Event Capturing](../Assets/Capture.png)|
 
 Event handlers passed an `Event` object to a listeners' first parameter. They can be assigned through object properties or with `addEventListener(name, callback)` or `removeEventListener(name, callback)`.
 
-# The Document Object Model
+## The Document Object Model
 
 The Document Object Model provides an API (object model) to manipulate HTML documents as sets of objects. This model defines the attributes associated with these objects and methods to interact with them. The DOM also encapsulates the client, providing interfaces to the browser window, history, and location (URL etc.). DOM supports all CRUD operations.
 
 A DOM is a **tree** data structure, it contains many APIs to manipulate this tree but commonly the DOM API refers the core and HTML APIs. This is an important philisophical design, as such every element or component of a document is a node in a tree, and can be operated on as such. 
 
-# XML
+## XML
 
 XML, like JSON, is a structured data model - known as a data description/representation language. XML is a standard way to structure data communicated between processes over the web, data contained within an XML document is hierarchal and describes a **tree** data structure. 
 
