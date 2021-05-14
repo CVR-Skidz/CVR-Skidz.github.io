@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/topics/Content/The_World_Wide_Web.html" />
 <meta property="og:site_name" content="Notes on Computer Science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-04-25T18:43:27+12:00" />
+<meta property="article:published_time" content="2021-05-15T09:36:56+12:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/The_World_Wide_Web.html","headline":"The_world_wide_web","dateModified":"2021-04-25T18:43:27+12:00","datePublished":"2021-04-25T18:43:27+12:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/The_World_Wide_Web.html"},"description":"This topic covers the workings of the world wide web in the context of building web applications as a layer ontop of the internet. WWW is used in place of “World Wide Web”.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/The_World_Wide_Web.html","headline":"The_world_wide_web","dateModified":"2021-05-15T09:36:56+12:00","datePublished":"2021-05-15T09:36:56+12:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/The_World_Wide_Web.html"},"description":"This topic covers the workings of the world wide web in the context of building web applications as a layer ontop of the internet. WWW is used in place of “World Wide Web”.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -47,7 +47,7 @@
   <!-- The actual TOC -->
   <nav class="toc">
     <h3>Table of Contents</h3>
-    <ul><li><a href="#the-internet--the-world-wide-web">The Internet &amp; The World Wide Web</a><ul><li><a href="#simple-internet-protocols">Simple Internet Protocols</a></li></ul></li><li><a href="#http">HTTP</a></li><li><a href="#html">HTML</a></li><li><a href="#architectures">Architectures</a></li></ul>
+    <ul><li><a href="#the-internet--the-world-wide-web">The Internet &amp; The World Wide Web</a><ul><li><a href="#simple-internet-protocols">Simple Internet Protocols</a></li></ul></li><li><a href="#http">HTTP</a></li><li><a href="#html">HTML</a></li><li><a href="#architectures">Architectures</a></li><li><a href="#web-20">Web 2.0</a></li><li><a href="#ajax">AJAX</a></li><li><a href="#javascript">Javascript</a><ul><li><a href="#events">Events</a></li></ul></li><li><a href="#the-document-object-model">The Document Object Model</a></li><li><a href="#xml">XML</a></li></ul>
 
   </nav>
 </div>
@@ -185,6 +185,158 @@ multipart/form-data -&gt; unencoded (binary)
 <p>Micro-services:</p>
 
 <p><img src="../Assets/Micro_Services.png" alt="Micro services" /></p>
+
+<h2 id="web-20">Web 2.0</h2>
+
+<p>Web 2.0 represents a move from a server dominated web to a platform for computing where the server and client can communicate dynamically, allowing the client to provide computational resources.</p>
+
+<p>Traditionally web application models are synchornous, and changes in state require a whole page to reload which degrades pefromance. New application models, such as the Ajax application model, are asynchronous and can reload parts of the DOM - providing better performance and fluent user interactions.</p>
+
+<p>Limitations of traditional models are cuased by:</p>
+
+<ul>
+  <li>Synchoronous limitations</li>
+  <li>Large responses required to update the client (reload an entire page)</li>
+  <li>An inability to interact with the user wihtout forms etc.</li>
+</ul>
+
+<h2 id="ajax">AJAX</h2>
+
+<p>AJAX (Asynchronous JavaScript and XML) referes to a collection of technologies to allow dynamic changes to part of the DOM whilst the server processes requests sent from the client - allowing a user to continue interacting with the client.</p>
+
+<p>The AJAX application model can be described as:</p>
+
+<ol>
+  <li>Interface displayed in browser (client)</li>
+  <li>Javascript client-side engine sends messages ansynchornously to a server requesting a service.</li>
+  <li>Results sent back from server as XML, JSON, etc…</li>
+  <li>Javascript client-side engine interprets response and updates the DOM.</li>
+</ol>
+
+<p>Ajax is generally implemented with XMLHttpRequest objects (XHRs), which are native JavaScript objects. It can facilitate JSON/XML asynchronous communication with another host. XML and JSON are used to describe a data sturcture to exchange data over the internet, they encode data into a structure. In general JSON is more concise and lightweight than XML.</p>
+
+<p>Partial screen updates are effected through a <em>dynamic change</em> to the representation of the document (interface) displayed on the client. This representation is refered to as the DOM (document object model).</p>
+
+<p>AJAX requests are event driven, and threads are implicit (not explicitly provisioned by developer).</p>
+
+<ul>
+  <li>AJAX is increasingly adopting JSON as a means to transfer data.</li>
+  <li>An XHR can be instantiated as any other object: <code class="language-plaintext highlighter-rouge">new XMLHttpReuest();</code></li>
+</ul>
+
+<h2 id="javascript">Javascript</h2>
+
+<p>Javascript is a dynamically typed, object-oriented scripting language. A browser exposes the current context and DOM of the client to the javascript engine to enable client side processing and facilitate the Web 2.0 design model. Javascript is often executed in an event driven architecture.</p>
+
+<p>Javascript follows a C-like syntax, many of the lnaguage nuances are related to its dynamic typing:</p>
+
+<ul>
+  <li>A variable which is not a reference and has no value is siad to be <code class="language-plaintext highlighter-rouge">undefined</code> (<code class="language-plaintext highlighter-rouge">print(x) //undefined</code>).</li>
+  <li>A reference is <code class="language-plaintext highlighter-rouge">null</code> when it points to no object.</li>
+  <li>A variable is strictly equal when it has the same value and same type, using the <code class="language-plaintext highlighter-rouge">===</code> operator.</li>
+  <li>A variable is not strictly equal when either its value or type differs from another operand, using the <code class="language-plaintext highlighter-rouge">!==</code> operator.</li>
+  <li>Functions can be anonymous, or lambdas, and pointed to by a reference. Functions can be passed as any other object.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//anonymous function</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">//lambda function</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Objects in javascript are defined via a construcotr and prototype. A prototype is a member of a certain class, and assigning a member to a prototype will assign it to all class instances. Hence a prototype can be used to define a classes’ interface. A constructor is invoked with the <code class="language-plaintext highlighter-rouge">new</code> keyword.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//constructor</span>
+<span class="kd">function</span> <span class="nx">MyClass</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//access to self must be used</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span> 
+    <span class="k">this</span><span class="p">.</span><span class="nx">print</span><span class="p">()</span>
+<span class="p">}</span>
+
+
+<span class="nx">MyClass</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">print</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="dl">"</span><span class="s2">MyClass x: </span><span class="dl">"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Javascript objects can also be expressed via javascript object notation or JSON. JSON can be deserialized into a native javascript object or be used to construct an object literal. JSON is a very convenient way to communicate between javscript clients and servers, providing a consistent data description language.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="p">{</span>   <span class="c1">//object literal</span>
+    <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">};</span>
+
+<span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"greeting": "hello"}</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Javascript is given access to the following objects natively by the browser:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">navigator</code>: browser navigation</li>
+  <li><code class="language-plaintext highlighter-rouge">window</code>: browser window</li>
+  <li><code class="language-plaintext highlighter-rouge">frame</code>(s): a frame contains a DOM</li>
+  <li><code class="language-plaintext highlighter-rouge">document</code>: the current DOM</li>
+  <li><code class="language-plaintext highlighter-rouge">history</code>: browser history</li>
+  <li><code class="language-plaintext highlighter-rouge">location</code>: the location of the client (current URL etc.)</li>
+  <li><code class="language-plaintext highlighter-rouge">screen</code>: the screen of the client</li>
+</ul>
+
+<h3 id="events">Events</h3>
+
+<p>Events are bound to an event handler which is invoked when the event is triggered. Events are propogated through the DOM tree in one of two fashions: bubbling or capturing.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bubbling</th>
+      <th>Capturing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../Assets/Bubble.png" alt="Event Bubbling" /></td>
+      <td><img src="../Assets/Capture.png" alt="Event Capturing" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Event handlers passed an <code class="language-plaintext highlighter-rouge">Event</code> object to a listeners’ first parameter. They can be assigned through object properties or with <code class="language-plaintext highlighter-rouge">addEventListener(name, callback)</code> or <code class="language-plaintext highlighter-rouge">removeEventListener(name, callback)</code>.</p>
+
+<h2 id="the-document-object-model">The Document Object Model</h2>
+
+<p>The Document Object Model provides an API (object model) to manipulate HTML documents as sets of objects. This model defines the attributes associated with these objects and methods to interact with them. The DOM also encapsulates the client, providing interfaces to the browser window, history, and location (URL etc.). DOM supports all CRUD operations.</p>
+
+<p>A DOM is a <strong>tree</strong> data structure, it contains many APIs to manipulate this tree but commonly the DOM API refers the core and HTML APIs. This is an important philisophical design, as such every element or component of a document is a node in a tree, and can be operated on as such.</p>
+
+<h2 id="xml">XML</h2>
+
+<p>XML, like JSON, is a structured data model - known as a data description/representation language. XML is a standard way to structure data communicated between processes over the web, data contained within an XML document is hierarchal and describes a <strong>tree</strong> data structure.</p>
+
+<p>XML is very versatile and has many uses outside of web development, however this makes it “heavier” than JSON. XML documents contain three main components:</p>
+
+<ol>
+  <li>Content: data contained within the document</li>
+  <li>Schema: defining a valid document structure and tag names</li>
+  <li>Presentation: controls rendering of information</li>
+</ol>
+
+<p>XML is well formed when conforms to the syntax of XML and valid when it coforms to the DTD given in the document. A DTD (Document Type Definition) validates an XML document with constraints such as:</p>
+
+<ol>
+  <li>What elements are required</li>
+  <li>The order elements are allowed to appear in</li>
+  <li>The cardinality of the relationship between one element and another</li>
+  <li>Any attributes contained within a specific element</li>
+</ol>
+
+<p>XML documents first include a decloration in their head, followed by the DTD:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="uitf-8"?&gt;</span>
+<span class="cp">&lt;!DOCTYPE Persons SYSTEM "persons.dtd"&gt;</span> <span class="c">&lt;!--!DOCTYPE {name} SYSTEM {dtd file}--&gt;</span>
+</code></pre></div></div>
 
   </div>
 

@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/topics/Content/Artificial_Intelligence.html" />
 <meta property="og:site_name" content="Notes on Computer Science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-04-25T18:43:27+12:00" />
+<meta property="article:published_time" content="2021-05-15T09:36:56+12:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Artificial_Intelligence.html","headline":"Artificial_intelligence","dateModified":"2021-04-25T18:43:27+12:00","datePublished":"2021-04-25T18:43:27+12:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Artificial_Intelligence.html"},"description":"At the time of writing AI is a “buzzword”, and is often thought identical to Machine Learning and Deep Learning. In reality these are subsets of the AI field, specifically the application of models and in the later case models designed after the neural networks found in the human brain. So what is AI?","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Artificial_Intelligence.html","headline":"Artificial_intelligence","dateModified":"2021-05-15T09:36:56+12:00","datePublished":"2021-05-15T09:36:56+12:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Artificial_Intelligence.html"},"description":"At the time of writing AI is a “buzzword”, and is often thought identical to Machine Learning and Deep Learning. In reality these are subsets of the AI field, specifically the application of models and in the later case models designed after the neural networks found in the human brain. So what is AI?","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -47,7 +47,7 @@
   <!-- The actual TOC -->
   <nav class="toc">
     <h3>Table of Contents</h3>
-    <ul><li><a href="#game-theory">Game Theory</a><ul><li><a href="#normal-form-games">Normal Form Games</a><ul><li><a href="#solving-normal-form-games">Solving Normal Form Games</a></li></ul></li></ul></li><li><a href="#extensive-form-games">Extensive form games</a></li><li><a href="#minimax">Minimax</a></li><li><a href="#alpha-beta-pruning">Alpha Beta Pruning</a></li><li><a href="#general-game-playing">General Game Playing</a></li><li><a href="#logical-agents">Logical Agents</a><ul><li><a href="#first-order-resolution">First Order Resolution</a></li></ul></li><li><a href="#learning-agents">Learning Agents</a></li></ul>
+    <ul><li><a href="#game-theory">Game Theory</a><ul><li><a href="#normal-form-games">Normal Form Games</a><ul><li><a href="#solving-normal-form-games">Solving Normal Form Games</a></li></ul></li></ul></li><li><a href="#extensive-form-games">Extensive form games</a></li><li><a href="#minimax">Minimax</a></li><li><a href="#alpha-beta-pruning">Alpha Beta Pruning</a></li><li><a href="#general-game-playing">General Game Playing</a></li><li><a href="#logical-agents">Logical Agents</a><ul><li><a href="#first-order-resolution">First Order Resolution</a></li></ul></li><li><a href="#learning-agents">Learning Agents</a></li><li><a href="#machine-learning-algorithms">Machine Learning Algorithms</a></li><li><a href="#decision-tree-learning">Decision Tree Learning</a><ul><li><a href="#id3-algorithm">ID3 Algorithm</a></li></ul></li></ul>
 
   </nav>
 </div>
@@ -349,6 +349,57 @@ output: mortal(socrates) TRUE
 <p>Machine learning is a field of study that gives a computer the ability to learn without being explicitly programmed. A comuter is said to learn from experience \(E\) at some task \(T\) if the programs performance \(P\) increases at \(T\) as \(E\) increases.</p>
 
 <p><img src="../Assets/LearningSystem.png" alt="General Learning System" /></p>
+
+<h2 id="machine-learning-algorithms">Machine Learning Algorithms</h2>
+
+<p>Machine learning can be categorized broadly as supervised, unsupervised, or reinforcement. Supervised learning involves learning a function through provided inputs and outputs - often called labelled data. Unsupervised learning involves learning patterns in inputs wihtout labelled data being provided, this could often be building a utility function etc. Finally reinforcement learning learns from feedback where it’s actions are rewarded or punished.</p>
+
+<p>Two common problems include regression (predicting the value of a continuous output) or classification (giving input a discrete class/label).</p>
+
+<p><img src="../Assets/Regression_v_Classification.png" alt="" /></p>
+
+<h2 id="decision-tree-learning">Decision Tree Learning</h2>
+
+<blockquote>
+  <p>A simple but proven learning algorithm.</p>
+</blockquote>
+
+<p>By taking a vector of inputs decision trees produce one output, a classification. Algorithms to build these trees are one of the simplest from of machine learning algorithms, performing a series of tests on each input and outputting a binary classification.</p>
+
+<p>In a decision tree paths (series of nodes - a branch) can be represented by the conjunction of attributes that form the path (e.g. \(a \land b\)). A classification is said to be true only if the input attributes form a path from the root of the tree to a true leaf node. <strong>A classification is equivelant to the disjunction of all paths that lead to a node of that type.</strong></p>
+
+<p>Decision trees can express any function on a set of inputs, this is known as expressiveness. For example the following is the decision tree for a XOR gate:</p>
+
+<p><img src="../Assets/XORTree.png" alt="" /></p>
+
+<p>Input attributes are more suited to form a decision node (split the input into paths) if they split samples into pure subsets (either completeley true or completely false). We can mesaure the uncertainty of a set by it’s entropy.</p>
+
+\[H(s) = \sum_{x \in X} - p(x) \log_2 p(x)\]
+
+<ul>
+  <li>let \(X\) be classes in set S</li>
+  <li>let \(p(x)\) be the proportion of set S that are of class x</li>
+</ul>
+
+<p>Ultimately one attributes is more appropriate for classification than another if it has a higher information gain:</p>
+
+\[IG(A,S) = H(s) - \sum_{t \in T}p(t)H(t)\]
+
+<ul>
+  <li>Let \(T\) be the subsets after splitting set S by attribute A such that \(S \bigcup_{t \in T} t\)</li>
+  <li>Let \(p(t)\) be the proportion of number of elements int t to the number of elements in S.</li>
+</ul>
+
+<h3 id="id3-algorithm">ID3 Algorithm</h3>
+
+<p>The ID3 algorithm allows one to generate the smallest tree consistent with a dataset:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>while not S is empty:
+    calculate IG for every attribute in S
+    A &lt;- S[max(IG)]
+    split S by A
+    remove A from S
+</code></pre></div></div>
 
   </div>
 
