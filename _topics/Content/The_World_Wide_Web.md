@@ -114,8 +114,101 @@ AJAX requests are event driven, and threads are implicit (not explicitly provisi
 - AJAX is increasingly adopting JSON as a means to transfer data.
 - An XHR can be instantiated as any other object: `new XMLHttpReuest();`
 
-### The Document Object Model
+# Javascript
 
-The Document Object Model provides an API (object model) to manipulate HTML documents as sets of objects. This model defines the attributes associated with these objects and methods to interact with them.
+Javascript is a dynamically typed, object-oriented scripting language. A browser exposes the current context and DOM of the client to the javascript engine to enable client side processing and facilitate the Web 2.0 design model. Javascript is often executed in an event driven architecture.
 
-The DOM also encapsulates the client, providing interfaces to the browser window, history, and location (URL etc.). DOM supports all CRUD operations.
+Javascript follows a C-like syntax, many of the lnaguage nuances are related to its dynamic typing:
+
+- A variable which is not a reference and has no value is siad to be `undefined` (`print(x) //undefined`).
+- A reference is `null` when it points to no object. 
+- A variable is strictly equal when it has the same value and same type, using the `===` operator.
+- A variable is not strictly equal when either its value or type differs from another operand, using the `!==` operator.
+- Functions can be anonymous, or lambdas, and pointed to by a reference. Functions can be passed as any other object.
+
+```javascript
+var x = function() {
+    //anonymous function
+};
+
+var y = () => {
+    //lambda function
+};
+```
+
+Objects in javascript are defined via a construcotr and prototype. A prototype is a member of a certain class, and assigning a member to a prototype will assign it to all class instances. Hence a prototype can be used to define a classes' interface. A constructor is invoked with the `new` keyword.
+
+```javascript
+//constructor
+function MyClass(x) {
+    //access to self must be used
+    this.x = x; 
+    this.print()
+}
+
+
+MyClass.prototype.print = function() {
+    print("MyClass x: " + this.x);
+}
+```
+
+Javascript objects can also be expressed via javascript object notation or JSON. JSON can be deserialized into a native javascript object or be used to construct an object literal. JSON is a very convenient way to communicate between javscript clients and servers, providing a consistent data description language. 
+
+```javascript
+var x = {   //object literal
+    "a": 1,
+    "b": 2
+};
+
+JSON.parse('{"greeting": "hello"}');
+```
+
+Javascript is given access to the following objects natively by the browser:
+
+- `navigator`: browser navigation
+- `window`: browser window
+- `frame`(s): a frame contains a DOM
+- `document`: the current DOM
+- `history`: browser history
+- `location`: the location of the client (current URL etc.)
+- `screen`: the screen of the client
+
+## Events
+
+Events are bound to an event handler which is invoked when the event is triggered. Events are propogated through the DOM tree in one of two fashions: bubbling or capturing. 
+
+![Event Bubbling](../Assets/Bubble.png)
+
+![Event Capturing](../Assets/Capture.png)
+
+Event handlers passed an `Event` object to a listeners' first parameter. They can be assigned through object properties or with `addEventListener(name, callback)` or `removeEventListener(name, callback)`.
+
+# The Document Object Model
+
+The Document Object Model provides an API (object model) to manipulate HTML documents as sets of objects. This model defines the attributes associated with these objects and methods to interact with them. The DOM also encapsulates the client, providing interfaces to the browser window, history, and location (URL etc.). DOM supports all CRUD operations.
+
+A DOM is a **tree** data structure, it contains many APIs to manipulate this tree but commonly the DOM API refers the core and HTML APIs. This is an important philisophical design, as such every element or component of a document is a node in a tree, and can be operated on as such. 
+
+# XML
+
+XML, like JSON, is a structured data model - known as a data description/representation language. XML is a standard way to structure data communicated between processes over the web, data contained within an XML document is hierarchal and describes a **tree** data structure. 
+
+XML is very versatile and has many uses outside of web development, however this makes it "heavier" than JSON. XML documents contain three main components:
+
+1. Content: data contained within the document
+2. Schema: defining a valid document structure and tag names
+3. Presentation: controls rendering of information
+
+XML is well formed when conforms to the syntax of XML and valid when it coforms to the DTD given in the document. A DTD (Document Type Definition) validates an XML document with constraints such as:
+
+1. What elements are required
+2. The order elements are allowed to appear in
+3. The cardinality of the relationship between one element and another
+4. Any attributes contained within a specific element
+
+XML documents first include a decloration in their head, followed by the DTD:
+
+```xml
+<?xml version="1.0" encoding="uitf-8"?>
+<!DOCTYPE Persons SYSTEM "persons.dtd"> <!--!DOCTYPE {name} SYSTEM {dtd file}-->
+```
