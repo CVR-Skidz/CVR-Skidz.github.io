@@ -275,3 +275,43 @@ class MyClass {
     }
 }    
 ```
+
+## Objects
+
+PHP is an object oriented language. Classes are defined by the `class` keyword:
+
+```php
+class MyClass() {
+    // class...
+}
+```
+
+Objects are instantiated with the `new` keyword, which returns a pointer to the instance. Instances are dereferenced with the `->` operator. Within a class to access the instance state, such as methods or variables defined as non-static within the class, the `$this` pointer must be dereferenced.
+
+Methods such as the constructor, destructor, toString etc. are denoted as 'magic methods' and are prefixed with `__` (two underscores).
+
+```php
+class MyClass {
+
+    public function __construct() {
+        //constructor
+    }
+
+    public function __destruct() {
+        //destructor
+    }
+
+    public function __sleep() {
+        //serialize --> called with instance->serialize()
+    } 
+```
+
+Some helpful methods include:
+
+```
+isinstance
+get_class (returns class name)
+unset (delete instance)
+serialize
+unserialize
+```

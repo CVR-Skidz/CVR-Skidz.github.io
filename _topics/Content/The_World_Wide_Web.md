@@ -199,7 +199,7 @@ XML is very versatile and has many uses outside of web development, however this
 2. Schema: defining a valid document structure and tag names
 3. Presentation: controls rendering of information
 
-XML is well formed when conforms to the syntax of XML and valid when it coforms to the DTD given in the document. A DTD (Document Type Definition) validates an XML document with constraints such as:
+XML is well formed when it conforms to the syntax of XML and valid when it coforms to the DTD given in the document. A DTD (Document Type Definition) validates an XML document with constraints such as:
 
 1. What elements are required
 2. The order elements are allowed to appear in
@@ -209,6 +209,29 @@ XML is well formed when conforms to the syntax of XML and valid when it coforms 
 XML documents first include a decloration in their head, followed by the DTD:
 
 ```xml
-<?xml version="1.0" encoding="uitf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE Persons SYSTEM "persons.dtd"> <!--!DOCTYPE {name} SYSTEM {dtd file}-->
 ```
+
+## Angular
+
+As Web 2.0 grows in popularity many frameworks have been created to support this new synchronous architecture. Angular is one such framework which aims to provide a means to consturct desktop-like GUIs withiout interfacing withe the DOM. Mainly it promotes:
+
+- data bindings: binding values of the application model to a component.
+- templates: markup with additional elements to control how data is inserted into the view.
+- MVC architecture: Model View Controller, seperating the logic and presentation.
+- Dependency injection: A service (model) is injected into a component (controller) which controls a view (template).
+
+Angular divides an application into modules, which each have a service, controller, and view. Modules are exported via the NodeJS runtime to allow them to become reusable. Modules and classes are identified through annotations:
+
+```
+@NGModule {...} export class MyModule {} or @Component ({...}) export class MyComponent {}
+```
+
+## Web APIs
+
+APIs expose services over the internet which could be run on first or third-party servers. Such services may be registered in a service registry, and provide language-neutral functionality. Two popular methods are used to design an API: SOAP and REST.
+
+SOAP services use XML requests and responses that encode API calls (methods) in tags specfic to that service. REST services are called via HTTP requests, the call is defined by the path and method used. Response may be returned in any format but are often returned as JSON, XML, or Plain Text. In Javascript XHRs are generally used to consume APIs, and CURL in PHP. 
+
+When a client requests a resource from a server the runtime of the client will prevent any requests made by the returned resource to external domains. This is known as the Same Origin Security Policy. An origin is considered the same if the **host, protocol, and port are identical**. As such requests made to external APIs must be routed through the original application server, known as a proxy.
