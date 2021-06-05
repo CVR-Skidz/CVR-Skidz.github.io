@@ -245,37 +245,6 @@ $_COOKIE['PHPSESSID'] //session ID stored in cookie for us
 session_destroy(); //kill
 ```
 
-## OOP in PHP
-
-PHP is an object oriented scripting language. Classses support encapsulation and instance or class members. PHP predefines "magic" methods for classes, these are constructs such as constructors, destructors, toString methods etc.
-
-Classes are instantiated with the `new` keyword which returns a reference. A pointer is dereferenced with `->`. Whilst inside an instance method `$this` is used to obtain a reference to the current instance, unlike other languages all instance state must be derefrenced through this pointer.
-
-```php
-$c = new MyClass(); //instantiate
-$c->x; //get varaible x from c
-$c->print(); //invoke print in c
-
-//helpers
-is_a()
-instanceof
-unset() //delete reference
-serialize()
-unserialize()
-
-class MyClass {
-    public $x; //encapsualtion (or lack of it in this case)
-
-    function __construct() {}   //constructor
-    function __destruct() {}    //desctructor
-    function __sleep() {}       //how to serialize
-
-    function print() {
-        echo $this->x; //need `$this`
-    }
-}    
-```
-
 ## Objects
 
 PHP is an object oriented language. Classes are defined by the `class` keyword:
