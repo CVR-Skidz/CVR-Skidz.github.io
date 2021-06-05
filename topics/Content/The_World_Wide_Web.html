@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/topics/Content/The_World_Wide_Web.html" />
 <meta property="og:site_name" content="Notes on Computer Science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-05-15T09:36:56+12:00" />
+<meta property="article:published_time" content="2021-06-05T08:56:51+12:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/The_World_Wide_Web.html","headline":"The_world_wide_web","dateModified":"2021-05-15T09:36:56+12:00","datePublished":"2021-05-15T09:36:56+12:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/The_World_Wide_Web.html"},"description":"This topic covers the workings of the world wide web in the context of building web applications as a layer ontop of the internet. WWW is used in place of “World Wide Web”.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/The_World_Wide_Web.html","headline":"The_world_wide_web","dateModified":"2021-06-05T08:56:51+12:00","datePublished":"2021-06-05T08:56:51+12:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/The_World_Wide_Web.html"},"description":"This topic covers the workings of the world wide web in the context of building web applications as a layer ontop of the internet. WWW is used in place of “World Wide Web”.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -47,7 +47,7 @@
   <!-- The actual TOC -->
   <nav class="toc">
     <h3>Table of Contents</h3>
-    <ul><li><a href="#the-internet--the-world-wide-web">The Internet &amp; The World Wide Web</a><ul><li><a href="#simple-internet-protocols">Simple Internet Protocols</a></li></ul></li><li><a href="#http">HTTP</a></li><li><a href="#html">HTML</a></li><li><a href="#architectures">Architectures</a></li><li><a href="#web-20">Web 2.0</a></li><li><a href="#ajax">AJAX</a></li><li><a href="#javascript">Javascript</a><ul><li><a href="#events">Events</a></li></ul></li><li><a href="#the-document-object-model">The Document Object Model</a></li><li><a href="#xml">XML</a></li></ul>
+    <ul><li><a href="#the-internet--the-world-wide-web">The Internet &amp; The World Wide Web</a><ul><li><a href="#simple-internet-protocols">Simple Internet Protocols</a></li></ul></li><li><a href="#http">HTTP</a></li><li><a href="#html">HTML</a></li><li><a href="#architectures">Architectures</a></li><li><a href="#web-20">Web 2.0</a></li><li><a href="#ajax">AJAX</a></li><li><a href="#javascript">Javascript</a><ul><li><a href="#events">Events</a></li></ul></li><li><a href="#the-document-object-model">The Document Object Model</a></li><li><a href="#xml">XML</a></li><li><a href="#angular">Angular</a></li><li><a href="#web-apis">Web APIs</a></li></ul>
 
   </nav>
 </div>
@@ -323,7 +323,7 @@ multipart/form-data -&gt; unencoded (binary)
   <li>Presentation: controls rendering of information</li>
 </ol>
 
-<p>XML is well formed when conforms to the syntax of XML and valid when it coforms to the DTD given in the document. A DTD (Document Type Definition) validates an XML document with constraints such as:</p>
+<p>XML is well formed when it conforms to the syntax of XML and valid when it coforms to the DTD given in the document. A DTD (Document Type Definition) validates an XML document with constraints such as:</p>
 
 <ol>
   <li>What elements are required</li>
@@ -334,9 +334,33 @@ multipart/form-data -&gt; unencoded (binary)
 
 <p>XML documents first include a decloration in their head, followed by the DTD:</p>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="uitf-8"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
 <span class="cp">&lt;!DOCTYPE Persons SYSTEM "persons.dtd"&gt;</span> <span class="c">&lt;!--!DOCTYPE {name} SYSTEM {dtd file}--&gt;</span>
 </code></pre></div></div>
+
+<h2 id="angular">Angular</h2>
+
+<p>As Web 2.0 grows in popularity many frameworks have been created to support this new synchronous architecture. Angular is one such framework which aims to provide a means to consturct desktop-like GUIs withiout interfacing withe the DOM. Mainly it promotes:</p>
+
+<ul>
+  <li>data bindings: binding values of the application model to a component.</li>
+  <li>templates: markup with additional elements to control how data is inserted into the view.</li>
+  <li>MVC architecture: Model View Controller, seperating the logic and presentation.</li>
+  <li>Dependency injection: A service (model) is injected into a component (controller) which controls a view (template).</li>
+</ul>
+
+<p>Angular divides an application into modules, which each have a service, controller, and view. Modules are exported via the NodeJS runtime to allow them to become reusable. Modules and classes are identified through annotations:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@NGModule {...} export class MyModule {} or @Component ({...}) export class MyComponent {}
+</code></pre></div></div>
+
+<h2 id="web-apis">Web APIs</h2>
+
+<p>APIs expose services over the internet which could be run on first or third-party servers. Such services may be registered in a service registry, and provide language-neutral functionality. Two popular methods are used to design an API: SOAP and REST.</p>
+
+<p>SOAP services use XML requests and responses that encode API calls (methods) in tags specfic to that service. REST services are called via HTTP requests, the call is defined by the path and method used. Response may be returned in any format but are often returned as JSON, XML, or Plain Text. In Javascript XHRs are generally used to consume APIs, and CURL in PHP.</p>
+
+<p>When a client requests a resource from a server the runtime of the client will prevent any requests made by the returned resource to external domains. This is known as the Same Origin Security Policy. An origin is considered the same if the <strong>host, protocol, and port are identical</strong>. As such requests made to external APIs must be routed through the original application server, known as a proxy.</p>
 
   </div>
 

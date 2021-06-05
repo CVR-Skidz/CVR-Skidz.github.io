@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/topics/Content/PHP.html" />
 <meta property="og:site_name" content="Notes on Computer Science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-05-15T09:36:56+12:00" />
+<meta property="article:published_time" content="2021-06-05T08:56:51+12:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/PHP.html","headline":"Php","dateModified":"2021-05-15T09:36:56+12:00","datePublished":"2021-05-15T09:36:56+12:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/PHP.html"},"description":"PHP hypertext processor is an embedded scripting language heavilly used on the web. It runs server-side (never on the client) embedded within a document. Running through the PHP engine scripts are outputted as text, returned as parts of an html document.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/PHP.html","headline":"Php","dateModified":"2021-06-05T08:56:51+12:00","datePublished":"2021-06-05T08:56:51+12:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/PHP.html"},"description":"PHP hypertext processor is an embedded scripting language heavilly used on the web. It runs server-side (never on the client) embedded within a document. Running through the PHP engine scripts are outputted as text, returned as parts of an html document.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -47,7 +47,7 @@
   <!-- The actual TOC -->
   <nav class="toc">
     <h3>Table of Contents</h3>
-    <ul><li><a href="#fundamentals">Fundamentals</a></li><li><a href="#datatypes">Datatypes</a><ul><li><a href="#primitives">Primitives</a></li></ul></li><li><a href="#functions">Functions</a></li><li><a href="#operators">Operators</a></li><li><a href="#arrays">Arrays</a></li><li><a href="#strings">Strings</a></li><li><a href="#regular-expressions">Regular Expressions</a></li><li><a href="#a-note-on-mysql-databases">A Note on MYSQL Databases</a></li><li><a href="#managing-state-information">Managing State Information</a><ul><li><a href="#hidden-form-fields">Hidden Form Fields</a></li><li><a href="#query-strings">Query Strings</a></li><li><a href="#cookies">Cookies</a></li><li><a href="#sessions">Sessions</a></li></ul></li><li><a href="#oop-in-php">OOP in PHP</a></li></ul>
+    <ul><li><a href="#fundamentals">Fundamentals</a></li><li><a href="#datatypes">Datatypes</a><ul><li><a href="#primitives">Primitives</a></li></ul></li><li><a href="#functions">Functions</a></li><li><a href="#operators">Operators</a></li><li><a href="#arrays">Arrays</a></li><li><a href="#strings">Strings</a></li><li><a href="#regular-expressions">Regular Expressions</a></li><li><a href="#a-note-on-mysql-databases">A Note on MYSQL Databases</a></li><li><a href="#managing-state-information">Managing State Information</a><ul><li><a href="#hidden-form-fields">Hidden Form Fields</a></li><li><a href="#query-strings">Query Strings</a></li><li><a href="#cookies">Cookies</a></li><li><a href="#sessions">Sessions</a></li></ul></li><li><a href="#objects">Objects</a></li></ul>
 
   </nav>
 </div>
@@ -474,34 +474,41 @@
 <span class="nb">session_destroy</span><span class="p">();</span> <span class="c1">//kill</span>
 </code></pre></div></div>
 
-<h2 id="oop-in-php">OOP in PHP</h2>
+<h2 id="objects">Objects</h2>
 
-<p>PHP is an object oriented scripting language. Classses support encapsulation and instance or class members. PHP predefines “magic” methods for classes, these are constructs such as constructors, destructors, toString methods etc.</p>
+<p>PHP is an object oriented language. Classes are defined by the <code class="language-plaintext highlighter-rouge">class</code> keyword:</p>
 
-<p>Classes are instantiated with the <code class="language-plaintext highlighter-rouge">new</code> keyword which returns a reference. A pointer is dereferenced with <code class="language-plaintext highlighter-rouge">-&gt;</code>. Whilst inside an instance method <code class="language-plaintext highlighter-rouge">$this</code> is used to obtain a reference to the current instance, unlike other languages all instance state must be derefrenced through this pointer.</p>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MyClass</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// class...</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$c</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MyClass</span><span class="p">();</span> <span class="c1">//instantiate</span>
-<span class="nv">$c</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">;</span> <span class="c1">//get varaible x from c</span>
-<span class="nv">$c</span><span class="o">-&gt;</span><span class="k">print</span><span class="p">();</span> <span class="c1">//invoke print in c</span>
+<p>Objects are instantiated with the <code class="language-plaintext highlighter-rouge">new</code> keyword, which returns a pointer to the instance. Instances are dereferenced with the <code class="language-plaintext highlighter-rouge">-&gt;</code> operator. Within a class to access the instance state, such as methods or variables defined as non-static within the class, the <code class="language-plaintext highlighter-rouge">$this</code> pointer must be dereferenced.</p>
 
-<span class="c1">//helpers</span>
-<span class="nb">is_a</span><span class="p">()</span>
-<span class="k">instanceof</span>
-<span class="nb">unset</span><span class="p">()</span> <span class="c1">//delete reference</span>
-<span class="nb">serialize</span><span class="p">()</span>
-<span class="nb">unserialize</span><span class="p">()</span>
+<p>Methods such as the constructor, destructor, toString etc. are denoted as ‘magic methods’ and are prefixed with <code class="language-plaintext highlighter-rouge">__</code> (two underscores).</p>
 
-<span class="kd">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
-    <span class="k">public</span> <span class="nv">$x</span><span class="p">;</span> <span class="c1">//encapsualtion (or lack of it in this case)</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
 
-    <span class="k">function</span> <span class="n">__construct</span><span class="p">()</span> <span class="p">{}</span>   <span class="c1">//constructor</span>
-    <span class="k">function</span> <span class="n">__destruct</span><span class="p">()</span> <span class="p">{}</span>    <span class="c1">//desctructor</span>
-    <span class="k">function</span> <span class="n">__sleep</span><span class="p">()</span> <span class="p">{}</span>       <span class="c1">//how to serialize</span>
-
-    <span class="k">function</span> <span class="n">print</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">;</span> <span class="c1">//need `$this`</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="n">__construct</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">//constructor</span>
     <span class="p">}</span>
-<span class="p">}</span>    
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">__destruct</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">//destructor</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">__sleep</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">//serialize --&gt; called with instance-&gt;serialize()</span>
+    <span class="p">}</span> 
+</code></pre></div></div>
+
+<p>Some helpful methods include:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>isinstance
+get_class (returns class name)
+unset (delete instance)
+serialize
+unserialize
 </code></pre></div></div>
 
   </div>
