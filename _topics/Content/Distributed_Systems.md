@@ -477,3 +477,66 @@ Session beans handle one session with a client. This is client is almost never t
 - Stateless session beans can point to any bean available in a stateless pool. As soon as the been has been invoked and finished executing it can be garbage collected to conserve memory. A reference is gauranteed to always point to a reference in the pool.
 - EJBs can be injected from a pool using dependecy injection (annotate reference with `@EJB`)
 - EJBs are often used as DAOs (data access objects) which wrap calls to the application model (JDBC, JPA etc.).  
+
+## SOAP Web Services
+
+A web service provides remote functionality through loosely coupled machine-to-machine communication hosted on a web server, where its clients will be other applications. Web services are almost exclusively HTTP based and as such are much slower than RPC based communication. 
+
+SOAP (Simple Object Access Protocol) is a widely used standard describing web service messages in XML. SOAP messages are one-way tranmsissions of XML encoded data defining the name of a web service function and the data it requires. 
+
+Java EE provides the `javax.jws` package to create and interact with SOAP services. Classes annotated with `@WebService` become managed code on an application server, methods exposed over the service via `@WebMethod` annotations serialize the inputs and outputs of the function via the JAXB API.
+
+A SOAP service is described by a WSDL (web service description language) XML document which defines the ...
+
+- types
+- types of messages
+- faults (exceptions)
+- operations (methods)
+- network protocols
+- URI locations
+
+... visible to clients.
+
+A WSDL is often imported to Java clients with the wsimport tool - which creates class definitions from the declarations within a WSDL. Java EE Clients will often use dependecy injection to obtain defintions from a WSDL via an application server.
+
+SOAP is particularly suitable to implement complex or asynchronous, stateful services. Or where transactional, security, or reliability measures are important.
+
+## REST Web Services
+
+REST is an architectural pattern which views web services as a resource identified via a URL, which runs on **stateless** servers. REST services use HTTP methods to describe operations to perform at a given URI. 
+
+|Method|Intent|
+|------|------|
+|GET   |Read a resource|
+|PUT   |Create a resource|
+|POST  |Update a resource|
+|DELETE|Delete a resource|
+
+Restful web services transmit data in any format supported by HTTP, such as: JSON, XML, Plain Text etc. Because REST APIs are stateless they are seen as simpler and cheaper to implement than SOAP APIs. REST services are particularly suitable in request-reply designs, situations where requests can be cached, or in highly scalable services.
+
+Java EE REST services are created through annotaions in the `javax.ws.rs` package to design REST Servlets.
+
+|Annotation|Description|
+|----------|-----------|
+|`@path`|Specify the path of the servlet, and relative path of a method|
+|`@GET`|Specify a method responds to the GET (or other) HTTP method|
+|`@consumes`|Specify the content type of the request body|
+|`@produces`|Specify the content type of the response body|
+
+## Enterprise Messaging
+
+A form of middleware, enterprise messaging systems allow components of a distributed application to send messages between each other asynchronously. Each component does not need to be aware of the other, nor of the protocol used to send messages. Such systems are responsible for routing messages between components, as well as reliability and security measures (transactions etc.).
+
+Messaging systems often allow the use of two design patters: point-to-point and publish/subscribe. Point-to-point messaging describes a means to send messages to a destination queue, this queue is attached to a consumer who consumes messages in the order they appear in the queue. Multiple producers (sender) can send a message to a queue, but a message can only be read by one consumer. 
+
+The publish/subscribe pattern describes a destination as a topic. Producers can attach to a topic, and publish messages to it. Unlike point-to-point messaging all consumers subscribed to the topic are notified of the message, and multiple consumers can read the same message.
+
+A message header holds the destination, delivery mode, expiration, priority, message ID, timestamp, correlation ID (the ID this message is associated with), and a reply destination.
+
+### JMS
+
+The Java Messaging System is a messaging provider within Java EE. The JMS allows messages to be sent as maos, byte streams, serialized objects, or text. A JMS provider needs to be provisioned on an application server, which can then be injected via a JNDI lookup as a `ConnectionFactory`.
+
+Sessions allow producers, consumers, and messages to be consturcted - a session is created from a `ConnectionFactory` and are **not thread safe**. Destination topics or queues are also created on an application server and injected into a managed bean. For a consumer to recieve messages it must set its own connection to the "started" state, and manually close the connection. Instead, message driven beans are often used to automatically handle connections and sessions within the application server. A message driven bean is annotated with `@MessageDriven(name = "attached queue/topic")` and implements the `MessageListener` interface, which invokes `onMessage` when a message is sent to the beans queue or topic.
+
+Message driven beans are stateless and stored within the EJB pool. As a destination accumulates more and more messages the application server is able to provision more consumers to it, and balance the load between all active destinations.
