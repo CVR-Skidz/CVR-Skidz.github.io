@@ -540,3 +540,19 @@ The Java Messaging System is a messaging provider within Java EE. The JMS allows
 Sessions allow producers, consumers, and messages to be consturcted - a session is created from a `ConnectionFactory` and are **not thread safe**. Destination topics or queues are also created on an application server and injected into a managed bean. For a consumer to recieve messages it must set its own connection to the "started" state, and manually close the connection. Instead, message driven beans are often used to automatically handle connections and sessions within the application server. A message driven bean is annotated with `@MessageDriven(name = "attached queue/topic")` and implements the `MessageListener` interface, which invokes `onMessage` when a message is sent to the beans queue or topic.
 
 Message driven beans are stateless and stored within the EJB pool. As a destination accumulates more and more messages the application server is able to provision more consumers to it, and balance the load between all active destinations.
+
+## Brokerless Messaging
+
+Brokerless messaging systems are decopuled from an enterprise server environment. Instead of including reliability measures brokerless messaging systems aim to introduce as little overhead as possible. 
+
+One such system is ZeroMQ, which has bindings for many languages. ZeroMQ maintains a pool of background threads which a client makes requests to. A request may be to send a message, or to listen to a certain socket for incoming messages. ZeroMQ extends TCP socket design to try and reduce as much overhead as possible.
+
+A process can bind to a port, where the pool of background threads will begin listening to any incoming messages on said port. Because queues, topics etc. that bind to a port are managed by background workers calls are not instantaneous. One example, known as the slow-starter problem, occures when one process - the ddestination - binds to a port, and another starts to send messages to that destination. The producer assumes the consumer is listening on that port as soon as it issues the bind request, however as this may not be the case messages may be missed by the consumer.
+
+## Parrallel Computer Messaging
+
+A parrallel computer is a system where multiple processors can access shared memory. MPI (message passing interface) is a language independent messaging specfication designed for high performance computing that allows instances of a single program running on mutiliple processes to intercommunicate.
+
+MPI groups processors together and within each group a processor is assigned a rank. All processors belong to the global group, which can then be sub-grouped. Within each group a coordinator (usually rank 0) is responsible for routing messages to each process. Note that a process is one program executing, whereas a thread is a segment of a programs execution. Process are usually independent and do not share memory like threads do.
+
+As each process is executing the same program branching by rank is often used to control which segment of a program each process executes. During execution messages are sent to aggregate data, and synchronize processes etc.
