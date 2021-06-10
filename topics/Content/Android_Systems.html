@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Android_systems | Notes on Computer Science</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Android_systems" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Android applications are developed with the Android API over the dalvik virtual machine (a JVM). Dalvik supports a subset of the regular Java SE API, and replaces various Java technologies such as AWT/SWING, RMI, CLC etc. The android API is identified by the top level android package." />
+<meta property="og:description" content="Android applications are developed with the Android API over the dalvik virtual machine (a JVM). Dalvik supports a subset of the regular Java SE API, and replaces various Java technologies such as AWT/SWING, RMI, CLC etc. The android API is identified by the top level android package." />
+<link rel="canonical" href="http://localhost:4000/topics/Content/Android_Systems.html" />
+<meta property="og:url" content="http://localhost:4000/topics/Content/Android_Systems.html" />
+<meta property="og:site_name" content="Notes on Computer Science" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-06-11T07:30:05+12:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Android_Systems.html","headline":"Android_systems","dateModified":"2021-06-11T07:30:05+12:00","datePublished":"2021-06-11T07:30:05+12:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Android_Systems.html"},"description":"Android applications are developed with the Android API over the dalvik virtual machine (a JVM). Dalvik supports a subset of the regular Java SE API, and replaces various Java technologies such as AWT/SWING, RMI, CLC etc. The android API is identified by the top level android package.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Notes on Computer Science</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <!-- TOC -->
+<div class="toc-container">
+  <!-- Controls for toggling TOC -->
+  <input type="checkbox" id="toc-control">
+  <label for="toc-control"></label>
+
+  <!-- The actual TOC -->
+  <nav class="toc">
+    <h3>Table of Contents</h3>
+    <ul><li><a href="#components">Components</a></li><li><a href="#activities">Activities</a><ul><li><a href="#threading">Threading</a></li></ul></li><li><a href="#location-based-services">Location Based Services</a></li><li><a href="#bluetooth">Bluetooth</a></li><li><a href="#nfc">NFC</a></li></ul>
+
+  </nav>
+</div>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Android Systems</h1>
+  </header>
+
+  <div class="post-content">
+    <p>Android applications are developed with the Android API over the dalvik virtual machine (a JVM). Dalvik supports a subset of the regular Java SE API, and replaces various Java technologies such as AWT/SWING, RMI, CLC etc. The android API is identified by the top level <code class="language-plaintext highlighter-rouge">android</code> package.</p>
+
+<p>Mobile applications are configured through XML files defining colours, string literals, themes etc. An android applications’ main configuration file is known as the <code class="language-plaintext highlighter-rouge">AndroidManifest</code> which declares the activities and permissions an application requires amongst other things. Components used within an app such as buttons, widgets etc. are also delcared as resources in configuration files automatically as they are compiled. Android compiles the <code class="language-plaintext highlighter-rouge">R</code> class at build-time which allows a user-defined class to query resources specified in application configuration files.</p>
+
+<h2 id="components">Components</h2>
+
+<p>Components are a high level abstraction used to describe the functionality of an application. Components are often categorized as:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Activity</td>
+      <td>A visible user interface presented to the user on screen</td>
+    </tr>
+    <tr>
+      <td>Service</td>
+      <td>A component with no user interface, providing bacground workers to the application</td>
+    </tr>
+    <tr>
+      <td>BroadcastReceiver</td>
+      <td>Listeners registered to events triggered by background or system services</td>
+    </tr>
+    <tr>
+      <td>ContentProvider</td>
+      <td>A data store used by the application</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="activities">Activities</h2>
+
+<p>Activities are the main user-facing elements of an application. Specifically an activity is one screen of an application, which are often made of many screens. Activities can start one another, and also declare navigation between one another for use with system navigation bars. An activity can start another with <code class="language-plaintext highlighter-rouge">startActivity</code> or <code class="language-plaintext highlighter-rouge">startActivityForResult</code>. In order to pass data between actvities an <code class="language-plaintext highlighter-rouge">Intent</code> is created. A <code class="language-plaintext highlighter-rouge">Bundle</code> is used to persist information between an activity after it terminates and starts again.</p>
+
+<p><img src="../Assets/activity_lifecycle.png" alt="Activty Lifecycle" /></p>
+
+<p>Components that can be seen within an activity are types of <code class="language-plaintext highlighter-rouge">View</code>. A view can override how it is drawn on screen via its <code class="language-plaintext highlighter-rouge">onDraw</code> method. Views are redrawn by the system scheduler, which can be requested through the <code class="language-plaintext highlighter-rouge">invalidate</code> method. A <code class="language-plaintext highlighter-rouge">SurfaceView</code> is also capable of drawing itself on a seprate thread than the UI thread.</p>
+
+<h3 id="threading">Threading</h3>
+
+<p>Android discourages creating regular Java threads manually. Originally the <code class="language-plaintext highlighter-rouge">AsyncTask</code> was provided as a higher level thread capable of activating methods as it starts, updates, and finsishes. However, it has since been deprecated in favour of executors. When an <code class="language-plaintext highlighter-rouge">Executor</code> is obtained - often via a factory - a pool of threads will execute a given <code class="language-plaintext highlighter-rouge">Runnable</code> without the user provisioning threads manually.</p>
+
+<p>An <code class="language-plaintext highlighter-rouge">AsyncTask</code> takes three generics: the type of inputs the task accepts when it starts, when it publishes updates, and when it finishes (the type of the result). The methods <code class="language-plaintext highlighter-rouge">doInBackground</code> and <code class="language-plaintext highlighter-rouge">onProgressUpdate</code> accept variadic arguments. <code class="language-plaintext highlighter-rouge">doInBackground</code> executes when the worker thread starts and must return the input type for <code class="language-plaintext highlighter-rouge">onPostExecute</code> which is automatically called on the UIThread when the worker thread finishes. A call to <code class="language-plaintext highlighter-rouge">publishProgress</code> will invoke <code class="language-plaintext highlighter-rouge">onProgessUpdate</code>.</p>
+
+<h2 id="location-based-services">Location Based Services</h2>
+
+<p>Using Location Based Services a mobile client can read its current latitude, longitude, bearing, speed etc. through network providers, GPS, or wifi beacons.</p>
+
+<p>Whilst connected to a cellular network providers are able to use the mobiles’ signal strength to trinagulate its position between a collection of network towers. In doing so we can calculate the location of the device to a somewhat accurate degree without using as much client resources as GPS based location (which can provide hihgly accurate locations).</p>
+
+<p>GPS utilises the antenna of a mobile to transmit signals to a constellation of sattelites orbitting earth. The time it takes to signal these satellites is synchronized with atomic clock providers to triangulate the position of the device between satellites to a high degree of accuracy.</p>
+
+<p>In order to use either location service an application must aqquire the correct privellages, which is either <code class="language-plaintext highlighter-rouge">android.permission.ACCESS_FINE_LOCATION</code> or <code class="language-plaintext highlighter-rouge">android.permission.ACCESS_COARSE_LOCATION</code>. The android system will continuously update the client location whilst the location service is turned on, in order to read the location an application must refister a location receiver with the system. To do so a <code class="language-plaintext highlighter-rouge">LocationManager</code> is obtained from a factory, which requires that location permissions be granted.</p>
+
+<p>The location listener should be registered and deregistered appropriatley over the application lifecycle, as location based services are resource intensive and may drain the battery of a mobile client if updated in the background.</p>
+
+<h2 id="bluetooth">Bluetooth</h2>
+
+<p>Bluetooth provides a means to crate a short range, low bandwidth, personal area network. Bluetooth operates over a client-server architecture where a client can discover and connect to a server exposing public services. Servers can be dynamically discovered, and then connected to. However, the discovery process is considered a slow operation so devices are “paired” to allow clients to connect to known servers wihtout the need to discover them first.</p>
+
+<p>Bluetooth provides a traditional or low energy stack that allows communication between a client and server.</p>
+
+<p><img src="../Assets/Bluetooth_Stack.png" alt="" /></p>
+
+<p>RFCOMM is used to wirelessly communicate between hosts, whilst protocols such as L2CAP and the hardware controller interface are reponsible for packet segmentation and physical tranmission.</p>
+
+<p>The bluetooth connection process requires a service to be registered in a servers public browse group with a UUID and that server to be registered for enquiry access, then a client uses the SDP to discover nearby servers. If a nearby service makes available the requested service (by searching its public browse group) the client can connect by exchanging its personal security key with the server. During the exchange a unique pairing key is generated from both the server and client key to pair the devices.</p>
+
+<p>If an application wants to make use of bluetooth to communicate with nearby servers a <code class="language-plaintext highlighter-rouge">BluetoothAdapter</code> must be attained which requires the <code class="language-plaintext highlighter-rouge">BLUETOOTH</code>, <code class="language-plaintext highlighter-rouge">BLUETOOTH_ADMIN</code>, and <code class="language-plaintext highlighter-rouge">ACCESS_FINE_LOCATION</code> permissions. An adpater can discover devices with <code class="language-plaintext highlighter-rouge">startDiscovery</code> and <code class="language-plaintext highlighter-rouge">cancelDiscovery</code> or get saved pairings with <code class="language-plaintext highlighter-rouge">getBondedDevices</code>. An adapter can then create sockets connecting to an available device to open communication.</p>
+
+<h2 id="nfc">NFC</h2>
+
+<p>NFC is built atop the 14443 RFID ISO standard. NFC capable mobile devices are able to power magentic loop antenna through neraby magnetic fields created between close contact with an NFC reader. Fluctuating the field between the reader and receiver allows bits to be transferred over the field. NFC combines the role of an RFID tag (receiver) and reader.</p>
+
+<p>The NDEF (NFC data exchange format) is a standrdized format used to communicate messages over NFC, which consists of multiple NDEF records. A record stores header information on the type of data (MIME type) and length of the record along with the body - which has a theoretical range between 255 bytes upto 4 GB.</p>
+
+<p>NFC interfaces are provided by <code class="language-plaintext highlighter-rouge">android.nfc</code>, as with bluetooth an <code class="language-plaintext highlighter-rouge">NfcAdapter</code> provides methods to communicate with NFC enabled devices. If the device adapter is null the client does not support NFC. Through the application manifest an activity can be associated to an intent filter for any of <code class="language-plaintext highlighter-rouge">NfcAdapter.ACTION_NDEF_DISCOVERED</code>, <code class="language-plaintext highlighter-rouge">NfcAdapter.ACTION_TAG_DISCOVERED</code>, or <code class="language-plaintext highlighter-rouge">NfcAdapter.ACTION_TECH_DISCOVERED</code>. When an NFC event is triggered the system will broadcast the action, and open any activities registered. The opened activity contains the read NDEF records in its intent via:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">getIntent</span><span class="o">().</span><span class="na">getParceableArrayExtra</span><span class="o">(</span><span class="nc">NfcAdapter</span><span class="o">.</span><span class="na">EXTRA_NDEF_MESSAGES</span><span class="o">);</span>
+</code></pre></div></div>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+  
+    <div class="wrapper">
+  
+      <h2 class="footer-heading">Notes on Computer Science</h2>
+  
+      <ul class="contact-list">
+      <li class="p-name">Notes on Computer Science<p>Information and takes on subjects related to computer science, mathematics, and technology in general.</p>
+          </li><li><a class="u-email" href="mailto:callum.cvr@gmail.com">callum.cvr@gmail.com</a></li></ul><ul class="social-media-list"><li><a href="https://github.com/CVR-Skidz"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CVR-Skidz</span></a></li></ul>
+</div>
+  
+  </footer>
+  </body>
+
+</html>

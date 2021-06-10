@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/topics/Content/Distributed_Systems.html" />
 <meta property="og:site_name" content="Notes on Computer Science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-06-05T08:56:51+12:00" />
+<meta property="article:published_time" content="2021-06-11T07:30:05+12:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Distributed_Systems.html","headline":"Distributed_systems","dateModified":"2021-06-05T08:56:51+12:00","datePublished":"2021-06-05T08:56:51+12:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Distributed_Systems.html"},"description":"A distributed system is one in which components at networked computers coordinate their actions only by passing messages.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/topics/Content/Distributed_Systems.html","headline":"Distributed_systems","dateModified":"2021-06-11T07:30:05+12:00","datePublished":"2021-06-11T07:30:05+12:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/topics/Content/Distributed_Systems.html"},"description":"A distributed system is one in which components at networked computers coordinate their actions only by passing messages.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Notes on Computer Science" /><!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -47,7 +47,7 @@
   <!-- The actual TOC -->
   <nav class="toc">
     <h3>Table of Contents</h3>
-    <ul><li><a href="#characteristics-of-distributed-systems">Characteristics of Distributed Systems</a></li><li><a href="#internet-protocols">Internet Protocols</a></li><li><a href="#architectures">Architectures</a><ul><li><a href="#client-server">Client-Server</a></li><li><a href="#peer-to-peer">Peer to Peer</a></li></ul></li><li><a href="#system-models">System Models</a><ul><li><a href="#architectural-models">Architectural Models</a></li></ul></li><li><a href="#architectural-patterns">Architectural Patterns</a><ul><li><a href="#layering">Layering</a></li></ul></li><li><a href="#hypertext-transfer-protocol">Hypertext Transfer Protocol</a><ul><li><a href="#session-tracking">Session Tracking</a></li></ul></li><li><a href="#web-servers">Web Servers</a></li><li><a href="#server-pages">Server Pages</a></li><li><a href="#jsps">JSPs</a></li><li><a href="#databases">Databases</a></li><li><a href="#orm">ORM</a></li><li><a href="#time">Time</a><ul><li><a href="#christians-algorithm">Christians’ Algorithm</a></li><li><a href="#berkley-algorithm">Berkley Algorithm</a></li><li><a href="#happened-before-diagrams">Happened-Before Diagrams</a></li><li><a href="#lamport-timestamps">Lamport Timestamps</a></li></ul></li><li><a href="#vector-timestamps">Vector Timestamps</a></li><li><a href="#global-snapshots">Global Snapshots</a><ul><li><a href="#chandey-lamport-algorithm">Chandey Lamport Algorithm</a></li></ul></li><li><a href="#global-state-predicates">Global State Predicates</a><ul><li><a href="#dijkstra-scholten-algorithm">Dijkstra-Scholten Algorithm</a></li><li><a href="#detecting-deadlocks">Detecting Deadlocks</a></li><li><a href="#marzullo-neiger-algorithm">Marzullo-Neiger algorithm.</a></li></ul></li><li><a href="#resource-coordination">Resource Coordination</a><ul><li><a href="#central-server-algorithms">Central-Server Algorithms</a></li><li><a href="#token-ring-algorithms">Token Ring Algorithms</a></li><li><a href="#ricart-agrawala-algorithm">Ricart-Agrawala Algorithm</a></li><li><a href="#makawas-voting-algorithm">Makawa’s Voting Algorithm</a></li></ul></li><li><a href="#leader-election">Leader Election</a><ul><li><a href="#chang-roberts-leader-algorithm">Chang-Roberts Leader Algorithm</a></li><li><a href="#bully-algorithms">Bully Algorithms</a></li></ul></li><li><a href="#consensus-problems">Consensus Problems</a><ul><li><a href="#crash-consensus-algorithms">Crash Consensus Algorithms</a></li></ul></li><li><a href="#remote-method-invocation">Remote Method Invocation</a></li><li><a href="#enterprise-java-beans">Enterprise Java Beans</a><ul><li><a href="#session-beans">Session Beans</a></li></ul></li></ul>
+    <ul><li><a href="#characteristics-of-distributed-systems">Characteristics of Distributed Systems</a></li><li><a href="#internet-protocols">Internet Protocols</a></li><li><a href="#architectures">Architectures</a><ul><li><a href="#client-server">Client-Server</a></li><li><a href="#peer-to-peer">Peer to Peer</a></li></ul></li><li><a href="#system-models">System Models</a><ul><li><a href="#architectural-models">Architectural Models</a></li></ul></li><li><a href="#architectural-patterns">Architectural Patterns</a><ul><li><a href="#layering">Layering</a></li></ul></li><li><a href="#hypertext-transfer-protocol">Hypertext Transfer Protocol</a><ul><li><a href="#session-tracking">Session Tracking</a></li></ul></li><li><a href="#web-servers">Web Servers</a></li><li><a href="#server-pages">Server Pages</a></li><li><a href="#jsps">JSPs</a></li><li><a href="#databases">Databases</a></li><li><a href="#orm">ORM</a></li><li><a href="#time">Time</a><ul><li><a href="#christians-algorithm">Christians’ Algorithm</a></li><li><a href="#berkley-algorithm">Berkley Algorithm</a></li><li><a href="#happened-before-diagrams">Happened-Before Diagrams</a></li><li><a href="#lamport-timestamps">Lamport Timestamps</a></li></ul></li><li><a href="#vector-timestamps">Vector Timestamps</a></li><li><a href="#global-snapshots">Global Snapshots</a><ul><li><a href="#chandey-lamport-algorithm">Chandey Lamport Algorithm</a></li></ul></li><li><a href="#global-state-predicates">Global State Predicates</a><ul><li><a href="#dijkstra-scholten-algorithm">Dijkstra-Scholten Algorithm</a></li><li><a href="#detecting-deadlocks">Detecting Deadlocks</a></li><li><a href="#marzullo-neiger-algorithm">Marzullo-Neiger algorithm.</a></li></ul></li><li><a href="#resource-coordination">Resource Coordination</a><ul><li><a href="#central-server-algorithms">Central-Server Algorithms</a></li><li><a href="#token-ring-algorithms">Token Ring Algorithms</a></li><li><a href="#ricart-agrawala-algorithm">Ricart-Agrawala Algorithm</a></li><li><a href="#makawas-voting-algorithm">Makawa’s Voting Algorithm</a></li></ul></li><li><a href="#leader-election">Leader Election</a><ul><li><a href="#chang-roberts-leader-algorithm">Chang-Roberts Leader Algorithm</a></li><li><a href="#bully-algorithms">Bully Algorithms</a></li></ul></li><li><a href="#consensus-problems">Consensus Problems</a><ul><li><a href="#crash-consensus-algorithms">Crash Consensus Algorithms</a></li></ul></li><li><a href="#remote-method-invocation">Remote Method Invocation</a></li><li><a href="#enterprise-java-beans">Enterprise Java Beans</a><ul><li><a href="#session-beans">Session Beans</a></li></ul></li><li><a href="#soap-web-services">SOAP Web Services</a></li><li><a href="#rest-web-services">REST Web Services</a></li><li><a href="#enterprise-messaging">Enterprise Messaging</a><ul><li><a href="#jms">JMS</a></li></ul></li><li><a href="#brokerless-messaging">Brokerless Messaging</a></li><li><a href="#parrallel-computer-messaging">Parrallel Computer Messaging</a></li></ul>
 
   </nav>
 </div>
@@ -719,6 +719,127 @@ else:
   <li>EJBs can be injected from a pool using dependecy injection (annotate reference with <code class="language-plaintext highlighter-rouge">@EJB</code>)</li>
   <li>EJBs are often used as DAOs (data access objects) which wrap calls to the application model (JDBC, JPA etc.).</li>
 </ul>
+
+<h2 id="soap-web-services">SOAP Web Services</h2>
+
+<p>A web service provides remote functionality through loosely coupled machine-to-machine communication hosted on a web server, where its clients will be other applications. Web services are almost exclusively HTTP based and as such are much slower than RPC based communication.</p>
+
+<p>SOAP (Simple Object Access Protocol) is a widely used standard describing web service messages in XML. SOAP messages are one-way tranmsissions of XML encoded data defining the name of a web service function and the data it requires.</p>
+
+<p>Java EE provides the <code class="language-plaintext highlighter-rouge">javax.jws</code> package to create and interact with SOAP services. Classes annotated with <code class="language-plaintext highlighter-rouge">@WebService</code> become managed code on an application server, methods exposed over the service via <code class="language-plaintext highlighter-rouge">@WebMethod</code> annotations serialize the inputs and outputs of the function via the JAXB API.</p>
+
+<p>A SOAP service is described by a WSDL (web service description language) XML document which defines the …</p>
+
+<ul>
+  <li>types</li>
+  <li>types of messages</li>
+  <li>faults (exceptions)</li>
+  <li>operations (methods)</li>
+  <li>network protocols</li>
+  <li>URI locations</li>
+</ul>
+
+<p>… visible to clients.</p>
+
+<p>A WSDL is often imported to Java clients with the wsimport tool - which creates class definitions from the declarations within a WSDL. Java EE Clients will often use dependecy injection to obtain defintions from a WSDL via an application server.</p>
+
+<p>SOAP is particularly suitable to implement complex or asynchronous, stateful services. Or where transactional, security, or reliability measures are important.</p>
+
+<h2 id="rest-web-services">REST Web Services</h2>
+
+<p>REST is an architectural pattern which views web services as a resource identified via a URL, which runs on <strong>stateless</strong> servers. REST services use HTTP methods to describe operations to perform at a given URI.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Intent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GET</td>
+      <td>Read a resource</td>
+    </tr>
+    <tr>
+      <td>PUT</td>
+      <td>Create a resource</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>Update a resource</td>
+    </tr>
+    <tr>
+      <td>DELETE</td>
+      <td>Delete a resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Restful web services transmit data in any format supported by HTTP, such as: JSON, XML, Plain Text etc. Because REST APIs are stateless they are seen as simpler and cheaper to implement than SOAP APIs. REST services are particularly suitable in request-reply designs, situations where requests can be cached, or in highly scalable services.</p>
+
+<p>Java EE REST services are created through annotaions in the <code class="language-plaintext highlighter-rouge">javax.ws.rs</code> package to design REST Servlets.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Annotation</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@path</code></td>
+      <td>Specify the path of the servlet, and relative path of a method</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@GET</code></td>
+      <td>Specify a method responds to the GET (or other) HTTP method</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@consumes</code></td>
+      <td>Specify the content type of the request body</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@produces</code></td>
+      <td>Specify the content type of the response body</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="enterprise-messaging">Enterprise Messaging</h2>
+
+<p>A form of middleware, enterprise messaging systems allow components of a distributed application to send messages between each other asynchronously. Each component does not need to be aware of the other, nor of the protocol used to send messages. Such systems are responsible for routing messages between components, as well as reliability and security measures (transactions etc.).</p>
+
+<p>Messaging systems often allow the use of two design patters: point-to-point and publish/subscribe. Point-to-point messaging describes a means to send messages to a destination queue, this queue is attached to a consumer who consumes messages in the order they appear in the queue. Multiple producers (sender) can send a message to a queue, but a message can only be read by one consumer.</p>
+
+<p>The publish/subscribe pattern describes a destination as a topic. Producers can attach to a topic, and publish messages to it. Unlike point-to-point messaging all consumers subscribed to the topic are notified of the message, and multiple consumers can read the same message.</p>
+
+<p>A message header holds the destination, delivery mode, expiration, priority, message ID, timestamp, correlation ID (the ID this message is associated with), and a reply destination.</p>
+
+<h3 id="jms">JMS</h3>
+
+<p>The Java Messaging System is a messaging provider within Java EE. The JMS allows messages to be sent as maos, byte streams, serialized objects, or text. A JMS provider needs to be provisioned on an application server, which can then be injected via a JNDI lookup as a <code class="language-plaintext highlighter-rouge">ConnectionFactory</code>.</p>
+
+<p>Sessions allow producers, consumers, and messages to be consturcted - a session is created from a <code class="language-plaintext highlighter-rouge">ConnectionFactory</code> and are <strong>not thread safe</strong>. Destination topics or queues are also created on an application server and injected into a managed bean. For a consumer to recieve messages it must set its own connection to the “started” state, and manually close the connection. Instead, message driven beans are often used to automatically handle connections and sessions within the application server. A message driven bean is annotated with <code class="language-plaintext highlighter-rouge">@MessageDriven(name = "attached queue/topic")</code> and implements the <code class="language-plaintext highlighter-rouge">MessageListener</code> interface, which invokes <code class="language-plaintext highlighter-rouge">onMessage</code> when a message is sent to the beans queue or topic.</p>
+
+<p>Message driven beans are stateless and stored within the EJB pool. As a destination accumulates more and more messages the application server is able to provision more consumers to it, and balance the load between all active destinations.</p>
+
+<h2 id="brokerless-messaging">Brokerless Messaging</h2>
+
+<p>Brokerless messaging systems are decopuled from an enterprise server environment. Instead of including reliability measures brokerless messaging systems aim to introduce as little overhead as possible.</p>
+
+<p>One such system is ZeroMQ, which has bindings for many languages. ZeroMQ maintains a pool of background threads which a client makes requests to. A request may be to send a message, or to listen to a certain socket for incoming messages. ZeroMQ extends TCP socket design to try and reduce as much overhead as possible.</p>
+
+<p>A process can bind to a port, where the pool of background threads will begin listening to any incoming messages on said port. Because queues, topics etc. that bind to a port are managed by background workers calls are not instantaneous. One example, known as the slow-starter problem, occures when one process - the ddestination - binds to a port, and another starts to send messages to that destination. The producer assumes the consumer is listening on that port as soon as it issues the bind request, however as this may not be the case messages may be missed by the consumer.</p>
+
+<h2 id="parrallel-computer-messaging">Parrallel Computer Messaging</h2>
+
+<p>A parrallel computer is a system where multiple processors can access shared memory. MPI (message passing interface) is a language independent messaging specfication designed for high performance computing that allows instances of a single program running on mutiliple processes to intercommunicate.</p>
+
+<p>MPI groups processors together and within each group a processor is assigned a rank. All processors belong to the global group, which can then be sub-grouped. Within each group a coordinator (usually rank 0) is responsible for routing messages to each process. Note that a process is one program executing, whereas a thread is a segment of a programs execution. Process are usually independent and do not share memory like threads do.</p>
+
+<p>As each process is executing the same program branching by rank is often used to control which segment of a program each process executes. During execution messages are sent to aggregate data, and synchronize processes etc.</p>
 
   </div>
 
